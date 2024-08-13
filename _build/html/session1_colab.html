@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>MAT1820: Digital Skills for Materials &#8212; Digital Skills for Materials</title>
+    <title>Executing Jupyter Notebooks on Colab &#8212; Digital Skills for Materials</title>
   
   
   
@@ -62,10 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'session1_colab';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Performing Calculations with Computers" href="session1.html" />
+    <link rel="next" title="Code cells and outputs" href="session1_notebooks.html" />
+    <link rel="prev" title="Performing Calculations with Computers" href="session1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -161,16 +162,16 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     MAT1820: Digital Skills for Materials
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Executing Jupyter Notebooks on Colab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Code cells and outputs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
@@ -230,7 +231,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/session1_colab.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,9 +302,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -314,22 +313,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>MAT1820: Digital Skills for Materials</h1>
+    <h1>Executing Jupyter Notebooks on Colab</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-information">Module information</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-description">Aims/Description:</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -339,39 +327,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="mat1820-digital-skills-for-materials">
-<h1>MAT1820: Digital Skills for Materials<a class="headerlink" href="#mat1820-digital-skills-for-materials" title="Permalink to this heading">#</a></h1>
-<p>Over the coming years you will develop a large number of skills as part of your training. Many of these skills are shared between the disciplines of material science, physics, biology, chemistry and engineering. For example, it is expected to have developed skills in:</p>
-<ul class="simple">
-<li><p>digital skills including computer programming,</p></li>
-<li><p>statistical analysis,</p></li>
-<li><p>communication of results.</p></li>
-</ul>
-<p>These skills are also highly transferable and will likely be utilised in your future endeavours, regardless of whether you decide to pursue a career in industry or academia. Investing time in developing these skills at the start of your degree is the key to being successful and teaches you additional and highly asked after skills like:</p>
-<ul class="simple">
-<li><p>problem solving skills,</p></li>
-<li><p>creativity,</p></li>
-<li><p>logical and computational thinking,</p></li>
-<li><p>fundamental understanding how technology works,</p></li>
-<li><p>confidence to overcome any challenges.</p></li>
-</ul>
-<p>Some parts of the course you find straight forward and others very challenging, which require a steep learning curve. However, we are here to lend you a hand.</p>
-<section id="module-information">
-<h2>Module information<a class="headerlink" href="#module-information" title="Permalink to this heading">#</a></h2>
-<section id="aims-description">
-<h3>Aims/Description:<a class="headerlink" href="#aims-description" title="Permalink to this heading">#</a></h3>
-<p>The course is designed to teach students to interpret, analyse and present data using modern computational tools such as python. The students will learn how to use such packages for data analysis and then work through different data sets to determine how python can be used to perform the necessary mathematical functions on the this data and to clearly show trends and conclusions that can be drawn from the data.</p>
-<p>Convenor: Dr Colin Freeman</p>
-<p>Teaching Methods: Problem solving, Independent Study</p>
-<p>Credits: 10</p>
-<p>Assessment: Formal Exam and assessed coursework</p>
-<p>The full module description can be found in the <a class="reference external" href="https://vle.shef.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_5520269_1&amp;course_id=_21757_1">Virtual Student Office</a>.</p>
-<p>Each week you will have a lecture (Friday afternoons) where we go through the core concepts and explain the principles. This will be coupled with a computer room session (later Friday afternoon) where you can follow through a practical worksheet on <a class="reference external" href="https://colab.research.google.com/">colab</a> and use the programming tools for yourself. Please ensure you attend both sessions.</p>
-</section>
-</section>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="executing-jupyter-notebooks-on-colab">
+<h1>Executing Jupyter Notebooks on Colab<a class="headerlink" href="#executing-jupyter-notebooks-on-colab" title="Permalink to this heading">#</a></h1>
+<p>Jupyter Notebooks are a community standard for communicating and performing interactive computing. It combines computational tasks explanatory text. Colab is a free cloud service by Google to create and share interactive notebooks with code, text, and visualizations.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://jupyter.org/">Jupyter Project</a> and <a class="reference external" href="https://colab.google/">Colab</a> for more details.</p>
 </div>
-<div class="toctree-wrapper compound">
+<p>A few example to help you getting started with Colab and Jupyter Notebooks is given <a class="reference external" href="https://colab.research.google.com/#scrollTo=GJBs_flRovLc">here</a>.</p>
+<p>To execute log into your &lt;<em>your_username</em>&gt;&#64;sheffield.ac.uk google-account</p>
+<p><img alt="" src="_images/colab.png" /></p>
+<p>and click on the little rocket to open this notebook on Colab.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To save changes to the notebook you should make your own copy by selecting <em>File-&gt;Save a copy in Drive</em> from the menu bar in Colab.</p>
 </div>
 </section>
 
@@ -405,12 +374,21 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="right-next"
+    <a class="left-prev"
        href="session1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Performing Calculations with Computers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="session1_notebooks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Performing Calculations with Computers</p>
+        <p class="prev-next-title">Code cells and outputs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -420,23 +398,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-information">Module information</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-description">Aims/Description:</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

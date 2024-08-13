@@ -7,6 +7,7 @@ parts:
   - caption: Session 1
     chapters:
     - file: session1
+    - file: session1_colab
     - file: session1_notebooks
   - caption: Session 2
     chapters:
