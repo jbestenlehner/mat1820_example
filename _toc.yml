@@ -8,6 +8,6 @@ parts:
     chapters:
     - file: session1
     - file: session1_notebooks
-#  - caption: Session 2
-#    chapters:
-#    - file: session2
+  - caption: Session 2
+    chapters:
+    - file: session2
