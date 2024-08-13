@@ -15,5 +15,5 @@ To execute log into your <*your_username*>@sheffield.ac.uk google-account
 and click on the little rocket to open this notebook on Colab.
 
 :::{Warning}
-To save changes to the notebook you should make your own copy by selecting *File->Save a copy in Drive* from the menu bar in Colab.
+To save and execute changes to the notebook you need to make your own copy by selecting *File->Save a copy in Drive* from the menu bar in Colab.
 :::
