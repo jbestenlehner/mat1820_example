@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -328,6 +330,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-notes">Lecture notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-examples">Some examples</a></li>
 </ul>
             </nav>
         </div>
@@ -362,6 +365,23 @@ document.write(`
 <section id="lecture-notes">
 <h2>Lecture notes<a class="headerlink" href="#lecture-notes" title="Permalink to this heading">#</a></h2>
 <p>Lecture notes for session 1 can be found <a class="reference external" href="https://vle.shef.ac.uk/bbcswebdav/pid-6851883-dt-content-rid-51025017_1/xid-51025017_1">here</a>.</p>
+</section>
+<section id="some-examples">
+<h2>Some examples<a class="headerlink" href="#some-examples" title="Permalink to this heading">#</a></h2>
+<p>For the measurement noise <span class="math notranslate nohighlight">\(n^{(i)}\)</span> of the <span class="math notranslate nohighlight">\(i\)</span>-th observation we use the error-spectrum from the data reduction which is assumed for simplicity to be Gaussian with zero mean and signal independent,</p>
+<div class="math notranslate nohighlight" id="equation-eqgnm">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eqgnm" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}\label{eq:gnm}
+\mathcal{P}(n^{(i)}|s^{(i)}) &amp; = &amp; \mathcal{G}(n^{(i)},N^{(i)})\\
+ &amp; = &amp; \frac{1}{\sqrt{|2\pi N^{(i)}|}}\exp\left[-\frac{1}{2}n^{(i)\dagger}\left(N^{(i)}\right)^{-1}n^{(i)}\right]\nonumber 
+\end{eqnarray}\end{split}\]</div>
+<p>with assumed noise covariance <span class="math notranslate nohighlight">\(N^{(i)}=\langle n^{(i)}n^{(i)\dagger}\rangle_{(n^{(i)}|s^{(i)})}\)</span>. More details on equation <a class="reference internal" href="#equation-eqgnm">(1)</a> can be found in <span id="id1">[<a class="reference internal" href="#id3" title="J. M. Bestenlehner, T. Enßlin, M. Bergemann, P. A. Crowther, M. Greiner, and M. Selig. Spectroscopic analysis of hot, massive stars in large spectroscopic surveys with de-idealized models. \mnras , 528(4):6735-6750, March 2024. arXiv:2309.06474, doi:10.1093/mnras/stae298.">Bestenlehner <em>et al.</em>, 2024</a>]</span>.</p>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">BestenlehnerEnsslinBergemann+24</a></span></dt>
+<dd><p>J. M. Bestenlehner, T. Enßlin, M. Bergemann, P. A. Crowther, M. Greiner, and M. Selig. Spectroscopic analysis of hot, massive stars in large spectroscopic surveys with de-idealized models. <em>\mnras </em>, 528(4):6735–6750, March 2024. <a class="reference external" href="https://arxiv.org/abs/2309.06474">arXiv:2309.06474</a>, <a class="reference external" href="https://doi.org/10.1093/mnras/stae298">doi:10.1093/mnras/stae298</a>.</p>
+</dd>
+</dl>
+</div>
 </section>
 </section>
 
@@ -431,6 +451,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-notes">Lecture notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-examples">Some examples</a></li>
 </ul>
   </nav></div>
 

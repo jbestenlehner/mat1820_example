@@ -19,3 +19,18 @@ In contrast, computers are good at numerical tasks and do not make accidently mi
 ## Lecture notes
 
 Lecture notes for session 1 can be found [here](https://vle.shef.ac.uk/bbcswebdav/pid-6851883-dt-content-rid-51025017_1/xid-51025017_1).
+
+## Some examples
+
+For the measurement noise $n^{(i)}$ of the $i$-th observation we use the error-spectrum from the data reduction which is assumed for simplicity to be Gaussian with zero mean and signal independent,
+```{math}
+:label: eqgnm
+\begin{eqnarray}\label{eq:gnm}
+\mathcal{P}(n^{(i)}|s^{(i)}) & = & \mathcal{G}(n^{(i)},N^{(i)})\\
+ & = & \frac{1}{\sqrt{|2\pi N^{(i)}|}}\exp\left[-\frac{1}{2}n^{(i)\dagger}\left(N^{(i)}\right)^{-1}n^{(i)}\right]\nonumber 
+\end{eqnarray}
+```
+with assumed noise covariance $N^{(i)}=\langle n^{(i)}n^{(i)\dagger}\rangle_{(n^{(i)}|s^{(i)})}$. More details on equation {eq}`eqgnm` can be found in {cite}`bestenlehner2024`.
+
+```{bibliography}
+```
