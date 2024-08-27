@@ -10,7 +10,7 @@ A few example to help you getting started with Colab and Jupyter Notebooks is gi
 
 To execute log into your <*your_username*>@sheffield.ac.uk google-account
 
-![](../pictures/colab.png)
+![](../pictures/execute_colab.apng)
 
 and click on the little rocket to open this notebook on Colab.
 
