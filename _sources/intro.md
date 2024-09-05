@@ -1,6 +1,6 @@
 # MAT1820: Digital Skills for Materials 
 
-Over the coming years you will develop a large number of skills as part of your training. Many of these skills are shared between the disciplines of material science, physics, biology, chemistry and engineering. For example, it is expected to have developed skills in:
+Over the coming years you will develop a large number of skills as part of your training. Many of these skills are shared between the disciplines of materials science, physics, biology, chemistry and engineering. For example, it is expected to have developed skills in:
 
 * digital skills including computer programming,
 
