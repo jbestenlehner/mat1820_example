@@ -8,7 +8,7 @@ Over the coming years you will develop a large number of skills as part of your 
 
 * communication of results.
 
-These skills are also highly transferable and will likely be utilised in your future endeavours, regardless of whether you decide to pursue a career in industry or academia. Investing time in developing these skills at the start of your degree is the key to being successful and teaches you additional and highly asked after skills like:
+These skills are highly transferable and will likely be utilised in your future endeavours, regardless of whether you decide to pursue a career in industry or academia. Investing time in developing these skills at the start of your degree is the key to being successful and teaches you additional and highly asked after skills like:
 
 * problem solving skills,
 
@@ -28,14 +28,14 @@ Some parts of the course you find straight forward and others very challenging, 
 
 The course is designed to teach students to interpret, analyse and present data using modern computational tools such as python. The students will learn how to use such packages for data analysis and then work through different data sets to determine how python can be used to perform the necessary mathematical functions on the this data and to clearly show trends and conclusions that can be drawn from the data.
 
-Convenor: Dr Colin Freeman
+Convenor: ?? 
 
 Teaching Methods: Problem solving, Independent Study 
 
-Credits: 10
+Credits: ??
 
 Assessment: Formal Exam and assessed coursework
 
-The full module description can be found in the [Virtual Student Office](https://vle.shef.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_5520269_1&course_id=_21757_1).
+The full module description can be found on [Blackboard](https://vle.shef.ac.uk/ultra/).
 
-Each week you will have a lecture (Friday afternoons) where we go through the core concepts and explain the principles. This will be coupled with a computer room session (later Friday afternoon) where you can follow through a practical worksheet on [colab](https://colab.research.google.com/) and use the programming tools for yourself. Please ensure you attend both sessions.
+Each week you will have a brief 10 min lecture, where we go through the core concepts and explain the principles. This will be followed with a computer lab session, where you can follow through a practical worksheet on [colab](https://colab.research.google.com/) and use the programming tools for yourself.
