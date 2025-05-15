@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutorial: Vectors and matrices &#8212; Digital Skills for Materials</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session2_notebooks';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Vectors and Matrices" href="session2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-light" alt="Digital Skills for Materials - Home"/>
+    <script>document.write(`<img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-dark" alt="Digital Skills for Materials - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Digital Skills for Materials
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Calculations, variables and help</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session2.html">Vectors and Matrices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Vectors and matrices</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session2_notebooks.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/session2_notebooks.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial: Vectors and matrices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multiplications">Vector multiplications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-1">Creating a matrix: part 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-2">Creating a matrix: part 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-vectors-and-matrices">
+<h1>Tutorial: Vectors and matrices<a class="headerlink" href="#tutorial-vectors-and-matrices" title="Link to this heading">#</a></h1>
+<p>In <em>NumPy</em> vector is 1 dimenisonal array where you can store information like data.</p>
+<p>A matrix is a 2 dimenisonal array like a table. It has both rows and columns. In principle you can have multi-dimensional arrays, but we will deal with this later.</p>
+<p>To stor numbers in an array to a variable, you can do this in a few ways.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">array_1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>          <span class="c1"># generates an 1D array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_1D</span><span class="p">)</span>
+<span class="n">array_2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>   <span class="c1"># generates a 2x3 2D array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_2D</span><span class="p">)</span>
+<span class="n">array_2D_transpose</span> <span class="o">=</span> <span class="n">array_2D</span><span class="o">.</span><span class="n">T</span>               <span class="c1"># note &quot;.T&quot; for transpose</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_2D_transpose</span><span class="p">)</span>
+<span class="n">array_1D_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>                   <span class="c1"># generates an 1D array filled with zeros</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_1D_zero</span><span class="p">)</span>
+<span class="n">array_2D_one</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>                <span class="c1"># generates 3x2 2D array filled with ones, note the &quot;(...)&quot;, which is the shape of the array.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_2D_one</span><span class="p">)</span>
+<span class="n">array_1D_random</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="mi">3</span><span class="p">))</span>         <span class="c1"># generates 3 random numbers in a 1D array</span>
+<span class="n">array_3D_random</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>     <span class="c1"># generates 27 random numbers in a 3D array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: <em>np.random.rand</em> creates an array of the given shape and populate it with random samples from a uniform distribution over <strong>[0, 1)</strong> (excluding 1).</p>
+<p>If you would like to know more <em>numpy.random</em> package, you can have a look <a class="reference external" href="https://numpy.org/doc/2.2/reference/random/index.html#module-numpy.random">here</a>.</p>
+<p>To generate evenly spaced values within a given interval the function <em>np.arange</em> is used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>       <span class="c1"># generates an array from 0 to 9. Note in Python the default start value is zero and not one.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>     <span class="c1"># of course you can start from one, but then start and end of interval must be provided. Note that the end value is not included (Values are generated within the half-open interval).</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span> <span class="c1"># step size are defined with the third value.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>      <span class="c1"># generates array from 1 to 10, because we add 1 to the array.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>         <span class="c1"># reshapes the array to a 2D array with 5 rows and 2 columns.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A quick quick way of generating an array is using a function called <em>np.linspace</em>. Return evenly spaced numbers over a specified interval (linear).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># first number is the starting value of the sequence, second number is the end value of the sequence and third number is the number of samples to generate. If no third number is given the default is 50. While the first 2 numbers can have any value the third number must be non-negative.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>       <span class="c1"># descending sequence.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: Evenly spaced numbers in log space can be generated with <em>np.logspace</em>.</p>
+<section id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>Create am array,  assigned to the variable <strong>a</strong>, that stores 20 elements. The first element starts at 5 and the last ends at 6 with equal steps in between.</p>
+</section>
+<section id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>Create an array called <strong>A</strong>, that stores the following values:</p>
+<p>1 2 7 2 7 3</p>
+<section id="vector-operations">
+<h3>Vector operations<a class="headerlink" href="#vector-operations" title="Link to this heading">#</a></h3>
+<p>In Python vectors (1D), matrices (2D) and tensors (N-D) are all called arrays. They support multidimensional array algebra, that vectors, matrices and tensors are used for.</p>
+<p>Data are often stored in 1D arrays (vectors), e.g. <a class="reference internal" href="#task-3"><span class="xref myst">Task 3</span></a>. You might expect that those data are either stored in a column vector (<strong>Nx1</strong>) or row vector (<strong>1xN</strong>). By default in Python the 1D array is neither <strong>Nx1</strong> nor <strong>1xN</strong>. It is just <strong>N</strong>. Therefore, a <em>transpose</em> on 1D array does nothing. It first this might be a bit confusing, but it comes with many advantages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>         <span class="c1"># generates an array with [1,2,3]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>             <span class="c1"># prints the shape of the array</span>
+<span class="n">a_column</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># reshapes a into column vector</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="p">)</span>            <span class="c1"># prints column vector</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>      <span class="c1"># prints the shape of the array, note the difference to array a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="p">)</span>               <span class="c1"># prints row vector</span>
+<span class="n">a_row</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>     <span class="c1"># reshapes a into row vector</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="vector-multiplications">
+<h4>Vector multiplications<a class="headerlink" href="#vector-multiplications" title="Link to this heading">#</a></h4>
+<p>In Python multiplication operation are defined as follow: <code class="docutils literal notranslate"><span class="pre">*</span></code> means element-wise multiplication, while <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> means matrix multiplication. The differences between <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> become more obvious when dealing with multi-dimensional arrays.</p>
+<p>Consider the following element-wise multiplication:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 &amp; 4 &amp; 9\\
+\end{bmatrix}\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 \\
+2 \\
+3 \\
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+3 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\
+4 \\
+9 \\
+\end{bmatrix}\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>               <span class="c1"># gives an array [1, 4, 9]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="o">*</span><span class="n">a_row</span><span class="p">)</span>       <span class="c1"># gives an row array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">*</span><span class="n">a_column</span><span class="p">)</span> <span class="c1"># gives a column array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="nd">@a_row</span><span class="p">)</span>       <span class="c1"># gives an error message</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="nd">@a_column</span><span class="p">)</span> <span class="c1"># gives an error message</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see what happens when we replace a row with a column vector/array and vice versa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="o">*</span><span class="n">a_column</span><span class="p">)</span>   <span class="c1"># gives a 3x3 matrix/array</span>
+<span class="c1">#while</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="nd">@a_column</span><span class="p">)</span>   <span class="c1"># gives a scalar</span>
+<span class="c1">#or</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">*</span><span class="n">a_row</span><span class="p">)</span>   <span class="c1"># gives a 3x3 matrix/array</span>
+<span class="c1">#while</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="nd">@a_row</span><span class="p">)</span>   <span class="c1"># gives a 3x3 matrix/array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is all a bit confusing and the results might not be the result, you might have expected.</p>
+<p>There are 2 vector multiplication present:</p>
+<ol class="arabic simple">
+<li><p>row vector times column vector:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+3 \\
+\end{bmatrix}
+=
+14\end{split}\]</div>
+<p>This also called a dot product (row times column). See also overview page of this session 2.</p>
+<ol class="arabic simple" start="2">
+<li><p>column vector times row vector:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 \\
+2 \\
+3 \\
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&amp; 2&amp; 3\\
+2&amp; 4&amp; 6\\
+3&amp; 6&amp; 9\\
+\end{bmatrix}\end{split}\]</div>
+<p>To avoid mistakes and save you having to type a lot of transposes Python defines by default a one-dimensional array of shape N.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># row times column vector</span>
+<span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># gives a scalar</span>
+<span class="c1">#or</span>
+<span class="n">a</span><span class="nd">@a</span>            <span class="c1"># by default Python treats the vector of shape N before the @ as a row vector and after the @ as a column vector.</span>
+<span class="c1"># column times row vector</span>
+<span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># gives a 3x3 matrix/array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the case of matrices (2D arrays) or N-dimension arrays the differences between between <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> are clearer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># generates a 2x2 array with values from 1 to 4.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>                      <span class="c1"># element wise multiplication</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="nd">@m</span><span class="p">)</span>                      <span class="c1"># matrix multiplication, see also overview page for session 2.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Now consider the same square cross sectional rod with an applied force as last week.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-center"><p>Force [N]</p></th>
+<th class="head text-center"><p>Cross section length [m]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>sample 1</p></td>
+<td class="text-center"><p>2.51E+04</p></td>
+<td class="text-center"><p>0.010</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>sample 2</p></td>
+<td class="text-center"><p>2.78E+04</p></td>
+<td class="text-center"><p>0.011</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>sample 3</p></td>
+<td class="text-center"><p>2.48E+04</p></td>
+<td class="text-center"><p>0.013</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>sample 4</p></td>
+<td class="text-center"><p>2.96E+04</p></td>
+<td class="text-center"><p>0.011</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Create an array for the forces, and one for the cross sectional length. Then use these arrays to calculate the stress on each sample in one line of code.</p>
+<section id="array-operations">
+<h3>Array operations<a class="headerlink" href="#array-operations" title="Link to this heading">#</a></h3>
+<p>You can then perform operations on them really quickly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>      <span class="c1"># generate a row vector</span>
+<span class="n">test_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>       <span class="c1"># sorts the elements in an array</span>
+<span class="c1">#or</span>
+<span class="n">test_sorted</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> 
+<span class="n">average</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>           <span class="c1"># gives the average of all the values</span>
+<span class="c1">#or</span>
+<span class="n">average</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">min_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>          <span class="c1"># gives minimum value of an array</span>
+<span class="c1">#or</span>
+<span class="n">min_value</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>            <span class="c1"># of course this also works for max() and many other functions</span>
+<span class="n">times2</span><span class="o">=</span><span class="n">test</span><span class="o">*</span><span class="mi">2</span>                     <span class="c1"># multiply each element by 2</span>
+<span class="n">sqrd</span><span class="o">=</span><span class="n">test</span><span class="o">**</span><span class="mi">2</span>                      <span class="c1"># square each elemnt. Note mathematical operators are element-wise.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the mean value of your stresses from <a class="reference internal" href="#task-3"><span class="xref myst">Task 3</span></a>.</p>
+</section>
+</section>
+<section id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>Create an array called <strong>A</strong> that stores 5 random numbers (use np.random.rand). Multiple each value by 10. Use <em>np.round</em> to round the value to 1dp.</p>
+<p>Can you do this in one line of code?</p>
+<p>Use the help function, e.g. <em>np.round?</em> to look up, how this is down.</p>
+<p>Can you also do it with <em>A.round</em>?</p>
+</section>
+<section id="matrices">
+<h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
+<p>A matrix is a way of storing information using both rows and columns (two dimensions).</p>
+<section id="creating-a-matrix-part-1">
+<h3>Creating a matrix: part 1<a class="headerlink" href="#creating-a-matrix-part-1" title="Link to this heading">#</a></h3>
+<p>You first give number of rows (they go across), then columns (which go down). You can set up matrices in a number of ways. The first to to generate a matrix using quick functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">3</span>                      <span class="c1"># set up a value of m to be 3</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>                      <span class="c1"># set up a value of n to be 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>         <span class="c1"># create a vector of 4 zeros</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>         <span class="c1"># create a matrix of 3x4 with 1&#39;s down the diagonal (an identity matrix)        </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>        <span class="c1"># create a matrix of 4x3 of ones.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-5">
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Create a matrix filled filled with 1’s that has 4 columns and 3 rows. Store this under the variable myArray.</p>
+<section id="creating-a-matrix-part-2">
+<h3>Creating a matrix: part 2<a class="headerlink" href="#creating-a-matrix-part-2" title="Link to this heading">#</a></h3>
+<p>The second way is define the values. This could be through combining arrays invidually and putting them together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>              <span class="c1"># set an array 1</span>
+<span class="n">array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>              <span class="c1"># set an array 2</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>    <span class="c1"># combine into a 4x2 matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>          <span class="c1"># combine into a 2x4 matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="c1">#or</span>
+<span class="n">B_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">array_1</span><span class="p">,</span><span class="n">array_2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_1</span><span class="p">)</span>
+<span class="c1">#or in one line</span>
+<span class="n">B_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">B_2</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>    <span class="c1"># concatenate into a 1D array</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-7">
+<h2>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
+<p>Create a matrix that looks like this.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A=
+\begin{bmatrix}
+1&amp;5&amp;7\\
+4&amp;6&amp;7\\
+2&amp;5&amp;7\\
+\end{bmatrix}\end{split}\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="session2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Vectors and Matrices</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multiplications">Vector multiplications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-1">Creating a matrix: part 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-2">Creating a matrix: part 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joachim M. Bestenlehner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

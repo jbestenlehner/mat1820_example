@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -340,8 +338,9 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-notes">Lecture notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-examples">Some examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-notes-slides">Lecture notes/slides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-are-going-to-cover">What we are going to cover?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-approach">Suggested Approach</a></li>
 </ul>
             </nav>
         </div>
@@ -365,36 +364,64 @@ document.write(`
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>As material scientists it is important that we are able to use appropriate computing tools in our work. Computers are good in efficiently analysing data, visualising information by creating plots or controlling equipment in the lab.Of course, humans are able to do the same tasks with pen, paper and a calculator, but challenges will arise:</p>
+<p>As material scientists it is important that we are able to use appropriate computing tools in our work. Computers are good in efficiently analysing data, visualising information by creating plots or controlling equipment in the lab. Of course, humans are able to do the same tasks with pen, paper and a calculator, but challenges will arise:</p>
 <ul class="simple">
 <li><p><strong>Humans make mistakes:</strong> e.g. swap a digit (<em>75683424</em> or <em>75684324</em>), accidentally miss a minus sign or make typos in the formula while calculating, e.g. wrongly placed brackets or incorrect units in variable.</p></li>
 <li><p><strong>Humans are slow:</strong> calculating 1000 data points of a formula to draw a graph is not difficult, but will take a long time.</p></li>
 <li><p><strong>Humans are quickly bored with laborious and repetitive tasks and lose concentration:</strong> How would you feel, if you notice an error in your formula after looking at your graph?</p></li>
 </ul>
-<p>In contrast, computers are good at numerical tasks and do not make accidently mistakes, are able to perform certain tasks in a fraction of a time, and do not complain about laborious and repetitive tasks.</p>
+<p>In contrast, computers are good at numerical tasks and do not make accidentally mistakes, are able to perform certain tasks in a fraction of a time, and do not complain about laborious and repetitive tasks.</p>
+<p>Computer code is a set of instructions, or a system of rules, written in a specific programming language (e.g. python, C++, java, Assembly language, …) that tells a computer how to perform specific tasks. Computers are not inherently intelligent and cannot interpret or guess, what you might mean. They only do what to tell them to do. Artificial intelligence might be able to do this to some extent, but the main purpose of this course is to learn the transferable skills, which can be then applied to many other problems either in Materials Science or any other problem in real life.</p>
 </section>
-<section id="lecture-notes">
-<h2>Lecture notes<a class="headerlink" href="#lecture-notes" title="Link to this heading">#</a></h2>
-<p>Lecture notes for session 1 can be found <a class="reference external" href="https://vle.shef.ac.uk/bbcswebdav/pid-6851883-dt-content-rid-51025017_1/xid-51025017_1">here</a>.</p>
+<section id="lecture-notes-slides">
+<h2>Lecture notes/slides<a class="headerlink" href="#lecture-notes-slides" title="Link to this heading">#</a></h2>
+<p>Lecture notes/slides for session 1 can be found on <a class="reference external" href="https://vle.shef.ac.uk/ultra/">Blackboard</a>.</p>
 </section>
-<section id="some-examples">
-<h2>Some examples<a class="headerlink" href="#some-examples" title="Link to this heading">#</a></h2>
-<p>For the measurement noise <span class="math notranslate nohighlight">\(n^{(i)}\)</span> of the <span class="math notranslate nohighlight">\(i\)</span>-th observation we use the error-spectrum from the data reduction which is assumed for simplicity to be Gaussian with zero mean and signal independent,</p>
-<div class="math notranslate nohighlight" id="equation-eqgnm">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eqgnm" title="Link to this equation">#</a></span>\[\begin{split}\begin{eqnarray}\label{eq:gnm}
-\mathcal{P}(n^{(i)}|s^{(i)}) &amp; = &amp; \mathcal{G}(n^{(i)},N^{(i)})\\
- &amp; = &amp; \frac{1}{\sqrt{|2\pi N^{(i)}|}}\exp\left[-\frac{1}{2}n^{(i)\dagger}\left(N^{(i)}\right)^{-1}n^{(i)}\right]\nonumber 
-\end{eqnarray}\end{split}\]</div>
-<p>with assumed noise covariance <span class="math notranslate nohighlight">\(N^{(i)}=\langle n^{(i)}n^{(i)\dagger}\rangle_{(n^{(i)}|s^{(i)})}\)</span>. More details on equation <a class="reference internal" href="#equation-eqgnm">(1)</a> can be found in <span id="id1">[<a class="reference internal" href="#id3" title="J. M. Bestenlehner, T. Enßlin, M. Bergemann, P. A. Crowther, M. Greiner, and M. Selig. Spectroscopic analysis of hot, massive stars in large spectroscopic surveys with de-idealized models. \mnras , 528(4):6735-6750, March 2024. arXiv:2309.06474, doi:10.1093/mnras/stae298.">Bestenlehner <em>et al.</em>, 2024</a>]</span>.</p>
-<div class="docutils container" id="id2">
-<div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">BestenlehnerEnsslinBergemann+24</a><span class="fn-bracket">]</span></span>
-<p>J. M. Bestenlehner, T. Enßlin, M. Bergemann, P. A. Crowther, M. Greiner, and M. Selig. Spectroscopic analysis of hot, massive stars in large spectroscopic surveys with de-idealized models. <em>\mnras </em>, 528(4):6735–6750, March 2024. <a class="reference external" href="https://arxiv.org/abs/2309.06474">arXiv:2309.06474</a>, <a class="reference external" href="https://doi.org/10.1093/mnras/stae298">doi:10.1093/mnras/stae298</a>.</p>
-</div>
-</div>
-</div>
+<section id="what-we-are-going-to-cover">
+<h2>What we are going to cover?<a class="headerlink" href="#what-we-are-going-to-cover" title="Link to this heading">#</a></h2>
+<p>In this course we learn how to use <strong>python</strong>. Python is known for its readability and ease of use. It is a scripting language and follows instruction from the top to bottom and does not need to be compiled before execution like C/C++, Fortran, etc..</p>
+<ul class="simple">
+<li><p>Jupyter notebooks used as interactive scripts on Colab</p>
+<ul>
+<li><p>Simple arithmetic</p></li>
+<li><p>Matrices and Operations</p></li>
+<li><p>Plotting</p></li>
+<li><p>Loops and conditional statements</p></li>
+<li><p>Functions and logics</p></li>
+</ul>
+</li>
+<li><p>Move off these onto py-files and how to use it for data analysis and interpretation in an local python environment.</p></li>
+<li><p>No prior knowledge or previous computer programming experience is required or assumed.</p></li>
+</ul>
 </section>
+<section id="suggested-approach">
+<h2>Suggested Approach<a class="headerlink" href="#suggested-approach" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>What is the problem?</p></li>
+<li><p>What are your inputs and what are your outputs?</p></li>
+<li><p>Break down the problem into small steps/instructions, e.g. read in data, access the data, …</p></li>
+<li><p>Work out some key solutions by hand.</p></li>
+<li><p>Develop a Python solution by implementing the list of instructions.</p></li>
+<li><p>Test and debug your Python solution. Nobody writes perfect code on first try.</p></li>
+<li><p>Learn to understand error messages and how to use the help function.</p></li>
+</ol>
+<!---
+
+## Some examples
+
+For the measurement noise $n^{(i)}$ of the $i$-th observation we use the error-spectrum from the data reduction which is assumed for simplicity to be Gaussian with zero mean and signal independent,
+```{math}
+:label: eqgnm
+\begin{eqnarray}\label{eq:gnm}
+\mathcal{P}(n^{(i)}|s^{(i)}) & = & \mathcal{G}(n^{(i)},N^{(i)})\\
+ & = & \frac{1}{\sqrt{|2\pi N^{(i)}|}}\exp\left[-\frac{1}{2}n^{(i)\dagger}\left(N^{(i)}\right)^{-1}n^{(i)}\right]\nonumber 
+\end{eqnarray}
+```
+with assumed noise covariance $N^{(i)}=\langle n^{(i)}n^{(i)\dagger}\rangle_{(n^{(i)}|s^{(i)})}$. More details on equation {eq}`eqgnm` can be found in {cite}`bestenlehner2024`.
+
+```{bibliography}
+```
+--></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -463,8 +490,9 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-notes">Lecture notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-examples">Some examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-notes-slides">Lecture notes/slides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-are-going-to-cover">What we are going to cover?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-approach">Suggested Approach</a></li>
 </ul>
   </nav></div>
 
@@ -489,7 +517,7 @@ By Joachim M. Bestenlehner
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

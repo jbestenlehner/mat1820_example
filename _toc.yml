@@ -12,3 +12,4 @@ parts:
   - caption: Session 2
     chapters:
     - file: docs/session2
+    - file: docs/session2_notebooks

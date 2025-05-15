@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -57,10 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Tutorial: Code Cells and Outputs" href="session1_notebooks.html" />
+    <link rel="next" title="Tutorial: Vectors and matrices" href="session2_notebooks.html" />
+    <link rel="prev" title="Tutorial: Calculations, variables and help" href="session1_notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    MAT1820: Digital Skills for Materials
+                    Digital Skills for Materials
                 </a>
             </li>
         </ul>
@@ -182,11 +185,12 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Code Cells and Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Calculations, variables and help</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Vectors and Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session2_notebooks.html">Tutorial: Vectors and matrices</a></li>
 </ul>
 
     </div>
@@ -337,6 +341,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">Matrix operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposition">Transposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-of-2-vectors">Dot product of 2 vectors</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -360,6 +372,113 @@ document.write(`
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>A <strong>scalar</strong> is described by a single pure number. It has zero dimension or is of rank 0.</p>
+<p>A <strong>vector</strong> is a term that refers to quantities that cannot be expressed by a single number (a scalar), or to elements of some vector spaces. They have to be expressed by both magnitude (or length) and direction. For example the application of a force to an object can be described by a vector, which indicates the direction of the applied force and its magnitude (length of vector). A vector has one dimension and is of rank 1.</p>
+<p>A <strong>matrix</strong> is a rectangular array or table of numbers, e.g. data, with elements or entries arranged in <span style="color:blue"><strong>m-rows</strong></span> (horizontal) and  <span style="color:red"><strong>n-columns</strong></span> (vertical):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+a_{\textcolor{blue}{1}\textcolor{red}{1}} &amp; a_{\textcolor{blue}{1}\textcolor{red}{2}} &amp; \ldots &amp; a_{\textcolor{blue}{1}\textcolor{red}{n}} \\
+a_{\textcolor{blue}{2}\textcolor{red}{1}} &amp; a_{\textcolor{blue}{2}\textcolor{red}{2}} &amp; \ldots &amp; a_{\textcolor{blue}{2}\textcolor{red}{n}} \\
+a_{\textcolor{blue}{3}\textcolor{red}{1}} &amp; a_{\textcolor{blue}{3}\textcolor{red}{2}} &amp; \ldots &amp; a_{\textcolor{blue}{3}\textcolor{red}{n}} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{\textcolor{blue}{m}\textcolor{red}{1}} &amp; a_{\textcolor{blue}{m}\textcolor{red}{2}} &amp; \ldots &amp; a_{\textcolor{blue}{m}\textcolor{red}{n}} \\
+\end{bmatrix}
+.\end{split}\]</div>
+<p>The matrix is of dimension <span class="math notranslate nohighlight">\(m\times n\)</span>. The rank of the matrix <span class="math notranslate nohighlight">\( \leq n\)</span>, if <span class="math notranslate nohighlight">\(n &lt; m\)</span>, or <span class="math notranslate nohighlight">\( \leq m\)</span>, if <span class="math notranslate nohighlight">\(m &lt; n\)</span>. See also your math lectures.</p>
+<p>Further reading including Python example on how scalars, vectors, matrices and tensors relate to each other can be found <a class="reference external" href="https://www.kdnuggets.com/2018/05/wtf-tensor.html">here</a>.</p>
+</section>
+<section id="matrix-operations">
+<h2>Matrix operations<a class="headerlink" href="#matrix-operations" title="Link to this heading">#</a></h2>
+<section id="addition">
+<h3>Addition<a class="headerlink" href="#addition" title="Link to this heading">#</a></h3>
+<p>The sum <strong><span class="math notranslate nohighlight">\(A + B\)</span></strong> of two m×n matrices <strong><span class="math notranslate nohighlight">\(A\)</span></strong> and <strong><span class="math notranslate nohighlight">\(B\)</span></strong> is calculated entrywise:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 &amp; 2 &amp; 1\\
+3 &amp; 4 &amp; 3\\
+\end{bmatrix}
++
+\begin{bmatrix}
+5 &amp; 6 &amp; 5\\
+7 &amp; 8 &amp; 7\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1+5 &amp; 2+6 &amp; 1+5\\
+3+7 &amp; 4+8 &amp; 3+7\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 &amp; 8 &amp; 6\\
+10 &amp; 12&amp; 10\\
+\end{bmatrix}\end{split}\]</div>
+</section>
+<section id="scalar-multiplication">
+<h3>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Link to this heading">#</a></h3>
+<p>The product <strong><span class="math notranslate nohighlight">\(cA\)</span></strong> of a number <span class="math notranslate nohighlight">\(c\)</span> (also called a scalar in this context) and a matrix <strong><span class="math notranslate nohighlight">\(A\)</span></strong> is computed by multiplying every entry of <strong><span class="math notranslate nohighlight">\(A\)</span></strong> by <span class="math notranslate nohighlight">\(c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}3 \cdot
+\begin{bmatrix}
+1 &amp; 2 &amp; 1\\
+3 &amp; 4 &amp; 3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+3\cdot 1 &amp; 3\cdot 2 &amp; 3\cdot 1\\
+3\cdot 3 &amp; 3\cdot 4 &amp; 3\cdot 3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 &amp; 6 &amp; 3\\
+9 &amp; 12&amp; 9\\
+\end{bmatrix}\end{split}\]</div>
+</section>
+<section id="matrix-multiplication">
+<h3>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Link to this heading">#</a></h3>
+<p>Multiplication of two matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is given by the dot product of the corresponding row of <span class="math notranslate nohighlight">\(A\)</span> and the corresponding column of <span class="math notranslate nohighlight">\(B\)</span> (row times column):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+4 &amp; 5 &amp; 6\\
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 2\\
+3 &amp; 4\\
+5 &amp; 6\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1\cdot1+2\cdot3+3\cdot5 &amp; 1\cdot2+2\cdot4+3\cdot6\\
+4\cdot1 + 5\cdot3 + 6\cdot5 &amp; 4\cdot2 + 5\cdot4 + 6\cdot6\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+22 &amp; 28\\
+49 &amp; 64\\
+\end{bmatrix}\end{split}\]</div>
+<p>Note: matrix multiplications are not commutative.</p>
+</section>
+<section id="transposition">
+<h3>Transposition<a class="headerlink" href="#transposition" title="Link to this heading">#</a></h3>
+<p>The transpose of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(n\times m\)</span> matrix <span class="math notranslate nohighlight">\(A^{\mathrm{T}}\)</span> formed by turning rows into columns and vice versa:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+4 &amp; 5 &amp; 6\\
+\end{bmatrix}^{\mathrm{T}}
+=
+\begin{bmatrix}
+1 &amp; 4\\
+2 &amp; 5\\
+3 &amp; 6\\
+\end{bmatrix}\end{split}\]</div>
+</section>
+<section id="dot-product-of-2-vectors">
+<h3>Dot product of 2 vectors<a class="headerlink" href="#dot-product-of-2-vectors" title="Link to this heading">#</a></h3>
+<p>The dot product of vectors <span class="math notranslate nohighlight">\(\vec{a}\)</span> and <span class="math notranslate nohighlight">\(\vec{b}\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\vec{a} \cdot \vec{b} = \sum_{i=1}^n a_i b_i = a_1 b_1 + a_2 b_2 + \ldots + a_n b_n.\]</div>
+</section>
 </section>
 </section>
 
@@ -399,8 +518,17 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tutorial: Code Cells and Outputs</p>
+        <p class="prev-next-title">Tutorial: Calculations, variables and help</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="session2_notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial: Vectors and matrices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -420,6 +548,14 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">Matrix operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposition">Transposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-of-2-vectors">Dot product of 2 vectors</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -444,7 +580,7 @@ By Joachim M. Bestenlehner
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
