@@ -422,32 +422,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4 5]
-[[1 2 3]
- [4 5 6]]
-[[1 4]
- [2 5]
- [3 6]]
-[0. 0. 0. 0. 0.]
-[[1. 1.]
- [1. 1.]
- [1. 1.]]
-[0.4901849  0.82553315 0.9935382 ]
-[[[0.68088353 0.22321282 0.66588477]
-  [0.77073514 0.12162757 0.48059453]
-  [0.64128321 0.20501132 0.06245772]]
-
- [[0.69623166 0.05840274 0.03601787]
-  [0.02573393 0.39035387 0.22349665]
-  [0.11906553 0.72043393 0.14957327]]
-
- [[0.86034796 0.03877555 0.87012305]
-  [0.38516853 0.97724629 0.88868807]
-  [0.37529149 0.71791645 0.53904947]]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Note: <em>np.random.rand</em> creates an array of the given shape and populate it with random samples from a uniform distribution over <strong>[0, 1)</strong> (excluding 1).</p>
 <p>If you would like to know more <em>numpy.random</em> package, you can have a look <a class="reference external" href="https://numpy.org/doc/2.2/reference/random/index.html#module-numpy.random">here</a>.</p>
@@ -463,39 +437,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
-[ 1  2  3  4  5  6  7  8  9 10]
-[ 1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5  7.   7.5
-  8.   8.5  9.   9.5 10.  10.5]
-[[ 1  2]
- [ 3  4]
- [ 5  6]
- [ 7  8]
- [ 9 10]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>A quick quick way of generating an array is using a function called <em>np.linspace</em>. Return evenly spaced numbers over a specified interval (linear).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># first number is the starting value of the sequence, second number is the end value of the sequence and third number is the number of samples to generate. If no third number is given the default is 50. While the first 2 numbers can have any value the third number must be non-negative.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>       <span class="c1"># descending sequence.</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 2. 3. 4. 5.]
-[ 5.          4.79591837  4.59183673  4.3877551   4.18367347  3.97959184
-  3.7755102   3.57142857  3.36734694  3.16326531  2.95918367  2.75510204
-  2.55102041  2.34693878  2.14285714  1.93877551  1.73469388  1.53061224
-  1.32653061  1.12244898  0.91836735  0.71428571  0.51020408  0.30612245
-  0.10204082 -0.10204082 -0.30612245 -0.51020408 -0.71428571 -0.91836735
- -1.12244898 -1.32653061 -1.53061224 -1.73469388 -1.93877551 -2.14285714
- -2.34693878 -2.55102041 -2.75510204 -2.95918367 -3.16326531 -3.36734694
- -3.57142857 -3.7755102  -3.97959184 -4.18367347 -4.3877551  -4.59183673
- -4.79591837 -5.        ]
 </pre></div>
 </div>
 </div>
@@ -523,16 +470,6 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>      <span class="c1"># prints the shape of the array, note the difference to array a</span>
 <span class="n">a_row</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>     <span class="c1"># reshapes a into row vector</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="p">)</span>               <span class="c1"># prints row vector</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3,)
-[[1]
- [2]
- [3]]
-(3, 1)
-[[1 2 3]]
 </pre></div>
 </div>
 </div>
@@ -580,26 +517,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 4 9]
-[[1 4 9]]
-[[1]
- [4]
- [9]]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="o">*</span><span class="n">a_row</span><span class="p">)</span>       <span class="c1"># gives an row array</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">*</span><span class="n">a_column</span><span class="p">)</span> <span class="c1"># gives a column array</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="nd">@a_row</span><span class="p">)</span>       <span class="c1"># gives an error message</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="nd">@a_column</span><span class="p">)</span> <span class="c1"># gives an error message</span>
-
-<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 1 is different from 3)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <p>Let’s see what happens when we replace a row with a column vector/array and vice versa.</p>
 <div class="cell docutils container">
@@ -611,20 +528,6 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">*</span><span class="n">a_row</span><span class="p">)</span>   <span class="c1"># gives a 3x3 matrix/array</span>
 <span class="c1">#while</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="nd">@a_row</span><span class="p">)</span>   <span class="c1"># gives a 3x3 matrix/array</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
- [2 4 6]
- [3 6 9]]
-[[14]]
-[[1 2 3]
- [2 4 6]
- [3 6 9]]
-[[1 2 3]
- [2 4 6]
- [3 6 9]]
 </pre></div>
 </div>
 </div>
@@ -676,15 +579,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
-14
-[[1 2 3]
- [2 4 6]
- [3 6 9]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>In the case of matrices (2D arrays) or N-dimension arrays the differences between between <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> are clearer.</p>
 <div class="cell docutils container">
@@ -693,16 +587,6 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>                      <span class="c1"># element wise multiplication</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="nd">@m</span><span class="p">)</span>                      <span class="c1"># matrix multiplication, see also overview page for session 2.</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
- [3 4]]
-[[ 1  4]
- [ 9 16]]
-[[ 7 10]
- [15 22]]
 </pre></div>
 </div>
 </div>
@@ -768,19 +652,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3 1 2 5 4]
-[1 2 3 4 5]
-[1 2 3 4 5]
-3.0
-3.0
-1
-1
-[ 2  4  6  8 10]
-[ 1  4  9 16 25]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Calculate the mean value of your stresses from <span class="xref myst">Task 3</span>.</p>
 </section>
@@ -807,21 +678,6 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>                 <span class="c1"># create a matrix of 3x4 with 1&#39;s down the diagonal (an identity matrix). Note no additional (...) around m,n.        </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)))</span>              <span class="c1"># create a matrix of 4x3 of ones.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="c1"># create array with numbers from 0 to m*n and then reshape it into a 3x4 array</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0. 0.]
-[[1. 0. 0. 0.]
- [0. 1. 0. 0.]
- [0. 0. 1. 0.]]
-[[1. 1. 1.]
- [1. 1. 1.]
- [1. 1. 1.]
- [1. 1. 1.]]
-[[ 0  1  2  3]
- [ 4  5  6  7]
- [ 8  9 10 11]]
 </pre></div>
 </div>
 </div>
@@ -853,26 +709,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0.]
- [0. 0.]
- [1. 1.]
- [1. 1.]] (4, 2)
-[[0. 0.]
- [0. 0.]
- [1. 1.]
- [1. 1.]] (4, 2)
-[[0. 0. 1. 1.]
- [0. 0. 1. 1.]] (2, 4)
-[[0. 0.]
- [0. 0.]
- [1. 1.]
- [1. 1.]] (4, 2)
-[[0. 0. 1. 1.]
- [0. 0. 1. 1.]] (2, 4)
-</pre></div>
-</div>
-</div>
 </div>
 <p>Vectors or 1D array behave different as they have dimension <strong>N</strong>, only axis=0. For row (<strong>1xN</strong>) and column (<strong>Nx1</strong>) are basically 2D arrays (row x column) and the same operation apply as for matrices.</p>
 <div class="cell docutils container">
@@ -890,19 +726,6 @@ document.write(`
 <span class="c1">#or</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">array_1</span><span class="p">,</span><span class="n">array_2</span><span class="p">])</span>            <span class="c1"># This is equivalent to np.array([[1,2,3,4], [3,4,5,6]]) </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4 3 4 5 6] (8,)
-[[1 3]
- [2 4]
- [3 5]
- [4 6]] (4, 2)
-[[1 2 3 4]
- [3 4 5 6]] (2, 4)
-[[1 2 3 4]
- [3 4 5 6]] (2, 4)
 </pre></div>
 </div>
 </div>
@@ -933,19 +756,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 4 and the array at index 1 has size 2
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="operations-on-matrices">
@@ -960,20 +770,6 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  4  6]
- [12 15 18]]
-[[0.5        1.         1.5       ]
- [1.33333333 1.66666667 2.        ]]
-[[3 4 5]
- [7 8 9]]
-[[-1  0  1]
- [ 1  2  3]]
-[[  1   4   9]
- [ 64 125 216]]
 </pre></div>
 </div>
 </div>
@@ -996,18 +792,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="nd">@y</span><span class="p">)</span>
-
-<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 8 is different from 4)</span>
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="selecting-elements-rows-and-columns-from-an-array">
@@ -1023,19 +807,6 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>                      <span class="c1"># prints first column</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:])</span>                     <span class="c1"># prints from second element to the end of second row</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>                     <span class="c1"># prints last element of second column equivalent to x[2,2] or x[-1,-1]. Negative numbers mean counting from the end. </span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
- [4 5 6]
- [7 8 9]]
-1
-4
-[7 8 9]
-[1 4 7]
-[5 6]
-9
 </pre></div>
 </div>
 </div>
@@ -1071,24 +842,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.          0.84147098  0.90929743]
- [ 0.14112001 -0.7568025  -0.95892427]
- [-0.2794155   0.6569866   0.98935825]]
-[[0 3 6]
- [1 4 7]
- [2 5 8]]
-36
-[ 9 12 15]
-[ 3 12 21]
-4.0
-[3. 4. 5.]
-[1. 4. 7.]
-9
-(3, 3)
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="task-10">
@@ -1118,11 +871,6 @@ document.write(`
 
 <span class="n">C</span><span class="o">=</span><span class="n">A</span><span class="nd">@B</span>                            <span class="c1"># result is a 1D array. Note: by default a 1D array before &#39;@&#39; is treated as a row vector</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[47 54 61]
 </pre></div>
 </div>
 </div>

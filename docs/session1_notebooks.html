@@ -413,22 +413,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nLong comment\n&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Edit the cell above and before some basic calculations.</p>
 <p>The exponent operator is “**” instead of “^”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -445,23 +435,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-</pre></div>
-</div>
-</div>
 </div>
 <p>To show or print a variable or specific output use the print() function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3
-5
 </pre></div>
 </div>
 </div>
@@ -490,11 +469,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.302585092994046)
-</pre></div>
-</div>
-</div>
 </div>
 <section id="help-functions">
 <h3>Help functions<a class="headerlink" href="#help-functions" title="Permalink to this heading">#</a></h3>
@@ -505,205 +479,6 @@ document.write(`
 np.log<span class="o">?</span>
 <span class="c1"># More extensive help</span>
 <span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on ufunc in module numpy:
-
-log = &lt;ufunc &#39;log&#39;&gt;
-    log(x, /, out=None, *, where=True, casting=&#39;same_kind&#39;, order=&#39;K&#39;, dtype=None, subok=True[, signature])
-
-    Natural logarithm, element-wise.
-
-    The natural logarithm `log` is the inverse of the exponential function,
-    so that `log(exp(x)) = x`. The natural logarithm is logarithm in base
-    `e`.
-
-    Parameters
-    ----------
-    x : array_like
-        Input value.
-    out : ndarray, None, or tuple of ndarray and None, optional
-        A location into which the result is stored. If provided, it must have
-        a shape that the inputs broadcast to. If not provided or None,
-        a freshly-allocated array is returned. A tuple (possible only as a
-        keyword argument) must have length equal to the number of outputs.
-    where : array_like, optional
-        This condition is broadcast over the input. At locations where the
-        condition is True, the `out` array will be set to the ufunc result.
-        Elsewhere, the `out` array will retain its original value.
-        Note that if an uninitialized `out` array is created via the default
-        ``out=None``, locations within it where the condition is False will
-        remain uninitialized.
-    **kwargs
-        For other keyword-only arguments, see the
-        :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.
-
-    Returns
-    -------
-    y : ndarray
-        The natural logarithm of `x`, element-wise.
-        This is a scalar if `x` is a scalar.
-
-    See Also
-    --------
-    log10, log2, log1p, emath.log
-
-    Notes
-    -----
-    Logarithm is a multivalued function: for each `x` there is an infinite
-    number of `z` such that `exp(z) = x`. The convention is to return the
-    `z` whose imaginary part lies in `(-pi, pi]`.
-
-    For real-valued input data types, `log` always returns real output. For
-    each value that cannot be expressed as a real number or infinity, it
-    yields ``nan`` and sets the `invalid` floating point error flag.
-
-    For complex-valued input, `log` is a complex analytical function that
-    has a branch cut `[-inf, 0]` and is continuous from above on it. `log`
-    handles the floating-point negative zero as an infinitesimal negative
-    number, conforming to the C99 standard.
-
-    In the cases where the input has a negative real part and a very small
-    negative complex part (approaching 0), the result is so close to `-pi`
-    that it evaluates to exactly `-pi`.
-
-    References
-    ----------
-    .. [1] M. Abramowitz and I.A. Stegun, &quot;Handbook of Mathematical Functions&quot;,
-           10th printing, 1964, pp. 67.
-           https://personal.math.ubc.ca/~cbm/aands/page_67.htm
-    .. [2] Wikipedia, &quot;Logarithm&quot;. https://en.wikipedia.org/wiki/Logarithm
-
-    Examples
-    --------
-    &gt;&gt;&gt; import numpy as np
-    &gt;&gt;&gt; np.log([1, np.e, np.e**2, 0])
-    array([  0.,   1.,   2., -inf])
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>       np.log(*args, **kwargs)
-<span class=" -Color -Color-Red">Type:</span>            ufunc
-<span class=" -Color -Color-Red">String form:</span>     &lt;ufunc &#39;log&#39;&gt;
-<span class=" -Color -Color-Red">File:</span>            /usr/lib/python3.13/site-packages/numpy/__init__.py
-<span class=" -Color -Color-Red">Docstring:</span>      
-log(x, /, out=None, *, where=True, casting=&#39;same_kind&#39;, order=&#39;K&#39;, dtype=None, subok=True[, signature])
-
-Natural logarithm, element-wise.
-
-The natural logarithm `log` is the inverse of the exponential function,
-so that `log(exp(x)) = x`. The natural logarithm is logarithm in base
-`e`.
-
-Parameters
-----------
-x : array_like
-    Input value.
-out : ndarray, None, or tuple of ndarray and None, optional
-    A location into which the result is stored. If provided, it must have
-    a shape that the inputs broadcast to. If not provided or None,
-    a freshly-allocated array is returned. A tuple (possible only as a
-    keyword argument) must have length equal to the number of outputs.
-where : array_like, optional
-    This condition is broadcast over the input. At locations where the
-    condition is True, the `out` array will be set to the ufunc result.
-    Elsewhere, the `out` array will retain its original value.
-    Note that if an uninitialized `out` array is created via the default
-    ``out=None``, locations within it where the condition is False will
-    remain uninitialized.
-**kwargs
-    For other keyword-only arguments, see the
-    :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.
-
-Returns
--------
-y : ndarray
-    The natural logarithm of `x`, element-wise.
-    This is a scalar if `x` is a scalar.
-
-See Also
---------
-log10, log2, log1p, emath.log
-
-Notes
------
-Logarithm is a multivalued function: for each `x` there is an infinite
-number of `z` such that `exp(z) = x`. The convention is to return the
-`z` whose imaginary part lies in `(-pi, pi]`.
-
-For real-valued input data types, `log` always returns real output. For
-each value that cannot be expressed as a real number or infinity, it
-yields ``nan`` and sets the `invalid` floating point error flag.
-
-For complex-valued input, `log` is a complex analytical function that
-has a branch cut `[-inf, 0]` and is continuous from above on it. `log`
-handles the floating-point negative zero as an infinitesimal negative
-number, conforming to the C99 standard.
-
-In the cases where the input has a negative real part and a very small
-negative complex part (approaching 0), the result is so close to `-pi`
-that it evaluates to exactly `-pi`.
-
-References
-----------
-.. [1] M. Abramowitz and I.A. Stegun, &quot;Handbook of Mathematical Functions&quot;,
-       10th printing, 1964, pp. 67.
-       https://personal.math.ubc.ca/~cbm/aands/page_67.htm
-.. [2] Wikipedia, &quot;Logarithm&quot;. https://en.wikipedia.org/wiki/Logarithm
-
-Examples
---------
-&gt;&gt;&gt; import numpy as np
-&gt;&gt;&gt; np.log([1, np.e, np.e**2, 0])
-array([  0.,   1.,   2., -inf])
-<span class=" -Color -Color-Red">Class docstring:</span>
-Functions that operate element by element on whole arrays.
-
-To see the documentation for a specific ufunc, use `info`.  For
-example, ``np.info(np.sin)``.  Because ufuncs are written in C
-(for speed) and linked into Python with NumPy&#39;s ufunc facility,
-Python&#39;s help() function finds this page whenever help() is called
-on a ufunc.
-
-A detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.
-
-**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``
-
-Apply `op` to the arguments `*x` elementwise, broadcasting the arguments.
-
-The broadcasting rules are:
-
-* Dimensions of length 1 may be prepended to either array.
-* Arrays may be repeated along dimensions of length 1.
-
-Parameters
-----------
-*x : array_like
-    Input arrays.
-out : ndarray, None, or tuple of ndarray and None, optional
-    Alternate array object(s) in which to put the result; if provided, it
-    must have a shape that the inputs broadcast to. A tuple of arrays
-    (possible only as a keyword argument) must have length equal to the
-    number of outputs; use None for uninitialized outputs to be
-    allocated by the ufunc.
-where : array_like, optional
-    This condition is broadcast over the input. At locations where the
-    condition is True, the `out` array will be set to the ufunc result.
-    Elsewhere, the `out` array will retain its original value.
-    Note that if an uninitialized `out` array is created via the default
-    ``out=None``, locations within it where the condition is False will
-    remain uninitialized.
-**kwargs
-    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.
-
-Returns
--------
-r : ndarray or tuple of ndarray
-    `r` will have the shape that the arrays in `x` broadcast to; if `out` is
-    provided, it will be returned. If not, `r` will be allocated and
-    may contain uninitialized values. If the function has more than one
-    output, then the result will be a tuple of arrays.
 </pre></div>
 </div>
 </div>
@@ -735,17 +510,6 @@ r : ndarray or tuple of ndarray
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">myVar</span><span class="p">))</span>        <span class="c1"># square rooting         </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">myVar</span><span class="p">))</span>         <span class="c1"># ln of a value</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">myVar</span><span class="p">))</span>       <span class="c1"># log to base 10</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
-10
-1.0
-25
-2.23606797749979
-1.6094379124341003
-0.6989700043360189
 </pre></div>
 </div>
 </div>
@@ -792,11 +556,6 @@ r : ndarray or tuple of ndarray
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.123233995736766e-17)
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -818,13 +577,6 @@ r : ndarray or tuple of ndarray
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1e+307 inf
-1e-322 0.0
-2.220446049250313e-16
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="multiple-entries-on-one-line">
@@ -839,11 +591,6 @@ r : ndarray or tuple of ndarray
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
-</pre></div>
-</div>
-</div>
 </div>
 <p>Alternatively you can assign values to multiple variables in one line like this</p>
 <div class="cell docutils container">
@@ -852,11 +599,6 @@ r : ndarray or tuple of ndarray
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 </div>
