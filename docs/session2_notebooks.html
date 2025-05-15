@@ -370,11 +370,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multiplications">Vector multiplications</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multiplications">Vector multiplications</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a><ul class="nav section-nav flex-column">
@@ -382,16 +380,22 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-1">Creating a matrix: part 1</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-2">Creating a matrix: part 2</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-1">Creating a matrix: part 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-2">Creating a matrix: part 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-matrices">Operations on Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-elements-rows-and-columns-from-an-array">Selecting elements, rows and columns from an array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9">Task 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-you-can-do-with-matrices">Things you can do with matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-10">Task 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-11">Task 11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-algebra-multiplication">Matrix algebra (multiplication)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-12">Task 12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-13">Task 13</a></li>
 </ul>
             </nav>
         </div>
@@ -461,8 +465,9 @@ document.write(`
 <h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
 <p>Create an array called <strong>A</strong>, that stores the following values:</p>
 <p>1 2 7 2 7 3</p>
+</section>
 <section id="vector-operations">
-<h3>Vector operations<a class="headerlink" href="#vector-operations" title="Link to this heading">#</a></h3>
+<h2>Vector operations<a class="headerlink" href="#vector-operations" title="Link to this heading">#</a></h2>
 <p>In Python vectors (1D), matrices (2D) and tensors (N-D) are all called arrays. They support multidimensional array algebra, that vectors, matrices and tensors are used for.</p>
 <p>Data are often stored in 1D arrays (vectors), e.g. <a class="reference internal" href="#task-3"><span class="xref myst">Task 3</span></a>. You might expect that those data are either stored in a column vector (<strong>Nx1</strong>) or row vector (<strong>1xN</strong>). By default in Python the 1D array is neither <strong>Nx1</strong> nor <strong>1xN</strong>. It is just <strong>N</strong>. Therefore, a <em>transpose</em> on 1D array does nothing. It first this might be a bit confusing, but it comes with many advantages.</p>
 <div class="cell docutils container">
@@ -479,7 +484,7 @@ document.write(`
 </div>
 </div>
 <section id="vector-multiplications">
-<h4>Vector multiplications<a class="headerlink" href="#vector-multiplications" title="Link to this heading">#</a></h4>
+<h3>Vector multiplications<a class="headerlink" href="#vector-multiplications" title="Link to this heading">#</a></h3>
 <p>In Python multiplication operation are defined as follow: <code class="docutils literal notranslate"><span class="pre">*</span></code> means element-wise multiplication, while <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> means matrix multiplication. The differences between <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> become more obvious when dealing with multi-dimensional arrays.</p>
 <p>Consider the following element-wise multiplication:</p>
 <div class="math notranslate nohighlight">
@@ -597,7 +602,6 @@ document.write(`
 </div>
 </section>
 </section>
-</section>
 <section id="task-3">
 <h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
 <p>Now consider the same square cross sectional rod with an applied force as last week.</p>
@@ -663,48 +667,68 @@ document.write(`
 <section id="matrices">
 <h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>A matrix is a way of storing information using both rows and columns (two dimensions).</p>
+</section>
 <section id="creating-a-matrix-part-1">
-<h3>Creating a matrix: part 1<a class="headerlink" href="#creating-a-matrix-part-1" title="Link to this heading">#</a></h3>
-<p>You first give number of rows (they go across), then columns (which go down). You can set up matrices in a number of ways. The first to to generate a matrix using quick functions.</p>
+<h2>Creating a matrix: part 1<a class="headerlink" href="#creating-a-matrix-part-1" title="Link to this heading">#</a></h2>
+<p>You first give number of columns (they go across), then rows (which go down). You can set up matrices in a number of ways. The first to generate a matrix using quick functions or the second to generate an 1D array and then reshape it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">3</span>                      <span class="c1"># set up a value of m to be 3</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>                      <span class="c1"># set up a value of n to be 4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>         <span class="c1"># create a vector of 4 zeros</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>         <span class="c1"># create a matrix of 3x4 with 1&#39;s down the diagonal (an identity matrix)        </span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>        <span class="c1"># create a matrix of 4x3 of ones.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">3</span>                              <span class="c1"># set up a value of m to be 3</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>                              <span class="c1"># set up a value of n to be 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>                 <span class="c1"># create a vector of 4 zeros</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>                 <span class="c1"># create a matrix of 3x4 with 1&#39;s down the diagonal (an identity matrix). Note no additional (...) around m,n.        </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)))</span>              <span class="c1"># create a matrix of 4x3 of ones.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="c1"># create array with numbers from 0 to m*n and then reshape it into a 3x4 array</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="task-5">
 <h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
 <p>Create a matrix filled filled with 1’s that has 4 columns and 3 rows. Store this under the variable myArray.</p>
+</section>
 <section id="creating-a-matrix-part-2">
-<h3>Creating a matrix: part 2<a class="headerlink" href="#creating-a-matrix-part-2" title="Link to this heading">#</a></h3>
-<p>The second way is define the values. This could be through combining arrays invidually and putting them together.</p>
+<h2>Creating a matrix: part 2<a class="headerlink" href="#creating-a-matrix-part-2" title="Link to this heading">#</a></h2>
+<p>The second way is define the values. This could be through combining arrays individually and putting them together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>              <span class="c1"># set an array 1</span>
-<span class="n">array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>              <span class="c1"># set an array 2</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>    <span class="c1"># combine into a 4x2 matrix</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>          <span class="c1"># combine into a 2x4 matrix</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-<span class="c1">#or</span>
-<span class="n">B_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">array_1</span><span class="p">,</span><span class="n">array_2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B_1</span><span class="p">)</span>
-<span class="c1">#or in one line</span>
-<span class="n">B_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">B_2</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>    <span class="c1"># concatenate into a 1D array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>                        <span class="c1"># generate 2x2 array with zeros</span>
+<span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>                         <span class="c1"># generate 2x2 array with ones</span>
+<span class="n">A_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_0</span><span class="p">,</span> <span class="n">array_1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># concatenate the arrays and increases the number of rows (axis=0) and creates a 4x2 array.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_1</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">A_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_0</span><span class="p">,</span> <span class="n">array_1</span><span class="p">))</span>         <span class="c1"># does the same has the line above, as by default arrays are concatenate along axis=0.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_1</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">B_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_0</span><span class="p">,</span> <span class="n">array_1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># concatenate the arrays and increases the number of columns (axis=1) and creates a 2x4 array.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_1</span><span class="p">,</span> <span class="n">B_1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Alternatively you can also use the horizontal and vertical stack function.</span>
+<span class="n">C_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">array_0</span><span class="p">,</span> <span class="n">array_1</span><span class="p">))</span>        <span class="c1"># vertical stack, which is equivalent to concatenation along the first axis (axis=0) =&gt; 4x2 array</span>
+<span class="n">C_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">array_0</span><span class="p">,</span> <span class="n">array_1</span><span class="p">))</span>        <span class="c1"># horizontal stack, which is equivalent to concatenation along the second axis (axis=1) =&gt; 2x4 array</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<p>Vectors or 1D array behave different as they have dimension <strong>N</strong>, only axis=0. For row (<strong>1xN</strong>) and column (<strong>Nx1</strong>) are basically 2D arrays (row x column) and the same operation apply as for matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>              <span class="c1"># set an array 1 of dimension N</span>
+<span class="n">array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>              <span class="c1"># set an array 2 of dimension N</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>     <span class="c1"># concatenate into a 1D array with 8 entries, because it stacks along the only available axis. Note np.hstack does the same.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># gives error, because axis=1 does not exist (1D array)</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>    <span class="c1"># treats vectors as columns and stacks them =&gt; 4x2 matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>          <span class="c1"># combine into a 2x4 matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1">#or</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">array_1</span><span class="p">,</span><span class="n">array_2</span><span class="p">])</span>            <span class="c1"># This is equivalent to np.array([[1,2,3,4], [3,4,5,6]]) </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="task-6">
 <h2>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h2>
@@ -719,7 +743,7 @@ document.write(`
 </section>
 <section id="task-7">
 <h2>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
-<p>A student has attemped to combine two vectors together to make a larger 4x4 matrix of 1’s.</p>
+<p>A student has attemped to combine two arrays together to make a larger 4x4 matrix of 1’s.</p>
 <p>Their code does not work, can you fix this for them?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -727,11 +751,193 @@ document.write(`
  <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
  
  <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">))</span>
- <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="operations-on-matrices">
+<h2>Operations on Matrices<a class="headerlink" href="#operations-on-matrices" title="Link to this heading">#</a></h2>
+<p>You can multiply element-wise of a matrix by a constant value or indeed two matrices together by using the mathematical operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> (^).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>   <span class="c1"># generates a 3 by 2 matrix </span>
+<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>   <span class="c1"># generates a 3 by 2 matrix </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>                     
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-8">
+<h2>Task 8<a class="headerlink" href="#task-8" title="Link to this heading">#</a></h2>
+<p>The following section of code should generate a 2x4 matrix. The code should then multiple the first row by a value of 1 and the second by 2.</p>
+<p>The code below has a number of problems, try and fix it so it produces the answer of</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{matrix}
+1 &amp; 2 &amp; 3 &amp; 4\\
+10&amp; 12&amp; 14&amp; 16\\
+\end{matrix}\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="nd">@y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selecting-elements-rows-and-columns-from-an-array">
+<h2>Selecting elements, rows and columns from an array<a class="headerlink" href="#selecting-elements-rows-and-columns-from-an-array" title="Link to this heading">#</a></h2>
+<p>You can extract and identify key parts of matrices and vectors through locating the element by coordinates. The number starts at 0 (top right hand corner) and increases down the rows first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># generates a 3x3 matrix of 1 to 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>                      <span class="c1"># prints the first element</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>                      <span class="c1"># prints the second element</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,:])</span>                      <span class="c1"># prints last row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>                      <span class="c1"># prints first column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:])</span>                     <span class="c1"># prints from second element to the end of second row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>                     <span class="c1"># prints last element of second column equivalent to x[2,2] or x[-1,-1]. Negative numbers mean counting from the end. </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-9">
+<h2>Task 9<a class="headerlink" href="#task-9" title="Link to this heading">#</a></h2>
+<p>Generate a 4x2 array of random numbers. Then perform the following operations.</p>
+<ul class="simple">
+<li><p>Multiply each element by 2.5</p></li>
+<li><p>Divide the top left element by 3.4</p></li>
+</ul>
+</section>
+<section id="things-you-can-do-with-matrices">
+<h2>Things you can do with matrices<a class="headerlink" href="#things-you-can-do-with-matrices" title="Link to this heading">#</a></h2>
+<p>A few additional functions you can use with matrices (2D arrays) - as you can see they are similar to vectors (1D arrays).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># generates a 3x3 array of 0 to 8</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>                <span class="c1"># calculates the sine (radians) of each value of x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>                      <span class="c1"># transposes (flips) the array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>                  <span class="c1"># sums each element, scalar</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>            <span class="c1"># sums along axis=0, 1D array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>            <span class="c1"># sums along axis=1, 1D array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>                 <span class="c1"># mean/average of each element, scalar</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>           <span class="c1"># mean/average along axis=0, 1D array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>           <span class="c1"># mean/average along axis=1, 1D array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>                   <span class="c1"># total number of elements of the array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>                  <span class="c1"># shape of array</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-10">
+<h2>Task 10<a class="headerlink" href="#task-10" title="Link to this heading">#</a></h2>
+<p>Create an array that goes from <span class="math notranslate nohighlight">\(-2\pi\)</span> to <span class="math notranslate nohighlight">\(+2\pi\)</span> in 50 equal intervals (i.e. 51 values). Create another array that is the sin of each of the values.</p>
+<p>Combine both vectors to form an array of 2 columns and 51 rows.</p>
+</section>
+<section id="task-11">
+<h2>Task 11<a class="headerlink" href="#task-11" title="Link to this heading">#</a></h2>
+<p>Can you write one line of code that sums an array of 50x50 random numbers to a single value?</p>
+</section>
+<section id="matrix-algebra-multiplication">
+<h2>Matrix algebra (multiplication)<a class="headerlink" href="#matrix-algebra-multiplication" title="Link to this heading">#</a></h2>
+<p>The term <strong>scalar multiplication</strong> refers to the product of a number and a matrix. In scalar multiplication, each entry in the matrix is multiplied by the given scalar. You have already done this above using <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p>
+<p>In contrast, <strong>matrix or algebra multiplication</strong> refers to the product of two matrices. The order of multiplication is very important.</p>
+<p>There are some rules to the matrices you use,</p>
+<ul class="simple">
+<li><p>The number of <strong>columns of the 1st matrix</strong> must equal the number of <strong>rows of the 2nd matrix</strong>.</p></li>
+<li><p>The result will have the same number of <strong>rows as the 1st matrix</strong>, and the same number of <strong>columns as the 2nd matrix</strong>.</p></li>
+</ul>
+<p>The algebra multiplication operator in Python is <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>. See also <a class="reference internal" href="#vector-multiplications"><span class="xref myst">Vector multiplication</span></a>.</p>
+<p>For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>                <span class="c1"># 1D array with 2 elements</span>
+<span class="n">B</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span>  <span class="c1"># 2 x 3 array (3 columns)</span>
+
+<span class="n">C</span><span class="o">=</span><span class="n">A</span><span class="nd">@B</span>                            <span class="c1"># result is a 3 x 1 matrix. By default a 1D array before &#39;@&#39; is treated as a row vector</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-12">
+<h2>Task 12<a class="headerlink" href="#task-12" title="Link to this heading">#</a></h2>
+<p>An engineering firm sells 3 types of bolt.</p>
+<ul class="simple">
+<li><p>A steel bolt that costs 2p each.</p></li>
+<li><p>A aluminium bolt that costs 3p each.</p></li>
+<li><p>A titanium bolt that costs 10p each.</p></li>
+</ul>
+<p>They sales team sold the following</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-center"><p>Mon</p></th>
+<th class="head text-center"><p>Tue</p></th>
+<th class="head text-center"><p>Wed</p></th>
+<th class="head text-center"><p>Thu</p></th>
+<th class="head text-center"><p>Fri</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Steel</p></td>
+<td class="text-center"><p>5462</p></td>
+<td class="text-center"><p>5233</p></td>
+<td class="text-center"><p>4302</p></td>
+<td class="text-center"><p>6400</p></td>
+<td class="text-center"><p>5900</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Aluminum</p></td>
+<td class="text-center"><p>8433</p></td>
+<td class="text-center"><p>8117</p></td>
+<td class="text-center"><p>7826</p></td>
+<td class="text-center"><p>10105</p></td>
+<td class="text-center"><p>9764</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Titanium</p></td>
+<td class="text-center"><p>1218</p></td>
+<td class="text-center"><p>1407</p></td>
+<td class="text-center"><p>1503</p></td>
+<td class="text-center"><p>1305</p></td>
+<td class="text-center"><p>1045</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Create a vector (1D array) for the cost per item, and a matrix (2D array) for the number of items sold.</p>
+<p>Using a matrix approach to first work out a vector which contains the total sales in pounds for each day.</p>
+<p>Then use the sum command to work out for the week.</p>
+</section>
+<section id="task-13">
+<h2>Task 13<a class="headerlink" href="#task-13" title="Link to this heading">#</a></h2>
+<p>Create two matrices:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A = 
+\begin{bmatrix}
+1&amp;2\\
+3&amp;4\\
+\end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}B = 
+\begin{bmatrix}
+5&amp;6\\
+7&amp;8\\
+\end{bmatrix}\end{split}\]</div>
+<p>Find the matrix multiplication of AB and BA, showing that the order of multiplication is really important (commutative).</p>
 </section>
 </section>
 
@@ -791,11 +997,9 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multiplications">Vector multiplications</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multiplications">Vector multiplications</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a><ul class="nav section-nav flex-column">
@@ -803,16 +1007,22 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-1">Creating a matrix: part 1</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-2">Creating a matrix: part 2</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-1">Creating a matrix: part 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-matrix-part-2">Creating a matrix: part 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-matrices">Operations on Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-elements-rows-and-columns-from-an-array">Selecting elements, rows and columns from an array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9">Task 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-you-can-do-with-matrices">Things you can do with matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-10">Task 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-11">Task 11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-algebra-multiplication">Matrix algebra (multiplication)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-12">Task 12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-13">Task 13</a></li>
 </ul>
   </nav></div>
 
