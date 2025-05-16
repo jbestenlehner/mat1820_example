@@ -398,8 +398,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-vectors-and-matrices">
 <h1>Tutorial: Vectors and matrices<a class="headerlink" href="#tutorial-vectors-and-matrices" title="Permalink to this heading">#</a></h1>
-<p>In <em>NumPy</em> vector is 1 dimenisonal array where you can store information like data.</p>
-<p>A matrix is a 2 dimenisonal array like a table. It has both rows and columns. In principle you can have multi-dimensional arrays, but we will deal with this later.</p>
+<p>In <em>NumPy</em> a vector is a 1 dimensional array where you can store information like data.</p>
+<p>A matrix is a 2 dimensional array like a table. It has both rows and columns. In principle you can have multi-dimensional arrays, but we will deal with this later.</p>
 <p>To stor numbers in an array to a variable, you can do this in a few ways.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -479,7 +479,8 @@ document.write(`
 <p>In Python multiplication operation are defined as follow: <code class="docutils literal notranslate"><span class="pre">*</span></code> means element-wise multiplication, while <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> means matrix multiplication. The differences between <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> become more obvious when dealing with multi-dimensional arrays.</p>
 <p>Consider the following element-wise multiplication:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix}
+\[\begin{split}
+\begin{bmatrix}
 1 &amp; 2 &amp; 3\\
 \end{bmatrix}
 \begin{bmatrix}
@@ -488,10 +489,12 @@ document.write(`
 =
 \begin{bmatrix}
 1 &amp; 4 &amp; 9\\
-\end{bmatrix}\end{split}\]</div>
+\end{bmatrix}
+\end{split}\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix}
+\[\begin{split}
+\begin{bmatrix}
 1 \\
 2 \\
 3 \\
@@ -506,7 +509,8 @@ document.write(`
 1 \\
 4 \\
 9 \\
-\end{bmatrix}\end{split}\]</div>
+\end{bmatrix}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>               <span class="c1"># gives an array [1, 4, 9]</span>
@@ -538,7 +542,8 @@ document.write(`
 <li><p>row vector times column vector:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix}
+\[\begin{split}
+\begin{bmatrix}
 1 &amp; 2 &amp; 3\\
 \end{bmatrix}
 \begin{bmatrix}
@@ -547,13 +552,15 @@ document.write(`
 3 \\
 \end{bmatrix}
 =
-14\end{split}\]</div>
+14
+\end{split}\]</div>
 <p>This also called a dot product (row times column). See also overview page of this session 2.</p>
 <ol class="arabic simple" start="2">
 <li><p>column vector times row vector:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix}
+\[\begin{split}
+\begin{bmatrix}
 1 \\
 2 \\
 3 \\
@@ -566,7 +573,8 @@ document.write(`
 1&amp; 2&amp; 3\\
 2&amp; 4&amp; 6\\
 3&amp; 6&amp; 9\\
-\end{bmatrix}\end{split}\]</div>
+\end{bmatrix}
+\end{split}\]</div>
 <p>To avoid mistakes and save you having to type a lot of transposes Python defines by default a one-dimensional array of shape N.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -734,13 +742,14 @@ document.write(`
 <section id="task-6">
 <h2>Task 6<a class="headerlink" href="#task-6" title="Permalink to this heading">#</a></h2>
 <p>Create a matrix that looks like this.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}A=
+<p><span class="math notranslate nohighlight">\(
+A=
 \begin{bmatrix}
 1&amp;5&amp;7\\
 4&amp;6&amp;7\\
 2&amp;5&amp;7\\
-\end{bmatrix}\end{split}\]</div>
+\end{bmatrix}
+\)</span></p>
 </section>
 <section id="task-7">
 <h2>Task 7<a class="headerlink" href="#task-7" title="Permalink to this heading">#</a></h2>
@@ -779,11 +788,12 @@ document.write(`
 <h2>Task 8<a class="headerlink" href="#task-8" title="Permalink to this heading">#</a></h2>
 <p>The following section of code should generate a 2x4 matrix. The code should then multiple the first row by a value of 1 and the second by 2.</p>
 <p>The code below has a number of problems, try and fix it so it produces the answer of</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{matrix}
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix}
 1 &amp; 2 &amp; 3 &amp; 4\\
 10&amp; 12&amp; 14&amp; 16\\
-\end{matrix}\end{split}\]</div>
+\end{matrix}
+\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
@@ -926,18 +936,20 @@ document.write(`
 <section id="task-13">
 <h2>Task 13<a class="headerlink" href="#task-13" title="Permalink to this heading">#</a></h2>
 <p>Create two matrices:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}A = 
+<p><span class="math notranslate nohighlight">\(
+A = 
 \begin{bmatrix}
 1&amp;2\\
 3&amp;4\\
-\end{bmatrix}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}B = 
+\end{bmatrix}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+B = 
 \begin{bmatrix}
 5&amp;6\\
 7&amp;8\\
-\end{bmatrix}\end{split}\]</div>
+\end{bmatrix}
+\)</span></p>
 <p>Find the matrix multiplication of <span class="math notranslate nohighlight">\(AB\)</span> and <span class="math notranslate nohighlight">\(BA\)</span>, showing that the order of multiplication is really important (commutative).</p>
 </section>
 </section>

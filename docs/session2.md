@@ -81,7 +81,7 @@ The product **$cA$** of a number $c$ (also called a scalar in this context) and 
 
 ### Matrix multiplication
 
-Multiplication of two matrices $A$ and $B$ is given by the dot product of the corresponding row of $A$ and the corresponding column of $B$ (row times column):
+Multiplication of two matrices $A$ and $B$ is given by the [dot product](#dot-product-of-2-vectors) of the corresponding row of $A$ and the corresponding column of $B$ (row times column):
 
 ```{math}
 \begin{bmatrix}
