@@ -13,3 +13,6 @@ parts:
     chapters:
     - file: docs/session2
     - file: docs/session2_notebooks
+  - caption: Session 3
+    chapters:
+    - file: docs/session3
