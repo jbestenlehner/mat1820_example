@@ -88,7 +88,7 @@ plt.plot(x, y, 'ro')  # plot data as red circles
 plt.plot(x, y, 'm--') # joins point with magenta dashed line. 
 ```
 
-Table of base colours:
+### Table of base colours:
 
 |colour | description|
 |:-----|:-------|
@@ -103,7 +103,7 @@ Table of base colours:
 
 A list of colour names is shown [here](https://matplotlib.org/stable/gallery/color/named_colors.html).
 
-Table of line styles:
+### Table of line styles:
 
 | line style | description|
 |:-----|:-------|
@@ -114,7 +114,7 @@ Table of line styles:
 
 A list of line styles is shown [here](https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html).
 
-Table of markers or plot symbols:
+### Table of markers or plot symbols:
 
 | marker | description |
 |:-----|:-------|
