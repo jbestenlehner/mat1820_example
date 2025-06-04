@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session2_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plotting graphs and visualising data" href="session3.html" />
     <link rel="prev" title="Vectors and Matrices" href="session2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,6 +180,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session2.html">Vectors and Matrices</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Vectors and matrices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
 </ul>
 
     </div>
@@ -537,7 +542,7 @@ document.write(`
 </div>
 </div>
 <p>This is all a bit confusing and the results might not be the result, you might have expected.</p>
-<p>There are 2 vector multiplication present:</p>
+<p>There are 3 vector multiplication present:</p>
 <ol class="arabic simple">
 <li><p>row vector times column vector:</p></li>
 </ol>
@@ -554,7 +559,7 @@ document.write(`
 =
 14
 \end{split}\]</div>
-<p>This also called a dot product (row times column). See also overview page of this session 2.</p>
+<p>This is also called a dot product (row times column). See also overview page of this session 2.</p>
 <ol class="arabic simple" start="2">
 <li><p>column vector times row vector:</p></li>
 </ol>
@@ -576,14 +581,40 @@ document.write(`
 \end{bmatrix}
 \end{split}\]</div>
 <p>To avoid mistakes and save you having to type a lot of transposes Python defines by default a one-dimensional array of shape N.</p>
+<ol class="arabic simple" start="3">
+<li><p>cross product of 2 vectors:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 \\
+2 \\
+3 \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+1 \\
+2 \\
+3 \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+0\\
+0\\
+0\\
+\end{bmatrix}
+\end{split}\]</div>
+<p>The cross product of <span class="math notranslate nohighlight">\(\vec{a} \times \vec{a} = \vec{0}\)</span> as the vectors are parallel to each other. See also overview page of this session 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># row times column vector</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># gives a scalar</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. row times column vector:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># gives a scalar and is also called dot product.</span>
 <span class="c1">#or</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="nd">@a</span><span class="p">)</span>            <span class="c1"># by default Python treats the vector of shape N before the @ as a row vector and after the @ as a column vector.</span>
-<span class="c1"># column times row vector</span>
+<span class="c1"># 2. column times row vector:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># gives a 3x3 matrix/array</span>
+<span class="c1"># 3. cross product of 2 vectors:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># gives 1D array with 3 elements</span>
 </pre></div>
 </div>
 </div>
@@ -992,6 +1023,15 @@ B =
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Vectors and Matrices</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="session3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Plotting graphs and visualising data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

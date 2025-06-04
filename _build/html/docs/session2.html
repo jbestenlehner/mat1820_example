@@ -181,6 +181,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Vectors and Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session2_notebooks.html">Tutorial: Vectors and matrices</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -336,6 +340,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposition">Transposition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-of-2-vectors">Dot product of 2 vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-product-of-2-vector">Cross product of 2 vector</a></li>
 </ul>
 </li>
 </ul>
@@ -468,6 +473,30 @@ a_{\textcolor{blue}{m}\textcolor{red}{1}} &amp; a_{\textcolor{blue}{m}\textcolor
 <div class="math notranslate nohighlight">
 \[\vec{a} \cdot \vec{b} = \sum_{i=1}^n a_i b_i = a_1 b_1 + a_2 b_2 + \ldots + a_n b_n.\]</div>
 </section>
+<section id="cross-product-of-2-vector">
+<h3>Cross product of 2 vector<a class="headerlink" href="#cross-product-of-2-vector" title="Permalink to this heading">#</a></h3>
+<p>The cross product of vectors <span class="math notranslate nohighlight">\(\vec{a}\)</span> and <span class="math notranslate nohighlight">\(\vec{b}\)</span> is a vector, which is perpendicular
+to both <span class="math notranslate nohighlight">\(\vec{a}\)</span> and <span class="math notranslate nohighlight">\(\vec{b}\)</span> and is the normal vector of the plane, where <span class="math notranslate nohighlight">\(\vec{a}\)</span> and <span class="math notranslate nohighlight">\(\vec{b}\)</span> are spanning vectors.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{a} \times \vec{b} = 
+\begin{bmatrix}
+a_1\\
+a_2\\
+a_3\\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+b_1\\
+b_2\\
+b_3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_2 b_3 - b_2 a_3\\
+a_3 b_1 - b_3 a_1\\
+a_1 b_2 - b_1 a_2\\
+\end{bmatrix}\end{split}\]</div>
+</section>
 </section>
 </section>
 
@@ -542,6 +571,7 @@ a_{\textcolor{blue}{m}\textcolor{red}{1}} &amp; a_{\textcolor{blue}{m}\textcolor
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposition">Transposition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-of-2-vectors">Dot product of 2 vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-product-of-2-vector">Cross product of 2 vector</a></li>
 </ul>
 </li>
 </ul>
