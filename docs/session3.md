@@ -39,7 +39,7 @@ Graphs are the best way of showing data! Looking at tables with numbers doesn't 
     * If not, how can you help the reader understand what it shows.
 
 To help the reader you can:
-* **Annotate** – add some arrows, boxes on the figure to help show the reader the important parts of the data?
+* **Annotate** – add some arrows, boxes or text on the figure to help show the reader the important parts of the data?
 * **Remove Distractions** – Avoid visual clutter that isn’t relevant.
 * **Exploit the Caption** – Describe what you are showing. Make sure key input data is stated.
 

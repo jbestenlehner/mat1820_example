@@ -16,3 +16,4 @@ parts:
   - caption: Session 3
     chapters:
     - file: docs/session3
+    - file: docs/session3_notebooks
