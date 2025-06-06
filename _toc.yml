@@ -17,3 +17,7 @@ parts:
     chapters:
     - file: docs/session3
     - file: docs/session3_notebooks
+  - caption: Session 4
+    chapters:
+    - file: docs/session4
+    - file: docs/session4_notebooks

@@ -1,8 +1,10 @@
-# 
+# Input and output plus data types
 ## Learning Objectives:
 
-* Creating and indexing vectors and matrices.
-* Mathematical operations on vectors and matrices.
-* Application in Material Science.
+* Understand different data types.
+* User defined input and output.
+* Reading in and writing out files.
 
 ## Overview
+
+
