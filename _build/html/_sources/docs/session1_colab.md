@@ -3,10 +3,10 @@
 Jupyter Notebooks are a community standard for communicating and performing interactive computing. It combines computational tasks with explanatory text. Colab is a free cloud service by Google to create and share interactive notebooks with code, text, and visualizations.
 
 :::{seealso}
-[Jupyter Project](https://jupyter.org/) and [Colab](https://colab.google/) for more details.
+<a href="https://jupyter.org/" target="_blank">Jupyter Project</a> and <a href="https://colab.google/" target="_blank">Colab</a>  for more details.
 :::
 
-A few examples to help you getting started with Colab and Jupyter Notebooks are given [here](https://colab.research.google.com/#scrollTo=GJBs_flRovLc).
+A few examples to help you getting started with Colab and Jupyter Notebooks are given <a href="https://colab.research.google.com/#scrollTo=GJBs_flRovLc" target="_blank">here</a>.
 
 To execute log into your <*your_username*>@sheffield.ac.uk google-account
 

@@ -20,7 +20,7 @@ Computer code is a set of instructions, or a system of rules, written in a speci
 
 ## Lecture notes/slides
 
-Lecture notes/slides for session 1 can be found on [Blackboard](https://vle.shef.ac.uk/ultra/).
+Lecture notes/slides for session 1 can be found on <a href="https://vle.shef.ac.uk/ultra/" target="_blank">Blackboard</a>.
 
 ## What we are going to cover?
 

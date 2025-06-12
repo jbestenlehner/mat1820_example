@@ -27,7 +27,7 @@ a_{\textcolor{blue}{m}\textcolor{red}{1}} & a_{\textcolor{blue}{m}\textcolor{red
 ```
 The matrix is of dimension $m\times n$. The rank of the matrix $ \leq n$, if $n < m$, or $ \leq m$, if $m < n$. See also your math lectures.
 
-Further reading including Python example on how scalars, vectors, matrices and tensors relate to each other can be found [here](https://www.kdnuggets.com/2018/05/wtf-tensor.html).
+Further reading including Python example on how scalars, vectors, matrices and tensors relate to each other can be found <a href="https://www.kdnuggets.com/2018/05/wtf-tensor.html" target="_blank">here</a>.
 
 ## Matrix operations
 
