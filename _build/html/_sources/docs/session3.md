@@ -62,15 +62,15 @@ To help the reader you can:
 
 ## Plotting and visualising data with Python
 
-The plotting library in Python is called [_matplotlib_](https://matplotlib.org/stable/). It can be used for creating plots, animated figures, and interactive visualisations. Some examples with example program code are shown [here](https://matplotlib.org/stable/gallery/index.html).
+The plotting library in Python is called <a href="https://matplotlib.org/stable/" target="_blank">_matplotlib_</a>. It can be used for creating plots, animated figures, and interactive visualisations. Some examples with example program code are shown <a href="https://matplotlib.org/stable/gallery/index.html" target="_blank">here</a>.
 
-In this session we will use the [_pyplot_](https://matplotlib.org/stable/api/pyplot_summary.html) module from the _matplotlib_ library. The module is imported with:
+In this session we will use the <a href="https://matplotlib.org/stable/api/pyplot_summary.html" target="_blank">_pyplot_</a> module from the _matplotlib_ library. The module is imported with:
 
 ```python
 import matplotlib.pyplot as plt
 ```
 
-The function for plotting is called [_plt.plot()_](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html). An example could look like this
+The function for plotting is called <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html" target="_blank">_plt.plot()_</a>. An example could look like this
 
 ```python
 import numpy as np
@@ -101,7 +101,7 @@ plt.plot(x, y, 'm--') # joins point with magenta dashed line.
 | 'k' | black   |
 | 'w' | white   |
 
-A list of colour names is shown [here](https://matplotlib.org/stable/gallery/color/named_colors.html).
+A list of colour names is shown <a href="https://matplotlib.org/stable/gallery/color/named_colors.html" target="_blank">here</a>.
 
 ### Table of line styles:
 
@@ -112,7 +112,7 @@ A list of colour names is shown [here](https://matplotlib.org/stable/gallery/col
 | '-.' | dash-dot line |
 | ':'  | dotted line |
 
-A list of line styles is shown [here](https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html).
+A list of line styles is shown <a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html" target="_blank">here</a>.
 
 ### Table of markers or plot symbols:
 
@@ -129,4 +129,4 @@ A list of line styles is shown [here](https://matplotlib.org/stable/gallery/line
 |'d' | thin diamond|
 |'*' | star|
 
-A list of markers is shown [here](https://matplotlib.org/stable/api/markers_api.html).
+A list of markers is shown <a href="https://matplotlib.org/stable/api/markers_api.html" target="_blank">here</a>.
