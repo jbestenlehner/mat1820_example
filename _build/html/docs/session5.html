@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title> &#8212; Digital Skills for Materials</title>
+    <title>Conditional Logic and Loops &#8212; Digital Skills for Materials</title>
   
   
   
@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session5';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial:" href="session5_notebooks.html" />
+    <link rel="prev" title="Tutorial: Input and output" href="session4_notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +123,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -194,6 +194,31 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session3_notebooks.html">Tutorial: Plotting and visualising data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output plus data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session4_notebooks.html">Tutorial: Input and output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Conditional Logic and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial:</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session6.html"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="session6_notebooks.html">Tutorial:</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session7.html"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial:</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session8.html"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial:</a></li>
 </ul>
 
     </div>
@@ -332,7 +357,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Conditional Logic and Loops</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -343,7 +368,24 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational operators</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators">Logical operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-and">Logical operator AND</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-or">Logical operator OR</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-xor">Logical operator XOR</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-not">Logical operator NOT</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-and-if-statements">Conditions and <code class="docutils literal notranslate"><span class="pre">if</span></code> statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-for-and-while">Loops: <code class="docutils literal notranslate"><span class="pre">for</span> </code>and <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -355,18 +397,318 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="conditional-logic-and-loops">
+<h1>Conditional Logic and Loops<a class="headerlink" href="#conditional-logic-and-loops" title="Link to this heading">#</a></h1>
 <section id="learning-objectives">
 <h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Creating and indexing vectors and matrices.</p></li>
-<li><p>Mathematical operations on vectors and matrices.</p></li>
-<li><p>Application in Material Science.</p></li>
+<li><p>Boolean logic (<code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+<li><p>Conditional statements (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">elif</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops.</p></li>
 </ul>
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>So far we have only considered linear programs (sequence). However, programs can have different structures:</p>
+<p><img alt="logic_loop" src="../_images/logic_loop.png" /></p>
+<p>Depending on condition we run different parts of the program (choice). We can also repeat sections of the program (Loop/Repetition).</p>
+<section id="conditional-logic">
+<h3>Conditional logic<a class="headerlink" href="#conditional-logic" title="Link to this heading">#</a></h3>
+<p>In programming languages the Boolean logic formalism is used to make decision or choices. It consists of:</p>
+<ul class="simple">
+<li><p>Relational operators: greater than, less than, equal to, etc.</p></li>
+<li><p>Logical operators: AND, OR, NOT and (exclusive-or: XOR).</p></li>
+</ul>
+<section id="relational-operators">
+<h4>Relational operators<a class="headerlink" href="#relational-operators" title="Link to this heading">#</a></h4>
+<p>Relational operators in Python are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Symbol</p></th>
+<th class="head text-center"><p>Relational operation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td class="text-center"><p>Less than</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td class="text-center"><p>Greater than</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td class="text-center"><p>Less than or equal to</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td class="text-center"><p>Greater than or equal to</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td class="text-center"><p>Equal to (this is different to <code class="docutils literal notranslate"><span class="pre">=</span></code>, which <br> means a variable takes on a new value)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td class="text-center"><p>Not equal to</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span>   <span class="c1"># compares 3 with 5</span>
+<span class="kc">True</span>    <span class="c1"># statement correct: True</span>
+
+<span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">5</span>   
+<span class="kc">False</span>   <span class="c1"># statement incorrect: False</span>
+</pre></div>
+</div>
+</section>
+<section id="logical-operators">
+<h4>Logical operators<a class="headerlink" href="#logical-operators" title="Link to this heading">#</a></h4>
+<p>We can combine expressions with Boolean logical operators: AND, OR, NOT and XOR. The Boolean operator XOR is rarely used, but included for completeness. In python depending how they can be used there are <em>symbol</em> and <em>word</em> or either <em>symbol</em> or <em>word</em> available:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><em>symbol</em></p></th>
+<th class="head text-center"><p><em>word</em></p></th>
+<th class="head text-center"><p>Boolean logical operator</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></td>
+<td class="text-center"><p>AND</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
+<td class="text-center"><p>OR</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
+<td class="text-center"><p>NOT</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>XOR</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To use <em>symbol</em> or <em>word</em> it is up to your preference, but it also depends what is used in the programming language you have learned first. In python program code <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code> are usually used instead of their symbols, as it closer to our written language.</p>
+<p>The function of the logical operators can be summarised by ‘truth tables’, showing input and output values from a particular function.</p>
+<section id="logical-operator-and">
+<h5>Logical operator AND<a class="headerlink" href="#logical-operator-and" title="Link to this heading">#</a></h5>
+<p>Do you like pizza?</p>
+<p><code class="docutils literal notranslate"><span class="pre">and</span></code></p>
+<p>Do you like pineapple on it?</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Input A</p></th>
+<th class="head text-center"><p>Input B</p></th>
+<th class="head text-center"><p>A <code class="docutils literal notranslate"><span class="pre">and</span></code> B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>False</p></td>
+<td class="text-center"><p>False</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>True</p></td>
+<td class="text-center"><p>False</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>False</p></td>
+<td class="text-center"><p>True</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>True</p></td>
+<td class="text-center"><p>True</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>I like pizza</p></td>
+<td class="text-center"><p>I like pineapple</p></td>
+<td class="text-center"><p>Answer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="logical-operator-or">
+<h5>Logical operator OR<a class="headerlink" href="#logical-operator-or" title="Link to this heading">#</a></h5>
+<p>Do you like this class?</p>
+<p><code class="docutils literal notranslate"><span class="pre">or</span></code></p>
+<p>Do you not like this class?</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Input A</p></th>
+<th class="head text-center"><p>Input B</p></th>
+<th class="head text-center"><p>A <code class="docutils literal notranslate"><span class="pre">or</span></code>  B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>False</p></td>
+<td class="text-center"><p>False</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>True</p></td>
+<td class="text-center"><p>False</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>False</p></td>
+<td class="text-center"><p>True</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>True</p></td>
+<td class="text-center"><p>True</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="logical-operator-xor">
+<h5>Logical operator XOR<a class="headerlink" href="#logical-operator-xor" title="Link to this heading">#</a></h5>
+<p>You have a bag of green, blue, red, purple, orange and yellow marbles. You want to draw 1 yellow and 1 green marble:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Input A</p></th>
+<th class="head text-center"><p>Input B</p></th>
+<th class="head text-center"><p>A <code class="docutils literal notranslate"><span class="pre">^</span></code>   B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>False</p></td>
+<td class="text-center"><p>False</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>True</p></td>
+<td class="text-center"><p>False</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>False</p></td>
+<td class="text-center"><p>True</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>True</p></td>
+<td class="text-center"><p>True</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Yellow</p></td>
+<td class="text-center"><p>Green</p></td>
+<td class="text-center"><p>Result</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="logical-operator-not">
+<h5>Logical operator NOT<a class="headerlink" href="#logical-operator-not" title="Link to this heading">#</a></h5>
+<p>I do (<code class="docutils literal notranslate"><span class="pre">not</span></code>) like pizza.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Input A</p></th>
+<th class="head text-center"><p><code class="docutils literal notranslate"><span class="pre">not</span></code>(A)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>False</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>True</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This can be combined with <code class="docutils literal notranslate"><span class="pre">and</span></code>, .<code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">^</span></code> (xor):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span></code>(A <code class="docutils literal notranslate"><span class="pre">and</span></code> B)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span></code>(A <code class="docutils literal notranslate"><span class="pre">or</span></code> B)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span></code>(A <code class="docutils literal notranslate"><span class="pre">^</span></code> B)</p></li>
+</ul>
+</section>
+<section id="examples">
+<h5>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h5>
+<p>Scalars:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="kc">True</span>
+<span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span>
+<span class="kc">False</span>
+<span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="kc">True</span>
+</pre></div>
+</div>
+<p>Arrays:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="n">A</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">])</span>
+
+<span class="n">A</span> <span class="o">&lt;</span> <span class="mi">3</span>
+<span class="n">array</span><span class="p">([</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>When using arrays, you need to be a bit careful. For example, it is not clear to python, if you want to compare the array or an element of the array. The following example will rase an error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">A</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">The</span> <span class="n">truth</span> <span class="n">value</span> <span class="n">of</span> <span class="n">an</span> <span class="n">array</span> <span class="k">with</span> <span class="n">more</span> <span class="n">than</span> <span class="n">one</span> <span class="n">element</span> <span class="ow">is</span> <span class="n">ambiguous</span><span class="o">.</span> <span class="n">Use</span> <span class="n">a</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="n">a</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To perform an element comparison use the <em>numpy</em> logical operators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.logical_and()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.logical_or()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.logical_xor()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.logical_not()</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">A</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>To check, if an array contains a specific value, you can use the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="ow">in</span> <span class="n">A</span>
+<span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="conditions-and-if-statements">
+<h3>Conditions and <code class="docutils literal notranslate"><span class="pre">if</span></code> statements<a class="headerlink" href="#conditions-and-if-statements" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is a conditional statement. It is used to execute a block of instructions (statements) only when a specific condition is :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> statements can have a series of conditions.</p></li>
+<li><p>The first condition to be satisfied causes one or more statements/instructions to be executed.</p></li>
+<li><p>All following statements in the <code class="docutils literal notranslate"><span class="pre">if</span> </code> construction are skipped.</p></li>
+<li><p>There are 3 blocks, that can build an <code class="docutils literal notranslate"><span class="pre">if</span></code> construction:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elif</span></code> short for <em>else if</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">else</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> construction always starts with <code class="docutils literal notranslate"><span class="pre">if</span></code> followed by <code class="docutils literal notranslate"><span class="pre">elif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> or nothing. An <code class="docutils literal notranslate"><span class="pre">if</span></code> construction can as many <code class="docutils literal notranslate"><span class="pre">elif</span></code> conditions as you want, but there is always one <code class="docutils literal notranslate"><span class="pre">if</span></code> and utmost one <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x greater than 2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is equal to 2&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is lower than 2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="indentation">
+<h3>Indentation<a class="headerlink" href="#indentation" title="Link to this heading">#</a></h3>
+<p>Python relies on indentation (whitespace at the beginning of a line) to define blocks or connected parts in the code. Other programming languages often use curly-brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code> for this purpose or and <code class="docutils literal notranslate"><span class="pre">end</span></code>, if the block or construction is over.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, without indentation will raise an error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x greater than 2&#39;</span><span class="p">)</span> <span class="c1"># will raise error message</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="loops-for-and-while">
+<h3>Loops: <code class="docutils literal notranslate"><span class="pre">for</span> </code>and <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#loops-for-and-while" title="Link to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -400,6 +742,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="session4_notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial: Input and output</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="session5_notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial:</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -417,7 +777,24 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational operators</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators">Logical operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-and">Logical operator AND</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-or">Logical operator OR</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-xor">Logical operator XOR</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operator-not">Logical operator NOT</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-and-if-statements">Conditions and <code class="docutils literal notranslate"><span class="pre">if</span></code> statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-for-and-while">Loops: <code class="docutils literal notranslate"><span class="pre">for</span> </code>and <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

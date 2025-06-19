@@ -21,3 +21,19 @@ parts:
     chapters:
     - file: docs/session4
     - file: docs/session4_notebooks
+  - caption: Session 5
+    chapters:
+    - file: docs/session5
+    - file: docs/session5_notebooks
+  - caption: Session 6
+    chapters:
+    - file: docs/session6
+    - file: docs/session6_notebooks
+  - caption: Session 7
+    chapters:
+    - file: docs/session7
+    - file: docs/session7_notebooks
+  - caption: Session 8
+    chapters:
+    - file: docs/session8
+    - file: docs/session8_notebooks

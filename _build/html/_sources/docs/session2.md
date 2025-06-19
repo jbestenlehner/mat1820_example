@@ -132,7 +132,7 @@ The dot product of vectors $\vec{a}$ and $\vec{b}$ is given by
 \vec{a} \cdot \vec{b} = \sum_{i=1}^n a_i b_i = a_1 b_1 + a_2 b_2 + \ldots + a_n b_n.
 ```
 
-### Cross product of 2 vector
+### Cross product of 2 vectors
 
 The cross product of vectors $\vec{a}$ and $\vec{b}$ is a vector, which is perpendicular
 to both $\vec{a}$ and $\vec{b}$ and is the normal vector of the plane, where $\vec{a}$ and $\vec{b}$ are spanning vectors.
