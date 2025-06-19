@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tutorial: &#8212; Digital Skills for Materials</title>
+    <title>Tutorial: Input and output &#8212; Digital Skills for Materials</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -195,6 +195,11 @@
 <li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session3_notebooks.html">Tutorial: Plotting and visualising data</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output plus data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session4_notebooks.html">Tutorial:</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -350,7 +355,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -361,11 +368,34 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutorial:</h1>
+    <h1>Tutorial: Input and output</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-input-and-output">User defined input and output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-input">User defined input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-or-values-an-overview">Text or values - an overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-to-the-screen">Printing to the screen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-way-to-request-a-number">Simple way to request a number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-numbers-and-precison-in-displaying-values">Formatting numbers and precison in displaying values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-controls">Other controls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">TASK 6</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -375,8 +405,266 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial">
-<h1>Tutorial:<a class="headerlink" href="#tutorial" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-input-and-output">
+<h1>Tutorial: Input and output<a class="headerlink" href="#tutorial-input-and-output" title="Link to this heading">#</a></h1>
+<section id="user-defined-input-and-output">
+<h2>User defined input and output<a class="headerlink" href="#user-defined-input-and-output" title="Link to this heading">#</a></h2>
+<p>This live script will teach you how to control your code to request information and print it clearly to a screen. Make sure you understand the previous tutorial sheets first, as we’ll be assuming you have knowledge of those.</p>
+</section>
+<section id="user-defined-input">
+<h2>User defined input<a class="headerlink" href="#user-defined-input" title="Link to this heading">#</a></h2>
+<p>You can request your code to enter a value before it continues to do operations. This is really useful for defining a change of a variable without rewriting the code itself.
+To do this you need to use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> command. The inbuilt function requires a prompt, which is some text, to display on the screen. To display text to the screen you need to put it in quotation marks “example text” or ‘example text’. It then assigns the value you type into the command window to the defined variable, which you can then use later on in your code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Type in a number: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">input()</span></code> waits for user input, assigns the user input to the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and prints <code class="docutils literal notranslate"><span class="pre">x</span></code> to the screen.</p>
+</section>
+<section id="text-or-values-an-overview">
+<h2>Text or values - an overview<a class="headerlink" href="#text-or-values-an-overview" title="Link to this heading">#</a></h2>
+<p>One thing in computing that can be hard to understand is the way the computer interprets and displays data you provide it. There are two main types of data you will deal with:</p>
+<ol class="arabic simple">
+<li><p>Text based information - ‘strings’.</p></li>
+<li><p>Numerical based information -  ‘integers’ and ‘floats’.</p></li>
+</ol>
+<p>A numerical variable stores a value.</p>
+<p>A string variable stores characters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># an integer storing the value of 1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>       <span class="c1"># a string storing a single character a</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>   <span class="c1"># a list of integers</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">3.</span><span class="p">]</span><span class="c1"># a list of floats</span>
+<span class="n">z</span> <span class="o">=</span> <span class="s1">&#39;abd&#39;</span>     <span class="c1"># a string of characters</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As  a human you have been taught to see the symbol ‘2’ you assign it also a numerical value of 2. Computers do not do this automatically.</p>
+<p>To enter the character 2 as a symbol (string) instead of a value, you use “ or ‘ (speech marks or apostrophes) around it. Python then handles them different. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>           <span class="c1"># defines a numerical based value</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span>         <span class="c1"># works really well</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>        <span class="c1"># prints the value 6</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>         <span class="c1"># defines a string based value</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">c</span>         <span class="c1"># multiplies/duplicates the string</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>        <span class="c1"># prints the string &#39;222&#39;</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="s1">&#39;Hallo&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">e</span>       <span class="c1"># the operator &#39;+&#39; combines to strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>        <span class="c1"># prints the string &#39;2Hallo&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the first case, the variable is set as a <strong>value</strong> of 2. Then when you multiple by 3 to get the value of 6.</p>
+<p>The second variable c holds a character (symbol) of ‘2’ because of the the quotation marks around it. This now represents the symbol ‘2’, <strong>but</strong> does not hold its numerical value.</p>
+<p>While some mathematical operators can be applied to strings (‘+’ and ‘*’), they are <strong>not</strong> mathematical operations as seen above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiplications of 2 strings gives error.</span>
+<span class="n">e</span><span class="o">*</span><span class="n">c</span>             <span class="c1"># gives error</span>
+
+<span class="c1"># Division and subtraction of strings gives errors as well.</span>
+<span class="n">e</span><span class="o">/</span><span class="n">c</span>             <span class="c1"># gives error</span>
+<span class="n">e</span><span class="o">-</span><span class="n">c</span>             <span class="c1"># gives error</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="printing-to-the-screen">
+<h2>Printing to the screen<a class="headerlink" href="#printing-to-the-screen" title="Link to this heading">#</a></h2>
+<p>In the cells above and in previous tutorials we used the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to print or display variables, calculations or any other output, we want to see.</p>
+<p><code class="docutils literal notranslate"><span class="pre">print()</span></code> can display numerical values as well as strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>    <span class="c1"># prints &#39;Hello World&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>                <span class="c1"># prints 5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The value <code class="docutils literal notranslate"><span class="pre">5</span></code> is printed in a new line, which you probably expected. However, this is not trivial for a computer. The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function appends a new line <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end. Of course you can change this with the parameter <code class="docutils literal notranslate"><span class="pre">end</span></code> as well as the separation with the parameter <code class="docutils literal notranslate"><span class="pre">sep</span></code> (default is one space ‘ ‘).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span> <span class="c1"># defines variable a and assigns the string &#39;Hello World`</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># prints a, but does not appends new line &#39;\n&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>          <span class="c1"># prints b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>        <span class="c1"># prints multiple variables, values, or strings separated by commas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># prints separates them by &#39;\n&#39; (new line) instead of spaces.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hallo&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;Having some fun&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simple-way-to-request-a-number">
+<h2>Simple way to request a number<a class="headerlink" href="#simple-way-to-request-a-number" title="Link to this heading">#</a></h2>
+<p>To get the computer to ask you to enter something, you can use the function <code class="docutils literal notranslate"><span class="pre">input()</span></code>. This allows you to ask for an information entry point, and also allows text on the screen to be added to let the user know what it is waiting for. Python will then wait for a response before continuing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a value: &#39;</span><span class="p">)</span>      <span class="c1"># text printed to the screen is in speech marks. </span>
+<span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span>                           <span class="c1"># some calculation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                        <span class="c1"># prints the results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results might be not what you expect, because Python treats any input as a string. Depending what you want to do, you need to convert the string into an integer or floating value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a value: &#39;</span><span class="p">)</span>     
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                            <span class="c1"># converts string into integer</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a value: &#39;</span><span class="p">))</span>   <span class="c1"># converts string into a floating value in one line</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">*</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: Letters cannot be converted into numerical values and you will receive an error message while you can convert numnber values to a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Integer: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>    <span class="c1"># Converts the integer 1 to a string and add it to the string &#39;Integer: &#39;.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Float: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">))</span>    <span class="c1"># converts the fraction 1/7 into a string and add it to the string &#39;Float: &#39;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-1">
+<h2>TASK 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>In the code below, ask the user to enter a value to a variable called MySquare. Then calculate the square of the number.</p>
+<p>Test it with the value of 6, and your code should print to the screen 36.</p>
+<ul class="simple">
+<li><p>Now write a code that requests two different values. Get the code to add the two values together and print the result.</p></li>
+<li><p>The code will then ask for a third value, which it will multiple the answer by and display that to the screen.</p></li>
+</ul>
+<p>Use separate input commands.</p>
+</section>
+<section id="task-2">
+<h2>TASK 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Write a code that asks the user to enter their first name, last name and age. Use three separate input commands.</p></li>
+<li><p>Print their name and age on the screen. Get the code to calculate their age in month and print it.</p></li>
+</ul>
+</section>
+<section id="formatting-output">
+<h2>Formatting output<a class="headerlink" href="#formatting-output" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#printing-to-the-screen"><span class="xref myst">Above</span></a> we formatted outputs with the parameters <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> of the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, but you can format the <em>string</em>, too.</p>
+<p>For example, many times you need to format the output to make it look nice. To do this you need to add a special instruction to <em>Python</em> controlling the display. These start with a <code class="docutils literal notranslate"><span class="pre">\</span></code> sign. There are two main ones:</p>
+<ul class="simple">
+<li><p>new line: <code class="docutils literal notranslate"><span class="pre">\n</span></code></p></li>
+<li><p>tab: <code class="docutils literal notranslate"><span class="pre">\t</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;onetwothree&#39;</span><span class="p">)</span>         <span class="c1"># no formatting</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;one</span><span class="se">\n</span><span class="s1">two</span><span class="se">\n</span><span class="s1">three&#39;</span><span class="p">)</span>     <span class="c1"># a key one - creating a new line with \n</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;one</span><span class="se">\t</span><span class="s1">two</span><span class="se">\t</span><span class="s1">three&#39;</span><span class="p">)</span>     <span class="c1"># adding a tab between words using \t</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3">
+<h2>TASK 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Create the following output using <code class="docutils literal notranslate"><span class="pre">\n</span></code> and <code class="docutils literal notranslate"><span class="pre">\t</span></code> signs:</p>
+<p><img alt="formatting" src="../_images/session_4_formatting.png" /></p>
+<p>To format your output, the function <code class="docutils literal notranslate"><span class="pre">.format()</span></code> or <code class="docutils literal notranslate"><span class="pre">f''</span></code> and curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used where <code class="docutils literal notranslate"><span class="pre">{}</span></code> are placeholders for substituting values into a string. <code class="docutils literal notranslate"><span class="pre">.format()</span></code> is more flexible and provides more options, but in most cases <code class="docutils literal notranslate"><span class="pre">f''</span></code> will be just fine, too.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My name is </span><span class="si">{}</span><span class="s1"> and I am </span><span class="si">{}</span><span class="s1"> years old.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Isaac&#39;</span><span class="p">,</span><span class="mi">382</span><span class="p">))</span>   <span class="c1"># Inputs can be numbers or strings. The number of {} must match the number of inputs.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My name is </span><span class="si">{1}</span><span class="s1"> and I am </span><span class="si">{0}</span><span class="s1"> years old.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Isaac&#39;</span><span class="p">,</span><span class="mi">382</span><span class="p">))</span> <span class="c1"># You can define the order, but remember Python starts counting from 0.</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Albert&#39;</span>
+<span class="n">age</span>  <span class="o">=</span> <span class="s1">&#39;146&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My name is </span><span class="si">{}</span><span class="s1"> and I am </span><span class="si">{}</span><span class="s1"> years old.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">))</span>      <span class="c1"># You can use variables as well.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My name is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> and I am </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> years old.&#39;</span><span class="p">)</span>               <span class="c1"># Using f&#39;&#39; instead of .format().</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="formatting-numbers-and-precison-in-displaying-values">
+<h3>Formatting numbers and precison in displaying values<a class="headerlink" href="#formatting-numbers-and-precison-in-displaying-values" title="Link to this heading">#</a></h3>
+<p>If you deal with numerical values, you may want to display your answer to a certain precision or combine values and some text in some way. In this case you format the number to a string with the <code class="docutils literal notranslate"><span class="pre">.format()</span></code> function or <code class="docutils literal notranslate"><span class="pre">f''</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.123456</span><span class="p">))</span>                                    <span class="c1"># rounds and formats the number to 4dp.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.123456</span><span class="p">))</span>                                    <span class="c1"># rounds and formats the number to an integer. </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Float: </span><span class="si">{:.4f}</span><span class="s1"> and Integer: </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.1234567</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">))</span>   <span class="c1"># or 2 numbers together with some text.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Float: </span><span class="si">{1:.4f}</span><span class="s1"> and Integer: </span><span class="si">{0:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.1234567</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">))</span> <span class="c1"># Define order.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Float: </span><span class="si">{</span><span class="mf">0.123456</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> and Integer: </span><span class="si">{</span><span class="mf">1.7</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>              <span class="c1"># Using f&#39;&#39; instead of .format().</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Input after <code class="docutils literal notranslate"><span class="pre">:</span></code> tells python how to format the number:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code>: the number is formated it into a floating number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">e</span></code> or <code class="docutils literal notranslate"><span class="pre">E</span></code>: the number is formated to its exponational form using ‘e’ or ‘E’ (1e-5 or 1E-5).</p></li>
+<li><p>Integer after the <code class="docutils literal notranslate"><span class="pre">.</span></code>: number of dps.</p></li>
+<li><p>Integer before the <code class="docutils literal notranslate"><span class="pre">.</span></code>: the string is a minimum number of characters wide (leading spaces, if required).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Float: </span><span class="si">{:.2f}</span><span class="s1"> and Integer: </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1234.567</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Float: </span><span class="si">{:.2f}</span><span class="s1"> and Integer: </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">12345.67</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>      <span class="c1"># Not aligned output.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Float: </span><span class="si">{:8.2f}</span><span class="s1"> and Integer: </span><span class="si">{:2.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1234.567</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Float: </span><span class="si">{:8.2f}</span><span class="s1"> and Integer: </span><span class="si">{:2.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">12345.67</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>    <span class="c1"># Aligned output.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>Define 2 variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> with the values 12345e100 and 12.345, respectively. Use <code class="docutils literal notranslate"><span class="pre">f''</span></code> and the exponential form <code class="docutils literal notranslate"><span class="pre">e</span></code> or <code class="docutils literal notranslate"><span class="pre">E</span></code> with 2 dps. Display in the first line a and b and in the next line b and a, so that numbers are aligned.</p>
+</section>
+<section id="other-controls">
+<h2>Other controls<a class="headerlink" href="#other-controls" title="Link to this heading">#</a></h2>
+<p>There are a number of other formatting controls you can add to the flags. Here are a few:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:+10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1.234</span><span class="p">))</span>    <span class="c1"># + symbol adds + if positive</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:+10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="mf">1.234</span><span class="p">))</span>   <span class="c1"># + symbol adds - if negative</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mf">1.234</span><span class="si">:</span><span class="s1">-10.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>           <span class="c1"># - symbol adds no + if positive</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="o">-</span><span class="mf">1.234</span><span class="si">:</span><span class="s1">-10.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>          <span class="c1"># - symbol adds - if negative</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;How to print {{&#39;</span><span class="p">)</span>          <span class="c1"># how to print a { symbol</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;How to print }}&#39;</span><span class="p">)</span>          <span class="c1"># how to print a } symbol</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;How to print </span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>          <span class="c1"># how to print a \ symbol</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;How to print &quot; &#39;</span><span class="p">)</span>          <span class="c1"># how to print a &quot; symbol</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;How to print &#39; &quot;</span><span class="p">)</span>          <span class="c1"># how to print a &#39; symbol, note the change in defining the string &quot;&quot; or &#39;&#39;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-5">
+<h2>TASK 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>If an object moves 134m in 12s, print the speed in exponential and floating form with 1dp. Which format do you prefer?</p>
+</section>
+<section id="task-6">
+<h2>TASK 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h2>
+<p>Write a code that asks the user for two numbers. The code will  print both of then input values to the screen. On seperate lines, it will print the sum in exponent form with no dps, 1 dp and 2 dps.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -415,6 +703,36 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-input-and-output">User defined input and output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-input">User defined input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-or-values-an-overview">Text or values - an overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-to-the-screen">Printing to the screen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-way-to-request-a-number">Simple way to request a number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-numbers-and-precison-in-displaying-values">Formatting numbers and precison in displaying values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-controls">Other controls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">TASK 6</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
