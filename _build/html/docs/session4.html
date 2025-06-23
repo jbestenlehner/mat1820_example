@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -203,7 +203,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session5.html">Conditional Logic and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial: Conditions and Loops</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
@@ -368,7 +368,20 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-tuple-and-numpy-arrays">List <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code> and numpy arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetitive-tasks-for-loops">Repetitive tasks: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-range">Sequence: <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -388,10 +401,176 @@ document.write(`
 <li><p>Understand different data types.</p></li>
 <li><p>User defined input and output.</p></li>
 <li><p>Reading in and writing out files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p></li>
 </ul>
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In programming languages, data type is an important concept as it tells the computer, how much memory space needs to be reserved to store a value. Python is a dynamically-typed language, which means you don’t have to explicitly declare the data type of a variable when you create it. It is inferred when you execute your code at runtime.</p>
+<p>Variables can store data of different types, and different types used for different things.</p>
+<p>The following data types are used for this course and built in by default in python:</p>
+<ul class="simple">
+<li><p><em>Text type</em>: string: <code class="docutils literal notranslate"><span class="pre">str</span></code>, python does not have a character type like other programming language. A character is a string of length 1.</p></li>
+<li><p><em>Numeric Types</em>: integer: <code class="docutils literal notranslate"><span class="pre">int</span></code>, floating value <code class="docutils literal notranslate"><span class="pre">float</span></code> and complex numbers: <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p></li>
+<li><p><em>Sequence Types</em>: list <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><em>Boolean Type</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. See next <a class="reference internal" href="session5.html"><span class="doc std std-doc">session</span></a>.</p></li>
+</ul>
+<p>There are more data types in python like Mapping Type (dictionaries) or Set Types (storing multiple items in a single variable). An overview of the different built-in types can be found <a href="https://docs.python.org/3/library/stdtypes.html" target="_blank">here</a>.</p>
+<section id="list-tuple-and-numpy-arrays">
+<h3>List <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code> and numpy arrays<a class="headerlink" href="#list-tuple-and-numpy-arrays" title="Link to this heading">#</a></h3>
+<p>You might have been unaware, but we already used lists and tuples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>           <span class="c1"># this is a tuple</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>        <span class="c1"># the tuple (1, 5) sets the range of the x-axis</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>           <span class="c1"># this is a list</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># this is a numpy array</span>
+</pre></div>
+</div>
+<p>While lists and tuples can contain different data types numpy arrays except either <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code> or <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">])</span> <span class="c1"># converts all data types to type string.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>         <span class="c1"># assigns new type float to array. Note: this will raise an error, if there are letters.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="c1"># equivalent to above, but you tell numpy what dtype (short for data type) the array should have.</span>
+</pre></div>
+</div>
+<p>If you don’t what type your variable is, you can use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">tuple</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">list</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">int</span>
+</pre></div>
+</div>
+<p>Lists and tuples have similar properties, but you cannot assign a value to a list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># raises the error: TypeError: &#39;tuple&#39; object does not support item assignment</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># assigns the value 2 to the first element of the list [2, &#39;5&#39;, 2.3]</span>
+</pre></div>
+</div>
+<p>You can change between types by using <code class="docutils literal notranslate"><span class="pre">list()</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="n">a_nparray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a_tuple</span><span class="p">)</span>
+<span class="n">a_list_again</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a_nparray</span><span class="p">)</span> 
+</pre></div>
+</div>
+</section>
+<section id="repetitive-tasks-for-loops">
+<h3>Repetitive tasks: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#repetitive-tasks-for-loops" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> loops are used when you have a block of code which you want to repeat a fixed number of times. The <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop is used in combination with an <em>iterable</em> object (often sequence type) such as <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, or a <code class="docutils literal notranslate"><span class="pre">string</span></code>. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      <span class="c1"># Creates a list</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>  <span class="c1"># for loop syntax</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>      <span class="c1"># prints 1, 2 and 3</span>
+
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">a_list</span></code> is the <em>iterable</em> object while <code class="docutils literal notranslate"><span class="pre">element</span></code> is the variable where the elements of <code class="docutils literal notranslate"><span class="pre">a_list</span></code> are assigned to.</p>
+<p>Note: The end of the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is indicated by a <code class="docutils literal notranslate"><span class="pre">:</span></code>. In the next line follow instruction/statements, which are indented like bullet points. Python relies on indentation (whitespace at the beginning of a line) to define blocks of code.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop without indentation will raise an error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span> <span class="c1"># for loop statement</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>   <span class="c1"># will raise error message</span>
+</pre></div>
+</div>
+</div>
+<p>You can also iterates over strings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Materials&#39;</span>
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="sequence-range">
+<h4>Sequence: <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#sequence-range" title="Link to this heading">#</a></h4>
+<p>The function <code class="docutils literal notranslate"><span class="pre">range()</span></code> produces a sequence of integers from <code class="docutils literal notranslate"><span class="pre">start</span></code> (inclusive) to <code class="docutils literal notranslate"><span class="pre">stop</span></code> (exclusive) by <code class="docutils literal notranslate"><span class="pre">step</span></code> (default step size is 1), e.g. <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> produces 0, 1, 2. The <code class="docutils literal notranslate"><span class="pre">start</span></code> default is 0 and <code class="docutils literal notranslate"><span class="pre">stop</span></code> is 3 omitting 3.</p>
+<p><code class="docutils literal notranslate"><span class="pre">range(0,3)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">range(3)</span></code>.</p>
+<p>The third parameter is the <code class="docutils literal notranslate"><span class="pre">step</span></code> size: <code class="docutils literal notranslate"><span class="pre">range(1,6,2)</span></code> produces 1, 3, 5 while <code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">5,</span> <span class="pre">2)</span></code> produces 1, 3 <em>omitting</em> <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>From previous session you might remember the numpy function <code class="docutils literal notranslate"><span class="pre">np.arange</span></code>. At a first glance <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> seemed to be doing the same thing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, <code class="docutils literal notranslate"><span class="pre">np.arrays</span></code> should be avoided when used only for indexing or counting. Because Python creates a physical copy in memory of the numpy array (<code class="docutils literal notranslate"><span class="pre">np.arange(3)</span></code>) and then iterates over it. In the case of <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> the integers are 1 by 1 temporally produced.</p>
+<p>An indexer <code class="docutils literal notranslate"><span class="pre">i</span></code> over a range is usually used, if you want to update values in a list or array:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      <span class="c1"># Creates a list</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># multiplies each element by i + 2 and assigns the results to the i&#39;s element of the list.</span>
+</pre></div>
+</div>
+<p>This will update the list to <code class="docutils literal notranslate"><span class="pre">a_list</span> <span class="pre">=</span> <span class="pre">[2,</span> <span class="pre">6,</span> <span class="pre">12]</span></code>.</p>
+</section>
+</section>
+<section id="reading-and-writing-text-files">
+<h3>Reading and writing text files<a class="headerlink" href="#reading-and-writing-text-files" title="Link to this heading">#</a></h3>
+<p>Python provides built-in functions for creating, writing, and reading files.</p>
+<section id="creating-a-new-files">
+<h4>Creating a new files<a class="headerlink" href="#creating-a-new-files" title="Link to this heading">#</a></h4>
+<p>To create a new file in Python, the function <code class="docutils literal notranslate"><span class="pre">open()</span></code> is used with one of the following parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> - writes - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> will create a new file if the specified file does not exists or <strong>overwrite</strong> an existing file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> - append - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'a')</span></code> will create a new file if the specified file does not exists or <strong>append</strong> to an existing file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'x'</span></code> - create - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'x')</span></code> will create a new  file or returns an error if the file exists.</p></li>
+</ul>
+</section>
+<section id="reading-a-file-line-by-line">
+<h4>Reading a file line by line<a class="headerlink" href="#reading-a-file-line-by-line" title="Link to this heading">#</a></h4>
+<p>To open a file in <em>read only</em> the parameter <code class="docutils literal notranslate"><span class="pre">'r'</span></code> is used with the function <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This creates an iterable object. We can read in the file line by line with a loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span> <span class="c1"># reads the file line by line</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>   <span class="c1"># prints each line</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>      <span class="c1"># closes the file</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of the line indicates a new line. See tutorial for more details.</p>
+<p>The following example shows how to read file, creates list of its content and converts the list into a numpy array.  The example uses the function <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> which returns a copy of the string with leading and trailing whitespace removed including new line (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) and the function <code class="docutils literal notranslate"><span class="pre">.split()</span></code>, which returns a list of the substrings in the string, using <code class="docutils literal notranslate"><span class="pre">sep</span></code> as the separator string. If no separator string is given, the string will split on any white space character including new line and tab.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># opens file in read-only.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>                        <span class="c1"># creates and empty list</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>                <span class="c1"># reads the file line by line</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>          <span class="c1"># strips leading and trailing whitespace</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>          <span class="c1"># splits the string into substrings at each white space</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>            <span class="c1"># appends the list line to the list data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>            <span class="c1"># converts list to numpy array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>                <span class="c1"># shape of array in lines and columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note, <code class="docutils literal notranslate"><span class="pre">.split()</span></code> is mainly useful for data that has been intentionally delimited.</p>
+</section>
+<section id="writing-to-a-file">
+<h4>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h4>
+<p>Before we can write into a file we need to create it first, e.g. `open(‘myfile.txt’, ‘w’) (see <a class="reference internal" href="#creating-a-new-files"><span class="xref myst">creating a new file</span></a>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>           <span class="c1"># creates a new file called myfile.txt or overwrites it, if it already exists.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>                     <span class="c1"># produces range 1, 2, 3</span>
+    <span class="n">a_string</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Line &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># creates a string and converts indexes i into string </span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span>                 <span class="c1"># writes string into file</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                             <span class="c1"># closes the file</span>
+</pre></div>
+</div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> (new line) needs to be added at the end of the string. Otherwise all strings will be written into the same line.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>File mist be closed after writing the data, e.g. <code class="docutils literal notranslate"><span class="pre">file.close()</span></code>. If the file is not closed properly, not all data might be written to the file.</p>
+</div>
+</section>
+</section>
 </section>
 </section>
 
@@ -460,7 +639,20 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-tuple-and-numpy-arrays">List <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code> and numpy arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetitive-tasks-for-loops">Repetitive tasks: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-range">Sequence: <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

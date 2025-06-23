@@ -87,9 +87,9 @@ Do you not like this class?
 | False   | True    | True     |
 | True    | True    | True     |
 
-##### Logical operator XOR
+##### Logical operator XOR (exclusive-or)
 
-You have a bag of green, blue, red, purple, orange and yellow marbles. You want to draw 1 yellow and 1 green marble:
+You have a bag of 6 marbles with the colour green, blue, red, purple, orange and yellow. In 2 attempts you want to draw either 1 yellow or 1 green marble (exclusive):
 
 | Input A | Input B | A `^`   B|
 |:-------:|:-------:|:--------:|
@@ -194,13 +194,13 @@ Python relies on indentation (whitespace at the beginning of a line) to define b
 
 :::{warning}
 
-An `if` statement, without indentation will raise an error:
+An `if` statement without indentation will raise an error:
 ```python
 if x > 2:
 print('x greater than 2') # will raise error message
 ```
 :::
 
-### Loops: `for `and `while`
+### Conditional loop: `while`
 
 
