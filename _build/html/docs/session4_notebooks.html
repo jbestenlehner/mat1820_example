@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session4_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -414,6 +416,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-controls">Other controls</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">TASK 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-arrays">Printing arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">TASK 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">TASK 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9">TASK 9</a></li>
 </ul>
             </nav>
         </div>
@@ -533,9 +539,9 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 <p>To get the computer to ask you to enter something, you can use the function <code class="docutils literal notranslate"><span class="pre">input()</span></code>. This allows you to ask for an information entry point, and also allows text on the screen to be added to let the user know what it is waiting for. Python will then wait for a response before continuing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a value: &#39;</span><span class="p">)</span>      <span class="c1"># text printed to the screen is in speech marks. </span>
-<span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span>                           <span class="c1"># some calculation</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                        <span class="c1"># prints the results</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a value: &#39;</span><span class="p">)</span>      <span class="c1"># text printed to the screen is in speech marks. </span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>                           <span class="c1"># some calculation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                          <span class="c1"># prints the results</span>
 </pre></div>
 </div>
 </div>
@@ -658,14 +664,17 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </section>
 <section id="other-controls">
 <h2>Other controls<a class="headerlink" href="#other-controls" title="Link to this heading">#</a></h2>
-<p>There are a number of other formatting controls you can add to the flags. Here are a few:</p>
+<p>There are a number of other <a href="https://docs.python.org/3/library/string.html#format-specification-mini-language" target="_blank">formatting controls</a> you can add to the flags. Here are a few:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:+10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1.234</span><span class="p">))</span>    <span class="c1"># + symbol adds + if positive</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:+10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="mf">1.234</span><span class="p">))</span>   <span class="c1"># + symbol adds - if negative</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:+10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1.234</span><span class="p">))</span>  <span class="c1"># + symbol adds + if positive</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:+10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="mf">1.234</span><span class="p">))</span> <span class="c1"># + symbol adds - if negative</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mf">1.234</span><span class="si">:</span><span class="s1">-10.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>           <span class="c1"># - symbol adds no + if positive</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="o">-</span><span class="mf">1.234</span><span class="si">:</span><span class="s1">-10.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>          <span class="c1"># - symbol adds - if negative</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mf">1.234</span><span class="si">:</span><span class="s1">-10.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>          <span class="c1"># - symbol adds no + if positive</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="o">-</span><span class="mf">1.234</span><span class="si">:</span><span class="s1">-10.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>         <span class="c1"># - symbol adds - if negative</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&lt;10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1.234</span><span class="p">))</span>  <span class="c1"># Left aligns the result (within the available space)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;10.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1.234</span><span class="p">))</span>  <span class="c1"># Right aligns the result (within the available space)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;How to print {{&#39;</span><span class="p">)</span>          <span class="c1"># how to print a { symbol</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;How to print }}&#39;</span><span class="p">)</span>          <span class="c1"># how to print a } symbol</span>
@@ -683,7 +692,76 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </section>
 <section id="task-6">
 <h2>TASK 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h2>
-<p>Write a code that asks the user for two numbers. The code will  print both of then input values to the screen. On seperate lines, it will print the sum in exponent form with no dps, 1 dp and 2 dps.</p>
+<p>Write a code that asks the user for two numbers. The code will  print both of then input values to the screen. On separated lines, it will print the sum in exponent form with no dps, 1 dp and 2 dps.</p>
+</section>
+<section id="printing-arrays">
+<h2>Printing arrays<a class="headerlink" href="#printing-arrays" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">{}.format()</span></code> and <code class="docutils literal notranslate"><span class="pre">f'{}'</span></code> expect scalars to be formatted into string. When dealing with arrays, their elements need to be element-wise formatted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># Creates array with random numbers</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x values&#39;</span><span class="p">)</span> 
+<span class="k">for</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>          <span class="c1"># loop for element-wise formatting</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="c1"># formats float value to 3dp.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the case of 2 arrays it is easier to index through the arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x values y values&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>       <span class="c1"># indexing through each element of vector x and y</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:8.3f}{:9.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-7">
+<h2>TASK 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
+<p>Write code below that asks the user for a set of radii that defines a set of spheres. The code will calculate the surface area and volume of each sphere (if you can’t remember, use google to find those equations).</p>
+<p>Test it with the values of 1.1, 2.23, 3.52 and try and make your output look like the following:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>rad</p></th>
+<th class="head text-left"><p>area</p></th>
+<th class="head text-left"><p>vol</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1.10</p></td>
+<td class="text-left"><p>15.2</p></td>
+<td class="text-left"><p>6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2.23</p></td>
+<td class="text-left"><p>62.5</p></td>
+<td class="text-left"><p>46</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3.52</p></td>
+<td class="text-left"><p>155.7</p></td>
+<td class="text-left"><p>183</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="task-8">
+<h2>TASK 8<a class="headerlink" href="#task-8" title="Link to this heading">#</a></h2>
+<p>A business is selling a range of different materials:</p>
+<ul class="simple">
+<li><p>Wood at £2.18 /m</p></li>
+<li><p>Steel at £18.12 /m</p></li>
+<li><p>Copper at £34.65 /m</p></li>
+</ul>
+<p>Write a code that asks the user how many metres of wood, steel and copper the user wants to buy and then calculates the total price. It should write the answer out to a real amount of money.</p>
+</section>
+<section id="task-9">
+<h2>TASK 9<a class="headerlink" href="#task-9" title="Link to this heading">#</a></h2>
+<p>Write a code that asks the user for a density in kg/m3 and converts it to <span class="math notranslate nohighlight">\(\mathrm{g\,cm^{-3}}\)</span>, <span class="math notranslate nohighlight">\(\mathrm{Mg\, mm^{-3}}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{ng\, nm^{-3}}\)</span>. In each case write out to the correct number of dps.</p>
 </section>
 </section>
 
@@ -767,6 +845,10 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-controls">Other controls</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">TASK 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-arrays">Printing arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">TASK 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">TASK 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9">TASK 9</a></li>
 </ul>
   </nav></div>
 

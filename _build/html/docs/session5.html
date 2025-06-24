@@ -404,7 +404,7 @@ document.write(`
 <ul class="simple">
 <li><p>Boolean logic (<code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
 <li><p>Conditional statements (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">elif</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code> loops.</p></li>
 </ul>
 </section>
 <section id="overview">
@@ -477,7 +477,7 @@ document.write(`
 <td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
 <td class="text-center"><p>OR</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
 <td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
 <td class="text-center"><p>NOT</p></td>
 </tr>
@@ -708,6 +708,26 @@ document.write(`
 </section>
 <section id="conditional-loop-while">
 <h3>Conditional loop: <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#conditional-loop-while" title="Link to this heading">#</a></h3>
+<p>In the previous session we have used <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and iterable objects. The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop continues to execute a block of code <strong>while</strong> the condition is <strong>true</strong>. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># if i is not updated the loop will run forever</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always check your condition, if it becomes <code class="docutils literal notranslate"><span class="pre">False</span></code> and does not run forever.</p>
+</div>
+<p>As it is a conditional loop you can combine a <code class="docutils literal notranslate"><span class="pre">while</span></code> with an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i is no longer less than 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>

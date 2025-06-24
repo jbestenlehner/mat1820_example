@@ -189,7 +189,7 @@ Note, `.split()` is mainly useful for data that has been intentionally delimited
 
 #### Writing to a file
 
-Before we can write into a file we need to create it first, e.g. `open('myfile.txt', 'w') (see [creating a new file](#creating-a-new-files)).
+Before we can write into a file we need to create it first, e.g. `open('myfile.txt', 'w')` (see [creating a new file](#creating-a-new-files)).
 
 ```python
 file = open('myfile.txt', 'w')           # creates a new file called myfile.txt or overwrites it, if it already exists.
@@ -203,6 +203,6 @@ Note: `'\n'` (new line) needs to be added at the end of the string. Otherwise al
 
 :::{warning}
 
-File mist be closed after writing the data, e.g. `file.close()`. If the file is not closed properly, not all data might be written to the file.
+File must be closed after writing the data, e.g. `file.close()`. If the file is not closed properly, not all data might be written to the file.
 
 :::

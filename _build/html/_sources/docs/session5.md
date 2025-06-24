@@ -3,7 +3,7 @@
 
 * Boolean logic (`True` and `False`).
 * Conditional statements (`if`, `else` and `elif`).
-* `for` and `while` loops.
+* `while` loops.
 
 ## Overview
 
@@ -49,8 +49,8 @@ We can combine expressions with Boolean logical operators: AND, OR, NOT and XOR.
 |:--------:|:----------:|:-------------:|
 | `&`      | `and`      | AND|
 | `\|`     | `or`       | OR |
-|| `not` | NOT |
-| `^`    | | XOR |
+| `~`      | `not`      | NOT |
+| `^`      |            | XOR |
 
 To use _symbol_ or _word_ it is up to your preference, but it also depends what is used in the programming language you have learned first. In python program code `and`, `or` and `not` are usually used instead of their symbols, as it closer to our written language.
 
@@ -203,4 +203,27 @@ print('x greater than 2') # will raise error message
 
 ### Conditional loop: `while`
 
+In the previous session we have used `for` loop and iterable objects. The `while` loop continues to execute a block of code **while** the condition is **true**. For example:
 
+```python
+i = 0
+while i < 5:
+    print(i)
+    i = i + 1 # if i is not updated the loop will run forever
+```
+:::{warning}
+
+Always check your condition, if it becomes `False` and does not run forever. 
+
+:::
+
+As it is a conditional loop you can combine a `while` with an `else` statement:
+
+```python
+i = 0
+while i < 5:
+  print(i)
+  i = i + 1
+else:
+  print("i is no longer less than 5")
+```

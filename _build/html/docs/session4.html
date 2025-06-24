@@ -556,7 +556,7 @@ document.write(`
 </section>
 <section id="writing-to-a-file">
 <h4>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h4>
-<p>Before we can write into a file we need to create it first, e.g. `open(‘myfile.txt’, ‘w’) (see <a class="reference internal" href="#creating-a-new-files"><span class="xref myst">creating a new file</span></a>).</p>
+<p>Before we can write into a file we need to create it first, e.g. <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> (see <a class="reference internal" href="#creating-a-new-files"><span class="xref myst">creating a new file</span></a>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>           <span class="c1"># creates a new file called myfile.txt or overwrites it, if it already exists.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>                     <span class="c1"># produces range 1, 2, 3</span>
     <span class="n">a_string</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Line &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># creates a string and converts indexes i into string </span>
@@ -567,7 +567,7 @@ document.write(`
 <p>Note: <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> (new line) needs to be added at the end of the string. Otherwise all strings will be written into the same line.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>File mist be closed after writing the data, e.g. <code class="docutils literal notranslate"><span class="pre">file.close()</span></code>. If the file is not closed properly, not all data might be written to the file.</p>
+<p>File must be closed after writing the data, e.g. <code class="docutils literal notranslate"><span class="pre">file.close()</span></code>. If the file is not closed properly, not all data might be written to the file.</p>
 </div>
 </section>
 </section>

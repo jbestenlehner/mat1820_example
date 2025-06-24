@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session5_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -375,7 +377,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -391,6 +395,26 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-and-flow">Logic and flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-statements">Logical statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-with-arrays">Relational Operators with arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -402,6 +426,190 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-conditions-and-loops">
 <h1>Tutorial: Conditions and Loops<a class="headerlink" href="#tutorial-conditions-and-loops" title="Link to this heading">#</a></h1>
+<section id="logic-and-flow">
+<h2>Logic and flow<a class="headerlink" href="#logic-and-flow" title="Link to this heading">#</a></h2>
+<p>This live script will teach you how to test variables if they meet certain criteria. It will also show how you can loop through your data calculations really fast.
+Scripts and programs can have three main types of flow.</p>
+<p><img alt="logic_loop" src="../_images/logic_loop.png" /></p>
+<ul class="simple">
+<li><p>The first is a sequence, a set of commands that are followed one after another. This is what we have been doing so far.</p></li>
+<li><p>The second is a choice, where you the code asks “IF a variable is equal to this, do A, else do B “</p></li>
+<li><p>The third is repetition, where we ask the code to loop over things for a set number or until a choice is met.</p></li>
+</ul>
+<p>The last key point to note is that when we deal with loops, it can end up looping indefinitely, and surprisingly easy to do. In principle you should be able to stop it, but in most cases you need to <strong>close</strong> your <strong>Colab-tab</strong>.</p>
+</section>
+<section id="logical-statements">
+<h2>Logical statements<a class="headerlink" href="#logical-statements" title="Link to this heading">#</a></h2>
+<p>There are a few conditional logic statements that you can use to test values and variables. Many you have met it maths already.</p>
+<section id="relational-operators">
+<h3>Relational Operators<a class="headerlink" href="#relational-operators" title="Link to this heading">#</a></h3>
+<p>These work on boolean answers, that of <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<ul class="simple">
+<li><p>Note that Using an <code class="docutils literal notranslate"><span class="pre">=</span></code> with two variables means you assign one of them as the value of the other. Using <code class="docutils literal notranslate"><span class="pre">==</span></code> tests if the two variables are equivalent.</p></li>
+<li><p>I’ve assigned each to a variable to show this and used the <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display the value to the screen for each answer.</p></li>
+<li><p>You can invert your logic using a <code class="docutils literal notranslate"><span class="pre">not</span></code> or symbol <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p></li>
+<li><p>You can test two things using <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (logical <code class="docutils literal notranslate"><span class="pre">and</span></code>, both tests need to be true), or <code class="docutils literal notranslate"><span class="pre">or</span></code> or <code class="docutils literal notranslate"><span class="pre">|</span></code> (logical <code class="docutils literal notranslate"><span class="pre">or</span></code>, one of two tests needs to be true).</p></li>
+</ul>
+<p>A more details are given on the overview page of this <a class="reference internal" href="session5.html"><span class="doc std std-doc">session</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>  <span class="c1"># assign values to variables x, y and z</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>       <span class="c1"># True - x is bigger than y is true</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span>       <span class="c1"># False - x is not bigger than y, false</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># False - x is not equivalent to y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span>      <span class="c1"># True - x is  equivalent to z</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">)</span>       <span class="c1"># False - x is not smaller than z</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">)</span>      <span class="c1"># True - x is equal or smaller than z </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># True - x is NOT equal to y</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">z</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># True - inverts answer as z is NOT smaller than y</span>
+
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">))</span> <span class="c1"># True - x is equivalent to z AND y is smaller than x</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">))</span>   <span class="c1"># False - x is equivalent to z but y is NOT smaller than x</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># True - x is equivalent to z, y is NOT smaller than x but only one needs to be true</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">))</span>   <span class="c1"># False - x is equivalent to z, y is smaller than x, but either one or the other needs to be true (exclusive or, XOR)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="relational-operators-with-arrays">
+<h3>Relational Operators with arrays<a class="headerlink" href="#relational-operators-with-arrays" title="Link to this heading">#</a></h3>
+<p>Only ‘true’ values will be selected when used with a vector (1D array) or matrix (multi-dimensional array):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># creates array</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">2</span>        <span class="c1"># creates array of True and False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>          <span class="c1"># prints boolean array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>       <span class="c1"># prints only True values of a</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-1">
+<h2>TASK 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>Create a vector B that goes from 0 to 10 in steps of 1. Using a relational operator, find the values of the vector that are above 5 and print them to the screen.</p>
+<ul class="simple">
+<li><p>Set up the vector B</p></li>
+<li><p>Generate a true and false vector for values above 5.</p></li>
+<li><p>Create a third vector of only the true values and use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to print the values to the screen.</p></li>
+</ul>
+</section>
+<section id="conditional-logic">
+<h2>Conditional logic<a class="headerlink" href="#conditional-logic" title="Link to this heading">#</a></h2>
+<p>Conditional logic also works with boolean answers and can be used to control the decision making using the relational operators. We can do this through conditional expressions such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements.</p>
+<ul class="simple">
+<li><p>Note: In python any value entered is a string and needs to be converted to a numerical value with <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ask the user to enter a value</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter the percentage mark you want for this course: &#39;</span><span class="p">))</span> <span class="c1"># the string needs to be converted into a numerical value so that it can be compared to a numerical value.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aim high!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> is a first class honors&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> mark is a 2:1&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> mark is a 2:2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;You can do better than that&#39;</span><span class="p">)</span> 
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Too low&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;That is not a valid score&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code sorts the data you have entered into one of the answers above and then ends. It starts with <code class="docutils literal notranslate"><span class="pre">if</span></code>, if <code class="docutils literal notranslate"><span class="pre">True</span></code> prints and then terminates. If not <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">False</span></code>), moves to see if the <code class="docutils literal notranslate"><span class="pre">elif</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and so on. Note also the <code class="docutils literal notranslate"><span class="pre">else</span></code> section at the end which catches all the other options.<br />
+You can have as many <code class="docutils literal notranslate"><span class="pre">elif</span></code> as you want, but it needs to start with an <code class="docutils literal notranslate"><span class="pre">if</span></code>. The <code class="docutils literal notranslate"><span class="pre">else</span></code> statement is also optional.</p>
+</section>
+<section id="protection-in-algorithms-using-conditional-logic">
+<h2>Protection in algorithms using conditional logic<a class="headerlink" href="#protection-in-algorithms-using-conditional-logic" title="Link to this heading">#</a></h2>
+<p>You can use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to end a program early if the user inputs something incorrectly, for example a negative number when your operation is calculating a square root. To do the code test in one line that both variables are correct using the <code class="docutils literal notranslate"><span class="pre">or</span></code> (<code class="docutils literal notranslate"><span class="pre">|</span></code>) logic operator. If either is wrong the code will return and exit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a positive number: &#39;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a negative number: &#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a = </span><span class="si">{:.1f}</span><span class="s1"> and b = </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not correct&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;answer is </span><span class="si">{:.2f}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-if-blocks-as-option-flow">
+<h2>Using If blocks as option flow<a class="headerlink" href="#using-if-blocks-as-option-flow" title="Link to this heading">#</a></h2>
+<p>You can use inputs to direct the flow of your algorithm. Here we ask the user to enter a value which specifies what the program does next.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a value:</span><span class="se">\n</span><span class="s1">1 finds the maximum </span><span class="se">\n</span><span class="s1">2 finds the minimum</span><span class="se">\n</span><span class="s1">3 finds the average</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.85</span><span class="p">,</span><span class="mf">1.34</span><span class="p">,</span><span class="mf">9.55</span><span class="p">,</span><span class="mf">3.53</span><span class="p">,</span><span class="mf">6.53</span><span class="p">,</span><span class="mf">7.54</span><span class="p">])</span>
+<span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1"> is not an option&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2">
+<h2>TASK 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter a value and assign this to a variable called POS.</p></li>
+<li><p>Test to see if the variable is positive or not.</p></li>
+<li><p>If it is negative, end the algorithm early with a message to the user.</p></li>
+<li><p>If true, calculate the value <span class="math notranslate nohighlight">\(\ln \sqrt{\mathrm{POS}}\)</span> and print to the screen.</p></li>
+</ul>
+</section>
+<section id="conditional-logic-and-strings">
+<h2>Conditional logic and strings<a class="headerlink" href="#conditional-logic-and-strings" title="Link to this heading">#</a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">if</span></code> statements with strings to direct a program to run certain options. To do this, you need to compare the input to a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Type y to get a nice message: &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You are looking good today&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You are not looking too good&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-4">
+<h2>TASK 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter a value.</p></li>
+<li><p>Asks the user if the value entered is degrees celsius or degrees fahrenheit.</p></li>
+<li><p>If you enter C it converts and prints the value in fahrenheit to the screen.</p></li>
+<li><p>If you enter F it converts and prints the value in celsius to the screen.</p></li>
+<li><p>Make sure it only calculates values above absolute zero.</p></li>
+<li><p>The conversion is (X<strong>°F</strong> − 32) × 5/9 = Y<strong>°C</strong></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -458,6 +666,33 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-and-flow">Logic and flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-statements">Logical statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-with-arrays">Relational Operators with arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

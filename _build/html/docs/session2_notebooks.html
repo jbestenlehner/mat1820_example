@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -205,7 +205,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session5.html">Conditional Logic and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial: Conditions and Loops</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
@@ -495,7 +495,7 @@ document.write(`
 <p>Note: Evenly spaced numbers in log space can be generated with <em>np.logspace</em>.</p>
 <section id="task-1">
 <h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
-<p>Create am array,  assigned to the variable <strong>a</strong>, that stores 20 elements. The first element starts at 5 and the last ends at 6 with equal steps in between.</p>
+<p>Create an array,  assigned to the variable <strong>a</strong>, that stores 20 elements. The first element starts at 5 and the last ends at 6 with equal steps in between.</p>
 </section>
 <section id="task-2">
 <h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
@@ -800,10 +800,16 @@ document.write(`
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>     <span class="c1"># concatenate into a 1D array with 8 entries, because it stacks along the only available axis. Note np.hstack does the same.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># gives error, because axis=1 does not exist (1D array)</span>
-
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>    <span class="c1"># treats vectors as columns and stacks them =&gt; 4x2 matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To combine vectors into arrays the following functions are used:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>    <span class="c1"># treats vectors as columns and stacks them =&gt; 4x2 matrix</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>          <span class="c1"># combine into a 2x4 matrix</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">row_stack</span><span class="p">((</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>       <span class="c1"># combine into a 2x4 matrix</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="c1">#or</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">array_1</span><span class="p">,</span><span class="n">array_2</span><span class="p">])</span>            <span class="c1"># This is equivalent to np.array([[1,2,3,4], [3,4,5,6]]) </span>
@@ -812,6 +818,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Note: to stack along rows the <code class="docutils literal notranslate"><span class="pre">np.vstack()</span></code> function could be used as well, but <code class="docutils literal notranslate"><span class="pre">np.hstack()</span></code> would create a 1D array with the vectors appended.</p>
 </section>
 </section>
 <section id="task-6">
