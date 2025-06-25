@@ -1,8 +1,11 @@
-# 
+# Reading and writing files
+
 ## Learning Objectives:
 
-* Creating and indexing vectors and matrices.
-* Mathematical operations on vectors and matrices.
-* Application in Material Science.
+* Reading and writing files.
+* Built in functions `open()` and `write()`
+* Numpy's `np.loadtxt()` and `np.savetxt()`
+* Pandas' `DataFrame`
 
 ## Overview
+

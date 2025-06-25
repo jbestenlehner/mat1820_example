@@ -1,4 +1,4 @@
-# 
+# Fitting of Data
 ## Learning Objectives:
 
 * Creating and indexing vectors and matrices.
