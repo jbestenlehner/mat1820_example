@@ -77,7 +77,7 @@ a_nparray = np.array(a_tuple)
 a_list_again = list(a_nparray) 
 ```
 
-### Repetitive tasks: `for` loops
+### Repetitive Tasks: `for` loops
 
 `for` loops are used when you have a block of code which you want to repeat a fixed number of times. The `for`-loop is used in combination with an _iterable_ object (often sequence type) such as `list`, `tuple`, `range`, `dictionary`, `set`, or a `string`. For example:
 

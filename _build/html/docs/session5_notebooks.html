@@ -406,13 +406,23 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-with-arrays">Relational Operators with arrays</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-and-breaks">Loops and breaks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-tough-challenge">Task 8  (TOUGH CHALLENGE)</a></li>
 </ul>
             </nav>
         </div>
@@ -493,7 +503,7 @@ Scripts and programs can have three main types of flow.</p>
 </section>
 </section>
 <section id="task-1">
-<h2>TASK 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
 <p>Create a vector B that goes from 0 to 10 in steps of 1. Using a relational operator, find the values of the vector that are above 5 and print them to the screen.</p>
 <ul class="simple">
 <li><p>Set up the vector B</p></li>
@@ -574,7 +584,7 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="task-2">
-<h2>TASK 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
 <p>Write an algorithm that:</p>
 <ul class="simple">
 <li><p>Asks the user to enter a value and assign this to a variable called POS.</p></li>
@@ -599,7 +609,7 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="task-4">
-<h2>TASK 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
 <p>Write an algorithm that:</p>
 <ul class="simple">
 <li><p>Asks the user to enter a value.</p></li>
@@ -608,6 +618,157 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 <li><p>If you enter F it converts and prints the value in celsius to the screen.</p></li>
 <li><p>Make sure it only calculates values above absolute zero.</p></li>
 <li><p>The conversion is (X<strong>°F</strong> − 32) × 5/9 = Y<strong>°C</strong></p></li>
+</ul>
+</section>
+<section id="task-5">
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Write a function the calculates the geometric factor for a finite plate using the equations below for either a through thickness centre crack (<span class="math notranslate nohighlight">\(Y_C\)</span>) or a through thickness edge crack (<span class="math notranslate nohighlight">\(Y_E\)</span>) depending on user preference.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+Y_C = 1 + 0.256 \left( \frac{a}{w}\right) - 1.152 \left( \frac{a}{w}\right)^2 + 12.2 \left( \frac{a}{w}\right)^3\\Y_E = 1.122 - 0.231 \left( \frac{a}{w}\right) + 10.55 \left( \frac{a}{w}\right)^2 - 21.71 \left( \frac{a}{w}\right)^3 + 30.38 \left( \frac{a}{w}\right)^4
+\end{aligned}\end{align} \]</div>
+<p>The algorithm should</p>
+<ul class="simple">
+<li><p>Ask the use for the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(w\)</span>.</p></li>
+<li><p>Ask the user to choose between <span class="math notranslate nohighlight">\(Y_C\)</span> and <span class="math notranslate nohighlight">\(Y_E\)</span>. This could be done with values or characters it is up to you.</p></li>
+<li><p>Print to the screen the geometric value of <span class="math notranslate nohighlight">\(Y_C\)</span> and <span class="math notranslate nohighlight">\(Y_E\)</span>.</p></li>
+</ul>
+</section>
+<section id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
+<p>As already discussed there are two types of loops that are used in Python:</p>
+<ul class="simple">
+<li><p>The first is where you have an iterable object or know how many iterations you want, called a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
+<li><p>The second is a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop where the loop will stop when the pre-set condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>Note: for a `while loop, if it does not meet the exit condition, the loop will continue indefinitely. This can result that your Colab session does not response. Try the ‘stop’ button to break out of this or close the tab and start again. Changes are usually automatically saved.</p>
+<section id="for-loops">
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h3>
+<p>The FOR loop is based on vector notation. You provide a starting point, and end point and the increment, and the code will loop through until it ends.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this for loop goes between 0 and 100 in steps of 10, excluding 100.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you do not specify the start and step, Python will use the default of 0 for start and 1 for step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#This for loop goes between two variables in steps of 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use it to step <em>through</em> arrays. Here we use the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to go through each element in the data array, and square it. Printing the result to the screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>      <span class="c1"># Set up vector of data </span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>   <span class="c1"># Go from 0 to the length of the vector excluding 6. </span>
+    <span class="n">output</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>        <span class="c1"># Use i as a index, square the value stored in data</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No. </span><span class="si">{:.0f}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1"> squared is </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the <code class="docutils literal notranslate"><span class="pre">data</span></code> is an iterable object, you can alternatively iterate through each element. If you need an indexer, e.g. store data/results in an array or list, you can produce one with <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function, which will count from 0 to the length of your iterable object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>              <span class="c1"># Set up vector of data </span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>    <span class="c1"># Iterate through elements of data</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">element</span><span class="o">**</span><span class="mi">2</span>              <span class="c1"># Square the element</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No. </span><span class="si">{:.0f}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1"> squared is </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">output</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-6">
+<h3>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h3>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter two even values</p></li>
+<li><p>The algorithm then prints to the screen all the even values between those two values.</p></li>
+<li><p>Keeps a running sum of the values, and prints this at the end.</p></li>
+<li><p><strong>Hint 1</strong>: Think about the increment needed in the FOR loop.</p></li>
+<li><p><strong>Hint 2</strong>: You will need to define a variable sum. You can increment sum by adding it to itself e.g. <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">=</span> <span class="pre">sum</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+</ul>
+<p>Verification: Entering values of 2 and 10 would display the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">4</span>
+<span class="mi">6</span>
+<span class="mi">8</span>
+<span class="mi">18</span>
+<span class="n">Sum</span> <span class="ow">is</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</section>
+<section id="while-loops">
+<h3>While loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop asks Python to keep running until a condition is not <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are two key parts to this.</p>
+<ul class="simple">
+<li><p>An initialised variable to test against.</p></li>
+<li><p>The variable is updated inside the loop and will execute the code block inside <code class="docutils literal notranslate"><span class="pre">while</span></code> until the condition is not fulfilled anymore (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+</ul>
+</section>
+<section id="loops-and-breaks">
+<h3>Loops and breaks<a class="headerlink" href="#loops-and-breaks" title="Link to this heading">#</a></h3>
+<p>You can use break commands to exit out of loops. Here we use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with a very large condition. If the value you enter is met using an <code class="docutils literal notranslate"><span class="pre">if</span></code> condition, the loop will <code class="docutils literal notranslate"><span class="pre">break</span></code> and jump out of the loop to the end of the code block, printing then the final line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter value when to stop: &#39;</span><span class="p">))</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mf">1e100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-7">
+<h3>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h3>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter the value 4.</p></li>
+<li><p>If 4 is entered it will stop the algorithm.</p></li>
+<li><p>If a different number is entered it will ask you again and keep asking until you enter 4.</p></li>
+</ul>
+<p>TOUGH CHALLENGE:</p>
+<ul class="simple">
+<li><p>Can you modify your algorithm above such that it asks you to enter in order the sequence of values  4, 8, 15, 16, 23 and 42.</p></li>
+<li><p>If you enter the sequence correctly it prints to the screen “you are not lost” and ends.</p></li>
+</ul>
+</section>
+</section>
+<section id="task-8-tough-challenge">
+<h2>Task 8  (TOUGH CHALLENGE)<a class="headerlink" href="#task-8-tough-challenge" title="Link to this heading">#</a></h2>
+<p>Use the algorithm you wrote in Task 3 (guess game) and modify so</p>
+<ul class="simple">
+<li><p>You start with 10 points</p></li>
+<li><p>If you guess correctly, add 5 to your points.</p></li>
+<li><p>If you guess incorrectly, minus 1 off your points total</p></li>
+<li><p>Once you have 0 points, the algorithm will end.</p></li>
 </ul>
 </section>
 </section>
@@ -682,13 +843,23 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-with-arrays">Relational Operators with arrays</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-and-breaks">Loops and breaks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-tough-challenge">Task 8  (TOUGH CHALLENGE)</a></li>
 </ul>
   </nav></div>
 

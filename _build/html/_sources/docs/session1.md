@@ -8,15 +8,15 @@
 
 ## Overview
 
-As material scientists it is important that we are able to use appropriate computing tools in our work. Computers are good in efficiently analysing data, visualising information by creating plots or controlling equipment in the lab. Of course, humans are able to do the same tasks with pen, paper and a calculator, but challenges will arise:
+As material scientists it is important that we are able to use appropriate computing tools in our work. Computers are good in efficiently analysing data, visualising information by creating plots or controlling equipment in the lab. Of course, humans are able to do the same Tasks with pen, paper and a calculator, but challenges will arise:
 
 * **Humans make mistakes:** e.g. swap a digit (*75683424* or *75684324*), accidentally miss a minus sign or make typos in the formula while calculating, e.g. wrongly placed brackets or incorrect units in variable.
 * **Humans are slow:** calculating 1000 data points of a formula to draw a graph is not difficult, but will take a long time.
-* **Humans are quickly bored with laborious and repetitive tasks and lose concentration:** How would you feel, if you notice an error in your formula after looking at your graph?
+* **Humans are quickly bored with laborious and repetitive Tasks and lose concentration:** How would you feel, if you notice an error in your formula after looking at your graph?
 
-In contrast, computers are good at numerical tasks and do not make accidentally mistakes, are able to perform certain tasks in a fraction of a time, and do not complain about laborious and repetitive tasks.
+In contrast, computers are good at numerical Tasks and do not make accidentally mistakes, are able to perform certain Tasks in a fraction of a time, and do not complain about laborious and repetitive Tasks.
 
-Computer code is a set of instructions, or a system of rules, written in a specific programming language (e.g. python, C++, java, Assembly language, ...) that tells a computer how to perform specific tasks. Computers are not inherently intelligent and cannot interpret or guess, what you might mean. They only do what to tell them to do. Artificial intelligence might be able to do this to some extent, but the main purpose of this course is to learn the transferable skills, which can be then applied to many other problems either in Materials Science or any other problem in real life.
+Computer code is a set of instructions, or a system of rules, written in a specific programming language (e.g. python, C++, java, Assembly language, ...) that tells a computer how to perform specific Tasks. Computers are not inherently intelligent and cannot interpret or guess, what you might mean. They only do what to tell them to do. Artificial intelligence might be able to do this to some extent, but the main purpose of this course is to learn the transferable skills, which can be then applied to many other problems either in Materials Science or any other problem in real life.
 
 ## Lecture notes/slides
 

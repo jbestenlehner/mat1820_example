@@ -1,6 +1,6 @@
 # Executing Jupyter Notebooks on Colab
 
-Jupyter Notebooks are a community standard for communicating and performing interactive computing. It combines computational tasks with explanatory text. Colab is a free cloud service by Google to create and share interactive notebooks with code, text, and visualizations.
+Jupyter Notebooks are a community standard for communicating and performing interactive computing. It combines computational Tasks with explanatory text. Colab is a free cloud service by Google to create and share interactive notebooks with code, text, and visualizations.
 
 :::{seealso}
 <a href="https://jupyter.org/" target="_blank">Jupyter Project</a> and <a href="https://colab.google/" target="_blank">Colab</a>  for more details.
