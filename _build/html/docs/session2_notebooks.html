@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Tutorial: Vectors and matrices &#8212; Digital Skills for Materials</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session2_notebooks';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -225,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -234,14 +245,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -266,14 +277,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session2_notebooks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -350,10 +361,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -361,14 +372,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -428,16 +439,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-vectors-and-matrices">
-<h1>Tutorial: Vectors and matrices<a class="headerlink" href="#tutorial-vectors-and-matrices" title="Permalink to this heading">#</a></h1>
+<h1>Tutorial: Vectors and matrices<a class="headerlink" href="#tutorial-vectors-and-matrices" title="Link to this heading">#</a></h1>
 <p>In <em>NumPy</em> a vector is a 1 dimensional array where you can store information like data.</p>
 <p>A matrix is a 2 dimensional array like a table. It has both rows and columns. In principle you can have multi-dimensional arrays, but we will deal with this later.</p>
 <p>To stor numbers in an array to a variable, you can do this in a few ways.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">array_1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>          <span class="c1"># generates an 1D array</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array_1D</span><span class="p">)</span>
@@ -483,18 +494,18 @@ document.write(`
 </div>
 <p>Note: Evenly spaced numbers in log space can be generated with <em>np.logspace</em>.</p>
 <section id="task-1">
-<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading">#</a></h2>
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
 <p>Create an array,  assigned to the variable <strong>a</strong>, that stores 20 elements. The first element starts at 5 and the last ends at 6 with equal steps in between.</p>
 </section>
 <section id="task-2">
-<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this heading">#</a></h2>
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
 <p>Create an array called <strong>A</strong>, that stores the following values:</p>
 <p>1 2 7 2 7 3</p>
 </section>
 <section id="vector-operations">
-<h2>Vector operations<a class="headerlink" href="#vector-operations" title="Permalink to this heading">#</a></h2>
+<h2>Vector operations<a class="headerlink" href="#vector-operations" title="Link to this heading">#</a></h2>
 <p>In Python vectors (1D), matrices (2D) and tensors (N-D) are all called arrays. They support multidimensional array algebra, that vectors, matrices and tensors are used for.</p>
-<p>Data are often stored in 1D arrays (vectors), e.g. <span class="xref myst">Task 3</span>. You might expect that those data are either stored in a column vector (<strong>Nx1</strong>) or row vector (<strong>1xN</strong>). By default in Python the 1D array is neither <strong>Nx1</strong> nor <strong>1xN</strong>. It is just <strong>N</strong>. Therefore, a <em>transpose</em> on 1D array does nothing. It first this might be a bit confusing, but it comes with many advantages.</p>
+<p>Data are often stored in 1D arrays (vectors), e.g. <a class="reference internal" href="#task-3"><span class="xref myst">Task 3</span></a>. You might expect that those data are either stored in a column vector (<strong>Nx1</strong>) or row vector (<strong>1xN</strong>). By default in Python the 1D array is neither <strong>Nx1</strong> nor <strong>1xN</strong>. It is just <strong>N</strong>. Therefore, a <em>transpose</em> on 1D array does nothing. It first this might be a bit confusing, but it comes with many advantages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>         <span class="c1"># generates an array with [1,2,3]</span>
@@ -509,7 +520,7 @@ document.write(`
 </div>
 </div>
 <section id="vector-multiplications">
-<h3>Vector multiplications<a class="headerlink" href="#vector-multiplications" title="Permalink to this heading">#</a></h3>
+<h3>Vector multiplications<a class="headerlink" href="#vector-multiplications" title="Link to this heading">#</a></h3>
 <p>In Python multiplication operation are defined as follow: <code class="docutils literal notranslate"><span class="pre">*</span></code> means element-wise multiplication, while <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> means matrix multiplication. The differences between <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> become more obvious when dealing with multi-dimensional arrays.</p>
 <p>Consider the following element-wise multiplication:</p>
 <div class="math notranslate nohighlight">
@@ -662,13 +673,13 @@ document.write(`
 </section>
 </section>
 <section id="task-3">
-<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this heading">#</a></h2>
+<h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
 <p>Now consider the same square cross sectional rod with an applied force as last week.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p></p></th>
-<th class="text-center head"><p>Force [N]</p></th>
-<th class="text-center head"><p>Cross section length [m]</p></th>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-center"><p>Force [N]</p></th>
+<th class="head text-center"><p>Cross section length [m]</p></th>
 </tr>
 </thead>
 <tbody>
@@ -690,9 +701,10 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>Create an array for the forces, and one for the cross sectional length. Then use these arrays to calculate the stress on each sample in one line of code.</p>
 <section id="array-operations">
-<h3>Array operations<a class="headerlink" href="#array-operations" title="Permalink to this heading">#</a></h3>
+<h3>Array operations<a class="headerlink" href="#array-operations" title="Link to this heading">#</a></h3>
 <p>You can then perform operations on them really quickly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -721,22 +733,22 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Calculate the mean value of your stresses from <span class="xref myst">Task 3</span>.</p>
+<p>Calculate the mean value of your stresses from <a class="reference internal" href="#task-3"><span class="xref myst">Task 3</span></a>.</p>
 </section>
 </section>
 <section id="task-4">
-<h2>Task 4<a class="headerlink" href="#task-4" title="Permalink to this heading">#</a></h2>
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
 <p>Create an array called <strong>A</strong> that stores 5 random numbers (use np.random.rand). Multiple each value by 10. Use <em>np.round</em> to round the value to 1dp.</p>
 <p>Can you do this in one line of code?</p>
 <p>Use the help function, e.g. <em>np.round?</em> to look up, how this is down.</p>
 <p>Can you also do it with <em>A.round</em>?</p>
 </section>
 <section id="matrices">
-<h2>Matrices<a class="headerlink" href="#matrices" title="Permalink to this heading">#</a></h2>
+<h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>A matrix is a way of storing information using both rows and columns (two dimensions).</p>
 </section>
 <section id="creating-a-matrix-part-1">
-<h2>Creating a matrix: part 1<a class="headerlink" href="#creating-a-matrix-part-1" title="Permalink to this heading">#</a></h2>
+<h2>Creating a matrix: part 1<a class="headerlink" href="#creating-a-matrix-part-1" title="Link to this heading">#</a></h2>
 <p>You first give number of columns (they go across), then rows (which go down). You can set up matrices in a number of ways. The first to generate a matrix using quick functions or the second to generate an 1D array and then reshape it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,11 +764,11 @@ document.write(`
 </div>
 </section>
 <section id="task-5">
-<h2>Task 5<a class="headerlink" href="#task-5" title="Permalink to this heading">#</a></h2>
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
 <p>Create a matrix filled filled with 1’s that has 4 columns and 3 rows. Store this under the variable myArray.</p>
 </section>
 <section id="creating-a-matrix-part-2">
-<h2>Creating a matrix: part 2<a class="headerlink" href="#creating-a-matrix-part-2" title="Permalink to this heading">#</a></h2>
+<h2>Creating a matrix: part 2<a class="headerlink" href="#creating-a-matrix-part-2" title="Link to this heading">#</a></h2>
 <p>The second way is define the values. This could be through combining arrays individually and putting them together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -779,7 +791,7 @@ document.write(`
 </div>
 </div>
 <section id="combing-vectors-to-a-matrix">
-<h3>Combing vectors to a matrix<a class="headerlink" href="#combing-vectors-to-a-matrix" title="Permalink to this heading">#</a></h3>
+<h3>Combing vectors to a matrix<a class="headerlink" href="#combing-vectors-to-a-matrix" title="Link to this heading">#</a></h3>
 <p>Vectors or 1D array behave different as they have dimension <strong>N</strong>, only axis=0. For row (<strong>1xN</strong>) and column (<strong>Nx1</strong>) are basically 2D arrays (row x column) and the same operation apply as for matrices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -810,7 +822,7 @@ document.write(`
 </section>
 </section>
 <section id="task-6">
-<h2>Task 6<a class="headerlink" href="#task-6" title="Permalink to this heading">#</a></h2>
+<h2>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h2>
 <p>Create a matrix that looks like this.</p>
 <p><span class="math notranslate nohighlight">\(
 A=
@@ -822,7 +834,7 @@ A=
 \)</span></p>
 </section>
 <section id="task-7">
-<h2>Task 7<a class="headerlink" href="#task-7" title="Permalink to this heading">#</a></h2>
+<h2>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
 <p>A student has attemped to combine two arrays together to make a larger 4x4 matrix of 1’s.</p>
 <p>Their code does not work, can you fix this for them?</p>
 <div class="cell docutils container">
@@ -838,7 +850,7 @@ A=
 </div>
 </section>
 <section id="operations-on-matrices">
-<h2>Operations on Matrices<a class="headerlink" href="#operations-on-matrices" title="Permalink to this heading">#</a></h2>
+<h2>Operations on Matrices<a class="headerlink" href="#operations-on-matrices" title="Link to this heading">#</a></h2>
 <p>You can multiply element-wise of a matrix by a constant value or indeed two matrices together by using the mathematical operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> (^).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -855,7 +867,7 @@ A=
 </div>
 </section>
 <section id="task-8">
-<h2>Task 8<a class="headerlink" href="#task-8" title="Permalink to this heading">#</a></h2>
+<h2>Task 8<a class="headerlink" href="#task-8" title="Link to this heading">#</a></h2>
 <p>The following section of code should generate a 2x4 matrix. The code should then multiple the first row by a value of 1 and the second by 2.</p>
 <p>The code below has a number of problems, try and fix it so it produces the answer of</p>
 <p><span class="math notranslate nohighlight">\(
@@ -875,7 +887,7 @@ A=
 </div>
 </section>
 <section id="selecting-elements-rows-and-columns-from-an-array">
-<h2>Selecting elements, rows and columns from an array<a class="headerlink" href="#selecting-elements-rows-and-columns-from-an-array" title="Permalink to this heading">#</a></h2>
+<h2>Selecting elements, rows and columns from an array<a class="headerlink" href="#selecting-elements-rows-and-columns-from-an-array" title="Link to this heading">#</a></h2>
 <p>You can extract and identify key parts of matrices and vectors through locating the element by coordinates. The number starts at 0 (top right hand corner) and increases down the rows first.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -893,7 +905,7 @@ A=
 </div>
 </section>
 <section id="task-9">
-<h2>Task 9<a class="headerlink" href="#task-9" title="Permalink to this heading">#</a></h2>
+<h2>Task 9<a class="headerlink" href="#task-9" title="Link to this heading">#</a></h2>
 <p>Generate a 4x2 array of random numbers. Then perform the following operations.</p>
 <ul class="simple">
 <li><p>Multiply each element by 2.5</p></li>
@@ -901,7 +913,7 @@ A=
 </ul>
 </section>
 <section id="things-you-can-do-with-matrices">
-<h2>Things you can do with matrices<a class="headerlink" href="#things-you-can-do-with-matrices" title="Permalink to this heading">#</a></h2>
+<h2>Things you can do with matrices<a class="headerlink" href="#things-you-can-do-with-matrices" title="Link to this heading">#</a></h2>
 <p>A few additional functions you can use with matrices (2D arrays) - as you can see they are similar to vectors (1D arrays).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -925,16 +937,16 @@ A=
 </div>
 </section>
 <section id="task-10">
-<h2>Task 10<a class="headerlink" href="#task-10" title="Permalink to this heading">#</a></h2>
+<h2>Task 10<a class="headerlink" href="#task-10" title="Link to this heading">#</a></h2>
 <p>Create an array that goes from <span class="math notranslate nohighlight">\(-2\pi\)</span> to <span class="math notranslate nohighlight">\(+2\pi\)</span> in 50 equal intervals (i.e. 51 values). Create another array that is the sin of each of the values.</p>
 <p>Combine both vectors to form an array of 2 columns and 51 rows.</p>
 </section>
 <section id="task-11">
-<h2>Task 11<a class="headerlink" href="#task-11" title="Permalink to this heading">#</a></h2>
+<h2>Task 11<a class="headerlink" href="#task-11" title="Link to this heading">#</a></h2>
 <p>Can you write one line of code that sums an array of 50x50 random numbers to a single value?</p>
 </section>
 <section id="matrix-algebra-multiplication">
-<h2>Matrix algebra (multiplication)<a class="headerlink" href="#matrix-algebra-multiplication" title="Permalink to this heading">#</a></h2>
+<h2>Matrix algebra (multiplication)<a class="headerlink" href="#matrix-algebra-multiplication" title="Link to this heading">#</a></h2>
 <p>The term <strong>scalar multiplication</strong> refers to the product of a number and a matrix. In scalar multiplication, each entry in the matrix is multiplied by the given scalar. You have already done this above using <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p>
 <p>In contrast, <strong>matrix or algebra multiplication</strong> refers to the product of two matrices. The order of multiplication is very important.</p>
 <p>There are some rules to the matrices you use,</p>
@@ -942,7 +954,7 @@ A=
 <li><p>The number of <strong>columns of the 1st matrix</strong> must equal the number of <strong>rows of the 2nd matrix</strong>.</p></li>
 <li><p>The result will have the same number of <strong>rows as the 1st matrix</strong>, and the same number of <strong>columns as the 2nd matrix</strong>.</p></li>
 </ul>
-<p>The algebra multiplication operator in Python is <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>. See also <span class="xref myst">Vector multiplication</span>.</p>
+<p>The algebra multiplication operator in Python is <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>. See also <a class="reference internal" href="#vector-multiplications"><span class="xref myst">Vector multiplication</span></a>.</p>
 <p>For example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -957,7 +969,7 @@ A=
 </div>
 </section>
 <section id="task-12">
-<h2>Task 12<a class="headerlink" href="#task-12" title="Permalink to this heading">#</a></h2>
+<h2>Task 12<a class="headerlink" href="#task-12" title="Link to this heading">#</a></h2>
 <p>An engineering firm sells 3 types of bolt.</p>
 <ul class="simple">
 <li><p>A steel bolt that costs 2p each.</p></li>
@@ -965,14 +977,14 @@ A=
 <li><p>A titanium bolt that costs 10p each.</p></li>
 </ul>
 <p>They sales team sold the following</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p></p></th>
-<th class="text-center head"><p>Mon</p></th>
-<th class="text-center head"><p>Tue</p></th>
-<th class="text-center head"><p>Wed</p></th>
-<th class="text-center head"><p>Thu</p></th>
-<th class="text-center head"><p>Fri</p></th>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-center"><p>Mon</p></th>
+<th class="head text-center"><p>Tue</p></th>
+<th class="head text-center"><p>Wed</p></th>
+<th class="head text-center"><p>Thu</p></th>
+<th class="head text-center"><p>Fri</p></th>
 </tr>
 </thead>
 <tbody>
@@ -999,12 +1011,13 @@ A=
 </tr>
 </tbody>
 </table>
+</div>
 <p>Create a vector (1D array) for the cost per item, and a matrix (2D array) for the number of items sold.</p>
 <p>Using a matrix approach to first work out a vector which contains the total sales in pounds for each day.</p>
 <p>Then use the sum command to work out for the week.</p>
 </section>
 <section id="task-13">
-<h2>Task 13<a class="headerlink" href="#task-13" title="Permalink to this heading">#</a></h2>
+<h2>Task 13<a class="headerlink" href="#task-13" title="Link to this heading">#</a></h2>
 <p>Create two matrices:</p>
 <p><span class="math notranslate nohighlight">\(
 A = 
@@ -1051,7 +1064,7 @@ B =
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1080,6 +1093,7 @@ B =
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1165,8 +1179,8 @@ By Joachim M. Bestenlehner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
