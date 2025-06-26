@@ -14,8 +14,14 @@ Colab is a web-based cloud-service hosted by Google accessible via a web-browser
 
 ### Uploading and downloading local files
 
-To uploaded and download local files Google provides a python package 
+To uploaded and download local files you can click on the folder on the left hand side. This is the workspace of your Colab session. 
 
+![upload files](../pictures/upload_files_circle.png)
+
+Select the "upload" option (circled icon) and chose the files you would like to upload. If you right click or select the 3 vertical dots next to the file, you will be able to download the file.
+
+At the bottom left you can also see an icon "{} Variables", which shows your, and an "Terminal" icon, which will open a Linux terminal. The "Variables" can be very useful, when you debug your code.
+ 
 ### Uploading files hosted on Websites
 
 The Colab cloud-service uses Linux. So Linux commands can be used to handle data. To upload data from Blackboard or website in general you can use the command `wget`. Linux commands within your code cell are executed with a "!" in front of the command.
@@ -31,7 +37,7 @@ The Colab cloud-service uses Linux. So Linux commands can be used to handle data
 !ls               # lists files in your Colab session
 !cat somefile.txt # shows the content of your file
 ```
-
+Note: `ls`, `cat` or any other Linux command can be also used in the Terminal, when you open on the Terminal.
 
 ## Reading and writing text files
 
@@ -81,7 +87,7 @@ print(data.shape)                # shape of array in lines and columns
 print(data)
 ```
 
-Note: `.split()` is mainly useful for data that has been intentionally delimited.
+Note: `.split()` is used for data that has been intentionally delimited (structured data).
 
 ### Writing to a file
 
@@ -105,3 +111,82 @@ File must be closed after writing the data, e.g. `file.close()`. If the file is 
 
 ## Numpy: reading and writing text files
 
+Structured data generally refer to formats that store data in an organized and consistent way making it easier to read and manipulate. 
+
+### Reading text files
+
+The _numpy_ function `np.loadtxt()` is usually used to read in numerical data of data type `int` or `float`, while `float` is the default data type (`dtype`).
+
+```python
+!wget https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/data/some_data.txt
+a = np.loadtxt('some_data.txt') # reads the entire content of the file into an numpy.array of dtype = float.
+
+b = np.loadtxt('some_data.txt', dtype = int) # reads data into a numpy.array of dtype = int
+
+c = np.loadtxt('some_data.txt', dtype = str) # reads data into a numpy.array of dtype = str
+```
+The `delimiter` parameter tells `np.loadtxt()`, which character separates the data. Input is `str`, e.g. `','` or `'|'`. Default is whitespace.
+
+In cases, where you do not need all columns, you can select columns with the `usecols=` parameter. Input can be an integer or a sequence (0, 2, 4).
+
+Note: Python starts counting at 0.
+
+```python
+d = np.loadtxt('some_data.txt', usecols=(0,3)) # reads in 1st and 4th column
+
+column_2, column_3 = np.loadtxt('some_data.txt', usecols=(1,2), unpack=True) # reads in 2nd and 3rd column into 1D arrays
+```
+
+The `unpack=True` parameters unpacks the array into individual columns. Therefore, you need to know, how many columns do you unpack.
+
+Some files have comments at the start of the file. The usual convention is that file comments or headers start with `'#'` (default). Input to the `comments` parameter are `str` or sequence of `str`. Alternatively you can use the parameter `skiprows` with an integer input.
+
+```python
+e = np.loadtxt('some_data.txt', usecols=4, delimiter=' ', comments=':', skiprows = 2, unpack=True)
+```
+
+Summary of optional parameters to `np.loadtxt()`:
+
+- dtype: `int`, `float` (default) or `str`
+- delimiter: `str`
+- usecols: `int` or sequence of `int`
+- comments: `str` or sequence of `str` (default `'#'`)
+- skiprows: `int`
+- unpack: `bool` (default `False`)
+
+There are more options available, which can be accessed with `np.loadtxt?` or `help(np.loadtxt)`.
+
+### Writing text files
+
+To save data in a text file _numpy_ provides the `np.savetxt()` function.
+
+```python
+a = np.random(10,5)*10 # generate random numbers between 0 and 10 excluding 10, [0, 10), in 10 row times 5 column matrix.
+np.savetxt('save_some_data.txt', a) # writes array a into a file
+```
+It can save 1D or 2D (our example) array. If you multiple arrays you would like to save into one file you need to concatenate them first, e.g. `np.concatenate()`, `np.column_stack()`, `np.row_stack()`, etc.
+
+Of course you can format your data with the `fmt` parameter.
+
+```python
+np.savetxt('save_some_data.txt', a, fmt='%10.5f') # all columns are formatted the same
+np.savetxt('save_some_data.txt', a, fmt='%8.2f %5.2f %7.3f %3.0f %10.2e') # or individually
+```
+Note: You need to use `%` instead of `:`.
+
+Other optional parameters are:
+- delimiter: `str`
+- header: `str`
+- comments: `str`
+
+A full list of parameters can be accessed with `np.savetxt?` or `help(np.savetxt)`.
+
+## Pandas: reading and writing data files
+
+Structured data files like `.CSV`, `.JSON`, `.XML`, etc. can contain numerical as well as text data. For example, a data file might contain names of people (`str`), their ages (`int`) and height (`float`). Of course this can be down with the methods above by using `.split()` or `unpack` and then individually assign the data types to the lists/arrays.
+
+However, there is package called `pandas`, which is one of the standard package for Data Science, which can do to this for you. Pandas is able to read many different data files including CSV, JSON, XML, SQL, Excel, HTML, clipboard, etc.
+
+### Reading files with Pandas
+
+Pandas reads data into `DataFrames`. 
