@@ -34,7 +34,7 @@ Teaching Methods: Problem solving, Independent Study
 
 Credits: ??
 
-Assessment: Formal Exam and assessed coursework
+Assessment: Formal Exam
 
 The full module description can be found on [Blackboard](https://vle.shef.ac.uk/ultra/).
 

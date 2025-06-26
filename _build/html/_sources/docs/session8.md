@@ -1,4 +1,4 @@
-# Symbolic Python
+# Symbolic mathematics
 ## Learning Objectives:
 
 * Creating and indexing vectors and matrices.
