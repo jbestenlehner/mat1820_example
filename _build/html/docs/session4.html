@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Input and output plus data types &#8212; Digital Skills for Materials</title>
   
@@ -14,49 +15,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -71,23 +76,28 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -109,20 +119,12 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -138,8 +140,6 @@
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
-  
-    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -158,18 +158,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -207,18 +196,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session6.html"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="session6.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session6_notebooks.html">Tutorial: Reading in and writing out data</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session7.html"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session8.html"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
 </ul>
 
     </div>
@@ -234,7 +223,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -243,14 +232,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -328,10 +317,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -339,14 +328,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -391,12 +380,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="input-and-output-plus-data-types">
-<h1>Input and output plus data types<a class="headerlink" href="#input-and-output-plus-data-types" title="Link to this heading">#</a></h1>
+<h1>Input and output plus data types<a class="headerlink" href="#input-and-output-plus-data-types" title="Permalink to this heading">#</a></h1>
 <section id="learning-objectives">
-<h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Understand different data types.</p></li>
 <li><p>User defined input and output.</p></li>
@@ -404,7 +393,7 @@ document.write(`
 </ul>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In programming languages, data type is an important concept as it tells the computer, how much memory space needs to be reserved to store a value. Python is a dynamically-typed language, which means you don’t have to explicitly declare the data type of a variable when you create it. It is inferred when you execute your code at runtime.</p>
 <p>Variables can store data of different types, and different types used for different things.</p>
 <p>The following data types are used for this course and built in by default in python:</p>
@@ -412,14 +401,14 @@ document.write(`
 <li><p><em>Text type</em>: string: <code class="docutils literal notranslate"><span class="pre">str</span></code>, python does not have a character type like other programming language. A character is a string of length 1.</p></li>
 <li><p><em>Numeric Types</em>: integer: <code class="docutils literal notranslate"><span class="pre">int</span></code>, floating value <code class="docutils literal notranslate"><span class="pre">float</span></code> and complex numbers: <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p></li>
 <li><p><em>Sequence Types</em>: list <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
-<li><p><em>Boolean Type</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. See next <a class="reference internal" href="session5.html"><span class="doc std std-doc">session</span></a>.</p></li>
+<li><p><em>Boolean Type</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. See next <span class="xref myst">session</span>.</p></li>
 </ul>
 <p>There are more data types in python like Mapping Type (dictionaries) or Set Types (storing multiple items in a single variable). An overview of the different built-in types can be found <a href="https://docs.python.org/3/library/stdtypes.html" target="_blank">here</a>.</p>
 <section id="list-tuple-and-numpy-arrays">
-<h3>List <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code> and numpy arrays<a class="headerlink" href="#list-tuple-and-numpy-arrays" title="Link to this heading">#</a></h3>
+<h3>List <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code> and numpy arrays<a class="headerlink" href="#list-tuple-and-numpy-arrays" title="Permalink to this heading">#</a></h3>
 <p>You might have been unaware, but we already used lists and tuples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>           <span class="c1"># this is a tuple</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>        <span class="c1"># the tuple (1, 5) sets the range of the x-axis</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>           <span class="c1"># this is a list</span>
@@ -454,7 +443,7 @@ document.write(`
 </pre></div>
 </div>
 <p>You can change between types by using <code class="docutils literal notranslate"><span class="pre">list()</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">a_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
 <span class="n">a_nparray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a_tuple</span><span class="p">)</span>
@@ -463,7 +452,7 @@ document.write(`
 </div>
 </section>
 <section id="repetitive-tasks-for-loops">
-<h3>Repetitive Tasks: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#repetitive-tasks-for-loops" title="Link to this heading">#</a></h3>
+<h3>Repetitive Tasks: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#repetitive-tasks-for-loops" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code> loops are used when you have a block of code which you want to repeat a fixed number of times. The <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop is used in combination with an <em>iterable</em> object (often sequence type) such as <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, or a <code class="docutils literal notranslate"><span class="pre">string</span></code>. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      <span class="c1"># Creates a list</span>
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>  <span class="c1"># for loop syntax</span>
@@ -488,7 +477,7 @@ document.write(`
 </pre></div>
 </div>
 <section id="sequence-range">
-<h4>Sequence: <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#sequence-range" title="Link to this heading">#</a></h4>
+<h4>Sequence: <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#sequence-range" title="Permalink to this heading">#</a></h4>
 <p>The function <code class="docutils literal notranslate"><span class="pre">range()</span></code> produces a sequence of integers from <code class="docutils literal notranslate"><span class="pre">start</span></code> (inclusive) to <code class="docutils literal notranslate"><span class="pre">stop</span></code> (exclusive) by <code class="docutils literal notranslate"><span class="pre">step</span></code> (default step size is 1), e.g. <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> produces 0, 1, 2. The <code class="docutils literal notranslate"><span class="pre">start</span></code> default is 0 and <code class="docutils literal notranslate"><span class="pre">stop</span></code> is 3 omitting 3.</p>
 <p><code class="docutils literal notranslate"><span class="pre">range(0,3)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">range(3)</span></code>.</p>
 <p>The third parameter is the <code class="docutils literal notranslate"><span class="pre">step</span></code> size: <code class="docutils literal notranslate"><span class="pre">range(1,6,2)</span></code> produces 1, 3, 5 while <code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">5,</span> <span class="pre">2)</span></code> produces 1, 3 <em>omitting</em> <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</p>
@@ -497,7 +486,7 @@ document.write(`
 </pre></div>
 </div>
 <p>From previous session you might remember the numpy function <code class="docutils literal notranslate"><span class="pre">np.arange</span></code>. At a first glance <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> seemed to be doing the same thing.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
@@ -513,10 +502,10 @@ document.write(`
 </section>
 </section>
 <section id="reading-and-writing-text-files">
-<h3>Reading and writing text files<a class="headerlink" href="#reading-and-writing-text-files" title="Link to this heading">#</a></h3>
+<h3>Reading and writing text files<a class="headerlink" href="#reading-and-writing-text-files" title="Permalink to this heading">#</a></h3>
 <p>Python provides built-in functions for creating, writing, and reading files.</p>
 <section id="creating-a-new-files">
-<h4>Creating a new files<a class="headerlink" href="#creating-a-new-files" title="Link to this heading">#</a></h4>
+<h4>Creating a new files<a class="headerlink" href="#creating-a-new-files" title="Permalink to this heading">#</a></h4>
 <p>To create a new file in Python, the function <code class="docutils literal notranslate"><span class="pre">open()</span></code> is used with one of the following parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> - writes - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> will create a new file if the specified file does not exists or <strong>overwrite</strong> an existing file.</p></li>
@@ -525,7 +514,7 @@ document.write(`
 </ul>
 </section>
 <section id="reading-a-file-line-by-line">
-<h4>Reading a file line by line<a class="headerlink" href="#reading-a-file-line-by-line" title="Link to this heading">#</a></h4>
+<h4>Reading a file line by line<a class="headerlink" href="#reading-a-file-line-by-line" title="Permalink to this heading">#</a></h4>
 <p>To open a file in <em>read only</em> the parameter <code class="docutils literal notranslate"><span class="pre">'r'</span></code> is used with the function <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
@@ -538,7 +527,7 @@ document.write(`
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of the line indicates a new line. See tutorial for more details.</p>
 <p>The following example shows how to read file, creates list of its content and converts the list into a numpy array.  The example uses the function <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> which returns a copy of the string with leading and trailing whitespace removed including new line (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) and the function <code class="docutils literal notranslate"><span class="pre">.split()</span></code>, which returns a list of the substrings in the string, using <code class="docutils literal notranslate"><span class="pre">sep</span></code> as the separator string. If no separator string is given, the string will split on any white space character including new line and tab.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># opens file in read-only.</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>                        <span class="c1"># creates and empty list</span>
@@ -554,8 +543,8 @@ document.write(`
 <p>Note, <code class="docutils literal notranslate"><span class="pre">.split()</span></code> is mainly useful for data that has been intentionally delimited.</p>
 </section>
 <section id="writing-to-a-file">
-<h4>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h4>
-<p>Before we can write into a file we need to create it first, e.g. <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> (see <a class="reference internal" href="#creating-a-new-files"><span class="xref myst">creating a new file</span></a>).</p>
+<h4>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Permalink to this heading">#</a></h4>
+<p>Before we can write into a file we need to create it first, e.g. <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> (see <span class="xref myst">creating a new file</span>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>           <span class="c1"># creates a new file called myfile.txt or overwrites it, if it already exists.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>                     <span class="c1"># produces range 1, 2, 3</span>
     <span class="n">a_string</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Line &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># creates a string and converts indexes i into string </span>
@@ -600,7 +589,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -629,7 +618,6 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -700,8 +688,8 @@ By Joachim M. Bestenlehner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

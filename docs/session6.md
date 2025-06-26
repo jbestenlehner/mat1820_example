@@ -11,9 +11,12 @@
 
 Colab is a web-based cloud-service hosted by Google accessible via a web-browser. Therefore, any files you would like to read needs to be uploaded to Colab workspace of your session. Files you create or write to are stored on your workspace of your Colab session. Those files are only temporarily stored. If you close your session (e.g. closing browser tab), all your data and files will be lost.
 
-There are many ways you can access data from or within a Colab session, but we will only use the following.
 
-### Uploading files from Blackboard
+### Uploading and downloading local files
+
+To uploaded and download local files Google provides a python package 
+
+### Uploading files hosted on Websites
 
 The Colab cloud-service uses Linux. So Linux commands can be used to handle data. To upload data from Blackboard or website in general you can use the command `wget`. Linux commands within your code cell are executed with a "!" in front of the command.
 
@@ -21,17 +24,14 @@ The Colab cloud-service uses Linux. So Linux commands can be used to handle data
 !wget <link>
 ```
 
-`<link>` is the place holder for the web link, e.g. https://github.com/jbestenlehner/mat1820_example/blob/main/data/somefile.txt
+`<link>` is the place holder for a web link, for example:
 
 ```bash
-!wget https://github.com/jbestenlehner/mat1820_example/blob/main/data/somefile.txt #uploads the file to your Colab session
+!wget https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/data/somefile.txt #uploads the file to your Colab session
 !ls               # lists files in your Colab session
 !cat somefile.txt # shows the content of your file
 ```
 
-### Uploading and downloading local files
-
-To uploaded and download local files Google provides a python package 
 
 ## Reading and writing text files
 
@@ -52,7 +52,8 @@ Note: files are temporarily created and written to your Colab session. They will
 To open a file in _read only_ the parameter `'r'` is used with the function `open()`. 
 
 ```python
-!wget https://github.com/jbestenlehner/mat1820_example/blob/main/data/somefile.txt #uploads the file to your Colab session
+ #uploads the file to your Colab session
+!wget https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/data/somefile.txt
 file = open('somefile.txt', 'r')
 ```
 This creates an iterable object and we can read in the file line by line with a loop:

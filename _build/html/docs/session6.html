@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Reading and writing files &#8212; Digital Skills for Materials</title>
   
@@ -14,49 +15,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session6';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -71,23 +76,28 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -109,20 +119,12 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -138,8 +140,6 @@
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
-  
-    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -158,18 +158,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -234,7 +223,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -243,14 +232,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -328,10 +317,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -339,14 +328,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -369,14 +358,17 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-files-hosted-on-websites">Uploading files hosted on Websites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-and-downloading-local-files">Uploading and downloading local files</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-reading-and-writing-text-files">Numpy: reading and writing text files</a></li>
 </ul>
             </nav>
         </div>
@@ -386,12 +378,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reading-and-writing-files">
-<h1>Reading and writing files<a class="headerlink" href="#reading-and-writing-files" title="Link to this heading">#</a></h1>
+<h1>Reading and writing files<a class="headerlink" href="#reading-and-writing-files" title="Permalink to this heading">#</a></h1>
 <section id="learning-objectives">
-<h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Reading and writing files.</p></li>
 <li><p>Built in functions <code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">write()</span></code></p></li>
@@ -400,34 +392,56 @@ document.write(`
 </ul>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>Colab is a web-based cloud-service hosted by Google accessible via a web-browser. Therefore, any files you would like to read needs to be uploaded to Colab workspace of your session. Files you create or write to are stored on your workspace of your Colab session. Those files are only temporarily stored. If you close your session (e.g. closing browser tab), all your data and files will be lost.</p>
+<p>There are many ways you can access data from or within a Colab session, but we will only use the following.</p>
+<section id="uploading-files-hosted-on-websites">
+<h3>Uploading files hosted on Websites<a class="headerlink" href="#uploading-files-hosted-on-websites" title="Permalink to this heading">#</a></h3>
+<p>The Colab cloud-service uses Linux. So Linux commands can be used to handle data. To upload data from Blackboard or website in general you can use the command <code class="docutils literal notranslate"><span class="pre">wget</span></code>. Linux commands within your code cell are executed with a “!” in front of the command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!wget<span class="w"> </span>&lt;link&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> is the place holder for the web link, e.g. <a class="reference external" href="https://vle.shef.ac.uk/ultra/courses/_121945_1/outline/file/_8578702_1">https://vle.shef.ac.uk/ultra/courses/_121945_1/outline/file/_8578702_1</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!wget<span class="w"> </span>https://github.com/jbestenlehner/mat1820_example/blob/main/data/somefile.txt<span class="w"> </span><span class="c1">#uploads the file to your Colab session</span>
+!ls<span class="w">               </span><span class="c1"># lists files in your Colab session</span>
+!cat<span class="w"> </span>somefile.txt<span class="w"> </span><span class="c1"># shows the content of your file</span>
+</pre></div>
+</div>
+</section>
+<section id="uploading-and-downloading-local-files">
+<h3>Uploading and downloading local files<a class="headerlink" href="#uploading-and-downloading-local-files" title="Permalink to this heading">#</a></h3>
+<p>To uploaded and download local files Google provides a python package</p>
+</section>
+</section>
 <section id="reading-and-writing-text-files">
-<h3>Reading and writing text files<a class="headerlink" href="#reading-and-writing-text-files" title="Link to this heading">#</a></h3>
+<h2>Reading and writing text files<a class="headerlink" href="#reading-and-writing-text-files" title="Permalink to this heading">#</a></h2>
 <p>Python provides built-in functions for creating, writing, and reading files.</p>
 <section id="creating-a-new-files">
-<h4>Creating a new files<a class="headerlink" href="#creating-a-new-files" title="Link to this heading">#</a></h4>
+<h3>Creating a new files<a class="headerlink" href="#creating-a-new-files" title="Permalink to this heading">#</a></h3>
 <p>To create a new file in Python, the function <code class="docutils literal notranslate"><span class="pre">open()</span></code> is used with one of the following parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> - writes - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> will create a new file if the specified file does not exists or <strong>overwrite</strong> an existing file.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> - append - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'a')</span></code> will create a new file if the specified file does not exists or <strong>append</strong> to an existing file.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'x'</span></code> - create - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'x')</span></code> will create a new  file or returns an error if the file exists.</p></li>
 </ul>
+<p>Note: files are temporarily created and written to your Colab session. They will be lost, if you close the session.</p>
 </section>
 <section id="reading-a-file-line-by-line">
-<h4>Reading a file line by line<a class="headerlink" href="#reading-a-file-line-by-line" title="Link to this heading">#</a></h4>
+<h3>Reading a file line by line<a class="headerlink" href="#reading-a-file-line-by-line" title="Permalink to this heading">#</a></h3>
 <p>To open a file in <em>read only</em> the parameter <code class="docutils literal notranslate"><span class="pre">'r'</span></code> is used with the function <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://github.com/jbestenlehner/mat1820_example/blob/main/data/somefile.txt #uploads the file to your Colab session
+file = open(&#39;somefile.txt&#39;, &#39;r&#39;)
 </pre></div>
 </div>
-<p>This creates an iterable object. We can read in the file line by line with a loop:</p>
+<p>This creates an iterable object and we can read in the file line by line with a loop:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span> <span class="c1"># reads the file line by line</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>   <span class="c1"># prints each line</span>
 <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>      <span class="c1"># closes the file</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of the line indicates a new line. See tutorial for more details.</p>
-<p>The following example shows how to read file, creates list of its content and converts the list into a numpy array.  The example uses the function <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> which returns a copy of the string with leading and trailing whitespace removed including new line (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) and the function <code class="docutils literal notranslate"><span class="pre">.split()</span></code>, which returns a list of the substrings in the string, using <code class="docutils literal notranslate"><span class="pre">sep</span></code> as the separator string. If no separator string is given, the string will split on any white space character including new line and tab.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of the line indicates a new line as discussed in the previous tutorial in session 4.</p>
+<p>The following example shows how to read file, creates list of its content and converts the list into a numpy array.  The example uses the function <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> which returns a copy of the string with leading and trailing whitespace removed including new line (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) and the function <code class="docutils literal notranslate"><span class="pre">.split()</span></code>, which returns a list of the substrings in the string, using <code class="docutils literal notranslate"><span class="pre">sep</span></code> as the separator string. If no separator string is given, the string will split on any white space character including new line (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) and tab (<code class="docutils literal notranslate"><span class="pre">\t</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># opens file in read-only.</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>                        <span class="c1"># creates and empty list</span>
@@ -440,25 +454,27 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note, <code class="docutils literal notranslate"><span class="pre">.split()</span></code> is mainly useful for data that has been intentionally delimited.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">.split()</span></code> is mainly useful for data that has been intentionally delimited.</p>
 </section>
 <section id="writing-to-a-file">
-<h4>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h4>
-<p>Before we can write into a file we need to create it first, e.g. <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> (see <a class="reference internal" href="#creating-a-new-files"><span class="xref myst">creating a new file</span></a>).</p>
+<h3>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Permalink to this heading">#</a></h3>
+<p>Before we can write into a file we need to create it first, e.g. <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> (see <span class="xref myst">creating a new file</span>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>           <span class="c1"># creates a new file called myfile.txt or overwrites it, if it already exists.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>                     <span class="c1"># produces range 1, 2, 3</span>
-    <span class="n">a_string</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Line &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># creates a string and converts indexes i into string </span>
+    <span class="n">a_string</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Line </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>     <span class="c1"># creates a string and formats indexes i into string </span>
     <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span>                 <span class="c1"># writes string into file</span>
 <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                             <span class="c1"># closes the file</span>
 </pre></div>
 </div>
-<p>Note: <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> (new line) needs to be added at the end of the string. Otherwise all strings will be written into the same line.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> (new line) needs to be added at the end of the string. Unlike <code class="docutils literal notranslate"><span class="pre">print()</span></code> the <code class="docutils literal notranslate"><span class="pre">.write()</span></code> function does not add by default a <code class="docutils literal notranslate"><span class="pre">\n</span></code> to the end of the string. If <code class="docutils literal notranslate"><span class="pre">\n</span></code> is not added, all strings will be written into the same line.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>File must be closed after writing the data, e.g. <code class="docutils literal notranslate"><span class="pre">file.close()</span></code>. If the file is not closed properly, not all data might be written to the file.</p>
 </div>
 </section>
 </section>
+<section id="numpy-reading-and-writing-text-files">
+<h2>Numpy: reading and writing text files<a class="headerlink" href="#numpy-reading-and-writing-text-files" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -489,7 +505,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -519,7 +535,6 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -528,14 +543,17 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-files-hosted-on-websites">Uploading files hosted on Websites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-and-downloading-local-files">Uploading and downloading local files</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-reading-and-writing-text-files">Numpy: reading and writing text files</a></li>
 </ul>
   </nav></div>
 
@@ -584,8 +602,8 @@ By Joachim M. Bestenlehner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
