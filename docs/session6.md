@@ -223,7 +223,7 @@ df.to_csv('bio_stats_out.csv', index=False) # writes data into CSV excluding the
 
 By default `index=True` and the index column will be written out as well. An overview of available file formats can be found <a href="https://pandas.pydata.org/docs/user_guide/io.html" target="_blank">here</a>.
 
-### A few Pandas examples
+### Pandas examples
 
 Below we show a few examples to briefly look at the data with some basics statistics. As you might have noticed the 'bio_stats.csv' file contains height and weight data in SI units (m and kg).
 
@@ -236,3 +236,20 @@ print(df.sort_values(by='Name')) # sorts the df according there Age
 print(df['Name'].sort_index(ascending=False)) # sorts Names in descending index order.
 ```
 
+Similar to numpy `mean()`, `median()` and `std()` are available in Pandas, too.
+
+```python
+print(df['Age'].median())              # mean value
+print(df[['Height', 'Weight']].std())  # standard deviation for Height and Weight
+print(df.describe())                   # Calculates, mean(), std(), min(), max() and percentiles boundaries of columns with numerical values.
+# You can also group your data and calculate some statistic
+print(df.groupby('Sex')['Weight'].mean()) # Mean for female and male
+print(df.groupby('Sex').describe())    # Calculates statistics for all numerical columns
+print(df.groupby('Sex').describe().T)  # results displayed Vertical instead of horizontal
+```
+However, you can extract columns from your Pandas `DataFrame` and convert them to numpy arrays.
+
+```python
+array_1D = df['Age'].to_numpy() # extracts Age and converts it to a numpy array.
+array_2D = df[['Height', 'Weight']].to_numpy() 
+```
