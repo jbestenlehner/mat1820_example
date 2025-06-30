@@ -147,7 +147,7 @@ e = np.loadtxt('some_data.txt', usecols=4, delimiter=' ', comments=':', skiprows
 
 Summary of optional parameters to `np.loadtxt()`:
 
-- dtype: `int`, `float` (default) or `str`
+- dtype: `int`, `float` (default), `str` or (`complex`)
 - delimiter: `str`
 - usecols: `int` or sequence of `int`
 - comments: `str` or sequence of `str` (default `'#'`)
@@ -230,26 +230,34 @@ Below we show a few examples to briefly look at the data with some basics statis
 Accessing, selecting subsets and sorting columns of a `DataFrame`:
 
 ```python
-print(df['Age'])              # accesses and displays the Age column
-print(df[['Name', 'Sex']])    # accesses and displays Name and Sex (list of column labels)
-print(df.sort_values(by='Name')) # sorts the df according there Age
+df = pd.read_csv('bio_stats.csv') # reads in a CSV file
+print(df['Age'])                  # accesses and displays the Age column
+print(df[['Name', 'Sex']])        # accesses and displays Name and Sex (list of column labels)
+print(df.sort_values(by='Age'))   # sorts the df according there Age
 print(df['Name'].sort_index(ascending=False)) # sorts Names in descending index order.
 ```
 
 Similar to numpy `mean()`, `median()` and `std()` are available in Pandas, too.
 
 ```python
-print(df['Age'].median())              # mean value
+print(df['Age'].median())              # median value
 print(df[['Height', 'Weight']].std())  # standard deviation for Height and Weight
 print(df.describe())                   # Calculates, mean(), std(), min(), max() and percentiles boundaries of columns with numerical values.
 # You can also group your data and calculate some statistic
 print(df.groupby('Sex')['Weight'].mean()) # Mean for female and male
 print(df.groupby('Sex').describe())    # Calculates statistics for all numerical columns
-print(df.groupby('Sex').describe().T)  # results displayed Vertical instead of horizontal
+print(df.groupby('Sex').describe().T)  # results displayed vertically instead of horizontally
 ```
-However, you can extract columns from your Pandas `DataFrame` and convert them to numpy arrays.
+You can extract columns from your Pandas `DataFrame` and convert them to numpy arrays.
 
 ```python
 array_1D = df['Age'].to_numpy() # extracts Age and converts it to a numpy array.
 array_2D = df[['Height', 'Weight']].to_numpy() 
+```
+
+Filtering data can be done with boolean operators.
+
+```python
+print(df['Age'] > 35)        # prints a boolean array.
+above35 = df[df['Age'] > 35] # selects rows with Age > 35.
 ```

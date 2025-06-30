@@ -1,4 +1,4 @@
-# Symbolic mathematics
+# Symbolic math
 ## Learning Objectives:
 
 * Creating and indexing vectors and matrices.
