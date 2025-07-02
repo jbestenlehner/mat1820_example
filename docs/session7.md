@@ -165,7 +165,7 @@ from scipy.interpolate import CubicSpline
 
 # Original data points
 x_data = np.array([0, 1, 2, 3, 4])
-y_data = -1.43*x_data**5+5.68*x_data**4+21.68*x_data**3-108.34*x_data**2+95.41*x_data #some polynomial
+y_data = 1.5**x_data # y = 1.5^x
 
 # New points to interpolate at
 x_new = np.linspace(-2, 6, 50)
@@ -173,36 +173,20 @@ x_new = np.linspace(-2, 6, 50)
 # Perform cubic spline interpolation
 cs = CubicSpline(x_data, y_data) #creates a function where x_new can be evaluated
 y_CubicSpline = cs(x_new)
-y_first_cs = cs(x_new, nu=1) # calculates first derivative
-y_second_cs = cs(x_new, nu=1) # calculates second derivative
+y_first_cs = cs(x_new, nu=1)  # calculates first derivative
+y_second_cs = cs(x_new, nu=2) # calculates second derivative
 
 plt.plot(x_data, y_data, 'ko', label='Original Data')
 plt.plot(x_new, y_CubicSpline, 'b-', label='CubicSpline (cubic spline)')
 plt.plot(x_new, y_first_cs, 'y-', label='First derivative')
 plt.plot(x_new, y_second_cs, 'g-', label='Second derivative')
-plt.plot(x_new, -1.43*x_new**5+5.68*x_new**4+21.68*x_new**3-108.34*x_new**2+95.41*x_new, 'r--', label=f'$y=x^2$')
+plt.plot(x_new, 1.5**x_new, 'r--', label=f'$y=1.5^x$')
 plt.xlabel('X')
 plt.ylabel('Y')
-plt.ylim((-100,100))
 plt.legend()
 plt.show()
 plt.close()
 ```
+More details with examples on extrapolating data can be found <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html" target="_blank">here</a>.  If you only want to know more about the impact of different boundary condition on extrapolating data using CubicSpline, you can scroll down to <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html#cubicspline-extend-the-boundary-conditions" target="_blank">here</a>. 
 
- In Python the <a href="https://docs.scipy.org/doc/scipy/reference/interpolate.html" target="_blank">`scipy.interpolate`</a> module is usually used to interpolate (extrapolate) data.
-**Key Concepts in Python (using `scipy.interpolate`):**
-
-* **`interp1d`:** A versatile function for 1-D interpolation. You can specify different `kind` parameters like `'linear'`, `'quadratic'`, `'cubic'`, which correspond to different degrees of piecewise polynomials.
-* **`UnivariateSpline`:** For 1-D smoothing splines. This allows you to control the trade-off between smoothness and closeness to the data using a `s` (smoothing factor) parameter. A smaller `s` means a closer fit (more wiggly), and a larger `s` means a smoother fit (less wiggly, potentially approaching a straight line for very large `s`).
-* **`CubicSpline`:** Specifically for cubic spline interpolation. It offers more control over boundary conditions.
-* **`splrep` and `splev`:** Lower-level functions from the FITPACK library (used by `scipy`) that return a representation of the spline (`splrep`) and then evaluate it at new points (`splev`). These are often used for more advanced control, especially with smoothing splines.
-* **`dmatrix` from `patsy`:** For regression splines in statistical modeling, `patsy` can generate the basis functions (`bs` for B-splines, `cr` for natural cubic splines) which can then be used in a linear model (e.g., with `statsmodels`).
-
-**Things to Consider:**
-
-* **Choice of Degree:** Cubic splines (degree 3) are very common as they provide continuous first and second derivatives, resulting in visually smooth curves. Higher degrees can offer more flexibility but are more prone to oscillations, especially at the boundaries.
-* **Knots:** Splines are piecewise polynomials, and the points where these pieces connect are called "knots." The placement of knots is crucial. For interpolation, knots are typically at the data points. For smoothing splines, knots can be automatically selected or explicitly defined.
-* **Smoothing Parameter (`s`):** For smoothing splines, selecting the right smoothing parameter is critical. Too small, and you overfit; too large, and you underfit. Cross-validation or generalized cross-validation (GCV) can help in choosing an optimal `s`.
-* **Computational Cost:** While generally efficient, for very large datasets, the computational cost of spline fitting can increase.
-
-In summary, use spline fitting in Python whenever you need to approximate or interpolate data with smooth, flexible curves, especially when dealing with non-linear relationships or noisy data.
+## Polynomial fitting
