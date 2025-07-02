@@ -217,7 +217,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
 </ul>
 
@@ -374,12 +374,6 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-range">Sequence: <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -512,64 +506,6 @@ document.write(`
 <p>This will update the list to <code class="docutils literal notranslate"><span class="pre">a_list</span> <span class="pre">=</span> <span class="pre">[2,</span> <span class="pre">6,</span> <span class="pre">12]</span></code>.</p>
 </section>
 </section>
-<section id="reading-and-writing-text-files">
-<h3>Reading and writing text files<a class="headerlink" href="#reading-and-writing-text-files" title="Link to this heading">#</a></h3>
-<p>Python provides built-in functions for creating, writing, and reading files.</p>
-<section id="creating-a-new-files">
-<h4>Creating a new files<a class="headerlink" href="#creating-a-new-files" title="Link to this heading">#</a></h4>
-<p>To create a new file in Python, the function <code class="docutils literal notranslate"><span class="pre">open()</span></code> is used with one of the following parameters:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> - writes - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> will create a new file if the specified file does not exists or <strong>overwrite</strong> an existing file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> - append - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'a')</span></code> will create a new file if the specified file does not exists or <strong>append</strong> to an existing file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'x'</span></code> - create - : <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'x')</span></code> will create a new  file or returns an error if the file exists.</p></li>
-</ul>
-</section>
-<section id="reading-a-file-line-by-line">
-<h4>Reading a file line by line<a class="headerlink" href="#reading-a-file-line-by-line" title="Link to this heading">#</a></h4>
-<p>To open a file in <em>read only</em> the parameter <code class="docutils literal notranslate"><span class="pre">'r'</span></code> is used with the function <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This creates an iterable object. We can read in the file line by line with a loop:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span> <span class="c1"># reads the file line by line</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>   <span class="c1"># prints each line</span>
-<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>      <span class="c1"># closes the file</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of the line indicates a new line. See tutorial for more details.</p>
-<p>The following example shows how to read file, creates list of its content and converts the list into a numpy array.  The example uses the function <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> which returns a copy of the string with leading and trailing whitespace removed including new line (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) and the function <code class="docutils literal notranslate"><span class="pre">.split()</span></code>, which returns a list of the substrings in the string, using <code class="docutils literal notranslate"><span class="pre">sep</span></code> as the separator string. If no separator string is given, the string will split on any white space character including new line and tab.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># opens file in read-only.</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>                        <span class="c1"># creates and empty list</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>                <span class="c1"># reads the file line by line</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>          <span class="c1"># strips leading and trailing whitespace</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>          <span class="c1"># splits the string into substrings at each white space</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>            <span class="c1"># appends the list line to the list data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>            <span class="c1"># converts list to numpy array</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>                <span class="c1"># shape of array in lines and columns</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Note, <code class="docutils literal notranslate"><span class="pre">.split()</span></code> is mainly useful for data that has been intentionally delimited.</p>
-</section>
-<section id="writing-to-a-file">
-<h4>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h4>
-<p>Before we can write into a file we need to create it first, e.g. <code class="docutils literal notranslate"><span class="pre">open('myfile.txt',</span> <span class="pre">'w')</span></code> (see <a class="reference internal" href="#creating-a-new-files"><span class="xref myst">creating a new file</span></a>).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>           <span class="c1"># creates a new file called myfile.txt or overwrites it, if it already exists.</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>                     <span class="c1"># produces range 1, 2, 3</span>
-    <span class="n">a_string</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Line &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># creates a string and converts indexes i into string </span>
-    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span>                 <span class="c1"># writes string into file</span>
-<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                             <span class="c1"># closes the file</span>
-</pre></div>
-</div>
-<p>Note: <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> (new line) needs to be added at the end of the string. Otherwise all strings will be written into the same line.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>File must be closed after writing the data, e.g. <code class="docutils literal notranslate"><span class="pre">file.close()</span></code>. If the file is not closed properly, not all data might be written to the file.</p>
-</div>
-</section>
-</section>
 </section>
 </section>
 
@@ -642,12 +578,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-tuple-and-numpy-arrays">List <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tuple <code class="docutils literal notranslate"><span class="pre">()</span></code> and numpy arrays</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetitive-tasks-for-loops">Repetitive Tasks: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-range">Sequence: <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-files">Reading and writing text files</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-files">Creating a new files</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-file-line-by-line">Reading a file line by line</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
 </ul>
 </li>
 </ul>

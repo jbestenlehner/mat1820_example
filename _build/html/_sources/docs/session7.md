@@ -1,8 +1,8 @@
 # Fitting of Data
 ## Learning Objectives:
 
-* Creating and indexing vectors and matrices.
-* Mathematical operations on vectors and matrices.
-* Application in Material Science.
+* Spline and polynomial fit.
+* Fitting data and derive parameters.
+* Goodness of fit: $R^2$-value.
 
 ## Overview

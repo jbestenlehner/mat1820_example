@@ -217,7 +217,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
 </ul>
 
@@ -379,7 +379,16 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-reading-and-writing-text-files">Numpy: reading and writing text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-reading-and-writing-text-files">Numpy: reading and writing text files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-text-files">Reading text files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-text-files">Writing text files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-reading-and-writing-data-files">Pandas: reading and writing data files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing-files-with-pandas">Reading writing files with Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-examples">Pandas examples</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -407,7 +416,10 @@ document.write(`
 <p>Colab is a web-based cloud-service hosted by Google accessible via a web-browser. Therefore, any files you would like to read needs to be uploaded to Colab workspace of your session. Files you create or write to are stored on your workspace of your Colab session. Those files are only temporarily stored. If you close your session (e.g. closing browser tab), all your data and files will be lost.</p>
 <section id="uploading-and-downloading-local-files">
 <h3>Uploading and downloading local files<a class="headerlink" href="#uploading-and-downloading-local-files" title="Link to this heading">#</a></h3>
-<p>To uploaded and download local files Google provides a python package</p>
+<p>To uploaded and download local files you can click on the folder on the left hand side. This is the workspace of your Colab session.</p>
+<p><img alt="upload files" src="../_images/upload_files_circle.png" /></p>
+<p>Select the “upload” option (circled icon) and chose the files you would like to upload. If you right click or select the 3 vertical dots next to the file, you will be able to download the file.</p>
+<p>At the bottom left you can also see an icon “{} Variables”, which shows your, and an “Terminal” icon, which will open a Linux terminal. The “Variables” can be very useful, when you debug your code.</p>
 </section>
 <section id="uploading-files-hosted-on-websites">
 <h3>Uploading files hosted on Websites<a class="headerlink" href="#uploading-files-hosted-on-websites" title="Link to this heading">#</a></h3>
@@ -421,6 +433,7 @@ document.write(`
 !cat<span class="w"> </span>somefile.txt<span class="w"> </span><span class="c1"># shows the content of your file</span>
 </pre></div>
 </div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code> or any other Linux command can be also used in the Terminal, when you open on the Terminal.</p>
 </section>
 </section>
 <section id="reading-and-writing-text-files">
@@ -465,7 +478,7 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note: <code class="docutils literal notranslate"><span class="pre">.split()</span></code> is mainly useful for data that has been intentionally delimited.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">.split()</span></code> is used for data that has been intentionally delimited (structured data).</p>
 </section>
 <section id="writing-to-a-file">
 <h3>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h3>
@@ -486,6 +499,129 @@ document.write(`
 </section>
 <section id="numpy-reading-and-writing-text-files">
 <h2>Numpy: reading and writing text files<a class="headerlink" href="#numpy-reading-and-writing-text-files" title="Link to this heading">#</a></h2>
+<p>Structured data generally refer to formats that store data in an organized and consistent way making it easier to read and manipulate.</p>
+<section id="reading-text-files">
+<h3>Reading text files<a class="headerlink" href="#reading-text-files" title="Link to this heading">#</a></h3>
+<p>The <em>numpy</em> function <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> is usually used to read in numerical data of data type <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>, while <code class="docutils literal notranslate"><span class="pre">float</span></code> is the default data type (<code class="docutils literal notranslate"><span class="pre">dtype</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jbestenlehner</span><span class="o">/</span><span class="n">mat1820_example</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">some_data</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;some_data.txt&#39;</span><span class="p">)</span> <span class="c1"># reads the entire content of the file into an numpy.array of dtype = float.</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;some_data.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">int</span><span class="p">)</span> <span class="c1"># reads data into a numpy.array of dtype = int</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;some_data.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">str</span><span class="p">)</span> <span class="c1"># reads data into a numpy.array of dtype = str</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> parameter tells <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code>, which character separates the data. Input is <code class="docutils literal notranslate"><span class="pre">str</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">','</span></code> or <code class="docutils literal notranslate"><span class="pre">'|'</span></code>. Default is whitespace.</p>
+<p>In cases, where you do not need all columns, you can select columns with the <code class="docutils literal notranslate"><span class="pre">usecols=</span></code> parameter. Input can be an integer or a sequence (0, 2, 4).</p>
+<p>Note: Python starts counting at 0.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;some_data.txt&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># reads in 1st and 4th column</span>
+
+<span class="n">column_2</span><span class="p">,</span> <span class="n">column_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;some_data.txt&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># reads in 2nd and 3rd column into 1D arrays</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">unpack=True</span></code> parameters unpacks the array into individual columns. Therefore, you need to know, how many columns do you unpack.</p>
+<p>Some files have comments at the start of the file. The usual convention is that file comments or headers start with <code class="docutils literal notranslate"><span class="pre">'#'</span></code> (default). Input to the <code class="docutils literal notranslate"><span class="pre">comments</span></code> parameter are <code class="docutils literal notranslate"><span class="pre">str</span></code> or sequence of <code class="docutils literal notranslate"><span class="pre">str</span></code>. Alternatively you can use the parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> with an integer input.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;some_data.txt&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Summary of optional parameters to <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code>:</p>
+<ul class="simple">
+<li><p>dtype: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> (default), <code class="docutils literal notranslate"><span class="pre">str</span></code> or (<code class="docutils literal notranslate"><span class="pre">complex</span></code>)</p></li>
+<li><p>delimiter: <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p>usecols: <code class="docutils literal notranslate"><span class="pre">int</span></code> or sequence of <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p>comments: <code class="docutils literal notranslate"><span class="pre">str</span></code> or sequence of <code class="docutils literal notranslate"><span class="pre">str</span></code> (default <code class="docutils literal notranslate"><span class="pre">'#'</span></code>)</p></li>
+<li><p>skiprows: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p>unpack: <code class="docutils literal notranslate"><span class="pre">bool</span></code> (default <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+</ul>
+<p>There are more options available, which can be accessed with <code class="docutils literal notranslate"><span class="pre">np.loadtxt?</span></code> or <code class="docutils literal notranslate"><span class="pre">help(np.loadtxt)</span></code>.</p>
+</section>
+<section id="writing-text-files">
+<h3>Writing text files<a class="headerlink" href="#writing-text-files" title="Link to this heading">#</a></h3>
+<p>To save data in a text file <em>numpy</em> provides the <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span> <span class="c1"># generate random numbers between 0 and 10 excluding 10, [0, 10), in 10 row times 5 column matrix.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;save_some_data.txt&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># writes array a into a file</span>
+</pre></div>
+</div>
+<p>It can save 1D or 2D (our example) array. If you multiple arrays you would like to save into one file you need to concatenate them first, e.g. <code class="docutils literal notranslate"><span class="pre">np.concatenate()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.column_stack()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.row_stack()</span></code>, etc.</p>
+<p>Of course you can format your data with the <code class="docutils literal notranslate"><span class="pre">fmt</span></code> parameter.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;save_some_data.txt&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%10.5f</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># all columns are formatted the same</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;save_some_data.txt&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%8.2f</span><span class="s1"> </span><span class="si">%5.2f</span><span class="s1"> </span><span class="si">%7.3f</span><span class="s1"> </span><span class="si">%3.0f</span><span class="s1"> </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># or individually</span>
+</pre></div>
+</div>
+<p>Note: You need to use <code class="docutils literal notranslate"><span class="pre">%</span></code> instead of <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
+<p>Other optional parameters are:</p>
+<ul class="simple">
+<li><p>delimiter: <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p>header: <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p>comments: <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+</ul>
+<p>A full list of parameters can be accessed with <code class="docutils literal notranslate"><span class="pre">np.savetxt?</span></code> or <code class="docutils literal notranslate"><span class="pre">help(np.savetxt)</span></code>.</p>
+</section>
+</section>
+<section id="pandas-reading-and-writing-data-files">
+<h2>Pandas: reading and writing data files<a class="headerlink" href="#pandas-reading-and-writing-data-files" title="Link to this heading">#</a></h2>
+<p>Structured data files like <code class="docutils literal notranslate"><span class="pre">.CSV</span></code>, <code class="docutils literal notranslate"><span class="pre">.JSON</span></code>, <code class="docutils literal notranslate"><span class="pre">.XML</span></code>, etc. can contain numerical as well as text data including data labels. For example, a data file might contain names of people (<code class="docutils literal notranslate"><span class="pre">str</span></code>), their ages (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and height (<code class="docutils literal notranslate"><span class="pre">float</span></code>). ‘Name’, ‘Age’ and ‘Height’ are data labels. Of course this can be down with the methods above by using <code class="docutils literal notranslate"><span class="pre">.split()</span></code> or <code class="docutils literal notranslate"><span class="pre">unpack</span></code> and then individually assign the data types to the lists/arrays and define variable according the data contents (name, age, height).</p>
+<p>However, there is package called <a href="https://pandas.pydata.org/" target="_blank">pandas</a>, which is a python package develop for real-world Data Analysis. It is able to handle the vast majority of typical use cases in finance, statistics, social science and many areas of engineering providing fast, flexible and expressive data structures designed to make working with relational or labeled data both easy and intuitive. Pandas is able to read many different data files including CSV, JSON, XML, SQL, Excel, HTML, clipboard, etc.</p>
+<p>Pandas is imported with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+<p>In this session we mainly use Pandas to read in and out data files. The next semester will focus more on Data Analysis, where we will explore more the capabilities of Pandas.</p>
+<p>While Numpy is used for numerical computations Pandas strength lies in data handling and analysis, which makes it the goto package in Data Science.</p>
+<section id="reading-writing-files-with-pandas">
+<h3>Reading writing files with Pandas<a class="headerlink" href="#reading-writing-files-with-pandas" title="Link to this heading">#</a></h3>
+<p>Pandas reads tables of data into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jbestenlehner</span><span class="o">/</span><span class="n">mat1820_example</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">bio_stats</span><span class="o">.</span><span class="n">csv</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;bio_stats.csv&#39;</span><span class="p">)</span> <span class="c1"># reads in a CSV file</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>                         <span class="c1"># displays the content of DataFrame. </span>
+</pre></div>
+</div>
+<p>For large datasets only the first 5 and last 5 rows are shown while first and last few columns are displayed depending on screen width.</p>
+<p>Note: there is an additional ‘index’ column counting from 0.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>   <span class="c1"># displays columns name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>    <span class="c1"># displays columns data types</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>     <span class="c1"># displays number of rows and columns</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;bio_stats_out.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># writes data into CSV excluding the index column</span>
+</pre></div>
+</div>
+<p>By default <code class="docutils literal notranslate"><span class="pre">index=True</span></code> and the index column will be written out as well. An overview of available file formats can be found <a href="https://pandas.pydata.org/docs/user_guide/io.html" target="_blank">here</a>.</p>
+</section>
+<section id="pandas-examples">
+<h3>Pandas examples<a class="headerlink" href="#pandas-examples" title="Link to this heading">#</a></h3>
+<p>Below we show a few examples to briefly look at the data with some basics statistics. As you might have noticed the ‘bio_stats.csv’ file contains height and weight data in SI units (m and kg).</p>
+<p>Accessing, selecting subsets and sorting columns of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;bio_stats.csv&#39;</span><span class="p">)</span> <span class="c1"># reads in a CSV file</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span>                  <span class="c1"># accesses and displays the Age column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]])</span>        <span class="c1"># accesses and displays Name and Sex (list of column labels)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">))</span>   <span class="c1"># sorts the df according there Age</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> <span class="c1"># sorts Names in descending index order.</span>
+</pre></div>
+</div>
+<p>Similar to numpy <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code> and <code class="docutils literal notranslate"><span class="pre">std()</span></code> are available in Pandas, too.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>              <span class="c1"># median value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>  <span class="c1"># standard deviation for Height and Weight</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>                   <span class="c1"># Calculates, mean(), std(), min(), max() and percentiles boundaries of columns with numerical values.</span>
+<span class="c1"># You can also group your data and calculate some statistic</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># Mean for female and male</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>    <span class="c1"># Calculates statistics for all numerical columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># results displayed vertically instead of horizontally</span>
+</pre></div>
+</div>
+<p>You can extract columns from your Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and convert them to numpy arrays.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array_1D</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="c1"># extracts Age and converts it to a numpy array.</span>
+<span class="n">array_2D</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+</pre></div>
+</div>
+<p>Filtering data can be done with boolean operators.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">)</span>        <span class="c1"># prints a boolean array.</span>
+<span class="n">above35</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span> <span class="c1"># selects rows with Age &gt; 35.</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -565,7 +701,16 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-reading-and-writing-text-files">Numpy: reading and writing text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-reading-and-writing-text-files">Numpy: reading and writing text files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-text-files">Reading text files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-text-files">Writing text files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-reading-and-writing-data-files">Pandas: reading and writing data files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing-files-with-pandas">Reading writing files with Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-examples">Pandas examples</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
