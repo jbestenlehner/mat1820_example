@@ -399,6 +399,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-from-a-file">Reading in from a file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-structure-from-file">Read in structure from file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
 </ul>
             </nav>
         </div>
@@ -422,8 +426,9 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">delimiter</span></code>: This is the symbol that separates the values in the file. This could be a space whitespace including tab (default), a comma ‘,’, ‘|’ or some other symbol. The file separated with commas are more commonly known as a CSV file, or a Comma Separated Variable file.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">comments</span></code>: The number of comments lines at the start of the file. In this case, if you open the ‘test.txt’ in word pad of equivalent or <code class="docutils literal notranslate"><span class="pre">!cat</span> <span class="pre">test.txt</span></code> in the code cell, you will see 2 rows of text headings. We must make sure Python reads this in as text and not numerical values, but the text is not specifically indicated as a comment with a symbol at the beginning of the line like ‘#’ or ‘!’. So we have to specify this with the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> parameter.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">skiprows</span></code>: If text is not specified as comment, we must make sure Python does not read this in as text. So we have to tell how many lines to skip at the beginning of the row.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unpack</span></code>: Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>. All columns are read into a single <code class="docutils literal notranslate"><span class="pre">np.array()</span></code>. If you want to read each column in a separate column, set <code class="docutils literal notranslate"><span class="pre">unpack</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unpack</span></code>: Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>. All columns are read into a single 2D <code class="docutils literal notranslate"><span class="pre">np.array()</span></code>. If you want to read each column in a separate 1D array, set <code class="docutils literal notranslate"><span class="pre">unpack</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 </ul>
+<p>First we need to check the content of the file to see, if there are headers/comments present, what is the delimiter and how the data are structured in the file. To do so you can either open the file with an text editor like word pad or execute the following command in your code cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w">  </span>test.txt<span class="w"> </span>#<span class="w"> </span>prints<span class="w"> </span>the<span class="w"> </span>content<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>screen
@@ -431,19 +436,133 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We notice, that there are two lines of comments/header, the delimiter is whitespace and there are two columns of data (x and y).</p>
+<p>Note: If you open the file in Excel, Excel will read it into columns and you won’t be able to see, what the delimiter is.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">xy_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;test.txct&#39;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># delimiter is white space and does not need to be specified (default).</span>
+<span class="n">xy_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Note: delimiter is white space and does not need to be specified (default).</span>
                                                  <span class="c1"># header is not indicated by a symbol. So we use skiprows to skip the first 2 lines.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">xy_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>                             <span class="c1"># prints shape</span>
-<span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;test.txct&#39;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># reads each column into a separated array</span>
+<span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># reads each column into a separated array</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">xy_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span>                           <span class="c1"># plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="read-in-structure-from-file">
+<h2>Read in structure from file<a class="headerlink" href="#read-in-structure-from-file" title="Link to this heading">#</a></h2>
+<p>To read in the file structure in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> you can use the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function from Pandas.</p>
+<p>Note: as it is a text file separated by whitespaces we need to set the parameter <code class="docutils literal notranslate"><span class="pre">delim_whitespace</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
+<p>The first line of the header/comment describes the data file (‘test file’) and we can ignore it. The second row provides us information about the columns, which would be sensible labels for the pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. So we only skip the first row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df_xy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="n">delim_whitespace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># reads data into Pandas dataframe.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="p">)</span>          <span class="c1"># prints content of dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># shows column labels</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>   <span class="c1"># prints data type for each column</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1"># plot data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df_xy</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">)</span>      <span class="c1"># if labels do not contain spaces or special signs like &#39;\&#39;, &#39;|&#39;, &#39;/&#39;, &#39;#&#39;, ..., you can access columns with &#39;.&lt;column label&gt;.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-1">
+<h2>TASK 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>Download the file ‘task1.csv’ from blackboard and place it into your current workspace on Colab. The file contains the voltage-current measurements of two samples. Column one is the voltage. Columns 2 and 3 are the current generated in sample 1 and 2 respectively.</p>
+<ul class="simple">
+<li><p>Look at the file and identify</p></li>
+<li><p>how many text headings it has, and the deliminator that separates the values.</p></li>
+<li><p>Use these to read in the file with <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code></p></li>
+<li><p>Separate the columns into separated arrays.</p></li>
+<li><p>Plot sample 1 and sample 2 on the same graph.</p></li>
+<li><p>Label the axis including units.</p></li>
+</ul>
+<p>Now use <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to read the file into a Pandas data file and plot the data as above.</p>
+<p>Hint: The second row contains the Units of each column. To use the first row as column labels and skip the second row set parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span> <span class="pre">=</span> <span class="pre">[1]</span></code>. Note: Python starts counting from 0.</p>
+</section>
+<section id="writing-to-a-file">
+<h2>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h2>
+<p>We use Python’s built in functions <code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">write()</span></code>. To write to a file you have to first open a file with the permission to write to it, given by the option ‘w’. You then use <code class="docutils literal notranslate"><span class="pre">write()</span></code> with the string-formatter <code class="docutils literal notranslate"><span class="pre">.format()</span></code> to write to the file (<a class="reference internal" href="session4.html"><span class="doc std std-doc">See also session 4</span></a>). Finally close the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fid</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_write.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>   <span class="c1"># open file with write permission. Overwrites any existing file called &#39;test_write.txt&#39;</span>
+<span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;heading</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>              <span class="c1"># Writes some header. Note: &#39;\n&#39; new lines needs to be added to the end of the string.</span>
+<span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1"> </span><span class="si">{:.2f}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()))</span> <span class="c1"># formats number values and writes them into a file. </span>
+<span class="n">fid</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                         <span class="c1"># close the file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The fid variable stores the open file.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">open()</span></code> functions takes in two parameters. The name of the file and the permission to write to the file (See overview page of this session).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">write()</span></code> function has one input which is a string. Therefore, we need format our number values to a single string.</p></li>
+<li><p>The first <code class="docutils literal notranslate"><span class="pre">write()</span></code> expression writes a line of text at the top.</p></li>
+<li><p>The second <code class="docutils literal notranslate"><span class="pre">write()</span></code> expression writes two values, the value of 2 followed by a random number, separated by a space.</p></li>
+<li><p>It is really important you then close the file before the algorithm ends. Not all data might be written to the file.</p></li>
+</ul>
+</section>
+<section id="task-2">
+<h2>TASK 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>Write the following code that writes a formatted file.</p>
+<ul class="simple">
+<li><p>Create an array from 1 to 10 in 9 equal steps. Use this to create another array which adds 5 to each value.</p></li>
+<li><p>Write the resulting values to a file called ‘task2.dat’.</p></li>
+<li><p>The contents of the file should looks like this.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>x</p></th>
+<th class="head text-right"><p>y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1.00</p></td>
+<td class="text-right"><p>6.00</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2.12</p></td>
+<td class="text-right"><p>7.12</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3.25</p></td>
+<td class="text-right"><p>8.25</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4.38</p></td>
+<td class="text-right"><p>9.38</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5.50</p></td>
+<td class="text-right"><p>10.50</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>6.62</p></td>
+<td class="text-right"><p>11.62</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7.75</p></td>
+<td class="text-right"><p>12.75</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8.88</p></td>
+<td class="text-right"><p>13.88</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>10.00</p></td>
+<td class="text-right"><p>15.00</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note the columns are labelled as x and y.</p>
 </section>
 </section>
 
@@ -512,6 +631,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-from-a-file">Reading in from a file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-structure-from-file">Read in structure from file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
 </ul>
   </nav></div>
 

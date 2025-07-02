@@ -213,6 +213,8 @@ For large datasets only the first 5 and last 5 rows are shown while first and la
 
 Note: there is an additional 'index' column counting from 0.
 
+If you want to read in only specific columns, there can be indicated with `usecols` similar to `np.loadtxt()`. You can also read in text files separated with whitespaces with `pd.read_csv()`, but this needs to be declared with the parameter `delim_whitespace = True`. For complete list of optional parameters either use `pd.read_csv?` (short help) or `help(pd.read_csv)` (long help).
+
 ```python
 print(df.columns)   # displays columns name
 print(df.dtypes)    # displays columns data types

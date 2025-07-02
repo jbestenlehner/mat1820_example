@@ -1,4 +1,4 @@
-Voltage,Sample1_current, Sample2_current
+Voltage,Sample1_current,Sample2_current
 (V),(A),(A)
 0.00,0.2,0.15
 1.00,3.20,2.81
