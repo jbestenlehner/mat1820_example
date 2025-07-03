@@ -1,4 +1,4 @@
-# Fitting of Data
+# Fitting Data
 ## Learning Objectives:
 
 * Spline and polynomial fit.
@@ -100,20 +100,22 @@ Note: `np.interp()` will rase an error when extrapolating data points.
 As seen in the example above linear splines can be quite inaccurate. Considerable better results provide cubic splines.
 
 The polynomial is of the form
-$$
+
+$
 \begin{matrix}
 s(x) & = & ax^3 + bx^2 + cx + d
 \end{matrix}
-$$
+$
 
-with the additional condition that the first and second derivative of polynomial $s_{i-1}(x)$, e.g. for $i=1$ the piecewise polynomial for points ($x_0, y_0$) and ($x_1, y_1$), at the point ($x_i, y_i$) is equal to the first and second derivative of polynomial $s_{i}(x)$, e.g. for $i=1$ the piecewise polynomial for points ($x_1, y_1$) and ($x_2, y_2$), at the point ($x_i, y_i$). Or in mathematical notation:
+with the additional condition that the first and second derivative of polynomial $s_{i-1}(x_i)$ (e.g. for $i=1$ the piecewise polynomial for points ($x_0, y_0$) and ($x_1, y_1$)) at the point ($x_i, y_i$) is equal to the first and second derivative of polynomial $s_{i}(x_i)$ (e.g. for $i=1$ the piecewise polynomial for points ($x_1, y_1$) and ($x_2, y_2$)) at the point ($x_i, y_i$). Or in mathematical notation:
 
-$$
+$
 s'_{i}(x_{i}):=s'_{i-1}(x_{i})
-$$
+$
 and
-$$s''_{i}(x_{i}):=s''_{i-1}(x_{i})
-$$
+$
+s''_{i}(x_{i}):=s''_{i-1}(x_{i})
+$
 
 Numpy does not provide a cubic spline function, but the <a href="https://docs.scipy.org/doc/scipy/reference/interpolate.html" target="_blank">`scipy.interpolate`</a> module of the <a href="https://scipy.org/" target="_blank">SciPy</a> package provides a <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html#scipy.interpolate.CubicSpline" target="_blank">`CubicSpline`</a> function.  It requires two input parameters:
 - `x`: the x-coordinates of the data points in ascending order (1D array, independent variable).
@@ -187,6 +189,114 @@ plt.legend()
 plt.show()
 plt.close()
 ```
+
+:::[warning]
+
+Extrapolation must be done with caution as fits can diverge rapidly outside the fitted range.
+
+:::
+
 More details with examples on extrapolating data can be found <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html" target="_blank">here</a>.  If you only want to know more about the impact of different boundary condition on extrapolating data using CubicSpline, you can scroll down to <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html#cubicspline-extend-the-boundary-conditions" target="_blank">here</a>. 
 
 ## Polynomial fitting
+
+Polynomial fitting is a widely used technique in Materials Science to model experimental data and understand underlying relationships between variables. 
+
+### What is Polynomial Fitting?
+
+Polynomial fitting or polynomial regression involves finding the coefficients of a polynomial function that best approximates a set of given data points. The general form of a polynomial is:
+
+$y = a_0 + a_1x + a_2x^2 + \dots + a_nx^n$
+
+where $y$ is the dependent variable, $x$ is the independent variable, $a_0, a_1, \dots, a_n$ are the coefficients to be determined and $n$ is the degree of the polynomial. Polynomial fits are use 
+
+  * **Determining Physical Parameters:** The coefficients of the fitted polynomial can sometimes be directly related to physical constants or properties, allowing for their determination from experimental measurements. For example, you have data of Voltage and Current. By fitting a linear polynomial to the data you are able to determine the resistance (Ohm's law: $U=R\cdot I$). 
+  * **Noise Reduction/Smoothing:** Experimental data often contains noise. Polynomial fitting can smooth out these fluctuations, revealing the underlying trend.
+  * **Interpolation and Extrapolation:** Once a polynomial fit is obtained, it can be used to estimate values between known data points (interpolation) or predict values beyond the range of the observed data (extrapolation). However, extrapolation with polynomials, especially high-degree ones, can be risky and the curve can wildly oscillate outside the data range.
+  * **Simplifying Complex Models:** Materials science often deals with complex phenomena. The complexity of the model might be approximated by a simpler polynomial for ease of calculation or analysis within a specific range allowing to describe observed relationships without necessarily understanding the fundamental physical laws in detail.
+
+### Methods for Polynomial Fitting:
+
+The most common method for polynomial fitting is **Least Squares (LS)**.
+
+  * **Ordinary Least Squares (OLS):** This method minimizes the sum of the squares of the vertical distances (residuals) between the data points and the fitted polynomial curve. It assumes that the errors are primarily in the dependent variable ($y$) and are normally distributed with constant variance (this semester).
+  * **Total Least Squares (TLS) and Orthogonal Distances (OD):** These methods are more advanced and consider errors in both the $x$ and $y$ variables, which can be more realistic for some experimental setups. They minimize the orthogonal distance from the data points to the fitted curve. While more robust in certain scenarios, they are computationally more complex than OLS (next semester).
+
+### Considerations and Challenges:
+
+  * **Choosing the Degree of the Polynomial ($n$):** This is a crucial step.
+      * **Underfitting:** A low-degree polynomial might not capture the true complexity of the data, leading to a poor fit.
+      * **Overfitting:** A high-degree polynomial (especially one close to the number of data points) can fit the noise in the data rather than the underlying trend. This results in a curve that passes through most points but may wildly oscillate between them, leading to poor generalisation and extrapolation.
+      * **Strategies for choosing degree:**
+          * **Visual inspection:** Plotting the data and trying different degrees can give an initial idea.
+          * **Physical intuition:** The expected physical relationship might suggest a certain polynomial degree (e.g., quadratic for constant acceleration).
+          * **Statistical measures:** $R^2$ or R-squared (used in this session), adjusted $R^2$ or Bayesian Information Criterion can help evaluate the goodness of fit.
+  * **Uncertainty and Error Propagation:** In Materials Science, it's essential to consider the uncertainties in the measurements and how they propagate to the fitted parameters. Least squares methods can provide estimates of the uncertainties in the fitted coefficients.
+
+### Practical Implementation (using Python):
+
+Python libraries like `NumPy` and `SciPy` provide powerful tools for polynomial fitting.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Generate some noisy data (e.g., simulating a quadratic relationship)
+np.random.seed(0)
+x_data = np.linspace(0, 10, 50)
+true_coeffs = np.array([2, -0.5, 0.1]) # a0 + a1*x + a2*x^2
+y_true = true_coeffs[0] + true_coeffs[1]*x_data + true_coeffs[2]*x_data**2
+y_noisy = y_true + np.random.normal(0, 0.5, size=len(x_data))
+
+# 2. Perform polynomial fitting using numpy.polyfit
+# Fit a 2nd degree polynomial
+degree = 2
+fitted_coeffs = np.polyfit(x_data, y_noisy, degree)
+print(f"Fitted coefficients (degree {degree}): {fitted_coeffs}")
+
+# Create a polynomial function from the fitted coefficients
+polynomial_function = np.poly1d(fitted_coeffs)
+
+# 3. Generate points for plotting the fitted curve
+x_fit = np.linspace(min(x_data), max(x_data), 100)
+y_fit = polynomial_function(x_fit)
+
+# 4. Plot the data and the fitted curve
+plt.figure(figsize=(10, 6))
+plt.scatter(x_data, y_noisy, label='Noisy Data', s=20)
+plt.plot(x_data, y_true, label='True Relationship', color='green', linestyle='--')
+plt.plot(x_fit, y_fit, label=f'Polynomial Fit (Degree {degree})', color='red')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Polynomial Fitting in Physics')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Example of a higher degree polynomial to illustrate overfitting (Runge's phenomenon)
+# Let's use fewer data points and a high degree
+x_overfit_data = np.linspace(-1, 1, 10)
+y_overfit_true = np.sin(np.pi * x_overfit_data)
+y_overfit_noisy = y_overfit_true + np.random.normal(0, 0.1, size=len(x_overfit_data))
+
+degree_overfit = len(x_overfit_data) - 1 # Fit a polynomial that passes through all points
+fitted_coeffs_overfit = np.polyfit(x_overfit_data, y_overfit_noisy, degree_overfit)
+polynomial_function_overfit = np.poly1d(fitted_coeffs_overfit)
+
+x_overfit_plot = np.linspace(-1.2, 1.2, 200) # Extend range to show oscillation
+y_overfit_fit = polynomial_function_overfit(x_overfit_plot)
+
+plt.figure(figsize=(10, 6))
+plt.scatter(x_overfit_data, y_overfit_noisy, label='Noisy Data', s=30, color='blue')
+plt.plot(x_overfit_plot, np.sin(np.pi * x_overfit_plot), label='True Sine Wave', color='green', linestyle='--')
+plt.plot(x_overfit_plot, y_overfit_fit, label=f'Overfitted Polynomial (Degree {degree_overfit})', color='red')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Overfitting and Runge\'s Phenomenon')
+plt.legend()
+plt.grid(True)
+plt.ylim(-2, 2)
+plt.show()
+```
+
+In summary, polynomial fitting is a powerful and versatile tool in physics for analyzing and interpreting experimental data. However, careful consideration of the polynomial degree, potential for overfitting, and numerical stability is crucial for obtaining meaningful and reliable results.

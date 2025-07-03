@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fitting of Data &#8212; Digital Skills for Materials</title>
+    <title>Fitting Data &#8212; Digital Skills for Materials</title>
   
   
   
@@ -214,7 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fitting of Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fitting Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
@@ -359,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fitting of Data</h1>
+    <h1>Fitting Data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,6 +371,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-spline-fitting">What is spline fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a></li>
 </ul>
             </nav>
         </div>
@@ -382,8 +390,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fitting-of-data">
-<h1>Fitting of Data<a class="headerlink" href="#fitting-of-data" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="fitting-data">
+<h1>Fitting Data<a class="headerlink" href="#fitting-data" title="Link to this heading">#</a></h1>
 <section id="learning-objectives">
 <h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -394,6 +402,206 @@ document.write(`
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Data fitting, also known as curve fitting or model fitting, is a fundamental process in many fields, including science, engineering, economics and data science. Its core purpose is to find a mathematical function or model that best describes the relationship between variables/parameters in a given set of data points.</p>
+<p>Fitting data is often used, but not exclusively:</p>
+<ol class="arabic simple">
+<li><p><strong>Understanding Underlying Relationships and Patterns:</strong></p>
+<ul class="simple">
+<li><p>By fitting a model to data, we can uncover the inherent trends and relationships that might not be obvious from raw data. For example, fitting stress-strain curves can determine material parameters like Young’s modulus or Poisson’s ratio.</p></li>
+<li><p>By fitting data to theoretical or empirical models, we are able to gain a deeper understanding of how materials behave under various conditions (e.g., temperature, stress, chemical environment). This helps us to understand the mechanisms governing material properties and performance.</p></li>
+</ul>
+</li>
+<li><p><strong>Noise Reduction and Smoothing:</strong></p>
+<ul class="simple">
+<li><p>Real-world data often contains noise or errors. Fitting a smooth curve to noisy data can help average out these fluctuations, revealing the underlying signal/relations and making the data more interpretable.</p></li>
+</ul>
+</li>
+<li><p><strong>Interpolation and Extrapolation:</strong></p>
+<ul class="simple">
+<li><p><strong>Interpolation:</strong> Using the fitted model to estimate values <em>within</em> the range of the observed data points where no data was collected.</p></li>
+<li><p><strong>Extrapolation:</strong> Using the fitted model to estimate values <em>outside</em> the range of the observed data. While useful, extrapolation carries higher uncertainty as the model’s behavior outside the observed range might differ.</p></li>
+</ul>
+</li>
+<li><p><strong>Model Validation and Development:</strong></p>
+<ul class="simple">
+<li><p><strong>Testing Hypotheses:</strong> Data fitting is a crucial way to test scientific hypotheses and validate theoretical models. If experimental data closely fits a proposed model, it provides strong evidence for the validity of that model. Conversely, discrepancies can highlight limitations or suggest areas for model refinement.</p></li>
+<li><p><strong>Developing Predictive Models:</strong> Once a model is validated, it can be used to predict material behavior under conditions that haven’t been directly tested, saving time and resources in experimental work. This is particularly valuable in materials design and discovery.</p></li>
+<li><p><strong>Identifying Relationships:</strong> Even in the absence of a complete theoretical model, data fitting can reveal correlations and relationships between different material properties or processing parameters. This can guide the development of new materials or optimization of existing ones.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="spline-fitting">
+<h2>Spline fitting<a class="headerlink" href="#spline-fitting" title="Link to this heading">#</a></h2>
+<p>Spline fitting is a powerful technique for approximating data. Examples for when to use spline fitting are:</p>
+<ol class="arabic simple">
+<li><p><strong>Interpolation:</strong></p>
+<ul class="simple">
+<li><p><strong>Need a smooth curve that passes through <em>all</em> data points:</strong> If your data is relatively clean and you need to estimate values between known points.</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>Resampling data to a higher resolution.</p></li>
+<li><p>Fill in missing values within a dataset if the underlying relationship is expected to be smooth.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Smoothing (Regression Splines/Smoothing Splines):</strong></p>
+<ul class="simple">
+<li><p><strong>Data is noisy:</strong> When your data contains noise or measurement errors, simply interpolating can lead to “wiggles” or overfitting. Smoothing splines aim to find a balance between fitting the data closely and maintaining a desired level of smoothness.</p></li>
+<li><p><strong>Need to capture non-linear relationships without overfitting:</strong> Splines can model complex, non-linear trends in data more flexibly than a single polynomial, while still avoiding the extreme fluctuations that can arise from high-degree polynomial regression.</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>Trend analysis in time series data.</p></li>
+<li><p>Removing noise from sensor readings.</p></li>
+<li><p>Smoothing out experimental data.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>However, this course will focus on point 1.</p>
+<section id="what-is-spline-fitting">
+<h3>What is spline fitting?<a class="headerlink" href="#what-is-spline-fitting" title="Link to this heading">#</a></h3>
+<p>Data points are fitting by piecewise polynomials, i.e. neighbouring data points are fitted by different polynomials. Commonly used are polynomial of degree 1 (linear spline) and degree 3 (cubic spline), but any other order can be chosen depending on your data or purpose of fit.</p>
+</section>
+<section id="linear-spline">
+<h3>Linear spline<a class="headerlink" href="#linear-spline" title="Link to this heading">#</a></h3>
+<p>Linear splines are used for large datasets when performance is a critical concern or for filling in missing or resampling data where linearity is acceptable. A straight line (<span class="math notranslate nohighlight">\(s(x)\)</span>) is fitted through 2 data points, e.g. (<span class="math notranslate nohighlight">\(x_1, y_1\)</span>) and (<span class="math notranslate nohighlight">\(x_2, y_2\)</span>).</p>
+<p>The polynomial is of the form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+s(x) &amp; = &amp; m \cdot x &amp; + &amp; b \\
+     &amp; = &amp; \frac{y_2 - y_1}{x_2 - x_1} \cdot x &amp; + &amp; y_1 - \frac{y_2 - y_1}{x_2 - x_1} \cdot x_1
+\end{matrix}
+\end{split}\]</div>
+<p>Note: <span class="math notranslate nohighlight">\(b=y_1-m\cdot x_1\)</span>.</p>
+<p>The linear spline interpolation function of numpy is called <code class="docutils literal notranslate"><span class="pre">np.interp()</span></code>. It requires three input parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinates at which to evaluate the interpolated values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xp</span></code>: the x-coordinates of the data points in ascending order (1D array).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fp</span></code>: the y-coordinates of the data points (1D array).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Original data points</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">x_data</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y = x**2</span>
+
+<span class="c1"># New points to interpolate at</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Perform linear interpolation</span>
+<span class="n">y_interp_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_interp_np</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;np.interp (linear spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">np.interp()</span></code> will rase an error when extrapolating data points.</p>
+</section>
+<section id="cubic-spline">
+<h3>Cubic spline<a class="headerlink" href="#cubic-spline" title="Link to this heading">#</a></h3>
+<p>As seen in the example above linear splines can be quite inaccurate. Considerable better results provide cubic splines.</p>
+<p>The polynomial is of the form</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix}
+s(x) &amp; = &amp; ax^3 + bx^2 + cx + d
+\end{matrix}
+\)</span></p>
+<p>with the additional condition that the first and second derivative of polynomial <span class="math notranslate nohighlight">\(s_{i-1}(x)\)</span>, e.g. for <span class="math notranslate nohighlight">\(i=1\)</span> the piecewise polynomial for points (<span class="math notranslate nohighlight">\(x_0, y_0\)</span>) and (<span class="math notranslate nohighlight">\(x_1, y_1\)</span>), at the point (<span class="math notranslate nohighlight">\(x_i, y_i\)</span>) is equal to the first and second derivative of polynomial <span class="math notranslate nohighlight">\(s_{i}(x)\)</span>, e.g. for <span class="math notranslate nohighlight">\(i=1\)</span> the piecewise polynomial for points (<span class="math notranslate nohighlight">\(x_1, y_1\)</span>) and (<span class="math notranslate nohighlight">\(x_2, y_2\)</span>), at the point (<span class="math notranslate nohighlight">\(x_i, y_i\)</span>). Or in mathematical notation:</p>
+<p><span class="math notranslate nohighlight">\(
+s'_{i}(x_{i}):=s'_{i-1}(x_{i})
+\)</span>
+and
+<span class="math notranslate nohighlight">\(
+s''_{i}(x_{i}):=s''_{i-1}(x_{i})
+\)</span></p>
+<p>Numpy does not provide a cubic spline function, but the <a href="https://docs.scipy.org/doc/scipy/reference/interpolate.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code></a> module of the <a href="https://scipy.org/" target="_blank">SciPy</a> package provides a <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html#scipy.interpolate.CubicSpline" target="_blank"><code class="docutils literal notranslate"><span class="pre">CubicSpline</span></code></a> function.  It requires two input parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinates of the data points in ascending order (1D array, independent variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: the y-coordinates of the data points (1D array, dependent variable).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CubicSpline</span>
+
+<span class="c1"># Original data points</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">x_data</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y = x**2</span>
+
+<span class="c1"># New points to interpolate at</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Perform linear spline interpolation</span>
+<span class="n">y_interp_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span>
+
+<span class="c1"># Perform cubic spline interpolation</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span> <span class="c1">#creates a function where x_new can be evaluated</span>
+<span class="n">y_CubicSpline</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_interp_np</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;np.interp (linear spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_CubicSpline</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CubicSpline (cubic spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="extrapolating-data-with-cubicspline">
+<h3>Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code><a class="headerlink" href="#extrapolating-data-with-cubicspline" title="Link to this heading">#</a></h3>
+<p>When extrapolating data we do not have data points at the boundary to full fill the condition above. In our three point example with data points at <span class="math notranslate nohighlight">\(i= 0, 1, 2\)</span> we do not have data points at (<span class="math notranslate nohighlight">\(x_{-1}, y_{-1}\)</span>) and (<span class="math notranslate nohighlight">\(x_3,y_3\)</span>) to obtain the polynomial <span class="math notranslate nohighlight">\(s_{-1}(x)\)</span> and <span class="math notranslate nohighlight">\(s_3(x)\)</span>, which are required to full fill the condition. Therefore, we need to define a boundary condition, e.g. setting the first derivative to zero (‘clamped’) or setting the second derivative to zero (‘natural’). The default for <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code> is when the first and second segment at a curve end are the same polynomial (‘not-a-knot’).</p>
+<p>The optional parameter to the set the boundary condition is called <code class="docutils literal notranslate"><span class="pre">bc_type</span></code>:</p>
+<ul class="simple">
+<li><p>‘not-a-knot’: The first and second segment at a curve end are the same polynomial (default).</p></li>
+<li><p>‘clamped’: The first derivative at curves ends are zero.</p></li>
+<li><p>‘natural’: The second derivative at curve ends are zero.</p></li>
+<li><p>‘periodic’: The interpolated functions is assumed to be periodic. For example, we have <span class="math notranslate nohighlight">\(n\)</span> data points. The extrapolated data point (<span class="math notranslate nohighlight">\(x_{-1},y_{-1}\)</span>) is equal to data point (<span class="math notranslate nohighlight">\(x_n,y_n\)</span>) while the extrapolated data point (<span class="math notranslate nohighlight">\(x_{n+1},y_{n+1}\)</span>) is equal to data (<span class="math notranslate nohighlight">\(x_0,y_0\)</span>).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CubicSpline</span>
+
+<span class="c1"># Original data points</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">**</span><span class="n">x_data</span> <span class="c1"># y = 1.5^x</span>
+
+<span class="c1"># New points to interpolate at</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Perform cubic spline interpolation</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span> <span class="c1">#creates a function where x_new can be evaluated</span>
+<span class="n">y_CubicSpline</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<span class="n">y_first_cs</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">nu</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># calculates first derivative</span>
+<span class="n">y_second_cs</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">nu</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># calculates second derivative</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_CubicSpline</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CubicSpline (cubic spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_first_cs</span><span class="p">,</span> <span class="s1">&#39;y-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;First derivative&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_second_cs</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Second derivative&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">**</span><span class="n">x_new</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$y=1.5^x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>More details with examples on extrapolating data can be found <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html" target="_blank">here</a>.  If you only want to know more about the impact of different boundary condition on extrapolating data using CubicSpline, you can scroll down to <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html#cubicspline-extend-the-boundary-conditions" target="_blank">here</a>.</p>
+</section>
+</section>
+<section id="polynomial-fitting">
+<h2>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -463,6 +671,14 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-spline-fitting">What is spline fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a></li>
 </ul>
   </nav></div>
 

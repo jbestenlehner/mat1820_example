@@ -57,10 +57,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session6_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Fitting of Data" href="session7.html" />
+    <link rel="next" title="Fitting Data" href="session7.html" />
     <link rel="prev" title="Reading and writing files" href="session6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -212,7 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
@@ -403,6 +405,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-hard">TASK 6 (Hard)</a></li>
 </ul>
             </nav>
         </div>
@@ -497,7 +503,7 @@ document.write(`
 </section>
 <section id="writing-to-a-file">
 <h2>Writing to a file<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">#</a></h2>
-<p>We use Python’s built in functions <code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">write()</span></code>. To write to a file you have to first open a file with the permission to write to it, given by the option ‘w’. You then use <code class="docutils literal notranslate"><span class="pre">write()</span></code> with the string-formatter <code class="docutils literal notranslate"><span class="pre">.format()</span></code> to write to the file (<a class="reference internal" href="session4.html"><span class="doc std std-doc">See also session 4</span></a>). Finally close the file.</p>
+<p>We use Python’s built in functions <code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">write()</span></code>. To write to a file you have to first open a file with the permission to write to it, given by the option ‘w’. You then use <code class="docutils literal notranslate"><span class="pre">write()</span></code> with the string-formatter <code class="docutils literal notranslate"><span class="pre">.format()</span></code> to write to the file (See Tutorial of session 4). Finally close the file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fid</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_write.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>   <span class="c1"># open file with write permission. Overwrites any existing file called &#39;test_write.txt&#39;</span>
@@ -564,6 +570,59 @@ document.write(`
 </div>
 <p>Note the columns are labelled as x and y.</p>
 </section>
+<section id="task-3">
+<h2>TASK 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Use ‘task3.csv’ as the input for this question.</p>
+<p>A vector describing the magnetisation of a material is given in the file ‘task3.csv’. It contains the magnetisation moment for the x, y and z directions. The magnitude of the vector should always be less than 1 (i.e. &lt;= 1). Some of the lines however have an error present.</p>
+<p>Write a code that:</p>
+<ul class="simple">
+<li><p>Reads in the file</p></li>
+<li><p>Calculates the vector magnitude of the data given by</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{Magnitude} = \sqrt{x^2 + y^2 + z^2}
+\]</div>
+<ul class="simple">
+<li><p>Prints all the correct vectors to a file called task3_correct.dat. (i.e. omitting the incorrect ones).</p></li>
+</ul>
+</section>
+<section id="task-4">
+<h2>TASK 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>For this question use the task4.dat file.</p>
+<p>A company called SteelyGood makes steel samples with an advertised hardness of 160HV or better. Using a new automated process they have measured the hardness of 50 different samples and recorded it into a data file.</p>
+<p>The first column is the sample number, and the second the Vickers hardness.</p>
+<p>Write a code that</p>
+<ul class="simple">
+<li><p>Reads the data in.</p></li>
+<li><p>Prints to the screen the maximum, minimum and average of the data set.</p></li>
+<li><p>Plots a histogram of the data with 10 bins.</p></li>
+<li><p>Prints to the screen any sample whose hardness value is below 160HV.</p></li>
+<li><p>Prints to the screen the percentage of samples that failed to reach 160HV.</p></li>
+<li><p>Prints to a file named “pass.txt” the sample numbers of those samples where the hardness is equal or above 160HV.</p></li>
+</ul>
+</section>
+<section id="task-5">
+<h2>TASK 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Many materials are formed from planes of atoms. To simulate such materials using molecular dynamics we first need to find their correct position.</p>
+<p>Write a script that calculates the x, y coordinates for a single plane of atoms. The code requires the number of atoms you would like in the x and y direction (for example in the figure below there are 4 atoms in the x direction and 4 in the y) and then distributes these evenly along the axis assuming they are separated by the atomic radius. So in the example below with a radius of 0.1 the coordinates of the first atom would be (0,0), the second atom would be (0.1,0), the third atom would be (0.2,0) etc.</p>
+<p><img alt="material" src="../_images/session6_task5_atoms.png" /></p>
+<p>It will also require an atomic radius r to be plotted.</p>
+<p>Your function will use this information to calculate the positions (x, y coordinates) of the atoms and print these coordinates to a file called ‘positions_xy.dat’.</p>
+<p>An example of your output should look similar to the following using an atomic radius of 0.125 nm:</p>
+<p>Atom_1, x=0.000e+00, y=0.000e+00</p>
+<p>Atom_2, x=1.250e-10, y=0.000e+00</p>
+<p>Atom_3, x=2.500e-10, y=0.000e+00</p>
+<p>Test this to produce the example above, such that it consists of 5 atoms in the x direction and 3 in the y. (A total of 15 atoms).</p>
+<p>Use an atomic radius of 0.125 nm. Test your code by plotting it out as points on a scatter graph.</p>
+</section>
+<section id="task-6-hard">
+<h2>TASK 6 (Hard)<a class="headerlink" href="#task-6-hard" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Can you modify task 5 to be in 3D.</p></li>
+<li><p>Can you then find the positions of a closed packed plane of atoms, first in 2D then in 3D.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -610,7 +669,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fitting of Data</p>
+        <p class="prev-next-title">Fitting Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -635,6 +694,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-hard">TASK 6 (Hard)</a></li>
 </ul>
   </nav></div>
 
