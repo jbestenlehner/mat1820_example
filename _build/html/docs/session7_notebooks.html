@@ -57,11 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session7_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Symbolic mathematics" href="session8.html" />
-    <link rel="prev" title="Fitting of Data" href="session7.html" />
+    <link rel="next" title="Symbolic math" href="session8.html" />
+    <link rel="prev" title="Fitting Data" href="session7.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,12 +214,12 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Data fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
 </ul>
 
@@ -375,7 +377,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -391,6 +395,32 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-using-spline-fitting">Interpolation using spline fitting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolation-using-spline-fitting">Extrapolation using spline fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting-of-data">Least squares fitting of data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-least-squares-fit">A simple least squares fit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-least-squares-fitting">Higher order least squares fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-squared">Coefficient of determination (R-squared)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lof-of-previous-knowledge">TASK 6 (uses a lof of previous knowledge)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tougher-challenge">TOUGHER CHALLENGE:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -402,6 +432,267 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-data-fitting">
 <h1>Tutorial: Data fitting<a class="headerlink" href="#tutorial-data-fitting" title="Link to this heading">#</a></h1>
+<p>Once a data set has been read in, one common thing is to fit it for analysis. This could be to remove noise or calculate key parameters such as gradients and intercepts. Here we shall look at the spline fitting and least squares fitting.</p>
+<p><img alt="fitting data" src="../_images/session7_spline_fitting.png" /></p>
+<p><strong>Spine fitting:</strong></p>
+<ul class="simple">
+<li><p>Also known as spline interpolation. It is a way of interpolating between data points but does not provide any numerical understanding – just joins the dots with lines.</p></li>
+<li><p>To make it smooth, not only are the points joined (i.e. the equation meets at the points) but also the gradients.</p></li>
+<li><p>Equations (typically cubic ax3+bx2+cx+d) describe curve between adjacent points, in this case the first and second differentials are equal at that point.</p></li>
+<li><p>Data values are assumed to be exact so requires accurate input data.</p></li>
+</ul>
+<p><strong>Least squares fitting (curve fitting):</strong></p>
+<ul class="simple">
+<li><p>A fit is a way of using a function to represent all the data. It tells you something about your complete data set.</p></li>
+<li><p>One type of equation fitting is the least squares method.</p></li>
+<li><p>The differences between the data and the fit are ‘error’. This can be used to calculate the coefficient of determination (R2) which indicates the goodness of the fit.</p></li>
+<li><p>More suitable for most experiments.</p></li>
+</ul>
+<section id="spline-fitting">
+<h2>Spline fitting<a class="headerlink" href="#spline-fitting" title="Link to this heading">#</a></h2>
+<p>Spline fitting can be used to either interpolate or extrapolate data. The latter however is needs careful consideration.</p>
+<section id="interpolation-using-spline-fitting">
+<h3>Interpolation using spline fitting<a class="headerlink" href="#interpolation-using-spline-fitting" title="Link to this heading">#</a></h3>
+<p>Spline fitting requires the data to be entered into the <code class="docutils literal notranslate"><span class="pre">CubicSpline</span></code>, which returns a function, where a number or array of numbers can be evaluated. If the function is required for future evaluations, it is stored in a variable <code class="docutils literal notranslate"><span class="pre">cs</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)</span></code>. Otherwise you can directly evaluate the function <code class="docutils literal notranslate"><span class="pre">y1</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)(x1)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CubicSpline</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>           <span class="c1"># generate x data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">4.15</span><span class="p">,</span><span class="mf">4.07</span><span class="p">,</span><span class="mf">4.1</span><span class="p">])</span>   <span class="c1"># generate y data</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>                  <span class="c1"># put 50 points between x=5 to x=15</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>                      <span class="c1"># Creates spline function</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>                                <span class="c1"># use x1 points to generate y1 points. </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Cubic Spline&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r*&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>                               <span class="c1"># adds legend on the basis of plot labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="extrapolation-using-spline-fitting">
+<h2>Extrapolation using spline fitting<a class="headerlink" href="#extrapolation-using-spline-fitting" title="Link to this heading">#</a></h2>
+<p>The example above shows interpolation (between measured data points) but we can also use it to extrapolate (outside the data range). The accuracy should be very carefully considered.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>   <span class="c1"># put 50 points between x=48 to x=60</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>                  <span class="c1"># uses CubicSpline function from previous example to generate y2 points. </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Cubic Spline&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r*&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: here that the data looks like its stabilising at the value of 4 but the extrapolation only takes the last two points and predicts what happens next. A limitation of extrapolation and spline fitting.</p>
+</section>
+<section id="task-1">
+<h2>TASK 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Perform a spline fit on the following (A,B) data.</p></li>
+<li><p>Evaluate your spline fit in the range 0-30 with 150 data points.</p></li>
+<li><p>Calculate the value of the spline fit at ~20 (point 100), 25 (point 125) and 30 (point 130)</p></li>
+<li><p>Now remove the first data point from A and B and perform the same fit and extract the same values from the spline.</p></li>
+<li><p>Finally remove the first two data points from A and B and perform the same fit and extract the same values from the spline.</p></li>
+<li><p>How similar are you values depending on the data supplied?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">24</span><span class="p">])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">28</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="least-squares-fitting-of-data">
+<h2>Least squares fitting of data<a class="headerlink" href="#least-squares-fitting-of-data" title="Link to this heading">#</a></h2>
+<p>Fitting using the least squares method is fairly straightforward in Python. To calculate the <span class="math notranslate nohighlight">\(R^2\)</span> value, coefficient of determination, is bit more involved, For simplicity we calculate it manually.</p>
+<section id="a-simple-least-squares-fit">
+<h3>A simple least squares fit<a class="headerlink" href="#a-simple-least-squares-fit" title="Link to this heading">#</a></h3>
+<p>You can use the function polyfit to extract the prefactors of the order (degree) of fit you are using. For example</p>
+<ul class="simple">
+<li><p>Order 1: Equation is <span class="math notranslate nohighlight">\(y=Ax+b\)</span></p></li>
+<li><p>Order 2: Equation is <span class="math notranslate nohighlight">\(y=Bx^2+Ax+C\)</span></p></li>
+<li><p>Order 3. etc</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Run x from 0 to 1 in steps of 0.1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">6.9</span><span class="p">,</span><span class="mf">31.6</span><span class="p">,</span><span class="mf">21.5</span><span class="p">,</span><span class="mf">34.4</span><span class="p">,</span><span class="mf">68.2</span><span class="p">,</span><span class="mf">66.4</span><span class="p">,</span><span class="mf">114.9</span><span class="p">,</span><span class="mf">155.9</span><span class="p">,</span><span class="mf">199.3</span><span class="p">,</span><span class="mf">209.6</span><span class="p">])</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   
+<span class="c1"># Order 1 fit of y= Ax + B </span>
+<span class="c1"># p1 stores all the prefactors as a vector</span>
+<span class="c1"># the first element of p1 is A</span>
+<span class="c1"># the second element of p1 is B</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fit: y=</span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">+.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1">#alternatively using np.polyval</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#we can now use this plot to graph out</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Raw data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit: y=ax+b&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-values&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y-values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-2">
+<h2>TASK 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>Perform a polyfit with a order 1 polynomial to the data below. Extract the values for the fit. Plot the original data and the straight line fitted in a graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.1</span><span class="p">,</span><span class="mf">5.2</span><span class="p">,</span><span class="mf">6.8</span><span class="p">,</span><span class="mf">9.4</span><span class="p">,</span><span class="mf">12.5</span><span class="p">,</span><span class="mf">15.4</span><span class="p">,</span><span class="mf">17.2</span><span class="p">,</span><span class="mf">21.1</span><span class="p">,</span><span class="mf">23.9</span><span class="p">,</span><span class="mf">27.6</span><span class="p">,</span><span class="mf">30.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="higher-order-least-squares-fitting">
+<h2>Higher order least squares fitting<a class="headerlink" href="#higher-order-least-squares-fitting" title="Link to this heading">#</a></h2>
+<p>Least squares fits do not have to be linear. Higher order fits are created by changing the order (degree) in the <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> function. Note: the order of the coefficients is descending (highest order first, zeros order (constant) last).</p>
+<p>Note: The order (degree) has to be an integer, so if you want to fit a square root (order 0.5) you will have to think about rearrange the equation you are fitting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Run x from 0 to 1 in steps of 0.1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">6.9</span><span class="p">,</span><span class="mf">31.6</span><span class="p">,</span><span class="mf">21.5</span><span class="p">,</span><span class="mf">34.4</span><span class="p">,</span><span class="mf">68.2</span><span class="p">,</span><span class="mf">66.4</span><span class="p">,</span><span class="mf">114.9</span><span class="p">,</span><span class="mf">155.9</span><span class="p">,</span><span class="mf">199.3</span><span class="p">,</span><span class="mf">209.6</span><span class="p">])</span>
+
+<span class="c1"># second order fit y = Ax^2 + Bx + C</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   
+
+<span class="c1">#p1[0] stores A, p1[1] stores B, p1[2] stores C</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fit: y=</span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">x^2</span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">+.2f</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">+.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#evaluates fit using np.polyval</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#we can now use this plot to graph out</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Raw data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit: y=ax^2+bx+c&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-values&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y-values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="coefficient-of-determination-r-squared">
+<h2>Coefficient of determination (R-squared)<a class="headerlink" href="#coefficient-of-determination-r-squared" title="Link to this heading">#</a></h2>
+<p>The coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>) is <strong>a number between 0 and 1 that measures how well a statistical model predicts an outcome</strong> (goodness of fit). You can interpret the <span class="math notranslate nohighlight">\(R^2\)</span> as the proportion of variation in the dependent variable that is predicted by the statistical model.</p>
+</section>
+<section id="task-3">
+<h2>TASK 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Repeat the example from the lecture (<span class="math notranslate nohighlight">\(F=kx\)</span>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95</span> <span class="mf">1.95</span> <span class="mf">3.20</span> <span class="mf">4.10</span> <span class="mf">5.30</span><span class="p">])</span>
+
+<span class="c1"># find the average of the data set (the y-values)</span>
+
+
+<span class="c1"># fit the x and y data (np.polyfit) with a first order polynomial</span>
+
+
+<span class="c1"># Using np.polyval and your fit to generate the y values of the line of best fit. </span>
+
+
+<span class="c1"># Calculate the square of the difference between the</span>
+<span class="c1"># original y values and the new ones. </span>
+<span class="c1"># This is known as J</span>
+
+
+<span class="c1"># Calculate the square of the difference between the</span>
+<span class="c1"># original y values and the mean.</span>
+<span class="c1"># This is known as S</span>
+
+
+<span class="c1"># R2 is equal to 1 - J/S. Now find R2. </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-5">
+<h2>TASK 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Power is related to current and resistance through</p>
+<p><span class="math notranslate nohighlight">\(P=R I^2\)</span></p>
+<ul class="simple">
+<li><p>Read in the file ‘power.dat’</p></li>
+<li><p>Using a least squares fit, show that the resistance of the system is around 50Ω.</p></li>
+<li><p>Plot your results along with the fit, printing to the screen the coefficient of determination of your fit.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in your data</span>
+
+
+
+
+<span class="c1"># suitability fit your data and find the resistance. </span>
+
+
+
+
+
+<span class="c1"># plot the line of best fit on your graph</span>
+
+
+
+
+
+<span class="c1"># calculate coefficient of determination and print to the screen </span>
+<span class="c1"># (it should be around 0.99)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-6-uses-a-lof-of-previous-knowledge">
+<h2>TASK 6 (uses a lof of previous knowledge)<a class="headerlink" href="#task-6-uses-a-lof-of-previous-knowledge" title="Link to this heading">#</a></h2>
+<p>Write an algorithm that reads ‘IV_data.csv’. Develop the algorithm so that:</p>
+<ul class="simple">
+<li><p>it fits both samples with a 1st order (linear) fit.</p></li>
+<li><p>Graphs them as two subplots in one figure</p></li>
+<li><p>Overlay the fit on the top of the measured data.</p></li>
+<li><p>Using the gradient of the graph, calculate the resistance of the samples and print them to the screen.</p></li>
+<li><p>Calculate the coefficient of determination for each of your fits. Consider this this fits the data correctly or not.</p></li>
+</ul>
+<section id="tougher-challenge">
+<h3>TOUGHER CHALLENGE:<a class="headerlink" href="#tougher-challenge" title="Link to this heading">#</a></h3>
+<p>As you can see in your data, there is an issue above 6V where the IV measurement is actually current limited and does not obey Ohms Law. We know that the equation behind the data is <span class="math notranslate nohighlight">\(V=IR\)</span> (Ohms law) so we should not change the order, but there is an issue with the fit.</p>
+<p>Modified this by only using the data below 6V. Apply the fit to that section of the data, printing the correct resistance of the samples to the screen</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -440,7 +731,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Fitting of Data</p>
+        <p class="prev-next-title">Fitting Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -448,7 +739,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Symbolic mathematics</p>
+        <p class="prev-next-title">Symbolic math</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -458,6 +749,39 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-using-spline-fitting">Interpolation using spline fitting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolation-using-spline-fitting">Extrapolation using spline fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting-of-data">Least squares fitting of data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-least-squares-fit">A simple least squares fit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-least-squares-fitting">Higher order least squares fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-squared">Coefficient of determination (R-squared)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lof-of-previous-knowledge">TASK 6 (uses a lof of previous knowledge)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tougher-challenge">TOUGHER CHALLENGE:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

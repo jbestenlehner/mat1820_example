@@ -371,17 +371,17 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-polynomial-fitting">What is Polynomial Fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-polynomial-fitting">Methods for Polynomial Fitting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-challenges">Considerations and Challenges:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-spline-fitting">What is spline fitting?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-polynomial-fitting">What is Polynomial Fitting?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-polynomial-fitting">Methods for Polynomial Fitting:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-challenges">Considerations and Challenges:</a></li>
 </ul>
 </li>
 </ul>
@@ -407,7 +407,7 @@ document.write(`
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>Data fitting, also known as curve fitting or model fitting, is a fundamental process in many fields, including science, engineering, economics and data science. Its core purpose is to find a mathematical function or model that best describes the relationship between variables/parameters in a given set of data points.</p>
+<p>Data fitting including polynomial, spline or more general curve fitting or model is a fundamental process in many fields, including science, engineering, economics and data science. Its core purpose is to find a mathematical function or model that best describes the relationship between variables/parameters in a given set of data points.</p>
 <p>Fitting data is often used, but not exclusively:</p>
 <ol class="arabic simple">
 <li><p><strong>Understanding Underlying Relationships and Patterns:</strong></p>
@@ -431,10 +431,94 @@ document.write(`
 <ul class="simple">
 <li><p><strong>Testing Hypotheses:</strong> Data fitting is a crucial way to test scientific hypotheses and validate theoretical models. If experimental data closely fits a proposed model, it provides strong evidence for the validity of that model. Conversely, discrepancies can highlight limitations or suggest areas for model refinement.</p></li>
 <li><p><strong>Developing Predictive Models:</strong> Once a model is validated, it can be used to predict material behavior under conditions that haven’t been directly tested, saving time and resources in experimental work. This is particularly valuable in materials design and discovery.</p></li>
-<li><p><strong>Identifying Relationships:</strong> Even in the absence of a complete theoretical model, data fitting can reveal correlations and relationships between different material properties or processing parameters. This can guide the development of new materials or optimization of existing ones.</p></li>
+<li><p><strong>Identifying Relationships:</strong> Even in the absence of a complete theoretical model, data fitting can reveal correlations and relationships between different material properties or processing parameters. This can guide the development of new materials or optimisation of existing ones.</p></li>
 </ul>
 </li>
 </ol>
+<p>This session focuses on polynomial and spline fitting.</p>
+</section>
+<section id="polynomial-fitting">
+<h2>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Link to this heading">#</a></h2>
+<p>Polynomial fitting is a widely used technique in Materials Science to model experimental data and understand underlying relationships between variables.</p>
+<section id="what-is-polynomial-fitting">
+<h3>What is Polynomial Fitting?<a class="headerlink" href="#what-is-polynomial-fitting" title="Link to this heading">#</a></h3>
+<p>Polynomial fitting or polynomial regression involves finding the coefficients of a polynomial function that best approximates a set of given data points. The general form of a polynomial is:</p>
+<p><span class="math notranslate nohighlight">\(y = a_0 + a_1x + a_2x^2 + \dots + a_nx^n\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the dependent variable, <span class="math notranslate nohighlight">\(x\)</span> is the independent variable, <span class="math notranslate nohighlight">\(a_0, a_1, \dots, a_n\)</span> are the coefficients to be determined and <span class="math notranslate nohighlight">\(n\)</span> is the degree of the polynomial. Polynomial fits are use</p>
+<ul class="simple">
+<li><p><strong>Determining Physical Parameters:</strong> The coefficients of the fitted polynomial can sometimes be directly related to physical constants or properties, allowing for their determination from experimental measurements. For example, you have data of Voltage and Current. By fitting a linear polynomial to the data you are able to determine the resistance (Ohm’s law: <span class="math notranslate nohighlight">\(V=R\cdot I\)</span>).</p></li>
+<li><p><strong>Noise Reduction/Smoothing:</strong> Experimental data often contains noise. Polynomial fitting can smooth out these fluctuations, revealing the underlying trend.</p></li>
+<li><p><strong>Interpolation and Extrapolation:</strong> Once a polynomial fit is obtained, it can be used to estimate values between known data points (interpolation) or predict values beyond the range of the observed data (extrapolation). However, extrapolation with polynomials, especially high-degree ones, can be risky and the curve can wildly oscillate outside the data range.</p></li>
+<li><p><strong>Simplifying Complex Models:</strong> Materials science often deals with complex phenomena. The complexity of the model might be approximated by a simpler polynomial for ease of calculation or analysis within a specific range allowing to describe observed relationships without necessarily understanding the fundamental physical laws in detail.</p></li>
+</ul>
+</section>
+<section id="methods-for-polynomial-fitting">
+<h3>Methods for Polynomial Fitting:<a class="headerlink" href="#methods-for-polynomial-fitting" title="Link to this heading">#</a></h3>
+<p>The most common method for polynomial fitting is <strong>Least Squares (LS)</strong>.</p>
+<ul class="simple">
+<li><p><strong>Ordinary Least Squares (OLS):</strong> This method minimises the sum of the squares of the vertical distances (residuals) between the data points and the fitted polynomial curve. It assumes that the errors are primarily in the dependent variable (<span class="math notranslate nohighlight">\(y\)</span>) and are normally distributed with constant variance (this semester).</p></li>
+<li><p><strong>Total Least Squares (TLS) and Orthogonal Distances (OD):</strong> These methods are more advanced and consider errors in both the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> variables, which can be more realistic for some experimental setups. They minimise the orthogonal distance from the data points to the fitted curve. While more robust in certain scenarios, they are computationally more complex than OLS (next semester).</p></li>
+</ul>
+</section>
+<section id="considerations-and-challenges">
+<h3>Considerations and Challenges:<a class="headerlink" href="#considerations-and-challenges" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Choosing the Degree of the Polynomial (<span class="math notranslate nohighlight">\(n\)</span>):</strong> This is a crucial step.</p>
+<ul>
+<li><p><strong>Underfitting:</strong> A low-degree polynomial might not capture the true complexity of the data, leading to a poor fit.</p></li>
+<li><p><strong>Overfitting:</strong> A high-degree polynomial (especially one close to the number of data points) can fit the noise in the data rather than the underlying trend. This results in a curve that passes through most points but may wildly oscillate between them, leading to poor generalisation and extrapolation.</p></li>
+<li><p><strong>Strategies for choosing degree:</strong></p>
+<ul>
+<li><p><strong>Visual inspection:</strong> Plotting the data and trying different degrees can give an initial idea.</p></li>
+<li><p><strong>Physical intuition:</strong> The expected physical relationship might suggest a certain polynomial degree (e.g., quadratic for constant acceleration).</p></li>
+<li><p><strong>Statistical measures:</strong> <span class="math notranslate nohighlight">\(R^2\)</span> or R-squared (used in this session), adjusted <span class="math notranslate nohighlight">\(R^2\)</span> or Bayesian Information Criterion can help evaluate the goodness of fit.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Uncertainty and Error Propagation:</strong> In Materials Science, it’s essential to consider the uncertainties in the measurements and how they propagate to the fitted parameters. Least squares methods can provide estimates of the uncertainties in the fitted coefficients.</p></li>
+</ul>
+<p>To fit data with a polynomial we can use the function <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> from the Numpy package. It requires three inputs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: 1D array of x-coordinates (independent variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: 1D array of y-coordinates (dependent variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deg</span></code>: degree of the fitting polynomial.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> returns the coefficient <code class="docutils literal notranslate"><span class="pre">p</span></code> of the polynomial. To evaluate the polynomial fit the <code class="docutils literal notranslate"><span class="pre">np.polyval()</span></code> function is used, which takes the</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: 1D array of polynomial coefficients from highest degree to the constant term.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: A number or 1D array of numbers at which to evaluate <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p></li>
+</ul>
+<p>as inputs and returns number or 1D array of numbers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span>  <span class="mf">4.0</span><span class="p">,</span>  <span class="mf">5.0</span><span class="p">])</span>  <span class="c1"># some x data</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>  <span class="c1"># some y data</span>
+
+<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1">#fits polynomial of degree 3 to the data and returns coefficient</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>  <span class="c1"># prints coefficients</span>
+<span class="n">p30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1"># overfitting the data for illustrational purpose. It should return also a warning message.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p30</span><span class="p">)</span>  <span class="c1"># prints coefficients</span>
+
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># creates new x data where fits are evaluated</span>
+<span class="n">y_p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>   <span class="c1">#evaluates p on new x</span>
+<span class="n">y_p30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p30</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span> <span class="c1">#evaluates p on new x</span>
+
+<span class="c1"># Plot the data and the fitted curves</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_p3</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Polynomial of degree 3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_p30</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Polynomial of degree 30&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Polynomial fitting is a useful and versatile tool for analyzing and interpreting experimental data. However, careful consideration of the polynomial degree (potential for overfitting) and numerical stability is crucial for obtaining meaningful and reliable results.</p>
+</section>
 </section>
 <section id="spline-fitting">
 <h2>Spline fitting<a class="headerlink" href="#spline-fitting" title="Link to this heading">#</a></h2>
@@ -604,89 +688,6 @@ s''_{i}(x_{i}):=s''_{i-1}(x_{i})
 <p>More details with examples on extrapolating data can be found <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html" target="_blank">here</a>.  If you only want to know more about the impact of different boundary condition on extrapolating data using CubicSpline, you can scroll down to <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html#cubicspline-extend-the-boundary-conditions" target="_blank">here</a>.</p>
 </section>
 </section>
-<section id="polynomial-fitting">
-<h2>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Link to this heading">#</a></h2>
-<p>Polynomial fitting is a widely used technique in Materials Science to model experimental data and understand underlying relationships between variables.</p>
-<section id="what-is-polynomial-fitting">
-<h3>What is Polynomial Fitting?<a class="headerlink" href="#what-is-polynomial-fitting" title="Link to this heading">#</a></h3>
-<p>Polynomial fitting or polynomial regression involves finding the coefficients of a polynomial function that best approximates a set of given data points. The general form of a polynomial is:</p>
-<p><span class="math notranslate nohighlight">\(y = a_0 + a_1x + a_2x^2 + \dots + a_nx^n\)</span></p>
-<p>where <span class="math notranslate nohighlight">\(y\)</span> is the dependent variable, <span class="math notranslate nohighlight">\(x\)</span> is the independent variable, <span class="math notranslate nohighlight">\(a_0, a_1, \dots, a_n\)</span> are the coefficients to be determined and <span class="math notranslate nohighlight">\(n\)</span> is the degree of the polynomial. Polynomial fits are use</p>
-<ul class="simple">
-<li><p><strong>Determining Physical Parameters:</strong> The coefficients of the fitted polynomial can sometimes be directly related to physical constants or properties, allowing for their determination from experimental measurements. For example, you have data of Voltage and Current. By fitting a linear polynomial to the data you are able to determine the resistance (Ohm’s law: <span class="math notranslate nohighlight">\(U=R\cdot I\)</span>).</p></li>
-<li><p><strong>Noise Reduction/Smoothing:</strong> Experimental data often contains noise. Polynomial fitting can smooth out these fluctuations, revealing the underlying trend.</p></li>
-<li><p><strong>Interpolation and Extrapolation:</strong> Once a polynomial fit is obtained, it can be used to estimate values between known data points (interpolation) or predict values beyond the range of the observed data (extrapolation). However, extrapolation with polynomials, especially high-degree ones, can be risky and the curve can wildly oscillate outside the data range.</p></li>
-<li><p><strong>Simplifying Complex Models:</strong> Materials science often deals with complex phenomena. The complexity of the model might be approximated by a simpler polynomial for ease of calculation or analysis within a specific range allowing to describe observed relationships without necessarily understanding the fundamental physical laws in detail.</p></li>
-</ul>
-</section>
-<section id="methods-for-polynomial-fitting">
-<h3>Methods for Polynomial Fitting:<a class="headerlink" href="#methods-for-polynomial-fitting" title="Link to this heading">#</a></h3>
-<p>The most common method for polynomial fitting is <strong>Least Squares (LS)</strong>.</p>
-<ul class="simple">
-<li><p><strong>Ordinary Least Squares (OLS):</strong> This method minimizes the sum of the squares of the vertical distances (residuals) between the data points and the fitted polynomial curve. It assumes that the errors are primarily in the dependent variable (<span class="math notranslate nohighlight">\(y\)</span>) and are normally distributed with constant variance (this semester).</p></li>
-<li><p><strong>Total Least Squares (TLS) and Orthogonal Distances (OD):</strong> These methods are more advanced and consider errors in both the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> variables, which can be more realistic for some experimental setups. They minimize the orthogonal distance from the data points to the fitted curve. While more robust in certain scenarios, they are computationally more complex than OLS (next semester).</p></li>
-</ul>
-</section>
-<section id="considerations-and-challenges">
-<h3>Considerations and Challenges:<a class="headerlink" href="#considerations-and-challenges" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Choosing the Degree of the Polynomial (<span class="math notranslate nohighlight">\(n\)</span>):</strong> This is a crucial step.</p>
-<ul>
-<li><p><strong>Underfitting:</strong> A low-degree polynomial might not capture the true complexity of the data, leading to a poor fit.</p></li>
-<li><p><strong>Overfitting:</strong> A high-degree polynomial (especially one close to the number of data points) can fit the noise in the data rather than the underlying trend. This results in a curve that passes through most points but may wildly oscillate between them, leading to poor generalisation and extrapolation.</p></li>
-<li><p><strong>Strategies for choosing degree:</strong></p>
-<ul>
-<li><p><strong>Visual inspection:</strong> Plotting the data and trying different degrees can give an initial idea.</p></li>
-<li><p><strong>Physical intuition:</strong> The expected physical relationship might suggest a certain polynomial degree (e.g., quadratic for constant acceleration).</p></li>
-<li><p><strong>Statistical measures:</strong> <span class="math notranslate nohighlight">\(R^2\)</span> or R-squared (used in this session), adjusted <span class="math notranslate nohighlight">\(R^2\)</span> or Bayesian Information Criterion can help evaluate the goodness of fit.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Uncertainty and Error Propagation:</strong> In Materials Science, it’s essential to consider the uncertainties in the measurements and how they propagate to the fitted parameters. Least squares methods can provide estimates of the uncertainties in the fitted coefficients.</p></li>
-</ul>
-<p>To fit data with a polynomial we can use the function <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> from the Numpy package. It requires three inputs:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: 1D array of x-coordinates (independent variable).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: 1D array of y-coordinates (dependent variable).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">deg</span></code>: degree of the fitting polynomial.</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> returns the coefficient <code class="docutils literal notranslate"><span class="pre">p</span></code> of the polynomial. To evaluate the polynomial fit the <code class="docutils literal notranslate"><span class="pre">np.polyval()</span></code> function is used, which takes the</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: 1D array of polynomial coefficients from highest degree to the constant term.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: A number or 1D array of numbers at which to evaluate <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p></li>
-</ul>
-<p>as inputs and returns number or 1D array of numbers.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span>  <span class="mf">4.0</span><span class="p">,</span>  <span class="mf">5.0</span><span class="p">])</span>  <span class="c1"># some x data</span>
-<span class="n">y_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>  <span class="c1"># some y data</span>
-
-<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1">#fits polynomial of degree 3 to the data and returns coefficient</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>  <span class="c1"># prints coefficients</span>
-<span class="n">p30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1"># overfitting the data for illustrational purpose. It should return also a warning message.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p30</span><span class="p">)</span>  <span class="c1"># prints coefficients</span>
-
-<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># creates new x data where fits are evaluated</span>
-<span class="n">y_p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>   <span class="c1">#evaluates p on new x</span>
-<span class="n">y_p30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p30</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span> <span class="c1">#evaluates p on new x</span>
-
-<span class="c1"># Plot the data and the fitted curves</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_p3</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Polynomial of degree 3&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_p30</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Polynomial of degree 30&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Polynomial fitting is a useful and versatile tool for analyzing and interpreting experimental data. However, careful consideration of the polynomial degree (potential for overfitting) and numerical stability is crucial for obtaining meaningful and reliable results.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -755,17 +756,17 @@ s''_{i}(x_{i}):=s''_{i-1}(x_{i})
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-polynomial-fitting">What is Polynomial Fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-polynomial-fitting">Methods for Polynomial Fitting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-challenges">Considerations and Challenges:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-spline-fitting">What is spline fitting?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-polynomial-fitting">What is Polynomial Fitting?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-polynomial-fitting">Methods for Polynomial Fitting:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-challenges">Considerations and Challenges:</a></li>
 </ul>
 </li>
 </ul>
