@@ -175,13 +175,9 @@ x_new = np.linspace(-2, 6, 50)
 # Perform cubic spline interpolation
 cs = CubicSpline(x_data, y_data) #creates a function where x_new can be evaluated
 y_CubicSpline = cs(x_new)
-y_first_cs = cs(x_new, nu=1)  # calculates first derivative
-y_second_cs = cs(x_new, nu=2) # calculates second derivative
 
 plt.plot(x_data, y_data, 'ko', label='Original Data')
 plt.plot(x_new, y_CubicSpline, 'b-', label='CubicSpline (cubic spline)')
-plt.plot(x_new, y_first_cs, 'y-', label='First derivative')
-plt.plot(x_new, y_second_cs, 'g-', label='Second derivative')
 plt.plot(x_new, 1.5**x_new, 'r--', label=f'$y=1.5^x$')
 plt.xlabel('X')
 plt.ylabel('Y')
@@ -233,70 +229,45 @@ The most common method for polynomial fitting is **Least Squares (LS)**.
           * **Statistical measures:** $R^2$ or R-squared (used in this session), adjusted $R^2$ or Bayesian Information Criterion can help evaluate the goodness of fit.
   * **Uncertainty and Error Propagation:** In Materials Science, it's essential to consider the uncertainties in the measurements and how they propagate to the fitted parameters. Least squares methods can provide estimates of the uncertainties in the fitted coefficients.
 
-### Practical Implementation (using Python):
+To fit data with a polynomial we can use the function `np.polyfit()` from the Numpy package. It requires three inputs:
 
-Python libraries like `NumPy` and `SciPy` provide powerful tools for polynomial fitting.
+- `x`: 1D array of x-coordinates (independent variable).
+- `y`: 1D array of y-coordinates (dependent variable).
+- `deg`: degree of the fitting polynomial.
+
+`np.polyfit()` returns the coefficient `p` of the polynomial. To evaluate the polynomial fit the `np.polyval()` function is used, which takes the
+
+- `p`: 1D array of polynomial coefficients from highest degree to the constant term.
+- `x`: A number or 1D array of numbers at which to evaluate `p`.
+
+as inputs and returns number or 1D array of numbers.
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 1. Generate some noisy data (e.g., simulating a quadratic relationship)
-np.random.seed(0)
-x_data = np.linspace(0, 10, 50)
-true_coeffs = np.array([2, -0.5, 0.1]) # a0 + a1*x + a2*x^2
-y_true = true_coeffs[0] + true_coeffs[1]*x_data + true_coeffs[2]*x_data**2
-y_noisy = y_true + np.random.normal(0, 0.5, size=len(x_data))
+x_data = np.array([0.0, 1.0, 2.0, 3.0,  4.0,  5.0])  # some x data
+y_data = np.array([0.0, 0.8, 0.9, 0.1, -0.8, -1.0])  # some y data
 
-# 2. Perform polynomial fitting using numpy.polyfit
-# Fit a 2nd degree polynomial
-degree = 2
-fitted_coeffs = np.polyfit(x_data, y_noisy, degree)
-print(f"Fitted coefficients (degree {degree}): {fitted_coeffs}")
+p3 = np.polyfit(x_data, y_data, 3)   #fits polynomial of degree 3 to the data and returns coefficient
+print(p3)  # prints coefficients
+p30 = np.polyfit(x_data, y_data, 30) # overfitting the data for illustrational purpose. It should return also a warning message.
+print(p30)  # prints coefficients
 
-# Create a polynomial function from the fitted coefficients
-polynomial_function = np.poly1d(fitted_coeffs)
+x_new = np.linspace(min(x_data)-1, max(x_data)+1, 100) # creates new x data where fits are evaluated
+y_p3 = np.polyval(p3, x_new)   #evaluates p on new x
+y_p30 = np.polyval(p30, x_new) #evaluates p on new x
 
-# 3. Generate points for plotting the fitted curve
-x_fit = np.linspace(min(x_data), max(x_data), 100)
-y_fit = polynomial_function(x_fit)
-
-# 4. Plot the data and the fitted curve
-plt.figure(figsize=(10, 6))
-plt.scatter(x_data, y_noisy, label='Noisy Data', s=20)
-plt.plot(x_data, y_true, label='True Relationship', color='green', linestyle='--')
-plt.plot(x_fit, y_fit, label=f'Polynomial Fit (Degree {degree})', color='red')
+# Plot the data and the fitted curves
+plt.plot(x_data, y_data, 'ko', label='Original Data')
+plt.plot(x_new, y_p3, 'b-', label='Polynomial of degree 3')
+plt.plot(x_new, y_p30, 'r--', label=f'Polynomial of degree 30')
 plt.xlabel('X')
 plt.ylabel('Y')
-plt.title('Polynomial Fitting in Physics')
+plt.ylim((-1.5,2))
 plt.legend()
-plt.grid(True)
 plt.show()
-
-# Example of a higher degree polynomial to illustrate overfitting (Runge's phenomenon)
-# Let's use fewer data points and a high degree
-x_overfit_data = np.linspace(-1, 1, 10)
-y_overfit_true = np.sin(np.pi * x_overfit_data)
-y_overfit_noisy = y_overfit_true + np.random.normal(0, 0.1, size=len(x_overfit_data))
-
-degree_overfit = len(x_overfit_data) - 1 # Fit a polynomial that passes through all points
-fitted_coeffs_overfit = np.polyfit(x_overfit_data, y_overfit_noisy, degree_overfit)
-polynomial_function_overfit = np.poly1d(fitted_coeffs_overfit)
-
-x_overfit_plot = np.linspace(-1.2, 1.2, 200) # Extend range to show oscillation
-y_overfit_fit = polynomial_function_overfit(x_overfit_plot)
-
-plt.figure(figsize=(10, 6))
-plt.scatter(x_overfit_data, y_overfit_noisy, label='Noisy Data', s=30, color='blue')
-plt.plot(x_overfit_plot, np.sin(np.pi * x_overfit_plot), label='True Sine Wave', color='green', linestyle='--')
-plt.plot(x_overfit_plot, y_overfit_fit, label=f'Overfitted Polynomial (Degree {degree_overfit})', color='red')
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.title('Overfitting and Runge\'s Phenomenon')
-plt.legend()
-plt.grid(True)
-plt.ylim(-2, 2)
-plt.show()
+plt.close()
 ```
 
-In summary, polynomial fitting is a powerful and versatile tool in physics for analyzing and interpreting experimental data. However, careful consideration of the polynomial degree, potential for overfitting, and numerical stability is crucial for obtaining meaningful and reliable results.
+Polynomial fitting is a useful and versatile tool for analyzing and interpreting experimental data. However, careful consideration of the polynomial degree (potential for overfitting) and numerical stability is crucial for obtaining meaningful and reliable results.
