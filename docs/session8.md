@@ -9,7 +9,7 @@
 
 There are a couple of libraries or packages available for symbolic mathematics in Python. In this course we will use <a href="https://www.sympy.org/en/index.html" target="_blank">**SymPy**</a>. It's a powerful, open-source library that allows you to perform a wide range of mathematical operations symbolically, rather than numerically. This means it manipulates mathematical expressions in their exact form, preserving variables and functions, instead of approximating them with floating-point numbers.
 
-SymPy is fairly straightforward to use and comes with an extensive <a href="https://docs.sympy.org/latest/index.html#" target="_blank">documentation</a> including <a href="https://docs.sympy.org/latest/tutorials/index.html#tutorials" target="_blank">tutorials</a>.
+SymPy is fairly straightforward to use and comes with a extensive <a href="https://docs.sympy.org/latest/index.html#" target="_blank">documentation</a> including <a href="https://docs.sympy.org/latest/tutorials/index.html#tutorials" target="_blank">tutorials</a>.
 
 ### Why use Symbolic Math?
 
@@ -18,6 +18,64 @@ SymPy is fairly straightforward to use and comes with an extensive <a href="http
   * **Derivations and Proofs:** Ideal for deriving formulas, proving identities, and exploring mathematical relationships.
   * **Code Generation:** Generate code for numerical computations from symbolic expressions.
 
+### Numerical uncertainties: symbolic vs. numerical
+
+What is the difference between numerically and symbolic operations? Let's consider the example of irrational numbers (the decimal point is non-terminating and non-repeating), e.g. $\pi$ or $\sqrt{2}$ given in their symbolic form. $\pi$ and $\sqrt{2}$ have also a numerical value which is 3.141592653589793... and 1.414213562373095... However, the numerical value is always an approximation, because you cannot write infinite numbers of decimal points.
+
+Note: Symbolic math keeps values in their symbolic rather than numerical form.
+
+In computational modelling there is always a trade off between precision and computational resources like runtime and memory usage. For example, you might have already heard of single and double precision floating-point numbers.  
+
+```python
+import numpy as np
+
+#Calculates the square root of 8 numerically
+print(np.sqrt(8, dtype=np.float16))  # half-precision floating-point number
+print(np.sqrt(8, dtype=np.float32))  # single-precision floating-point number
+print(np.sqrt(8, dtype=np.float64))  # double-precision floating-point number (default in Python)
+print(np.sqrt(8, dtype=np.float128)) # Extended-precision floating-point number (long double)
+```
+Even though we have increased the precision, the results are not an exact square root of 8. 
+
+Note: Each increase in precision doubles the memory requirements to store the value and increases the computation time to calculate the square root of 8, which can become a hugh problem for large and complex simulations.
+
+With a symbolic computation system like SymPy provides, the square roots of numbers that are not perfect squares are left unevaluated by default, but symbolic results can be symbolically simplified.
+
+```python
+import sympy as sp   #import hte sympy library
+
+print(sp.sqrt(2))
+print(sp.sqrt(8))
+```
+
+:::[Warning]
+
+Note: The SciPy package is usually imported as 'sp' as well, `import scipy as sp`. 
+
+However, SciPy is such a large library with many different modules and sub-modules. I usually only import the modules or functions I need, e.g. `CubicSpline()` from the `scipy.interpolate` module.
+
+:::
+
+The advantage of keeping expression unevaluated is that at some point in your calculation those values might cancel out.
+
+```python
+import numpy as np
+import sympy as sp
+
+# Numerical calculation of sqrt(2)^4 does not results in the value of 2.
+print(np.sqrt(2,dtype=np.float16)**4)
+print(np.sqrt(2,dtype=np.float32)**4)
+print(np.sqrt(2,dtype=np.float64)**4)
+print(np.sqrt(2,dtype=np.float128)**4)
+
+# symbolic calculation provides the exact value of 4.
+print(sp.sqrt(2)**4)
+
+expr = sp.sqrt(2)**4
+print(expr.evalf())          # numerical evaluation of the symbolic expressions
+```
+
+Already with the simple example of $\sqrt{2}$ we are able to notice the numerical error.
 
 ### Functions of SymPy and applications of symbolic math:
 
@@ -36,41 +94,3 @@ SymPy is fairly straightforward to use and comes with an extensive <a href="http
   * **Special Functions:** Support for a wide array of mathematical functions like gamma, Bessel, error functions, etc.
   * **Physics Module:** Tools for symbolic calculations in classical mechanics, quantum mechanics, and more.
   * **Output Formatting:** Can format results as LaTeX code for high-quality mathematical typesetting.
-
-
- **Basic Usage Example:**
-
-```python
-import sympy as sp
-
-# Define symbolic variables
-x, y = sp.symbols('x y')
-
-# Create an expression
-expr = (x + y)**2
-
-# Expand the expression
-expanded_expr = sp.expand(expr)
-print(f"Expanded expression: {expanded_expr}")
-
-# Differentiate the expression with respect to x
-derivative_x = sp.diff(expr, x)
-print(f"Derivative with respect to x: {derivative_x}")
-
-# Solve an equation
-equation = sp.Eq(x**2 - 4, 0) # x^2 - 4 = 0
-solutions = sp.solve(equation, x)
-print(f"Solutions to x^2 - 4 = 0: {solutions}")
-
-# Integrate an expression
-integral_x_squared = sp.integrate(x**2, x)
-print(f"Integral of x^2: {integral_x_squared}")
-
-# Evaluate a definite integral
-definite_integral = sp.integrate(x**2, (x, 0, 2))
-print(f"Definite integral of x^2 from 0 to 2: {definite_integral}")
-
-# Print a nice representation (requires LaTeX to be installed for full beauty)
-sp.init_printing(use_latex='mathjax') # or 'png', 'svg'
-print(f"\nPretty print of (x + y)^2: {expr}")
-```
