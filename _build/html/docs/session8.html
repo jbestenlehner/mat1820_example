@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Symbolic math &#8212; Digital Skills for Materials</title>
+    <title>Symbolic mathematics &#8212; Digital Skills for Materials</title>
   
   
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session8';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -212,12 +214,12 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Symbolic math</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Symbolic mathematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
 </ul>
 
@@ -357,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Symbolic math</h1>
+    <h1>Symbolic mathematics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,7 +370,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-symbolic-math">Why use Symbolic Math?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-uncertainties-symbolic-vs-numerical">Numerical uncertainties: symbolic vs. numerical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-of-sympy-and-applications-of-symbolic-math">Functions of SymPy and applications of symbolic math:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -380,18 +387,101 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="symbolic-math">
-<h1>Symbolic math<a class="headerlink" href="#symbolic-math" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="symbolic-mathematics">
+<h1>Symbolic mathematics<a class="headerlink" href="#symbolic-mathematics" title="Link to this heading">#</a></h1>
 <section id="learning-objectives">
 <h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Creating and indexing vectors and matrices.</p></li>
-<li><p>Mathematical operations on vectors and matrices.</p></li>
-<li><p>Application in Material Science.</p></li>
+<li><p>Numerical methods: numerical and symbolic</p></li>
+<li><p>Integrations and differentiation.</p></li>
+<li><p>Simplification and solving equations.</p></li>
 </ul>
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>There are a couple of libraries or packages available for symbolic mathematics in Python. In this course we will use <a href="https://www.sympy.org/en/index.html" target="_blank"><strong>SymPy</strong></a>. It’s a powerful, open-source library that allows you to perform a wide range of mathematical operations symbolically, rather than numerically. This means it manipulates mathematical expressions in their exact form, preserving variables and functions, instead of approximating them with floating-point numbers.</p>
+<p>SymPy is fairly straightforward to use and comes with a extensive <a href="https://docs.sympy.org/latest/index.html#" target="_blank">documentation</a> including <a href="https://docs.sympy.org/latest/tutorials/index.html#tutorials" target="_blank">tutorials</a>.</p>
+<section id="why-use-symbolic-math">
+<h3>Why use Symbolic Math?<a class="headerlink" href="#why-use-symbolic-math" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Exact Solutions:</strong> Obtain precise answers to mathematical problems, not just approximations.</p></li>
+<li><p><strong>Understanding Relationships:</strong> See how variables and parameters affect the outcome of an expression or equation.</p></li>
+<li><p><strong>Derivations and Proofs:</strong> Ideal for deriving formulas, proving identities, and exploring mathematical relationships.</p></li>
+<li><p><strong>Code Generation:</strong> Generate code for numerical computations from symbolic expressions.</p></li>
+</ul>
+</section>
+<section id="numerical-uncertainties-symbolic-vs-numerical">
+<h3>Numerical uncertainties: symbolic vs. numerical<a class="headerlink" href="#numerical-uncertainties-symbolic-vs-numerical" title="Link to this heading">#</a></h3>
+<p>What is the difference between numerically and symbolic operations? Let’s consider the example of irrational numbers (the decimal point is non-terminating and non-repeating), e.g. <span class="math notranslate nohighlight">\(\pi\)</span> or <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> given in their symbolic form. <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> have also a numerical value which is 3.141592653589793… and 1.414213562373095… However, the numerical value is always an approximation, because you cannot write infinite numbers of decimal points.</p>
+<p>Note: Symbolic math keeps values in their symbolic rather than numerical form.</p>
+<p>In computational modelling there is always a trade off between precision and computational resources like runtime and memory usage. For example, you might have already heard of single and double precision floating-point numbers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1">#Calculates the square root of 8 numerically</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">))</span>  <span class="c1"># half-precision floating-point number</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>  <span class="c1"># single-precision floating-point number</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>  <span class="c1"># double-precision floating-point number (default in Python)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float128</span><span class="p">))</span> <span class="c1"># Extended-precision floating-point number (long double)</span>
+</pre></div>
+</div>
+<p>Even though we have increased the precision, the results are not an exact square root of 8.</p>
+<p>Note: Each increase in precision doubles the memory requirements to store the value and increases the computation time to calculate the square root of 8, which can become a hugh problem for large and complex simulations.</p>
+<p>With a symbolic computation system like SymPy provides, the square roots of numbers that are not perfect squares are left unevaluated by default, but symbolic results can be symbolically simplified.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>   <span class="c1">#import hte sympy library</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="[Warning] docutils">
+<p>Note: The SciPy package is usually imported as ‘sp’ as well, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span> <span class="pre">as</span> <span class="pre">sp</span></code>.</p>
+<p>However, SciPy is such a large library with many different modules and sub-modules. I usually only import the modules or functions I need, e.g. <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code> module.</p>
+</div>
+<p>The advantage of keeping expression unevaluated is that at some point in your calculation those values might cancel out.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+
+<span class="c1"># Numerical calculation of sqrt(2)^4 does not results in the value of 2.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float128</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># symbolic calculation provides the exact value of 4.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">expr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>          <span class="c1"># numerical evaluation of the symbolic expressions</span>
+</pre></div>
+</div>
+<p>Already with the simple example of <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> we are able to notice the numerical error.</p>
+</section>
+<section id="functions-of-sympy-and-applications-of-symbolic-math">
+<h3>Functions of SymPy and applications of symbolic math:<a class="headerlink" href="#functions-of-sympy-and-applications-of-symbolic-math" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Symbolic Variables:</strong> You can define symbolic variables (e.g., <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">theta</span></code>) and work with them algebraically.</p></li>
+<li><p><strong>Algebraic Manipulation:</strong></p>
+<ul>
+<li><p><strong>Simplification:</strong> <code class="docutils literal notranslate"><span class="pre">simplify()</span></code>, <code class="docutils literal notranslate"><span class="pre">expand()</span></code>, <code class="docutils literal notranslate"><span class="pre">factor()</span></code>, <code class="docutils literal notranslate"><span class="pre">trigsimp()</span></code>, etc.</p></li>
+<li><p><strong>Substitution:</strong> Replace symbols or expressions with others using <code class="docutils literal notranslate"><span class="pre">subs()</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Calculus:</strong></p>
+<ul>
+<li><p><strong>Differentiation:</strong> <code class="docutils literal notranslate"><span class="pre">diff()</span></code> for derivatives.</p></li>
+<li><p><strong>Integration:</strong> <code class="docutils literal notranslate"><span class="pre">integrate()</span></code> for indefinite and definite integrals.</p></li>
+<li><p><strong>Limits:</strong> <code class="docutils literal notranslate"><span class="pre">limit()</span></code> for evaluating limits.</p></li>
+<li><p><strong>Series Expansion:</strong> Taylor series, Laurent series.</p></li>
+</ul>
+</li>
+<li><p><strong>Equation Solving:</strong> <code class="docutils literal notranslate"><span class="pre">solve()</span></code> for algebraic equations, systems of equations, and even some differential equations.</p></li>
+<li><p><strong>Linear Algebra:</strong> Operations with symbolic matrices (addition, multiplication, determinants, inverses, etc.).</p></li>
+<li><p><strong>Discrete Mathematics:</strong> Binomial coefficients, summations, products, number theory functions, logic expressions.</p></li>
+<li><p><strong>Special Functions:</strong> Support for a wide array of mathematical functions like gamma, Bessel, error functions, etc.</p></li>
+<li><p><strong>Physics Module:</strong> Tools for symbolic calculations in classical mechanics, quantum mechanics, and more.</p></li>
+<li><p><strong>Output Formatting:</strong> Can format results as LaTeX code for high-quality mathematical typesetting.</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -460,7 +550,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-symbolic-math">Why use Symbolic Math?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-uncertainties-symbolic-vs-numerical">Numerical uncertainties: symbolic vs. numerical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-of-sympy-and-applications-of-symbolic-math">Functions of SymPy and applications of symbolic math:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
