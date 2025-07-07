@@ -219,7 +219,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
 </ul>
 
@@ -382,6 +382,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">Coefficient of determination: <span class="math notranslate nohighlight">\(R^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-r-2">Calculation of <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -688,6 +692,28 @@ s''_{i}(x_{i}):=s''_{i-1}(x_{i})
 <p>More details with examples on extrapolating data can be found <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html" target="_blank">here</a>.  If you only want to know more about the impact of different boundary condition on extrapolating data using CubicSpline, you can scroll down to <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html#cubicspline-extend-the-boundary-conditions" target="_blank">here</a>.</p>
 </section>
 </section>
+<section id="coefficient-of-determination-r-2">
+<h2>Coefficient of determination: <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Link to this heading">#</a></h2>
+<p>The Coefficient of Determination, denoted as <span class="math notranslate nohighlight">\(R^2\)</span> or R-squared, is a crucial statistic in regression analysis. <span class="math notranslate nohighlight">\(R^2\)</span> is a measure of the “goodness of fit” of your model (fitting function). In simpler terms, it indicates how well the fitted line to the data approximates the actual data points.</p>
+<p>If you look at the fit to your data, there’s a total amount of variation in the dependent variable (y-values, the thing you’re trying to predict). <span class="math notranslate nohighlight">\(R^2\)</span> tells you what percentage of that total variation can be “explained” or “accounted for” by the independent variables in your model (fitting function).</p>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> values always fall between 0 and 1 (or 0% and 100%):
+* <strong><span class="math notranslate nohighlight">\(R^2 = 0\)</span></strong>: This means the model explains none of the variability in the dependent variable.
+* <strong><span class="math notranslate nohighlight">\(R^2 = 1\)</span></strong>: This indicates that the model perfectly predicts the outcome. All the variation in the dependent variable is accounted for by the independent variables. In real-world data, an <span class="math notranslate nohighlight">\(R^2\)</span> of 1 is very rare, as there’s almost always some unexplained variability.
+* <strong><span class="math notranslate nohighlight">\(0 &lt; R^2 &lt; 1\)</span></strong>: The model partially explains the outcome. For example, an <span class="math notranslate nohighlight">\(R^2\)</span> of 0.75 means that 75% of the variation in the dependent variable can be explained by the independent variables in your model, while 25% remains unexplained.</p>
+<p>A good fit should account for approximately 95% of the data <span class="math notranslate nohighlight">\((R&gt;0.95)\)</span>.</p>
+<section id="calculation-of-r-2">
+<h3>Calculation of <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#calculation-of-r-2" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> is calculated as:</p>
+<p><span class="math notranslate nohighlight">\(R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (SST)}} = 1 - \frac{J}{S}\)</span></p>
+<p>where:</p>
+<ul class="simple">
+<li><p><strong>Sum of Squared Residuals (SSR)</strong> (also defined as <span class="math notranslate nohighlight">\(J\)</span>): This measures the variability of the data points around the regression line (fit). It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the values predicted by the model (<span class="math notranslate nohighlight">\(\hat{y_i}\)</span>, best fit function <span class="math notranslate nohighlight">\(f(x)\)</span> evaluated at your independent variable x).
+<span class="math notranslate nohighlight">\(SSR = J = \sum_{i=1}^{n} (y_i - \hat{y_i})^2\)</span></p></li>
+<li><p><strong>Total Sum of Squares (SST)</strong> (also defined as <span class="math notranslate nohighlight">\(S\)</span>): This measures the total variability in the dependent variable around its mean. It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the mean of the dependent variable (<span class="math notranslate nohighlight">\(\bar{y}\)</span>).
+<span class="math notranslate nohighlight">\(SST = S = \sum_{i=1}^{n} (y_i - \bar{y})^2\)</span></p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -767,6 +793,10 @@ s''_{i}(x_{i}):=s''_{i-1}(x_{i})
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">Coefficient of determination: <span class="math notranslate nohighlight">\(R^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-r-2">Calculation of <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
 </ul>
 </li>
 </ul>

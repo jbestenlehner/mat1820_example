@@ -42,17 +42,15 @@ Note: Each increase in precision doubles the memory requirements to store the va
 With a symbolic computation system like SymPy provides, the square roots of numbers that are not perfect squares are left unevaluated by default, but symbolic results can be symbolically simplified.
 
 ```python
-import sympy as sp   #import hte sympy library
+import sympy as sm   #import hte sympy library
 
-print(sp.sqrt(2))
-print(sp.sqrt(8))
+print(sm.sqrt(2))
+print(sm.sqrt(8))
 ```
 
 :::[Warning]
 
-Note: The SciPy package is usually imported as 'sp' as well, `import scipy as sp`. 
-
-However, SciPy is such a large library with many different modules and sub-modules. I usually only import the modules or functions I need, e.g. `CubicSpline()` from the `scipy.interpolate` module.
+Note: You can import packages/libraries as any name you want. The obvious choice is to `import sympy as sp`. However, the SciPy package is usually imported as 'sp', `import scipy as sp` and is more widely used than SymPy.  
 
 :::
 
@@ -60,7 +58,7 @@ The advantage of keeping expression unevaluated is that at some point in your ca
 
 ```python
 import numpy as np
-import sympy as sp
+import sympy as sm
 
 # Numerical calculation of sqrt(2)^4 does not results in the value of 2.
 print(np.sqrt(2,dtype=np.float16)**4)
@@ -69,10 +67,15 @@ print(np.sqrt(2,dtype=np.float64)**4)
 print(np.sqrt(2,dtype=np.float128)**4)
 
 # symbolic calculation provides the exact value of 4.
-print(sp.sqrt(2)**4)
+print(sm.sqrt(2)**4)
 
-expr = sp.sqrt(2)**4
+expr = sm.sqrt(2)**4
 print(expr.evalf())          # numerical evaluation of the symbolic expressions
+print(expr.evalf(20))        # numerical evaluation to a precision of 20 digits.
+
+# Another example for pi
+print(np.pi)            # double precision
+print(sm.pi.evalf(100)) # symbolic pi represents the exact value of pi.
 ```
 
 Already with the simple example of $\sqrt{2}$ we are able to notice the numerical error.

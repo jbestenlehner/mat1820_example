@@ -427,19 +427,18 @@ document.write(`
 <p>Even though we have increased the precision, the results are not an exact square root of 8.</p>
 <p>Note: Each increase in precision doubles the memory requirements to store the value and increases the computation time to calculate the square root of 8, which can become a hugh problem for large and complex simulations.</p>
 <p>With a symbolic computation system like SymPy provides, the square roots of numbers that are not perfect squares are left unevaluated by default, but symbolic results can be symbolically simplified.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>   <span class="c1">#import hte sympy library</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>   <span class="c1">#import hte sympy library</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="[Warning] docutils">
-<p>Note: The SciPy package is usually imported as ‘sp’ as well, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span> <span class="pre">as</span> <span class="pre">sp</span></code>.</p>
-<p>However, SciPy is such a large library with many different modules and sub-modules. I usually only import the modules or functions I need, e.g. <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code> module.</p>
+<p>Note: You can import packages/libraries as any name you want. The obvious choice is to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">sympy</span> <span class="pre">as</span> <span class="pre">sp</span></code>. However, the SciPy package is usually imported as ‘sp’, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span> <span class="pre">as</span> <span class="pre">sp</span></code> and is more widely used than SymPy.</p>
 </div>
 <p>The advantage of keeping expression unevaluated is that at some point in your calculation those values might cancel out.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
 <span class="c1"># Numerical calculation of sqrt(2)^4 does not results in the value of 2.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
@@ -448,10 +447,15 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float128</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="c1"># symbolic calculation provides the exact value of 4.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="n">expr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>          <span class="c1"># numerical evaluation of the symbolic expressions</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>        <span class="c1"># numerical evaluation to a precision of 20 digits.</span>
+
+<span class="c1"># Another example for pi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>            <span class="c1"># double precision</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">pi</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># symbolic pi represents the exact value of pi.</span>
 </pre></div>
 </div>
 <p>Already with the simple example of <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> we are able to notice the numerical error.</p>
