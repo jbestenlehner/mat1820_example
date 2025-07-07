@@ -27,7 +27,7 @@ a_{\textcolor{blue}{m}\textcolor{red}{1}} & a_{\textcolor{blue}{m}\textcolor{red
 ```
 The matrix is of dimension $m\times n$. The rank of the matrix $ \leq n$, if $n < m$, or $ \leq m$, if $m < n$. See also your math lectures.
 
-Further reading including Python example on how scalars, vectors, matrices and tensors relate to each other can be found [here](https://www.kdnuggets.com/2018/05/wtf-tensor.html).
+Further reading including Python example on how scalars, vectors, matrices and tensors relate to each other can be found <a href="https://www.kdnuggets.com/2018/05/wtf-tensor.html" target="_blank">here</a>.
 
 ## Matrix operations
 
@@ -130,4 +130,30 @@ The dot product of vectors $\vec{a}$ and $\vec{b}$ is given by
 
 ```{math}
 \vec{a} \cdot \vec{b} = \sum_{i=1}^n a_i b_i = a_1 b_1 + a_2 b_2 + \ldots + a_n b_n.
+```
+
+### Cross product of 2 vectors
+
+The cross product of vectors $\vec{a}$ and $\vec{b}$ is a vector, which is perpendicular
+to both $\vec{a}$ and $\vec{b}$ and is the normal vector of the plane, where $\vec{a}$ and $\vec{b}$ are spanning vectors.
+
+```{math}
+\vec{a} \times \vec{b} = 
+\begin{bmatrix}
+a_1\\
+a_2\\
+a_3\\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+b_1\\
+b_2\\
+b_3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_2 b_3 - b_2 a_3\\
+a_3 b_1 - b_3 a_1\\
+a_1 b_2 - b_1 a_2\\
+\end{bmatrix}
 ```

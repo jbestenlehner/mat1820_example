@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fitting Data &#8212; Digital Skills for Materials</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session7';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial: Data fitting" href="session7_notebooks.html" />
+    <link rel="prev" title="Tutorial: Reading in and writing out data" href="session6_notebooks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-light" alt="Digital Skills for Materials - Home"/>
+    <script>document.write(`<img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-dark" alt="Digital Skills for Materials - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Digital Skills for Materials
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Calculations, variables and help</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session2.html">Vectors and Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session2_notebooks.html">Tutorial: Vectors and matrices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session3_notebooks.html">Tutorial: Plotting and visualising data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output plus data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session4_notebooks.html">Tutorial: Input and output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session5.html">Conditional Logic and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial: Conditions and Loops</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session6.html">Reading and writing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session6_notebooks.html">Tutorial: Reading in and writing out data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fitting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/session7.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fitting Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-polynomial-fitting">What is Polynomial Fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-polynomial-fitting">Methods for Polynomial Fitting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-challenges">Considerations and Challenges:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-spline-fitting">What is spline fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">Coefficient of determination: <span class="math notranslate nohighlight">\(R^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-r-2">Calculation of <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fitting-data">
+<h1>Fitting Data<a class="headerlink" href="#fitting-data" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Spline and polynomial fit.</p></li>
+<li><p>Fitting data and derive parameters.</p></li>
+<li><p>Goodness of fit: <span class="math notranslate nohighlight">\(R^2\)</span>-value.</p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Data fitting including polynomial, spline or more general curve fitting or model is a fundamental process in many fields, including science, engineering, economics and data science. Its core purpose is to find a mathematical function or model that best describes the relationship between variables/parameters in a given set of data points.</p>
+<p>Fitting data is often used, but not exclusively:</p>
+<ol class="arabic simple">
+<li><p><strong>Understanding Underlying Relationships and Patterns:</strong></p>
+<ul class="simple">
+<li><p>By fitting a model to data, we can uncover the inherent trends and relationships that might not be obvious from raw data. For example, fitting stress-strain curves can determine material parameters like Young’s modulus or Poisson’s ratio.</p></li>
+<li><p>By fitting data to theoretical or empirical models, we are able to gain a deeper understanding of how materials behave under various conditions (e.g., temperature, stress, chemical environment). This helps us to understand the mechanisms governing material properties and performance.</p></li>
+</ul>
+</li>
+<li><p><strong>Noise Reduction and Smoothing:</strong></p>
+<ul class="simple">
+<li><p>Real-world data often contains noise or errors. Fitting a smooth curve to noisy data can help average out these fluctuations, revealing the underlying signal/relations and making the data more interpretable.</p></li>
+</ul>
+</li>
+<li><p><strong>Interpolation and Extrapolation:</strong></p>
+<ul class="simple">
+<li><p><strong>Interpolation:</strong> Using the fitted model to estimate values <em>within</em> the range of the observed data points where no data was collected.</p></li>
+<li><p><strong>Extrapolation:</strong> Using the fitted model to estimate values <em>outside</em> the range of the observed data. While useful, extrapolation carries higher uncertainty as the model’s behavior outside the observed range might differ.</p></li>
+</ul>
+</li>
+<li><p><strong>Model Validation and Development:</strong></p>
+<ul class="simple">
+<li><p><strong>Testing Hypotheses:</strong> Data fitting is a crucial way to test scientific hypotheses and validate theoretical models. If experimental data closely fits a proposed model, it provides strong evidence for the validity of that model. Conversely, discrepancies can highlight limitations or suggest areas for model refinement.</p></li>
+<li><p><strong>Developing Predictive Models:</strong> Once a model is validated, it can be used to predict material behavior under conditions that haven’t been directly tested, saving time and resources in experimental work. This is particularly valuable in materials design and discovery.</p></li>
+<li><p><strong>Identifying Relationships:</strong> Even in the absence of a complete theoretical model, data fitting can reveal correlations and relationships between different material properties or processing parameters. This can guide the development of new materials or optimisation of existing ones.</p></li>
+</ul>
+</li>
+</ol>
+<p>This session focuses on polynomial and spline fitting.</p>
+</section>
+<section id="polynomial-fitting">
+<h2>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Link to this heading">#</a></h2>
+<p>Polynomial fitting is a widely used technique in Materials Science to model experimental data and understand underlying relationships between variables.</p>
+<section id="what-is-polynomial-fitting">
+<h3>What is Polynomial Fitting?<a class="headerlink" href="#what-is-polynomial-fitting" title="Link to this heading">#</a></h3>
+<p>Polynomial fitting or polynomial regression involves finding the coefficients of a polynomial function that best approximates a set of given data points. The general form of a polynomial is:</p>
+<p><span class="math notranslate nohighlight">\(y = a_0 + a_1x + a_2x^2 + \dots + a_nx^n\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the dependent variable, <span class="math notranslate nohighlight">\(x\)</span> is the independent variable, <span class="math notranslate nohighlight">\(a_0, a_1, \dots, a_n\)</span> are the coefficients to be determined and <span class="math notranslate nohighlight">\(n\)</span> is the degree of the polynomial. Polynomial fits are use</p>
+<ul class="simple">
+<li><p><strong>Determining Physical Parameters:</strong> The coefficients of the fitted polynomial can sometimes be directly related to physical constants or properties, allowing for their determination from experimental measurements. For example, you have data of Voltage and Current. By fitting a linear polynomial to the data you are able to determine the resistance (Ohm’s law: <span class="math notranslate nohighlight">\(V=R\cdot I\)</span>).</p></li>
+<li><p><strong>Noise Reduction/Smoothing:</strong> Experimental data often contains noise. Polynomial fitting can smooth out these fluctuations, revealing the underlying trend.</p></li>
+<li><p><strong>Interpolation and Extrapolation:</strong> Once a polynomial fit is obtained, it can be used to estimate values between known data points (interpolation) or predict values beyond the range of the observed data (extrapolation). However, extrapolation with polynomials, especially high-degree ones, can be risky and the curve can wildly oscillate outside the data range.</p></li>
+<li><p><strong>Simplifying Complex Models:</strong> Materials science often deals with complex phenomena. The complexity of the model might be approximated by a simpler polynomial for ease of calculation or analysis within a specific range allowing to describe observed relationships without necessarily understanding the fundamental physical laws in detail.</p></li>
+</ul>
+</section>
+<section id="methods-for-polynomial-fitting">
+<h3>Methods for Polynomial Fitting:<a class="headerlink" href="#methods-for-polynomial-fitting" title="Link to this heading">#</a></h3>
+<p>The most common method for polynomial fitting is <strong>Least Squares (LS)</strong>.</p>
+<ul class="simple">
+<li><p><strong>Ordinary Least Squares (OLS):</strong> This method minimises the sum of the squares of the vertical distances (residuals) between the data points and the fitted polynomial curve. It assumes that the errors are primarily in the dependent variable (<span class="math notranslate nohighlight">\(y\)</span>) and are normally distributed with constant variance (this semester).</p></li>
+<li><p><strong>Total Least Squares (TLS) and Orthogonal Distances (OD):</strong> These methods are more advanced and consider errors in both the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> variables, which can be more realistic for some experimental setups. They minimise the orthogonal distance from the data points to the fitted curve. While more robust in certain scenarios, they are computationally more complex than OLS (next semester).</p></li>
+</ul>
+</section>
+<section id="considerations-and-challenges">
+<h3>Considerations and Challenges:<a class="headerlink" href="#considerations-and-challenges" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Choosing the Degree of the Polynomial (<span class="math notranslate nohighlight">\(n\)</span>):</strong> This is a crucial step.</p>
+<ul>
+<li><p><strong>Underfitting:</strong> A low-degree polynomial might not capture the true complexity of the data, leading to a poor fit.</p></li>
+<li><p><strong>Overfitting:</strong> A high-degree polynomial (especially one close to the number of data points) can fit the noise in the data rather than the underlying trend. This results in a curve that passes through most points but may wildly oscillate between them, leading to poor generalisation and extrapolation.</p></li>
+<li><p><strong>Strategies for choosing degree:</strong></p>
+<ul>
+<li><p><strong>Visual inspection:</strong> Plotting the data and trying different degrees can give an initial idea.</p></li>
+<li><p><strong>Physical intuition:</strong> The expected physical relationship might suggest a certain polynomial degree (e.g., quadratic for constant acceleration).</p></li>
+<li><p><strong>Statistical measures:</strong> <span class="math notranslate nohighlight">\(R^2\)</span> or R-squared (used in this session), adjusted <span class="math notranslate nohighlight">\(R^2\)</span> or Bayesian Information Criterion can help evaluate the goodness of fit.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Uncertainty and Error Propagation:</strong> In Materials Science, it’s essential to consider the uncertainties in the measurements and how they propagate to the fitted parameters. Least squares methods can provide estimates of the uncertainties in the fitted coefficients.</p></li>
+</ul>
+<p>To fit data with a polynomial we can use the function <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> from the Numpy package. It requires three inputs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: 1D array of x-coordinates (independent variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: 1D array of y-coordinates (dependent variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deg</span></code>: degree of the fitting polynomial.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> returns the coefficient <code class="docutils literal notranslate"><span class="pre">p</span></code> of the polynomial. To evaluate the polynomial fit the <code class="docutils literal notranslate"><span class="pre">np.polyval()</span></code> function is used, which takes the</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: 1D array of polynomial coefficients from highest degree to the constant term.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: A number or 1D array of numbers at which to evaluate <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p></li>
+</ul>
+<p>as inputs and returns number or 1D array of numbers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span>  <span class="mf">4.0</span><span class="p">,</span>  <span class="mf">5.0</span><span class="p">])</span>  <span class="c1"># some x data</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>  <span class="c1"># some y data</span>
+
+<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1">#fits polynomial of degree 3 to the data and returns coefficient</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>  <span class="c1"># prints coefficients</span>
+<span class="n">p30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1"># overfitting the data for illustrational purpose. It should return also a warning message.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p30</span><span class="p">)</span>  <span class="c1"># prints coefficients</span>
+
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># creates new x data where fits are evaluated</span>
+<span class="n">y_p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>   <span class="c1">#evaluates p on new x</span>
+<span class="n">y_p30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p30</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span> <span class="c1">#evaluates p on new x</span>
+
+<span class="c1"># Plot the data and the fitted curves</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_p3</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Polynomial of degree 3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_p30</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Polynomial of degree 30&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Polynomial fitting is a useful and versatile tool for analyzing and interpreting experimental data. However, careful consideration of the polynomial degree (potential for overfitting) and numerical stability is crucial for obtaining meaningful and reliable results.</p>
+</section>
+</section>
+<section id="spline-fitting">
+<h2>Spline fitting<a class="headerlink" href="#spline-fitting" title="Link to this heading">#</a></h2>
+<p>Spline fitting is a powerful technique for approximating data. Examples for when to use spline fitting are:</p>
+<ol class="arabic simple">
+<li><p><strong>Interpolation:</strong></p>
+<ul class="simple">
+<li><p><strong>Need a smooth curve that passes through <em>all</em> data points:</strong> If your data is relatively clean and you need to estimate values between known points.</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>Resampling data to a higher resolution.</p></li>
+<li><p>Fill in missing values within a dataset if the underlying relationship is expected to be smooth.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Smoothing (Regression Splines/Smoothing Splines):</strong></p>
+<ul class="simple">
+<li><p><strong>Data is noisy:</strong> When your data contains noise or measurement errors, simply interpolating can lead to “wiggles” or overfitting. Smoothing splines aim to find a balance between fitting the data closely and maintaining a desired level of smoothness.</p></li>
+<li><p><strong>Need to capture non-linear relationships without overfitting:</strong> Splines can model complex, non-linear trends in data more flexibly than a single polynomial, while still avoiding the extreme fluctuations that can arise from high-degree polynomial regression.</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>Trend analysis in time series data.</p></li>
+<li><p>Removing noise from sensor readings.</p></li>
+<li><p>Smoothing out experimental data.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>However, this course will focus on point 1.</p>
+<section id="what-is-spline-fitting">
+<h3>What is spline fitting?<a class="headerlink" href="#what-is-spline-fitting" title="Link to this heading">#</a></h3>
+<p>Data points are fitting by piecewise polynomials, i.e. neighbouring data points are fitted by different polynomials. Commonly used are polynomial of degree 1 (linear spline) and degree 3 (cubic spline), but any other order can be chosen depending on your data or purpose of fit.</p>
+</section>
+<section id="linear-spline">
+<h3>Linear spline<a class="headerlink" href="#linear-spline" title="Link to this heading">#</a></h3>
+<p>Linear splines are used for large datasets when performance is a critical concern or for filling in missing or resampling data where linearity is acceptable. A straight line (<span class="math notranslate nohighlight">\(s(x)\)</span>) is fitted through 2 data points, e.g. (<span class="math notranslate nohighlight">\(x_1, y_1\)</span>) and (<span class="math notranslate nohighlight">\(x_2, y_2\)</span>).</p>
+<p>The polynomial is of the form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+s(x) &amp; = &amp; m \cdot x &amp; + &amp; b \\
+     &amp; = &amp; \frac{y_2 - y_1}{x_2 - x_1} \cdot x &amp; + &amp; y_1 - \frac{y_2 - y_1}{x_2 - x_1} \cdot x_1
+\end{matrix}
+\end{split}\]</div>
+<p>Note: <span class="math notranslate nohighlight">\(b=y_1-m\cdot x_1\)</span>.</p>
+<p>The linear spline interpolation function of numpy is called <code class="docutils literal notranslate"><span class="pre">np.interp()</span></code>. It requires three input parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinates at which to evaluate the interpolated values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xp</span></code>: the x-coordinates of the data points in ascending order (1D array).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fp</span></code>: the y-coordinates of the data points (1D array).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Original data points</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">x_data</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y = x**2</span>
+
+<span class="c1"># New points to interpolate at</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Perform linear interpolation</span>
+<span class="n">y_interp_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_interp_np</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;np.interp (linear spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">np.interp()</span></code> will rase an error when extrapolating data points.</p>
+</section>
+<section id="cubic-spline">
+<h3>Cubic spline<a class="headerlink" href="#cubic-spline" title="Link to this heading">#</a></h3>
+<p>As seen in the example above linear splines can be quite inaccurate. Considerable better results provide cubic splines.</p>
+<p>The polynomial is of the form</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix}
+s(x) &amp; = &amp; ax^3 + bx^2 + cx + d
+\end{matrix}
+\)</span></p>
+<p>with the additional condition that the first and second derivative of polynomial <span class="math notranslate nohighlight">\(s_{i-1}(x_i)\)</span> (e.g. for <span class="math notranslate nohighlight">\(i=1\)</span> the piecewise polynomial for points (<span class="math notranslate nohighlight">\(x_0, y_0\)</span>) and (<span class="math notranslate nohighlight">\(x_1, y_1\)</span>)) at the point (<span class="math notranslate nohighlight">\(x_i, y_i\)</span>) is equal to the first and second derivative of polynomial <span class="math notranslate nohighlight">\(s_{i}(x_i)\)</span> (e.g. for <span class="math notranslate nohighlight">\(i=1\)</span> the piecewise polynomial for points (<span class="math notranslate nohighlight">\(x_1, y_1\)</span>) and (<span class="math notranslate nohighlight">\(x_2, y_2\)</span>)) at the point (<span class="math notranslate nohighlight">\(x_i, y_i\)</span>). Or in mathematical notation:</p>
+<p><span class="math notranslate nohighlight">\(
+s'_{i}(x_{i}):=s'_{i-1}(x_{i})
+\)</span>
+and
+<span class="math notranslate nohighlight">\(
+s''_{i}(x_{i}):=s''_{i-1}(x_{i})
+\)</span></p>
+<p>Numpy does not provide a cubic spline function, but the <a href="https://docs.scipy.org/doc/scipy/reference/interpolate.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code></a> module of the <a href="https://scipy.org/" target="_blank">SciPy</a> package provides a <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html#scipy.interpolate.CubicSpline" target="_blank"><code class="docutils literal notranslate"><span class="pre">CubicSpline</span></code></a> function.  It requires two input parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinates of the data points in ascending order (1D array, independent variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: the y-coordinates of the data points (1D array, dependent variable).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CubicSpline</span>
+
+<span class="c1"># Original data points</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">x_data</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y = x**2</span>
+
+<span class="c1"># New points to interpolate at</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Perform linear spline interpolation</span>
+<span class="n">y_interp_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span>
+
+<span class="c1"># Perform cubic spline interpolation</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span> <span class="c1">#creates a function where x_new can be evaluated</span>
+<span class="n">y_CubicSpline</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_interp_np</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;np.interp (linear spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_CubicSpline</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CubicSpline (cubic spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="extrapolating-data-with-cubicspline">
+<h3>Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code><a class="headerlink" href="#extrapolating-data-with-cubicspline" title="Link to this heading">#</a></h3>
+<p>When extrapolating data we do not have data points at the boundary to full fill the condition above. In our three point example with data points at <span class="math notranslate nohighlight">\(i= 0, 1, 2\)</span> we do not have data points at (<span class="math notranslate nohighlight">\(x_{-1}, y_{-1}\)</span>) and (<span class="math notranslate nohighlight">\(x_3,y_3\)</span>) to obtain the polynomial <span class="math notranslate nohighlight">\(s_{-1}(x)\)</span> and <span class="math notranslate nohighlight">\(s_3(x)\)</span>, which are required to full fill the condition. Therefore, we need to define a boundary condition, e.g. setting the first derivative to zero (‘clamped’) or setting the second derivative to zero (‘natural’). The default for <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code> is when the first and second segment at a curve end are the same polynomial (‘not-a-knot’).</p>
+<p>The optional parameter to the set the boundary condition is called <code class="docutils literal notranslate"><span class="pre">bc_type</span></code>:</p>
+<ul class="simple">
+<li><p>‘not-a-knot’: The first and second segment at a curve end are the same polynomial (default).</p></li>
+<li><p>‘clamped’: The first derivative at curves ends are zero.</p></li>
+<li><p>‘natural’: The second derivative at curve ends are zero.</p></li>
+<li><p>‘periodic’: The interpolated functions is assumed to be periodic. For example, we have <span class="math notranslate nohighlight">\(n\)</span> data points. The extrapolated data point (<span class="math notranslate nohighlight">\(x_{-1},y_{-1}\)</span>) is equal to data point (<span class="math notranslate nohighlight">\(x_n,y_n\)</span>) while the extrapolated data point (<span class="math notranslate nohighlight">\(x_{n+1},y_{n+1}\)</span>) is equal to data (<span class="math notranslate nohighlight">\(x_0,y_0\)</span>).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CubicSpline</span>
+
+<span class="c1"># Original data points</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">**</span><span class="n">x_data</span> <span class="c1"># y = 1.5^x</span>
+
+<span class="c1"># New points to interpolate at</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Perform cubic spline interpolation</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span> <span class="c1">#creates a function where x_new can be evaluated</span>
+<span class="n">y_CubicSpline</span> <span class="o">=</span> <span class="n">cs</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_CubicSpline</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CubicSpline (cubic spline)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">**</span><span class="n">x_new</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$y=1.5^x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="[warning] docutils">
+<p>Extrapolation must be done with caution as fits can diverge rapidly outside the fitted range.</p>
+</div>
+<p>More details with examples on extrapolating data can be found <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html" target="_blank">here</a>.  If you only want to know more about the impact of different boundary condition on extrapolating data using CubicSpline, you can scroll down to <a href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html#cubicspline-extend-the-boundary-conditions" target="_blank">here</a>.</p>
+</section>
+</section>
+<section id="coefficient-of-determination-r-2">
+<h2>Coefficient of determination: <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Link to this heading">#</a></h2>
+<p>The Coefficient of Determination, denoted as <span class="math notranslate nohighlight">\(R^2\)</span> or R-squared, is a crucial statistic in regression analysis. <span class="math notranslate nohighlight">\(R^2\)</span> is a measure of the “goodness of fit” of your model (fitting function). In simpler terms, it indicates how well the fitted line to the data approximates the actual data points.</p>
+<p>If you look at the fit to your data, there’s a total amount of variation in the dependent variable (y-values, the thing you’re trying to predict). <span class="math notranslate nohighlight">\(R^2\)</span> tells you what percentage of that total variation can be “explained” or “accounted for” by the independent variables in your model (fitting function).</p>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> values always fall between 0 and 1 (or 0% and 100%):
+* <strong><span class="math notranslate nohighlight">\(R^2 = 0\)</span></strong>: This means the model explains none of the variability in the dependent variable.
+* <strong><span class="math notranslate nohighlight">\(R^2 = 1\)</span></strong>: This indicates that the model perfectly predicts the outcome. All the variation in the dependent variable is accounted for by the independent variables. In real-world data, an <span class="math notranslate nohighlight">\(R^2\)</span> of 1 is very rare, as there’s almost always some unexplained variability.
+* <strong><span class="math notranslate nohighlight">\(0 &lt; R^2 &lt; 1\)</span></strong>: The model partially explains the outcome. For example, an <span class="math notranslate nohighlight">\(R^2\)</span> of 0.75 means that 75% of the variation in the dependent variable can be explained by the independent variables in your model, while 25% remains unexplained.</p>
+<p>A good fit should account for approximately 95% of the data <span class="math notranslate nohighlight">\((R&gt;0.95)\)</span>.</p>
+<section id="calculation-of-r-2">
+<h3>Calculation of <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#calculation-of-r-2" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> is calculated as:</p>
+<p><span class="math notranslate nohighlight">\(R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (SST)}} = 1 - \frac{J}{S}\)</span></p>
+<p>where:</p>
+<ul class="simple">
+<li><p><strong>Sum of Squared Residuals (SSR)</strong> (also defined as <span class="math notranslate nohighlight">\(J\)</span>): This measures the variability of the data points around the regression line (fit). It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the values predicted by the model (<span class="math notranslate nohighlight">\(\hat{y_i}\)</span>, best fit function <span class="math notranslate nohighlight">\(f(x)\)</span> evaluated at your independent variable x).
+<span class="math notranslate nohighlight">\(SSR = J = \sum_{i=1}^{n} (y_i - \hat{y_i})^2\)</span></p></li>
+<li><p><strong>Total Sum of Squares (SST)</strong> (also defined as <span class="math notranslate nohighlight">\(S\)</span>): This measures the total variability in the dependent variable around its mean. It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the mean of the dependent variable (<span class="math notranslate nohighlight">\(\bar{y}\)</span>).
+<span class="math notranslate nohighlight">\(SST = S = \sum_{i=1}^{n} (y_i - \bar{y})^2\)</span></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="session6_notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial: Reading in and writing out data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="session7_notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial: Data fitting</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-fitting">Polynomial fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-polynomial-fitting">What is Polynomial Fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-polynomial-fitting">Methods for Polynomial Fitting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-challenges">Considerations and Challenges:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spline-fitting">Spline fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-spline-fitting">What is spline fitting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-spline">Linear spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline">Cubic spline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolating-data-with-cubicspline">Extrapolating data with <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">Coefficient of determination: <span class="math notranslate nohighlight">\(R^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-of-r-2">Calculation of <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joachim M. Bestenlehner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright University of Sheffield 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

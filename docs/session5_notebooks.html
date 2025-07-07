@@ -1,70 +1,69 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tutorial: &#8212; Digital Skills for Materials</title>
+    <title>Tutorial: Conditions and Loops &#8212; Digital Skills for Materials</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session5_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reading and writing files" href="session6.html" />
+    <link rel="prev" title="Conditional Logic and Loops" href="session5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -74,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -138,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -156,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -177,6 +192,36 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="session2.html">Vectors and Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session2_notebooks.html">Tutorial: Vectors and matrices</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session3_notebooks.html">Tutorial: Plotting and visualising data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output plus data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session4_notebooks.html">Tutorial: Input and output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session5.html">Conditional Logic and Loops</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Conditions and Loops</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session6.html">Reading and writing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session6_notebooks.html">Tutorial: Reading in and writing out data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -191,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -200,14 +245,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -232,14 +277,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session5_notebooks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -316,10 +361,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -327,12 +372,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -343,11 +390,41 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutorial:</h1>
+    <h1>Tutorial: Conditions and Loops</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-and-flow">Logic and flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-statements">Logical statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-with-arrays">Relational Operators with arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-and-breaks">Loops and breaks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-tough-challenge">Task 8  (TOUGH CHALLENGE)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -355,10 +432,345 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial">
-<h1>Tutorial:<a class="headerlink" href="#tutorial" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-conditions-and-loops">
+<h1>Tutorial: Conditions and Loops<a class="headerlink" href="#tutorial-conditions-and-loops" title="Link to this heading">#</a></h1>
+<section id="logic-and-flow">
+<h2>Logic and flow<a class="headerlink" href="#logic-and-flow" title="Link to this heading">#</a></h2>
+<p>This live script will teach you how to test variables if they meet certain criteria. It will also show how you can loop through your data calculations really fast.
+Scripts and programs can have three main types of flow.</p>
+<p><img alt="logic_loop" src="../_images/logic_loop.png" /></p>
+<ul class="simple">
+<li><p>The first is a sequence, a set of commands that are followed one after another. This is what we have been doing so far.</p></li>
+<li><p>The second is a choice, where you the code asks “IF a variable is equal to this, do A, else do B “</p></li>
+<li><p>The third is repetition, where we ask the code to loop over things for a set number or until a choice is met.</p></li>
+</ul>
+<p>The last key point to note is that when we deal with loops, it can end up looping indefinitely, and surprisingly easy to do. In principle you should be able to stop it, but in most cases you need to <strong>close</strong> your <strong>Colab-tab</strong>.</p>
+</section>
+<section id="logical-statements">
+<h2>Logical statements<a class="headerlink" href="#logical-statements" title="Link to this heading">#</a></h2>
+<p>There are a few conditional logic statements that you can use to test values and variables. Many you have met it maths already.</p>
+<section id="relational-operators">
+<h3>Relational Operators<a class="headerlink" href="#relational-operators" title="Link to this heading">#</a></h3>
+<p>These work on boolean answers, that of <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<ul class="simple">
+<li><p>Note that Using an <code class="docutils literal notranslate"><span class="pre">=</span></code> with two variables means you assign one of them as the value of the other. Using <code class="docutils literal notranslate"><span class="pre">==</span></code> tests if the two variables are equivalent.</p></li>
+<li><p>I’ve assigned each to a variable to show this and used the <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display the value to the screen for each answer.</p></li>
+<li><p>You can invert your logic using a <code class="docutils literal notranslate"><span class="pre">not</span></code> or symbol <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p></li>
+<li><p>You can test two things using <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (logical <code class="docutils literal notranslate"><span class="pre">and</span></code>, both tests need to be true), or <code class="docutils literal notranslate"><span class="pre">or</span></code> or <code class="docutils literal notranslate"><span class="pre">|</span></code> (logical <code class="docutils literal notranslate"><span class="pre">or</span></code>, one of two tests needs to be true).</p></li>
+</ul>
+<p>A more details are given on the overview page of this <a class="reference internal" href="session5.html"><span class="doc std std-doc">session</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>  <span class="c1"># assign values to variables x, y and z</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>       <span class="c1"># True - x is bigger than y is true</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span>       <span class="c1"># False - x is not bigger than y, false</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># False - x is not equivalent to y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span>      <span class="c1"># True - x is  equivalent to z</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">)</span>       <span class="c1"># False - x is not smaller than z</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">)</span>      <span class="c1"># True - x is equal or smaller than z </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># True - x is NOT equal to y</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">z</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># True - inverts answer as z is NOT smaller than y</span>
+
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">))</span> <span class="c1"># True - x is equivalent to z AND y is smaller than x</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">))</span>   <span class="c1"># False - x is equivalent to z but y is NOT smaller than x</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># True - x is equivalent to z, y is NOT smaller than x but only one needs to be true</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">))</span>   <span class="c1"># False - x is equivalent to z, y is smaller than x, but either one or the other needs to be true (exclusive or, XOR)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="relational-operators-with-arrays">
+<h3>Relational Operators with arrays<a class="headerlink" href="#relational-operators-with-arrays" title="Link to this heading">#</a></h3>
+<p>Only ‘true’ values will be selected when used with a vector (1D array) or matrix (multi-dimensional array):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># creates array</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">2</span>        <span class="c1"># creates array of True and False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>          <span class="c1"># prints boolean array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>       <span class="c1"># prints only True values of a</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>Create a vector B that goes from 0 to 10 in steps of 1. Using a relational operator, find the values of the vector that are above 5 and print them to the screen.</p>
+<ul class="simple">
+<li><p>Set up the vector B</p></li>
+<li><p>Generate a true and false vector for values above 5.</p></li>
+<li><p>Create a third vector of only the true values and use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to print the values to the screen.</p></li>
+</ul>
+</section>
+<section id="conditional-logic">
+<h2>Conditional logic<a class="headerlink" href="#conditional-logic" title="Link to this heading">#</a></h2>
+<p>Conditional logic also works with boolean answers and can be used to control the decision making using the relational operators. We can do this through conditional expressions such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements.</p>
+<ul class="simple">
+<li><p>Note: In python any value entered is a string and needs to be converted to a numerical value with <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ask the user to enter a value</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter the percentage mark you want for this course: &#39;</span><span class="p">))</span> <span class="c1"># the string needs to be converted into a numerical value so that it can be compared to a numerical value.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aim high!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> is a first class honors&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> mark is a 2:1&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> mark is a 2:2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;You can do better than that&#39;</span><span class="p">)</span> 
+<span class="k">elif</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Too low&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;That is not a valid score&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code sorts the data you have entered into one of the answers above and then ends. It starts with <code class="docutils literal notranslate"><span class="pre">if</span></code>, if <code class="docutils literal notranslate"><span class="pre">True</span></code> prints and then terminates. If not <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">False</span></code>), moves to see if the <code class="docutils literal notranslate"><span class="pre">elif</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and so on. Note also the <code class="docutils literal notranslate"><span class="pre">else</span></code> section at the end which catches all the other options.<br />
+You can have as many <code class="docutils literal notranslate"><span class="pre">elif</span></code> as you want, but it needs to start with an <code class="docutils literal notranslate"><span class="pre">if</span></code>. The <code class="docutils literal notranslate"><span class="pre">else</span></code> statement is also optional.</p>
+</section>
+<section id="protection-in-algorithms-using-conditional-logic">
+<h2>Protection in algorithms using conditional logic<a class="headerlink" href="#protection-in-algorithms-using-conditional-logic" title="Link to this heading">#</a></h2>
+<p>You can use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to end a program early if the user inputs something incorrectly, for example a negative number when your operation is calculating a square root. To do the code test in one line that both variables are correct using the <code class="docutils literal notranslate"><span class="pre">or</span></code> (<code class="docutils literal notranslate"><span class="pre">|</span></code>) logic operator. If either is wrong the code will return and exit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a positive number: &#39;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter a negative number: &#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a = </span><span class="si">{:.1f}</span><span class="s1"> and b = </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not correct&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;answer is </span><span class="si">{:.2f}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-if-blocks-as-option-flow">
+<h2>Using If blocks as option flow<a class="headerlink" href="#using-if-blocks-as-option-flow" title="Link to this heading">#</a></h2>
+<p>You can use inputs to direct the flow of your algorithm. Here we ask the user to enter a value which specifies what the program does next.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a value:</span><span class="se">\n</span><span class="s1">1 finds the maximum </span><span class="se">\n</span><span class="s1">2 finds the minimum</span><span class="se">\n</span><span class="s1">3 finds the average</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.85</span><span class="p">,</span><span class="mf">1.34</span><span class="p">,</span><span class="mf">9.55</span><span class="p">,</span><span class="mf">3.53</span><span class="p">,</span><span class="mf">6.53</span><span class="p">,</span><span class="mf">7.54</span><span class="p">])</span>
+<span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1"> is not an option&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter a value and assign this to a variable called POS.</p></li>
+<li><p>Test to see if the variable is positive or not.</p></li>
+<li><p>If it is negative, end the algorithm early with a message to the user.</p></li>
+<li><p>If true, calculate the value <span class="math notranslate nohighlight">\(\ln \sqrt{\mathrm{POS}}\)</span> and print to the screen.</p></li>
+</ul>
+</section>
+<section id="conditional-logic-and-strings">
+<h2>Conditional logic and strings<a class="headerlink" href="#conditional-logic-and-strings" title="Link to this heading">#</a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">if</span></code> statements with strings to direct a program to run certain options. To do this, you need to compare the input to a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Type y to get a nice message: &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You are looking good today&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You are not looking too good&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter a value.</p></li>
+<li><p>Asks the user if the value entered is degrees celsius or degrees fahrenheit.</p></li>
+<li><p>If you enter C it converts and prints the value in fahrenheit to the screen.</p></li>
+<li><p>If you enter F it converts and prints the value in celsius to the screen.</p></li>
+<li><p>Make sure it only calculates values above absolute zero.</p></li>
+<li><p>The conversion is (X<strong>°F</strong> − 32) × 5/9 = Y<strong>°C</strong></p></li>
+</ul>
+</section>
+<section id="task-5">
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Write a function the calculates the geometric factor for a finite plate using the equations below for either a through thickness centre crack (<span class="math notranslate nohighlight">\(Y_C\)</span>) or a through thickness edge crack (<span class="math notranslate nohighlight">\(Y_E\)</span>) depending on user preference.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+Y_C = 1 + 0.256 \left( \frac{a}{w}\right) - 1.152 \left( \frac{a}{w}\right)^2 + 12.2 \left( \frac{a}{w}\right)^3\\Y_E = 1.122 - 0.231 \left( \frac{a}{w}\right) + 10.55 \left( \frac{a}{w}\right)^2 - 21.71 \left( \frac{a}{w}\right)^3 + 30.38 \left( \frac{a}{w}\right)^4
+\end{aligned}\end{align} \]</div>
+<p>The algorithm should</p>
+<ul class="simple">
+<li><p>Ask the use for the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(w\)</span>.</p></li>
+<li><p>Ask the user to choose between <span class="math notranslate nohighlight">\(Y_C\)</span> and <span class="math notranslate nohighlight">\(Y_E\)</span>. This could be done with values or characters it is up to you.</p></li>
+<li><p>Print to the screen the geometric value of <span class="math notranslate nohighlight">\(Y_C\)</span> and <span class="math notranslate nohighlight">\(Y_E\)</span>.</p></li>
+</ul>
+</section>
+<section id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
+<p>As already discussed there are two types of loops that are used in Python:</p>
+<ul class="simple">
+<li><p>The first is where you have an iterable object or know how many iterations you want, called a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
+<li><p>The second is a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop where the loop will stop when the pre-set condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>Note: for a `while loop, if it does not meet the exit condition, the loop will continue indefinitely. This can result that your Colab session does not response. Try the ‘stop’ button to break out of this or close the tab and start again. Changes are usually automatically saved.</p>
+<section id="for-loops">
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h3>
+<p>The FOR loop is based on vector notation. You provide a starting point, and end point and the increment, and the code will loop through until it ends.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this for loop goes between 0 and 100 in steps of 10, excluding 100.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you do not specify the start and step, Python will use the default of 0 for start and 1 for step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#This for loop goes between two variables in steps of 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use it to step <em>through</em> arrays. Here we use the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to go through each element in the data array, and square it. Printing the result to the screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>      <span class="c1"># Set up vector of data </span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>   <span class="c1"># Go from 0 to the length of the vector excluding 6. </span>
+    <span class="n">output</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>        <span class="c1"># Use i as a index, square the value stored in data</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No. </span><span class="si">{:.0f}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1"> squared is </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the <code class="docutils literal notranslate"><span class="pre">data</span></code> is an iterable object, you can alternatively iterate through each element. If you need an indexer, e.g. store data/results in an array or list, you can produce one with <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function, which will count from 0 to the length of your iterable object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>              <span class="c1"># Set up vector of data </span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>    <span class="c1"># Iterate through elements of data</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">element</span><span class="o">**</span><span class="mi">2</span>              <span class="c1"># Square the element</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No. </span><span class="si">{:.0f}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1"> squared is </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">output</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-6">
+<h3>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h3>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter two even values</p></li>
+<li><p>The algorithm then prints to the screen all the even values between those two values.</p></li>
+<li><p>Keeps a running sum of the values, and prints this at the end.</p></li>
+<li><p><strong>Hint 1</strong>: Think about the increment needed in the FOR loop.</p></li>
+<li><p><strong>Hint 2</strong>: You will need to define a variable sum. You can increment sum by adding it to itself e.g. <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">=</span> <span class="pre">sum</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+</ul>
+<p>Verification: Entering values of 2 and 10 would display the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">4</span>
+<span class="mi">6</span>
+<span class="mi">8</span>
+<span class="mi">18</span>
+<span class="n">Sum</span> <span class="ow">is</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</section>
+<section id="while-loops">
+<h3>While loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop asks Python to keep running until a condition is not <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are two key parts to this.</p>
+<ul class="simple">
+<li><p>An initialised variable to test against.</p></li>
+<li><p>The variable is updated inside the loop and will execute the code block inside <code class="docutils literal notranslate"><span class="pre">while</span></code> until the condition is not fulfilled anymore (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+</ul>
+</section>
+<section id="loops-and-breaks">
+<h3>Loops and breaks<a class="headerlink" href="#loops-and-breaks" title="Link to this heading">#</a></h3>
+<p>You can use break commands to exit out of loops. Here we use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with a very large condition. If the value you enter is met using an <code class="docutils literal notranslate"><span class="pre">if</span></code> condition, the loop will <code class="docutils literal notranslate"><span class="pre">break</span></code> and jump out of the loop to the end of the code block, printing then the final line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter value when to stop: &#39;</span><span class="p">))</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mf">1e100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-7">
+<h3>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h3>
+<p>Write an algorithm that:</p>
+<ul class="simple">
+<li><p>Asks the user to enter the value 4.</p></li>
+<li><p>If 4 is entered it will stop the algorithm.</p></li>
+<li><p>If a different number is entered it will ask you again and keep asking until you enter 4.</p></li>
+</ul>
+<p>TOUGH CHALLENGE:</p>
+<ul class="simple">
+<li><p>Can you modify your algorithm above such that it asks you to enter in order the sequence of values  4, 8, 15, 16, 23 and 42.</p></li>
+<li><p>If you enter the sequence correctly it prints to the screen “you are not lost” and ends.</p></li>
+</ul>
+</section>
+</section>
+<section id="task-8-tough-challenge">
+<h2>Task 8  (TOUGH CHALLENGE)<a class="headerlink" href="#task-8-tough-challenge" title="Link to this heading">#</a></h2>
+<p>Use the algorithm you wrote in Task 3 (guess game) and modify so</p>
+<ul class="simple">
+<li><p>You start with 10 points</p></li>
+<li><p>If you guess correctly, add 5 to your points.</p></li>
+<li><p>If you guess incorrectly, minus 1 off your points total</p></li>
+<li><p>Once you have 0 points, the algorithm will end.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -388,15 +800,70 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="session5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conditional Logic and Loops</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="session6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reading and writing files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-and-flow">Logic and flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-statements">Logical statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-with-arrays">Relational Operators with arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic">Conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-and-breaks">Loops and breaks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-tough-challenge">Task 8  (TOUGH CHALLENGE)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -441,8 +908,8 @@ By Joachim M. Bestenlehner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
