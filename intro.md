@@ -36,6 +36,6 @@ Credits: ??
 
 Assessment: Formal Exam
 
-The full module description can be found on [Blackboard](https://vle.shef.ac.uk/ultra/).
+The full module description can be found on  <a href="https://vle.shef.ac.uk/ultra/" target="_blank">Blackboard</a>.
 
-Each week you will have a brief 10 min lecture, where we go through the core concepts and explain the principles. This will be followed with a computer lab session, where you can follow through a practical worksheet on [colab](https://colab.research.google.com/) and use the programming tools for yourself.
+Each week you will have a brief 10 min lecture, where we go through the core concepts and explain the principles. This will be followed with a computer lab session, where you can follow through a practical worksheet on <a href="https://colab.research.google.com/" target="_blank">Colab</a> and use the programming tools for yourself.

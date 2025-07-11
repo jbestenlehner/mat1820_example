@@ -282,11 +282,11 @@ The Coefficient of Determination, denoted as $R^2$ or R-squared, is a crucial st
 If you look at the fit to your data, there's a total amount of variation in the dependent variable (y-values, the thing you're trying to predict). $R^2$ tells you what percentage of that total variation can be "explained" or "accounted for" by the independent variables in your model (fitting function).
 
 $R^2$ values always fall between 0 and 1 (or 0% and 100%):
-    * **$R^2 = 0$**: This means the model explains none of the variability in the dependent variable.
-    * **$R^2 = 1$**: This indicates that the model perfectly predicts the outcome. All the variation in the dependent variable is accounted for by the independent variables. In real-world data, an $R^2$ of 1 is very rare, as there's almost always some unexplained variability.
-    * **$0 < R^2 < 1$**: The model partially explains the outcome. For example, an $R^2$ of 0.75 means that 75% of the variation in the dependent variable can be explained by the independent variables in your model, while 25% remains unexplained.
+* **$R^2 = 0$**: This means the model explains none of the variability in the dependent variable.
+* **$R^2 = 1$**: This indicates that the model perfectly predicts the outcome. All the variation in the dependent variable is accounted for by the independent variables. In real-world data, an $R^2$ of 1 is very rare, as there's almost always some unexplained variability.
+* **$0 < R^2 < 1$**: The model partially explains the outcome. For example, an $R^2$ of 0.75 means that 75% of the variation in the dependent variable can be explained by the independent variables in your model, while 25% remains unexplained.
 
-A good fit should account for approximately 95% of the data $(R>0.95)$.
+A good fit should account for approximately 95% or more of the data $(R^2>0.95)$.
 
 
 ### Calculation of $R^2$
@@ -297,6 +297,9 @@ $R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squar
 
 where:
 * **Sum of Squared Residuals (SSR)** (also defined as $J$): This measures the variability of the data points around the regression line (fit). It's the sum of the squared differences between the actual observed values ($y_i$) and the values predicted by the model ($\hat{y_i}$, best fit function $f(x)$ evaluated at your independent variable x).
+
     $SSR = J = \sum_{i=1}^{n} (y_i - \hat{y_i})^2$
+
 * **Total Sum of Squares (SST)** (also defined as $S$): This measures the total variability in the dependent variable around its mean. It's the sum of the squared differences between the actual observed values ($y_i$) and the mean of the dependent variable ($\bar{y}$).
+
     $SST = S = \sum_{i=1}^{n} (y_i - \bar{y})^2$
