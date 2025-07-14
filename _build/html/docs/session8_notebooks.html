@@ -406,8 +406,23 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-math">Symbolic Math</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-variables">Symbolic variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-numbers">Symbolic numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-equations">Symbolic equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-symbolic-equations">Working with symbolic equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roots-of-equations">Roots of equations</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-symbolic-functions">Plotting symbolic functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaneous-equations">Simultaneous equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">TASK 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">TASK 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-and-differentiation">Integration and differentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-functions">Multivariate functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">TASK 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9">TASK 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations-only-if-you-are-interested">Differential equations (only if you are interested)</a></li>
 </ul>
             </nav>
         </div>
@@ -539,11 +554,19 @@ Here we differentiate and integrate the following polynomial.</p>
 </div>
 </div>
 </div>
+<p>If you only use letter, you can directly import them from SymPy’s abc module. All Latin and Greek alphabets are defined as symbols.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="symbolic-numbers">
 <h3>Symbolic numbers<a class="headerlink" href="#symbolic-numbers" title="Link to this heading">#</a></h3>
 <p>To show the difference between symbolic and numerical numbers, we can create a symbolic number by using <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> and compare it to the same floating-
-point number. In the <a class="reference internal" href="session8.html"><span class="doc std std-doc">overview page</span></a>, we showed an example with irrational numbers while here we use rational numbers. To define a symbolic rational number the function <code class="docutils literal notranslate"><span class="pre">sm.Rational()</span></code> is used, because in Python <code class="docutils literal notranslate"><span class="pre">/</span></code> represents floating point division.</p>
+point number. In the <a class="reference internal" href="session8.html"><span class="doc std std-doc">overview page</span></a>, we showed an example with irrational numbers while here we use rational numbers. To define a symbolic rational number the function <code class="docutils literal notranslate"><span class="pre">sm.Rational()</span></code> is used, because in Python <code class="docutils literal notranslate"><span class="pre">/</span></code> represents floating point division. So any data type, e.g. <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">symbolic.Integer</span></code>, will result in a floating point number (<code class="docutils literal notranslate"><span class="pre">float</span></code>). For example, the division of 2 integers 1 and 4 will result in 0.25 (<code class="docutils literal notranslate"><span class="pre">float</span></code>) and not 0 (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Creates the symbolic variable x, with the value 1/3</span>
@@ -566,8 +589,375 @@ point number. In the <a class="reference internal" href="session8.html"><span cl
 </div>
 <p>Note: how <code class="docutils literal notranslate"><span class="pre">x</span></code> remains as a fraction (exact) and the floating point effectively rounds the value due to the structure
 of the floating point variable.</p>
-<p><strong><em>Note to myself (4jul25): np.poly… is the old polynomial API. Update example to the new library? <code class="docutils literal notranslate"><span class="pre">np.polynomial.polynomial.polyint()</span></code> is a bit long. Maybe use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy.polynomial.polynomial</span> <span class="pre">as</span> <span class="pre">poly</span></code> or import the entire sub-module <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy.polynomial.polynomial</span></code>. The later, syntax will be similar to MATLAB, but might overwrite built in functions of the same name.</em></strong></p>
 </section>
+<section id="symbolic-equations">
+<h3>Symbolic equations<a class="headerlink" href="#symbolic-equations" title="Link to this heading">#</a></h3>
+<p>Using the symbolic equations you can solve and rearrange formula very quickly.</p>
+<p>Let us try to form the equation <span class="math notranslate nohighlight">\(y = 3x^2 - 2x\)</span>. To do this you must:</p>
+<ul class="simple">
+<li><p>Create the symbolic variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+<li><p>Define variable <code class="docutils literal notranslate"><span class="pre">eqn</span></code> and assign the equation <code class="docutils literal notranslate"><span class="pre">sm.Eq(</span> <span class="pre">y,</span> <span class="pre">3*x**2</span> <span class="pre">-</span> <span class="pre">2*x)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eqn</span></code> does not need to be defined as symbolic variable as it inherits that from the symbolic variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and<code class="docutils literal notranslate"> <span class="pre">y</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span>     <span class="c1"># define a symbolic variable x and y</span>
+<span class="n">eqn</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># defines the equation assigned to a variable of eqn</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Equation:&#39;</span><span class="p">,</span> <span class="n">eqn</span><span class="p">)</span>       <span class="c1"># note this holds equation in symbolic form, left and right hand side</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once set up you can then work with these symbolic equations to rearrange and solve your equations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># rearrange equation for y, note sympy factorised the equation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># rearrange equation for x, note two solutions (... +/- sqrt ...). </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># substitute x for the value of 3 </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-symbolic-equations">
+<h3>Working with symbolic equations<a class="headerlink" href="#working-with-symbolic-equations" title="Link to this heading">#</a></h3>
+<p>You can also factorise, expand and simplify equations. These are somewhat limited but a good starting point for
+many engineering problems you will encounter. If you read/search through the SymPy <a href="https://docs.sympy.org/latest/index.html" target="_blank">documentation</a>, you will example for more complex equations and problems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>   <span class="c1"># factorise the equation.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>   <span class="c1"># expand the equation.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span> <span class="c1"># does do anything in this example, but can be very useful for complex equations.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can rearrange complex functions in exactly the same way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P, V, n, R, T&#39;</span><span class="p">)</span>
+<span class="n">ideal_gas</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P</span><span class="o">*</span><span class="n">V</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># define equation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">ideal_gas</span><span class="p">,</span> <span class="n">V</span><span class="p">))</span>  <span class="c1"># rearrange for V</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">ideal_gas</span><span class="p">,</span> <span class="n">P</span><span class="p">))</span>  <span class="c1"># rearrange for P</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ideal_gas</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>     <span class="c1"># substitute P for the value of 2</span>
+<span class="c1"># or multiple values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ideal_gas</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">P</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mf">8.31</span><span class="p">),</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">293</span><span class="p">),</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="c1"># if you want to know the volume, you need to rearrange the equation.</span>
+<span class="n">volume</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">ideal_gas</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">P</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mf">8.31</span><span class="p">),</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">293</span><span class="p">),</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]),</span> <span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span> <span class="c1"># value stored in a list.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volume:&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you do not need to rearrange your equation, you can define equations as follow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
+<span class="n">eqn</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>          <span class="c1"># set up equation here x²-1.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>   <span class="c1"># factorise the equation.</span>
+<span class="c1"># Alternatively, you can directly plug in the equation.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># Using Sympy like a calculator</span>
+
+<span class="n">eqn</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># new equation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>   <span class="c1"># expand the equation.</span>
+<span class="n">eqn</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span> <span class="c1"># simplify the equation</span>
+<span class="n">eqn</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span> <span class="c1"># Can be very useful for complex equations.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="roots-of-equations">
+<h3>Roots of equations<a class="headerlink" href="#roots-of-equations" title="Link to this heading">#</a></h3>
+<p>Roots of equations can be factorising or solving the equation for <span class="math notranslate nohighlight">\(f(x) = 0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eqn</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># define some equation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>    <span class="c1"># Note: this gives you 2 solution as 1 occurs twice. </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>    <span class="c1"># sm.roots also tells you how often a root occurs.</span>
+<span class="c1"># if you do not want to rearrange your equation which could look like this x^3 - x^2 = x - 1, you can use sm.Eq()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-3">
+<h2>TASK 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Set up the equation of motion <span class="math notranslate nohighlight">\(s(t)=0.5at^2\)</span>.</p>
+<p>Set acceleration, a, to be <span class="math notranslate nohighlight">\(9.81~\mathrm{ms}^{-1}\)</span> and using the symbolic variables, solve for when <span class="math notranslate nohighlight">\(t=2\mathrm{s}\)</span> (s for unit seconds).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create symbolic variables.</span>
+
+
+<span class="c1"># define equation - set to a variable - for example eqn</span>
+
+
+<span class="c1"># Use equation variables and subs to set a=9.81 and t=2.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-symbolic-functions">
+<h2>Plotting symbolic functions<a class="headerlink" href="#plotting-symbolic-functions" title="Link to this heading">#</a></h2>
+<p>You can plot functions using the function <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. It requires the function (equation in symbolic form). You can
+also define limits (here between -6 and 4), points, line colours etc. much like <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, but called within <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
+<span class="n">eqn</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span>             <span class="c1"># sets up the equation</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>   <span class="c1"># plots the equation from -6 to 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>       <span class="c1"># at eqn = 0, x is either 2 ot -2 (2 roots)</span>
+<span class="c1"># To indicate the roots we can use markers.</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">]},</span> <span class="p">{</span><span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b*&#39;</span><span class="p">]}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code> can be used to do some basic graphs. However, for complex plots the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library should be used. As seen in the example above for the <code class="docutils literal notranslate"><span class="pre">markers</span></code> parameter (complicated looking parameter call), SymPy uses the external <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.plt()</span></code> function accessed using <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
+<p>You can look up using the help function (<code class="docutils literal notranslate"><span class="pre">sm.plot?</span></code> or <code class="docutils literal notranslate"><span class="pre">help(sm.plot</span></code>). More details with examples can be found <a href="https://www.cfm.brown.edu/people/dobrush/am33/SymPy/part1.html" target="_blank">here</a>.</p>
+</section>
+<section id="task-4">
+<h2>TASK 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>Plot <code class="docutils literal notranslate"><span class="pre">sm.tan(x)</span></code> between -10 and 5 using <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. Note: SymPy has contains symbolic implementation for commonly used functions like <code class="docutils literal notranslate"><span class="pre">log</span></code> or trigonometry.</p>
+<p>Modify your code to show a red cross at the point of <span class="math notranslate nohighlight">\(x=-5\)</span>.</p>
+</section>
+<section id="task-5">
+<h2>TASK 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Set-up and rearrange the Brinell equation in terms of d. You can find the Brinell equation in your ??? lecture notes.</p>
+<p>Think about your answer and what it means.</p>
+<p>Modify your code such that for given (user input) values of HB, D and F, it will calculate the value of d.</p>
+</section>
+<section id="simultaneous-equations">
+<h2>Simultaneous equations<a class="headerlink" href="#simultaneous-equations" title="Link to this heading">#</a></h2>
+<p>We solved an equation using the solve function, but we can use solve on a set of equations together.</p>
+<p>For instance, If we had the following set of equations:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(2x+y+z=2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(4-x+y=3z\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x+2-2y=z\)</span></p></li>
+</ul>
+<p>We can solve them simultaneously by combining them into a list (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+
+<span class="c1"># define equations</span>
+<span class="n">eqn1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># alternatively you can rearrange, </span>
+<span class="n">eqn2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># so that right hand side is zero</span>
+<span class="n">eqn3</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>  <span class="c1"># and define eqn1 = 2*x + y + z -2</span>
+
+<span class="n">solutions</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="n">eqn1</span><span class="p">,</span> <span class="n">eqn2</span><span class="p">,</span> <span class="n">eqn3</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="c1"># create list of equation and solve them for x, y and z.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solutions</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=</span><span class="si">{}</span><span class="s1">, y=</span><span class="si">{}</span><span class="s1">, z=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">solutions</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">solutions</span><span class="p">[</span><span class="n">y</span><span class="p">],</span><span class="n">solutions</span><span class="p">[</span><span class="n">z</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=</span><span class="si">{:.2f}</span><span class="s1">, y=</span><span class="si">{:.2f}</span><span class="s1">, z=</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">solutions</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">evalf</span><span class="p">(),</span><span class="n">solutions</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">evalf</span><span class="p">(),</span><span class="n">solutions</span><span class="p">[</span><span class="n">z</span><span class="p">]</span><span class="o">.</span><span class="n">evalf</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-6">
+<h2>TASK 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h2>
+<p>Using SymPy solve the following set of simultaneous equations:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(3z+6x=2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(-6x+y=6z\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(-3y+6=-z\)</span></p></li>
+</ul>
+</section>
+<section id="task-7">
+<h2>TASK 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
+<p>A student has answered the following question but has one mistake in their code which has led them to getting the wrong solution.</p>
+<p><em>Question:</em> Solve the following simultaneous equations</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x+6y=2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(2x-3y=0\)</span></p></li>
+</ul>
+<p>The code they have produced is below. Can you correct it for them?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="n">eqn1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">eqn2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span>
+<span class="n">solutions</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="n">eqn1</span><span class="p">,</span> <span class="n">eqn1</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=</span><span class="si">{}</span><span class="s1">, y=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">solutions</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">solutions</span><span class="p">[</span><span class="n">y</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=</span><span class="si">{:.2f}</span><span class="s1">, y=</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">solutions</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">evalf</span><span class="p">(),</span><span class="n">solutions</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">evalf</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integration-and-differentiation">
+<h2>Integration and differentiation<a class="headerlink" href="#integration-and-differentiation" title="Link to this heading">#</a></h2>
+<p>One particular strength of the symbolic library SymPy is to be able, in one line, to integrate and differentiate your symbolic functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>      <span class="c1"># differentiating cos(x)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># integrating sin(x) </span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>      <span class="c1"># differentiating ln(x)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>       <span class="c1"># integrating 1/x remember log is ln in matlab</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use this with symbolic variables and equations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
+
+<span class="n">eqn</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>            <span class="c1"># differentiate d</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>       <span class="c1"># integrate x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>              <span class="c1"># multiply out the integration</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">eqn</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># integrate x between limits of 1 and 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">oo</span><span class="p">))</span> <span class="c1"># integrate from 0 to infinity</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we plot the function and calculate the differential(s) of the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
+
+<span class="n">eqn</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span>                    <span class="c1"># sets up a symbolic variable holding x^4</span>
+<span class="n">diff_eqn</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>    <span class="c1"># can then differentiate that wrt x</span>
+<span class="n">nd_diff</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># second derivative</span>
+<span class="n">rd_diff</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># third derivative, equivalent to sm.diff(eqn, x, x, x)</span>
+
+<span class="c1"># Plot them into a single plot</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span><span class="n">diff_eqn</span><span class="p">,</span> <span class="n">nd_diff</span><span class="p">,</span> <span class="n">rd_diff</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: If you want to customise colours and line styles, you need to use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library.</p>
+</section>
+<section id="multivariate-functions">
+<h2>Multivariate functions<a class="headerlink" href="#multivariate-functions" title="Link to this heading">#</a></h2>
+<p>These are functions with more than one variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span>
+
+<span class="n">eqn</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># define equation based on two variables</span>
+
+<span class="c1"># differentiation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># integration</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>     <span class="c1"># integrate with respect to x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>     <span class="c1"># integrate with respect to z</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>  <span class="c1"># integrate with respect to x and z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can pass multiple limit tuples <code class="docutils literal notranslate"><span class="pre">()</span></code> to perform a multiple integral. For example, to compute</p>
+<p><span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{-x^2-y^2} \,dx\,dy\)</span></p>
+<p>you write the following code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">sm</span><span class="o">.</span><span class="n">oo</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">oo</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">sm</span><span class="o">.</span><span class="n">oo</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">oo</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-8">
+<h2>TASK 8<a class="headerlink" href="#task-8" title="Link to this heading">#</a></h2>
+<p>In mathematics, a parametric equation defines a group of quantities as functions of one or more independent variables called parameters.</p>
+<p>A circle of radius 1 can be expressed as</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x=\cos(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y=\sin(t)\)</span></p></li>
+</ul>
+<p>First use this to plot a circle using the SymPy library and <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>.</p>
+<p>Modify your code to generate a circle with radius of 2 with a centre located at <span class="math notranslate nohighlight">\(x=1\)</span> and <span class="math notranslate nohighlight">\(y=0\)</span>.</p>
+</section>
+<section id="task-9">
+<h2>TASK 9<a class="headerlink" href="#task-9" title="Link to this heading">#</a></h2>
+<p>Below is a set of data for the Youngs modulus of a metal with a variable amount of additive.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Additive (g)</p></th>
+<th class="head text-center"><p>Young’s Modulus (GPa)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>0.0</p></td>
+<td class="text-center"><p>125</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>0.3</p></td>
+<td class="text-center"><p>139</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>142</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>146</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>0.7</p></td>
+<td class="text-center"><p>145</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>0.9</p></td>
+<td class="text-center"><p>143</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>1.1</p></td>
+<td class="text-center"><p>138</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Plot out the data. There appears to be a potential maximum in the Young’s modulus.</p>
+<p>Fit the data with a polynomial. Use this formula to estimate the amount of additive that leads to the maximum Young’s modulus (to 2 dp).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the data</span>
+
+<span class="c1"># fit the data</span>
+
+<span class="c1"># using the fit equation, differentiate it and solve for the turning point (i.e. when equal to zero)</span>
+
+<span class="c1"># print answer to the screen </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="differential-equations-only-if-you-are-interested">
+<h2>Differential equations (only if you are interested)<a class="headerlink" href="#differential-equations-only-if-you-are-interested" title="Link to this heading">#</a></h2>
+<div class="[warning] docutils">
+<p>Solving differential equations is not required in the exam. If you do not want to know, you can stop here.</p>
+</div>
+<p><strong>Harmonic Oscillator</strong></p>
+<p><img alt="harmonic_oscillator" src="../_images/Animated-mass-spring-faster.gif" /><img alt="harmonic_oscillator_time" src="../_images/Simple_harmonic_motion_animation.gif" /></p>
+<p><strong><em>Note to myself (4jul25): np.poly… is the old polynomial API. Update example to the new library as it numerically more stable? <code class="docutils literal notranslate"><span class="pre">np.polynomial.polynomial.polyint()</span></code> is a bit long. Maybe use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy.polynomial.polynomial</span> <span class="pre">as</span> <span class="pre">poly</span></code>.</em></strong></p>
+<p><strong><em>Note (11Jul25): What is the lecture code for TASK 5?</em></strong></p>
 </section>
 </section>
 
@@ -633,8 +1023,23 @@ of the floating point variable.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-math">Symbolic Math</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-variables">Symbolic variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-numbers">Symbolic numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-equations">Symbolic equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-symbolic-equations">Working with symbolic equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roots-of-equations">Roots of equations</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-symbolic-functions">Plotting symbolic functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">TASK 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaneous-equations">Simultaneous equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">TASK 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">TASK 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-and-differentiation">Integration and differentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-functions">Multivariate functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">TASK 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9">TASK 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations-only-if-you-are-interested">Differential equations (only if you are interested)</a></li>
 </ul>
   </nav></div>
 

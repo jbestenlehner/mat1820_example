@@ -9,3 +9,6 @@ https://colab.research.google.com/github/computationalcore/introduction-to-pytho
 
 # Export html to github
 ghp-import -n -p -f _build/html
+
+
+**_Note to myself (4jul25): np.poly... is the old polynomial API. Update example to the new library as it numerically more stable? `np.polynomial.polynomial.polyint()` is a bit long. Maybe use `import numpy.polynomial.polynomial as poly`._**

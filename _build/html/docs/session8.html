@@ -427,14 +427,14 @@ document.write(`
 <p>Even though we have increased the precision, the results are not an exact square root of 8.</p>
 <p>Note: Each increase in precision doubles the memory requirements to store the value and increases the computation time to calculate the square root of 8, which can become a hugh problem for large and complex simulations.</p>
 <p>With a symbolic computation system like SymPy provides, the square roots of numbers that are not perfect squares are left unevaluated by default, but symbolic results can be symbolically simplified.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>   <span class="c1">#import hte sympy library</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>   <span class="c1"># import the sympy library</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="[Warning] docutils">
-<p>Note: You can import packages/libraries as any name you want. The obvious choice is to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">sympy</span> <span class="pre">as</span> <span class="pre">sp</span></code>. However, the SciPy package is usually imported as ‘sp’, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span> <span class="pre">as</span> <span class="pre">sp</span></code> and is more widely used than SymPy.</p>
+<p>Note: You can import packages/libraries as any name you want. A potential choice would be <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">sympy</span> <span class="pre">as</span> <span class="pre">sp</span></code>. However, the SciPy package is usually imported as ‘sp’, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span> <span class="pre">as</span> <span class="pre">sp</span></code> and is more widely used than SymPy.</p>
 </div>
 <p>The advantage of keeping expression unevaluated is that at some point in your calculation those values might cancel out.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
