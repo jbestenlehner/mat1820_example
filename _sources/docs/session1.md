@@ -20,7 +20,7 @@ Computer code is a set of instructions, or a system of rules, written in a speci
 
 ## Lecture notes/slides
 
-Lecture notes/slides for session 1 can be found on <a href="https://vle.shef.ac.uk/ultra/" target="_blank">Blackboard</a>.
+Lecture notes/slides for all the sessions can be found on <a href="https://vle.shef.ac.uk/ultra/" target="_blank">Blackboard</a>.
 
 ## What we are going to cover?
 
@@ -32,7 +32,7 @@ In this course we learn how to use **python**. Python is known for its readabili
     * Plotting
     * Loops and conditional statements
     * Functions and logics
-* Move off these onto py-files and how to use it for data analysis and interpretation in an local python environment.
+    * Numerical methods
 * No prior knowledge or previous computer programming experience is required or assumed.
 
 ## Suggested Approach
