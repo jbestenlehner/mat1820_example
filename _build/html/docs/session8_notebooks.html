@@ -954,9 +954,59 @@ also define limits (here between -6 and 4), points, line colours etc. much like 
 <div class="[warning] docutils">
 <p>Solving differential equations is not required in the exam. If you do not want to know, you can stop here.</p>
 </div>
-<p><strong>Harmonic Oscillator</strong></p>
-<p><img alt="harmonic_oscillator" src="../_images/Animated-mass-spring-faster.gif" /><img alt="harmonic_oscillator_time" src="../_images/Simple_harmonic_motion_animation.gif" /></p>
-<p><strong><em>Note to myself (4jul25): np.poly… is the old polynomial API. Update example to the new library as it numerically more stable? <code class="docutils literal notranslate"><span class="pre">np.polynomial.polynomial.polyint()</span></code> is a bit long. Maybe use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy.polynomial.polynomial</span> <span class="pre">as</span> <span class="pre">poly</span></code>.</em></strong></p>
+<p><strong>Simple Harmonic Oscillator</strong></p>
+<p><img alt="harmonic_oscillator" src="../_images/Animated-mass-spring-faster.gif" /></p>
+<p>In a simple harmonic oscillator a mass <span class="math notranslate nohighlight">\(m\)</span> swings back and forth without anything pushing it or slowing it down (neither driven nor damped). The restoring force <span class="math notranslate nohighlight">\(F\)</span> must be directly proportional to how far it’s moved from equilibrium (<span class="math notranslate nohighlight">\(x=0\)</span>). The restoring force comes in our example from spring with a spring constant <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>We can plot the displacement <span class="math notranslate nohighlight">\(x\)</span> as a function of time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p><img alt="harmonic_oscillator_time" src="../_images/harmonic_oscillator.png" /></p>
+<p>The motion is periodic and sinusoidal. Using Newton’s second law the balances of forces of the system is</p>
+<p><span class="math notranslate nohighlight">\(F = ma = - xk\)</span>.</p>
+<p>To bring the equation into the form of a differential equation we include the time dependence into the equation:</p>
+<ul class="simple">
+<li><p>displacement: <span class="math notranslate nohighlight">\(x(t)\)</span></p></li>
+<li><p>velocity: <span class="math notranslate nohighlight">\(\frac{\mathrm{d}}{\mathrm{d}t} x(t) = \dot{x}(t)\)</span></p></li>
+<li><p>acceleration:  <span class="math notranslate nohighlight">\(\frac{\mathrm{d}^2}{\mathrm{d}t^2} x(t) = \ddot{x}(t)\)</span></p></li>
+</ul>
+<p>This leads to the following equation:</p>
+<p><span class="math notranslate nohighlight">\(m\ddot{x}(t) = -kx(t)\)</span></p>
+<p>or</p>
+<p><span class="math notranslate nohighlight">\(\ddot{x}(t) + \frac{k}{m}x(t) = 0\)</span>.</p>
+<p>To symbolically solve the differential equation we need to define a <span class="math notranslate nohighlight">\(x(t)\)</span> as a function in SymPy using the function <code class="docutils literal notranslate"><span class="pre">sm.Function()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>      <span class="c1"># defines the independent variable t</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)(</span><span class="n">t</span><span class="p">)</span>  <span class="c1"># defines the function x(t)</span>
+<span class="n">k</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;k, m&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># k and m needs to be positive and real to by physically.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: Mathematically <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(m\)</span> can have any value and SymPy will be able to solve the differential equation, but the solution will be imaginary. If you are interested you can solve the differential equation more generally and then obtain the real solution by defining constrains. However, it is much easier to define the symbolic variables with constrains first and solve then the differential.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the differential equation for a simple harmonic oscillator</span>
+<span class="n">diff_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Solve the differential equation</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">dsolve</span><span class="p">(</span><span class="n">diff_eq</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solution of differential equation:&quot;</span><span class="p">,</span> <span class="n">solution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The solution of the differential equation is</p>
+<p><span class="math notranslate nohighlight">\(x(t) = C_1\sin\left(\sqrt{\frac{k}{m}}t\right) + C_2\cos\left(\sqrt{\frac{k}{m}}t\right)\)</span>.</p>
+<p>If we set or substitute <span class="math notranslate nohighlight">\(\omega:=\sqrt{\frac{k}{m}}\)</span> we obtain the following equation:</p>
+<p><span class="math notranslate nohighlight">\(x(t) = C_1\sin(\omega t) + C_2\cos(\omega t)\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(\omega\)</span> is also know as the angular velocity.</p>
+<p>What is the meaning of the constant <span class="math notranslate nohighlight">\(C_1\)</span> and <span class="math notranslate nohighlight">\(C_2\)</span>? If we set <span class="math notranslate nohighlight">\(t=0\)</span>, we obtain <span class="math notranslate nohighlight">\(x(0) = C_2\)</span>, which is the initial position <span class="math notranslate nohighlight">\(x_0\)</span> of the weight. If we set the first derivative <span class="math notranslate nohighlight">\(t=0\)</span>, we obtain <span class="math notranslate nohighlight">\(\dot{x}(t) = \omega*C_1\)</span>, which is the initial velocity <span class="math notranslate nohighlight">\(v_0\)</span> of the weight.</p>
+<p>Therefore, our solution for the simple harmonic oscillator is</p>
+<p><span class="math notranslate nohighlight">\(x(t) = \frac{v_0}{\omega}\sin(\omega t) + x_0\cos(\omega t)\)</span></p>
+<p>The figure illustrates the motion in velocity-position space (phase space).</p>
+<p><img alt="phase space" src="../_images/Simple_Harmonic_Motion_Orbit.gif" />
+By <a href="//commons.wikimedia.org/w/index.php?title=User:Mazemaster&amp;action=edit&amp;redlink=1" class="new" title="User:Mazemaster (page does not exist)">Mazemaster</a> - <span class="int-own-work" lang="en">Own work</span>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=5803197">Link</a>.</p>
 <p><strong><em>Note (11Jul25): What is the lecture code for TASK 5?</em></strong></p>
 </section>
 </section>
