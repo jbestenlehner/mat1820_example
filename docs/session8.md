@@ -50,7 +50,7 @@ print(sm.sqrt(8))
 
 :::{Warning}
 
-Note: You can import packages/libraries as any name you want. A potential choice would be `import sympy as sp`. However, the SciPy package is usually imported as 'sp', `import scipy as sp` and is more widely used than SymPy.  
+Note: You can import packages/libraries as any name you want. A potential choice would be `import sympy as sp`. However, the SciPy package is usually imported as 'sp', `import scipy as sp` and is more widely used than SymPy.
 
 :::
 
