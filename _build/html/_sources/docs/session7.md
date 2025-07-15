@@ -266,7 +266,7 @@ plt.show()
 plt.close()
 ```
 
-:::[warning]
+:::{Warning}
 
 Extrapolation must be done with caution as fits can diverge rapidly outside the fitted range.
 
