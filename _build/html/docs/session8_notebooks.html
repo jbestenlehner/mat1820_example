@@ -488,7 +488,6 @@ Here we differentiate and integrate the following polynomial.</p>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>          <span class="c1"># gives 2 -2 meaning df(x)/dx = 2x -2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>          <span class="c1"># Note that it gives the constant as 0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]))</span> <span class="c1"># </span>
 </pre></div>
 </div>
 </div>
@@ -624,7 +623,7 @@ of the floating point variable.</p>
 <section id="working-with-symbolic-equations">
 <h3>Working with symbolic equations<a class="headerlink" href="#working-with-symbolic-equations" title="Link to this heading">#</a></h3>
 <p>You can also factorise, expand and simplify equations. These are somewhat limited but a good starting point for
-many engineering problems you will encounter. If you read/search through the SymPy <a href="https://docs.sympy.org/latest/index.html" target="_blank">documentation</a>, you will example for more complex equations and problems.</p>
+many engineering problems you will encounter. If you read/search through the SymPy <a href="https://docs.sympy.org/latest/index.html" target="_blank">documentation</a>, you will find examples for more complex equations and problems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>   <span class="c1"># factorise the equation.</span>
@@ -674,10 +673,11 @@ many engineering problems you will encounter. If you read/search through the Sym
 </section>
 <section id="roots-of-equations">
 <h3>Roots of equations<a class="headerlink" href="#roots-of-equations" title="Link to this heading">#</a></h3>
-<p>Roots of equations can be factorising or solving the equation for <span class="math notranslate nohighlight">\(f(x) = 0\)</span>.</p>
+<p>Roots of equations can be factorised or the equation can be solved for <span class="math notranslate nohighlight">\(f(x) = 0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eqn</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># define some equation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>      <span class="c1"># factorised to make the roots visible</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>    <span class="c1"># Note: this gives you 2 solution as 1 occurs twice. </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>    <span class="c1"># sm.roots also tells you how often a root occurs.</span>
 <span class="c1"># if you do not want to rearrange your equation which could look like this x^3 - x^2 = x - 1, you can use sm.Eq()</span>
@@ -691,7 +691,7 @@ many engineering problems you will encounter. If you read/search through the Sym
 <section id="task-3">
 <h2>TASK 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
 <p>Set up the equation of motion <span class="math notranslate nohighlight">\(s(t)=0.5at^2\)</span>.</p>
-<p>Set acceleration a to be <span class="math notranslate nohighlight">\(9.81~\mathrm{ms}^{-1}\)</span> and using the symbolic variables, solve for when <span class="math notranslate nohighlight">\(t=2\mathrm{s}\)</span> (s for unit seconds).</p>
+<p>Set acceleration <span class="math notranslate nohighlight">\(a\)</span> to be <span class="math notranslate nohighlight">\(9.81~\mathrm{ms}^{-1}\)</span> and using the symbolic variables, solve for when <span class="math notranslate nohighlight">\(t=2\mathrm{s}\)</span> (s for unit seconds).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create symbolic variables.</span>
@@ -708,7 +708,7 @@ many engineering problems you will encounter. If you read/search through the Sym
 </section>
 <section id="plotting-symbolic-functions">
 <h2>Plotting symbolic functions<a class="headerlink" href="#plotting-symbolic-functions" title="Link to this heading">#</a></h2>
-<p>You can plot functions using the function <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. It requires the function (equation in symbolic form). You can
+<p>You can plot symbolic functions using the function <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. It requires the function (equation in symbolic form). You can
 also define limits (here between -6 and 4), points, line colours etc. much like <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, but called within <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -722,7 +722,7 @@ also define limits (here between -6 and 4), points, line colours etc. much like 
 </div>
 </div>
 </div>
-<p>Note: <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code> can be used to do some basic graphs. However, for complex plots the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library should be used. As seen in the example above for the <code class="docutils literal notranslate"><span class="pre">markers</span></code> parameter (complicated looking parameter call), SymPy uses the external <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.plt()</span></code> function accessed using <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code> can be used to do some basic graphs. However, for complex plots the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library should be used. As seen in the example above for the <code class="docutils literal notranslate"><span class="pre">markers</span></code> parameter (complicated looking parameter call), SymPy uses the external <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.plt()</span></code> function accessed via <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
 <p>You can look up using the help function (<code class="docutils literal notranslate"><span class="pre">sm.plot?</span></code> or <code class="docutils literal notranslate"><span class="pre">help(sm.plot</span></code>). More details with examples can be found <a href="https://www.cfm.brown.edu/people/dobrush/am33/SymPy/part1.html" target="_blank">here</a>.</p>
 </section>
 <section id="task-4">
@@ -980,7 +980,7 @@ also define limits (here between -6 and 4), points, line colours etc. much like 
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>      <span class="c1"># defines the independent variable t</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)(</span><span class="n">t</span><span class="p">)</span>  <span class="c1"># defines the function x(t)</span>
-<span class="n">k</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;k, m&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># k and m needs to be positive and real to by physically.</span>
+<span class="n">k</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;k, m&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># k and m needs to be positive and real to be physically.</span>
 </pre></div>
 </div>
 </div>
