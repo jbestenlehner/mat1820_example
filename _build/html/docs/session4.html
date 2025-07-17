@@ -212,12 +212,12 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
 </ul>
 
@@ -428,7 +428,7 @@ document.write(`
 <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="c1"># equivalent to above, but you tell numpy what dtype (short for data type) the array should have.</span>
 </pre></div>
 </div>
-<p>If you don’t what type your variable is, you can use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
+<p>If you don’t know what type your variable is, you can use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. Alternatively, you can click on the Variable Ribbon within Colab located at the bottom left.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">tuple</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -440,7 +440,7 @@ document.write(`
 <span class="nb">int</span>
 </pre></div>
 </div>
-<p>Lists and tuples have similar properties, but you cannot assign a value to a list.</p>
+<p>Lists and tuples have similar properties, but you cannot assign a value to a tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">)</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># raises the error: TypeError: &#39;tuple&#39; object does not support item assignment</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">]</span>
@@ -465,7 +465,7 @@ document.write(`
 
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">a_list</span></code> is the <em>iterable</em> object while <code class="docutils literal notranslate"><span class="pre">element</span></code> is the variable where the elements of <code class="docutils literal notranslate"><span class="pre">a_list</span></code> are assigned to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">a_list</span></code> is a <em>iterable</em> object while <code class="docutils literal notranslate"><span class="pre">element</span></code> is the variable where the elements of <code class="docutils literal notranslate"><span class="pre">a_list</span></code> are assigned to.</p>
 <p>Note: The end of the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is indicated by a <code class="docutils literal notranslate"><span class="pre">:</span></code>. In the next line follow instruction/statements, which are indented like bullet points. Python relies on indentation (whitespace at the beginning of a line) to define blocks of code.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -475,7 +475,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<p>You can also iterates over strings:</p>
+<p>You can also iterate over strings:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Materials&#39;</span>
 <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
@@ -504,6 +504,7 @@ document.write(`
 </pre></div>
 </div>
 <p>This will update the list to <code class="docutils literal notranslate"><span class="pre">a_list</span> <span class="pre">=</span> <span class="pre">[2,</span> <span class="pre">6,</span> <span class="pre">12]</span></code>.</p>
+<p>Note: If you have loops within loops using indexer, the convention is to name those in increasing alphabetic order, e.g. <code class="docutils literal notranslate"><span class="pre">i,</span> <span class="pre">k,</span> <span class="pre">l,</span> <span class="pre">m,</span> <span class="pre">n</span></code>.</p>
 </section>
 </section>
 </section>
