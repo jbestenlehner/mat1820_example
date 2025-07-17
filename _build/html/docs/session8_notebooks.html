@@ -959,7 +959,7 @@ also define limits (here between -6 and 4), points, line colours etc. much like 
 <p><img alt="harmonic_oscillator" src="../_images/Animated-mass-spring-faster.gif" /></p>
 <p>By <a href="//commons.wikimedia.org/w/index.php?title=User:Svjo&amp;action=edit&amp;redlink=1" class="new" title="User:Svjo (page does not exist)">Svjo</a> - Previously uploaded version of <a href="//commons.wikimedia.org/wiki/File:Animated-mass-spring.gif" title="File:Animated-mass-spring.gif">Animated-mass-spring.gif</a> <a class="external text" href="https://upload.wikimedia.org/wikipedia/commons/archive/2/25/20130422123633%21Animated-mass-spring.gif">here</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=73336759">Link</a>.</p>
 <p>In a simple harmonic oscillator a mass <span class="math notranslate nohighlight">\(m\)</span> swings back and forth without anything pushing it or slowing it down (neither driven nor damped). The restoring force <span class="math notranslate nohighlight">\(F\)</span> must be directly proportional to how far it’s moved from equilibrium (<span class="math notranslate nohighlight">\(x=0\)</span>). The restoring force comes in our example from a spring with spring constant <span class="math notranslate nohighlight">\(k\)</span>.</p>
-<p>We can plot the displacement <span class="math notranslate nohighlight">\(x\)</span> as a function of time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>We can plot the displacement <span class="math notranslate nohighlight">\(x\)</span> as a function of time <span class="math notranslate nohighlight">\(t\)</span> (<span class="math notranslate nohighlight">\(x(t)\)</span>).</p>
 <p><img alt="harmonic_oscillator_time" src="../_images/harmonic_oscillator.png" /></p>
 <p>The motion is periodic and sinusoidal. Using Newton’s second law the balances of forces of the system is</p>
 <p><span class="math notranslate nohighlight">\(F = ma = - xk\)</span>.</p>
@@ -969,11 +969,10 @@ also define limits (here between -6 and 4), points, line colours etc. much like 
 <li><p>velocity (<span class="math notranslate nohighlight">\(\mathrm{ms^{-1}}\)</span>): <span class="math notranslate nohighlight">\(\frac{\mathrm{d}}{\mathrm{d}t} x(t) = \dot{x}(t)\)</span></p></li>
 <li><p>acceleration (<span class="math notranslate nohighlight">\(\mathrm{ms^{-2}}\)</span>):  <span class="math notranslate nohighlight">\(\frac{\mathrm{d}^2}{\mathrm{d}t^2} x(t) = \ddot{x}(t)\)</span></p></li>
 </ul>
-<p>This leads to the following differential equation:</p>
+<p>Note: The dot(s) not prime(s) is the convention for time derivatives. This leads to the following differential equation:</p>
 <p><span class="math notranslate nohighlight">\(m\ddot{x}(t) = -kx(t)\)</span></p>
-<p>or</p>
+<p>or rearanged</p>
 <p><span class="math notranslate nohighlight">\(\ddot{x}(t) + \frac{k}{m}x(t) = 0\)</span>.</p>
-<p>Note: The <span class="math notranslate nohighlight">\(\ddot{}\)</span> is the convention for time derivatives.</p>
 <p>To symbolically solve the differential equation we need to define <span class="math notranslate nohighlight">\(x(t)\)</span> as a function in SymPy using the function <code class="docutils literal notranslate"><span class="pre">sm.Function()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -986,7 +985,7 @@ also define limits (here between -6 and 4), points, line colours etc. much like 
 </div>
 </div>
 </div>
-<p>Note: Mathematically <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(m\)</span> can have any value and SymPy will still be able to solve the differential equation, but the general solution will have imaginary solutions as well. If you are interested you can solve the differential equation more generally and then obtain the real solution by defining constrains on <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(m\)</span>. However, it is much easier and clearer to define the symbolic variables with constrains in the first place and then solve the differential.</p>
+<p>Note: Mathematically <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(m\)</span> can have any value including negative and imaginary. SymPy will still be able to solve the differential equation, but the general solution will have imaginary solutions as well. If you are interested you can solve the differential equation more generally and then obtain the real solution by defining constrains on <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(m\)</span>. However, it is much easier to define the symbolic variables with constrains in the first place and then solve the differential.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the differential equation for a simple harmonic oscillator</span>
