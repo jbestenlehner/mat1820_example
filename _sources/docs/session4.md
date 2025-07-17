@@ -43,7 +43,7 @@ c = c.astype(float)         # assigns new type float to array. Note: this will r
 c = np.array([1, '5', 2.3], dtype=float) # equivalent to above, but you tell numpy what dtype (short for data type) the array should have.
 ```
 
-If you don't what type your variable is, you can use the `type()` function.
+If you don't know what type your variable is, you can use the `type()` function. Alternatively, you can click on the Variable Ribbon within Colab located at the bottom left.
 
 ```python
 type(a)
@@ -57,7 +57,7 @@ type(x)
 int
 ```
 
-Lists and tuples have similar properties, but you cannot assign a value to a list.
+Lists and tuples have similar properties, but you cannot assign a value to a tuple.
 
 ```python
 a = (1, '5', 2.3)
@@ -86,7 +86,7 @@ for element in a_list:  # for loop syntax
     print(element)      # prints 1, 2 and 3
 
 ```
-`a_list` is the _iterable_ object while `element` is the variable where the elements of `a_list` are assigned to.
+`a_list` is a _iterable_ object while `element` is the variable where the elements of `a_list` are assigned to.
 
 Note: The end of the `for` statement is indicated by a `:`. In the next line follow instruction/statements, which are indented like bullet points. Python relies on indentation (whitespace at the beginning of a line) to define blocks of code.
 
@@ -99,7 +99,7 @@ print(i)   # will raise error message
 ```
 :::
 
-You can also iterates over strings:
+You can also iterate over strings:
 
 ```python
 word = 'Materials'
@@ -139,3 +139,5 @@ for i in range(3):
 ```
 
 This will update the list to `a_list = [2, 6, 12]`.
+
+Note: If you have loops within loops using indexer, the convention is to name those in increasing alphabetic order, e.g. `i, k, l, m, n`.  
