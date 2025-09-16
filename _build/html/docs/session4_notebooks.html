@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Tutorial: Input and output &#8212; Digital Skills for Materials</title>
   
@@ -14,49 +15,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session4_notebooks';</script>
@@ -73,23 +78,28 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,20 +121,12 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -140,8 +142,6 @@
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
-  
-    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -160,18 +160,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -214,7 +203,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
@@ -236,7 +225,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -245,14 +234,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -277,14 +266,14 @@
       
       <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session4_notebooks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
+   title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+    <img src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -361,10 +350,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -372,14 +361,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -429,16 +418,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-input-and-output">
-<h1>Tutorial: Input and output<a class="headerlink" href="#tutorial-input-and-output" title="Link to this heading">#</a></h1>
+<h1>Tutorial: Input and output<a class="headerlink" href="#tutorial-input-and-output" title="Permalink to this heading">#</a></h1>
 <section id="user-defined-input-and-output">
-<h2>User defined input and output<a class="headerlink" href="#user-defined-input-and-output" title="Link to this heading">#</a></h2>
+<h2>User defined input and output<a class="headerlink" href="#user-defined-input-and-output" title="Permalink to this heading">#</a></h2>
 <p>This live script will teach you how to control your code to request information and print it clearly to a screen. Make sure you understand the previous tutorial sheets first, as we’ll be assuming you have knowledge of those.</p>
 </section>
 <section id="user-defined-input">
-<h2>User defined input<a class="headerlink" href="#user-defined-input" title="Link to this heading">#</a></h2>
+<h2>User defined input<a class="headerlink" href="#user-defined-input" title="Permalink to this heading">#</a></h2>
 <p>You can request your code to enter a value before it continues to do operations. This is really useful for defining a change of a variable without rewriting the code itself.
 To do this you need to use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> command. The inbuilt function requires a prompt, which is some text, to display on the screen. To display text to the screen you need to put it in quotation marks “example text” or ‘example text’. It then assigns the value you type into the command window to the defined variable, which you can then use later on in your code.</p>
 <div class="cell docutils container">
@@ -452,7 +441,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 <p>The function <code class="docutils literal notranslate"><span class="pre">input()</span></code> waits for user input, assigns the user input to the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and prints <code class="docutils literal notranslate"><span class="pre">x</span></code> to the screen.</p>
 </section>
 <section id="text-or-values-an-overview">
-<h2>Text or values: an overview<a class="headerlink" href="#text-or-values-an-overview" title="Link to this heading">#</a></h2>
+<h2>Text or values: an overview<a class="headerlink" href="#text-or-values-an-overview" title="Permalink to this heading">#</a></h2>
 <p>One thing in computing that can be hard to understand is the way the computer interprets and displays data you provide it. There are two main types of data you will deal with:</p>
 <ol class="arabic simple">
 <li><p>Text based information - ‘strings’.</p></li>
@@ -473,7 +462,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </div>
 <p>As  a human you have been taught to see the symbol ‘2’ you assign it also a numerical value of 2. Computers do not do this automatically.</p>
-<p>To enter the character 2 as a symbol (string) instead of a value, you use “ or ‘ (speech marks or apostrophes) around it. Python then handles them different. For example:</p>
+<p>To enter the character 2 as a symbol (string) instead of a value, you use ” or ‘ (speech marks or apostrophes) around it. Python then handles them different. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>           <span class="c1"># defines a numerical based value</span>
@@ -508,7 +497,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="printing-to-the-screen">
-<h2>Printing to the screen<a class="headerlink" href="#printing-to-the-screen" title="Link to this heading">#</a></h2>
+<h2>Printing to the screen<a class="headerlink" href="#printing-to-the-screen" title="Permalink to this heading">#</a></h2>
 <p>In the cells above and in previous tutorials we used the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to print or display variables, calculations or any other output, we want to see.</p>
 <p><code class="docutils literal notranslate"><span class="pre">print()</span></code> can display numerical values as well as strings:</p>
 <div class="cell docutils container">
@@ -535,7 +524,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="simple-way-to-request-a-number">
-<h2>Simple way to request a number<a class="headerlink" href="#simple-way-to-request-a-number" title="Link to this heading">#</a></h2>
+<h2>Simple way to request a number<a class="headerlink" href="#simple-way-to-request-a-number" title="Permalink to this heading">#</a></h2>
 <p>To get the computer to ask you to enter something, you can use the function <code class="docutils literal notranslate"><span class="pre">input()</span></code>. This allows you to ask for an information entry point, and also allows text on the screen to be added to let the user know what it is waiting for. Python will then wait for a response before continuing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -571,7 +560,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="task-1">
-<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading">#</a></h2>
 <p>In the code below, ask the user to enter a value to a variable called MySquare. Then calculate the square of the number.</p>
 <p>Test it with the value of 6, and your code should print to the screen 36.</p>
 <ul class="simple">
@@ -581,15 +570,15 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 <p>Use separate input commands.</p>
 </section>
 <section id="task-2">
-<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Write a code that asks the user to enter their first name, last name and age. Use three separate input commands.</p></li>
 <li><p>Print their name and age on the screen. Get the code to calculate their age in month and print it.</p></li>
 </ul>
 </section>
 <section id="formatting-output">
-<h2>Formatting output<a class="headerlink" href="#formatting-output" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="#printing-to-the-screen"><span class="xref myst">Above</span></a> we formatted outputs with the parameters <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> of the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, but you can format the <em>string</em>, too.</p>
+<h2>Formatting output<a class="headerlink" href="#formatting-output" title="Permalink to this heading">#</a></h2>
+<p><span class="xref myst">Above</span> we formatted outputs with the parameters <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> of the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, but you can format the <em>string</em>, too.</p>
 <p>For example, many times you need to format the output to make it look nice. To do this you need to add a special instruction to <em>Python</em> controlling the display. These start with a <code class="docutils literal notranslate"><span class="pre">\</span></code> sign. There are two main ones:</p>
 <ul class="simple">
 <li><p>new line: <code class="docutils literal notranslate"><span class="pre">\n</span></code></p></li>
@@ -606,7 +595,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="task-3">
-<h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this heading">#</a></h2>
 <p>Create the following output using <code class="docutils literal notranslate"><span class="pre">\n</span></code> and <code class="docutils literal notranslate"><span class="pre">\t</span></code> signs:</p>
 <p><img alt="formatting" src="../_images/session_4_formatting.png" /></p>
 <p>To format your output, the function <code class="docutils literal notranslate"><span class="pre">.format()</span></code> or <code class="docutils literal notranslate"><span class="pre">f''</span></code> and curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used where <code class="docutils literal notranslate"><span class="pre">{}</span></code> are placeholders for substituting values into a string. <code class="docutils literal notranslate"><span class="pre">.format()</span></code> is more flexible and provides more options, but in most cases <code class="docutils literal notranslate"><span class="pre">f''</span></code> will be just fine, too.</p>
@@ -624,7 +613,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </div>
 <section id="formatting-numbers-and-precison-in-displaying-values">
-<h3>Formatting numbers and precison in displaying values<a class="headerlink" href="#formatting-numbers-and-precison-in-displaying-values" title="Link to this heading">#</a></h3>
+<h3>Formatting numbers and precison in displaying values<a class="headerlink" href="#formatting-numbers-and-precison-in-displaying-values" title="Permalink to this heading">#</a></h3>
 <p>If you deal with numerical values, you may want to display your answer to a certain precision or combine values and some text in some way. In this case you format the number to a string with the <code class="docutils literal notranslate"><span class="pre">.format()</span></code> function or <code class="docutils literal notranslate"><span class="pre">f''</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,11 +648,11 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </section>
 </section>
 <section id="task-4">
-<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<h2>Task 4<a class="headerlink" href="#task-4" title="Permalink to this heading">#</a></h2>
 <p>Define 2 variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> with the values 12345e100 and 12.345, respectively. Use <code class="docutils literal notranslate"><span class="pre">f''</span></code> and the exponential form <code class="docutils literal notranslate"><span class="pre">e</span></code> or <code class="docutils literal notranslate"><span class="pre">E</span></code> with 2 dps. Display in the first line a and b and in the next line b and a, so that numbers are aligned.</p>
 </section>
 <section id="other-controls">
-<h2>Other controls<a class="headerlink" href="#other-controls" title="Link to this heading">#</a></h2>
+<h2>Other controls<a class="headerlink" href="#other-controls" title="Permalink to this heading">#</a></h2>
 <p>There are a number of other <a href="https://docs.python.org/3/library/string.html#format-specification-mini-language" target="_blank">formatting controls</a> you can add to the flags. Here are a few:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -687,19 +676,19 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="task-5">
-<h2>TASK 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<h2>TASK 5<a class="headerlink" href="#task-5" title="Permalink to this heading">#</a></h2>
 <p>If an object moves 134m in 12s, print the speed in exponential and floating form with 1dp. Which format do you prefer?</p>
 </section>
 <section id="task-6">
-<h2>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h2>
+<h2>Task 6<a class="headerlink" href="#task-6" title="Permalink to this heading">#</a></h2>
 <p>Write a code that asks the user for two numbers. The code will  print both of then input values to the screen. On separated lines, it will print the sum in exponent form with no dps, 1 dp and 2 dps.</p>
 </section>
 <section id="printing-arrays">
-<h2>Printing arrays<a class="headerlink" href="#printing-arrays" title="Link to this heading">#</a></h2>
+<h2>Printing arrays<a class="headerlink" href="#printing-arrays" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">{}.format()</span></code> and <code class="docutils literal notranslate"><span class="pre">f'{}'</span></code> expect scalars to be formatted into string. When dealing with arrays, their elements need to be element-wise formatted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># Creates array with random numbers</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x values&#39;</span><span class="p">)</span> 
 <span class="k">for</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>          <span class="c1"># loop for element-wise formatting</span>
@@ -722,14 +711,14 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="task-7">
-<h2>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
+<h2>Task 7<a class="headerlink" href="#task-7" title="Permalink to this heading">#</a></h2>
 <p>Write code below that asks the user for a set of radii that defines a set of spheres. The code will calculate the surface area and volume of each sphere (if you can’t remember, use google to find those equations).</p>
 <p>Test it with the values of 1.1, 2.23, 3.52 and try and make your output look like the following:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-left"><p>rad</p></th>
-<th class="head text-left"><p>area</p></th>
-<th class="head text-left"><p>vol</p></th>
+<tr class="row-odd"><th class="text-left head"><p>rad</p></th>
+<th class="text-left head"><p>area</p></th>
+<th class="text-left head"><p>vol</p></th>
 </tr>
 </thead>
 <tbody>
@@ -747,10 +736,9 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="task-8">
-<h2>Task 8<a class="headerlink" href="#task-8" title="Link to this heading">#</a></h2>
+<h2>Task 8<a class="headerlink" href="#task-8" title="Permalink to this heading">#</a></h2>
 <p>A business is selling a range of different materials:</p>
 <ul class="simple">
 <li><p>Wood at £2.18 /m</p></li>
@@ -760,7 +748,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
 <p>Write a code that asks the user how many metres of wood, steel and copper the user wants to buy and then calculates the total price. It should write the answer out to a real amount of money.</p>
 </section>
 <section id="task-9">
-<h2>Task 9<a class="headerlink" href="#task-9" title="Link to this heading">#</a></h2>
+<h2>Task 9<a class="headerlink" href="#task-9" title="Permalink to this heading">#</a></h2>
 <p>Write a code that asks the user for a density in kg/m3 and converts it to <span class="math notranslate nohighlight">\(\mathrm{g\,cm^{-3}}\)</span>, <span class="math notranslate nohighlight">\(\mathrm{Mg\, mm^{-3}}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{ng\, nm^{-3}}\)</span>. In each case write out to the correct number of dps.</p>
 </section>
 </section>
@@ -792,7 +780,7 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -821,7 +809,6 @@ To do this you need to use the <code class="docutils literal notranslate"><span 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -897,8 +884,8 @@ By Joachim M. Bestenlehner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
