@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session1_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -437,13 +439,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-calculations-variables-and-help">
 <h1>Tutorial: Calculations, variables and help<a class="headerlink" href="#tutorial-calculations-variables-and-help" title="Link to this heading">#</a></h1>
+<p>To open the tutorial hover with your mouse over the rocket symbol at the top of your browser, so that Colab apppiers. Click on it and the tutorial will open in Colab. See also <a class="reference internal" href="#executing_jupyter_notebooks_on_colab"><span class="xref myst">Executing Jupyter Notebooks on Colab</span></a>.</p>
 <p>Code cells can be executed by clicking on the cell to select it and using the keyboard shortcut <em>Ctrl+Enter</em> (Windows/Linux) or <em>Command+Enter</em> (MacOS). To edit the code or text cell, just select or double click it and start editing.</p>
 <section id="the-start">
 <h2>The start<a class="headerlink" href="#the-start" title="Link to this heading">#</a></h2>
 <p>Lets start using Python/Colab as a calculator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1"># this is a comment - it starts with a # sign. </span>
 <span class="c1"># If you have longer comments, e.g. notes, </span>
 <span class="c1"># explaining functions, ... </span>
@@ -456,10 +459,10 @@ document.write(`
 </div>
 </div>
 <p>Edit the cell above and perform some basic calculations.</p>
-<p>The exponent operator is “**” instead of “^”:</p>
+<p>The exponent operator is “**” instead of “^” (<span class="math notranslate nohighlight">\(2^3 = 2**3\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -467,6 +470,7 @@ document.write(`
 </section>
 <section id="defining-assigning-and-manipulating-variables">
 <h2>Defining, assigning and manipulating variables<a class="headerlink" href="#defining-assigning-and-manipulating-variables" title="Link to this heading">#</a></h2>
+<p>Variables are used for storing data that can be referenced and manipulated throughout a programme. A variable is essentially a name that is assigned to a value. To assign a value to a variable the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> is used.</p>
 <p>When defining variables, make sure you do not use variables with spaces, or variables that start with a number. Avoid key words like sin, cos, exp, mean, print etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -477,7 +481,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To show or print a variable or specific output use the print() function.</p>
+<p>To show or print a variable or specific output use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
