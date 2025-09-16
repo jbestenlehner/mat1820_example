@@ -434,7 +434,7 @@ document.write(`
 <h1>Tutorial: Vectors and matrices<a class="headerlink" href="#tutorial-vectors-and-matrices" title="Permalink to this heading">#</a></h1>
 <p>In <em>NumPy</em> a vector is a 1 dimensional array where you can store information like data.</p>
 <p>A matrix is a 2 dimensional array like a table. It has both rows and columns. In principle you can have multi-dimensional arrays, but we will deal with this later.</p>
-<p>To stor numbers in an array to a variable, you can do this in a few ways.</p>
+<p>To store numbers in an array to a variable, you can do this in a few ways.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -458,8 +458,8 @@ document.write(`
 </div>
 </div>
 <p>Note: <em>np.random.rand</em> creates an array of the given shape and populate it with random samples from a uniform distribution over <strong>[0, 1)</strong> (excluding 1).</p>
-<p>If you would like to know more <em>numpy.random</em> package, you can have a look &lt;a href=”https://numpy.org/doc/2.2/reference/random/index.html#module-numpy.random target=”_blank”&gt;here</a>.</p>
-<p>To generate evenly spaced values within a given interval the function <em>np.arange</em> is used.</p>
+<p>If you would like to know more <em>numpy.random</em> package, you can have a look <a href="https://numpy.org/doc/2.2/reference/random/index.html#module-numpy.random" target=" _blank">here</a>.</p>
+<p>To generate evenly spaced values within a given interval the function <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> is used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>       <span class="c1"># generates an array from 0 to 9. Note in Python the default start value is zero and not one.</span>
@@ -472,7 +472,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>A quick quick way of generating an array is using a function called <em>np.linspace</em>. Return evenly spaced numbers over a specified interval (linear).</p>
+<p>A quick quick way of generating an array is using a function called <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code>. Return evenly spaced numbers over a specified interval (linear).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># first number is the starting value of the sequence, second number is the end value of the sequence and third number is the number of samples to generate. If no third number is given the default is 50. While the first 2 numbers can have any value the third number must be non-negative.</span>
@@ -481,10 +481,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Note: Evenly spaced numbers in log space can be generated with <em>np.logspace</em>.</p>
+<p>Note: Evenly spaced numbers in log space can be generated with <code class="docutils literal notranslate"><span class="pre">np.logspace()</span></code>.</p>
 <section id="task-1">
 <h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading">#</a></h2>
-<p>Create an array,  assigned to the variable <strong>a</strong>, that stores 20 elements. The first element starts at 5 and the last ends at 6 with equal steps in between.</p>
+<p>Create an array with 20 elements, that is assigned to the variable <strong>a</strong>. The first element starts at 5 and the last ends at 6 with equal steps in between.</p>
 </section>
 <section id="task-2">
 <h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this heading">#</a></h2>
@@ -494,7 +494,7 @@ document.write(`
 <section id="vector-operations">
 <h2>Vector operations<a class="headerlink" href="#vector-operations" title="Permalink to this heading">#</a></h2>
 <p>In Python vectors (1D), matrices (2D) and tensors (N-D) are all called arrays. They support multidimensional array algebra, that vectors, matrices and tensors are used for.</p>
-<p>Data are often stored in 1D arrays (vectors), e.g. <span class="xref myst">Task 3</span>. You might expect that those data are either stored in a column vector (<strong>Nx1</strong>) or row vector (<strong>1xN</strong>). By default in Python the 1D array is neither <strong>Nx1</strong> nor <strong>1xN</strong>. It is just <strong>N</strong>. Therefore, a <em>transpose</em> on 1D array does nothing. It first this might be a bit confusing, but it comes with many advantages.</p>
+<p>Data are often stored in 1D arrays (vectors), e.g. data columns of Table for <span class="xref myst">Task 3</span>. You might expect that those data are either stored in a column vector (<strong>Nx1</strong>) or row vector (<strong>1xN</strong>). By default in Python the 1D array is neither <strong>Nx1</strong> nor <strong>1xN</strong>. It is just <strong>N</strong>. Therefore, a <em>transpose</em> on 1D array does nothing. At first this might be a bit confusing, but it comes with many advantages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>         <span class="c1"># generates an array with [1,2,3]</span>
@@ -548,10 +548,10 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>               <span class="c1"># gives an array [1, 4, 9]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="o">*</span><span class="n">a_row</span><span class="p">)</span>       <span class="c1"># gives an row array</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">*</span><span class="n">a_column</span><span class="p">)</span> <span class="c1"># gives a column array</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="nd">@a_row</span><span class="p">)</span>       <span class="c1"># gives an error message</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="nd">@a_column</span><span class="p">)</span> <span class="c1"># gives an error message</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="o">*</span><span class="n">a_row</span><span class="p">)</span>       <span class="c1"># gives an row array, element wise multiplication.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="o">*</span><span class="n">a_column</span><span class="p">)</span> <span class="c1"># gives a column array, element wise multiplication.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_row</span><span class="nd">@a_row</span><span class="p">)</span>       <span class="c1"># gives an error message, remember row times column.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_column</span><span class="nd">@a_column</span><span class="p">)</span> <span class="c1"># gives an error message, remember row times column.</span>
 </pre></div>
 </div>
 </div>
@@ -636,7 +636,9 @@ document.write(`
 <p>The cross product of <span class="math notranslate nohighlight">\(\vec{a} \times \vec{a} = \vec{0}\)</span> as the vectors are parallel to each other. See also overview page of this session 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. row times column vector:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>         <span class="c1"># generates an array with [1,2,3]</span>
+
+<span class="c1"># 1. row times column vector:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># gives a scalar and is also called dot product.</span>
 <span class="c1">#or</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="nd">@a</span><span class="p">)</span>            <span class="c1"># by default Python treats the vector of shape N before the @ as a row vector and after the @ as a column vector.</span>
@@ -923,6 +925,7 @@ A=
 </div>
 </div>
 </div>
+<p>Click on the <em>{} Variables</em> icon to see, what variables are listed and their properties.</p>
 </section>
 <section id="task-10">
 <h2>Task 10<a class="headerlink" href="#task-10" title="Permalink to this heading">#</a></h2>

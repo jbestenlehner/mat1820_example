@@ -10,7 +10,7 @@
 
 ### Graphs for scientific use:
 
-Graphs are the best way of showing data! Looking at tables with numbers doesn't show you much. However, any data shown in plots, graphs or figures should be made available, e.g. appendix, online, database, ...  
+Graphs are the best way of showing data! Looking at columns or tables with numbers doesn't tell you much.
 
 **Data points:** 
 * Should be clearly visible (shows where you have data, and where you don’t!)
@@ -108,8 +108,8 @@ A list of colour names is shown <a href="https://matplotlib.org/stable/gallery/c
 | line style | description|
 |:-----|:-------|
 | '-'  | solid line |
-| '--' | dashed line |
-| '-.' | dash-dot line |
+| '- -'| dashed line |
+| '-.' | dashed-dotted line |
 | ':'  | dotted line |
 
 A list of line styles is shown <a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html" target="_blank">here</a>.
