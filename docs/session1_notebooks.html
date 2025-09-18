@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session1_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -437,13 +439,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-calculations-variables-and-help">
 <h1>Tutorial: Calculations, variables and help<a class="headerlink" href="#tutorial-calculations-variables-and-help" title="Link to this heading">#</a></h1>
-<p>Code cells can be executed by clicking on the cell to select it and using the keyboard shortcut <em>Ctrl+Enter</em> (Windows/Linux) or <em>Command+Enter</em> (MacOS). To edit the code or text cell, just select or double click it and start editing.</p>
+<p>To open the tutorial hover with your mouse over the rocket symbol at the top of your browser, so that Colab appears. Click on it and the tutorial will open in Colab. See also <strong>Executing Jupyter Notebooks on Colab</strong>. The tutorial is also called a Jupyter Notebook. It consist a text cells (like here) and code cells (see below).</p>
+<p><img alt="opening colab" src="../_images/colab.png" /></p>
+<p>Before you can execute a code cell you need to save the notebook on your google-drive. Code cells can be executed by hovering over the cell and clicking circle with a triangle on the left hand side. Alternatively , you can select a the cell by clicking on it and use the keyboard shortcut <em>Ctrl+Enter</em> (Windows/Linux) or <em>Command+Enter</em> (MacOS). To edit the code or text cell, just select or double click it and start editing.</p>
 <section id="the-start">
 <h2>The start<a class="headerlink" href="#the-start" title="Link to this heading">#</a></h2>
 <p>Lets start using Python/Colab as a calculator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1"># this is a comment - it starts with a # sign. </span>
 <span class="c1"># If you have longer comments, e.g. notes, </span>
 <span class="c1"># explaining functions, ... </span>
@@ -456,10 +460,10 @@ document.write(`
 </div>
 </div>
 <p>Edit the cell above and perform some basic calculations.</p>
-<p>The exponent operator is “**” instead of “^”:</p>
+<p>The exponent operator is “**” instead of “^” (<span class="math notranslate nohighlight">\(2^3 = 2**3\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -467,6 +471,7 @@ document.write(`
 </section>
 <section id="defining-assigning-and-manipulating-variables">
 <h2>Defining, assigning and manipulating variables<a class="headerlink" href="#defining-assigning-and-manipulating-variables" title="Link to this heading">#</a></h2>
+<p>Variables are used for storing data that can be referenced and manipulated throughout a programme. A variable is essentially a name that is assigned to a value. To assign a value to a variable the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> is used. This is not a mathematical operation.</p>
 <p>When defining variables, make sure you do not use variables with spaces, or variables that start with a number. Avoid key words like sin, cos, exp, mean, print etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -477,7 +482,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To show or print a variable or specific output use the print() function.</p>
+<p>After executing the code cell above you have defined the variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> with the values <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>, respectively. If you click on <em>{} variables</em> icon at the bottom left, a tab on your right hand side will open, which shows the properties of your variables.</p>
+<p><img alt="opening colab" src="../_images/variables.png" /></p>
+<p>Checking your variables can be very helpful when debugging your programme code and searching for errors.</p>
+<p>To show or print a variable or specific output use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. Similar to a mathematical function like <span class="math notranslate nohighlight">\(f(x)\)</span> the arguments or inputs to a function are given inside <code class="docutils literal notranslate"><span class="pre">()</span></code> as show in the example below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -489,12 +497,12 @@ document.write(`
 </section>
 <section id="task-1">
 <h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
-<p>Add your own variable in the code cell below for a new variable called myNewVar that sums up 5 and 4 and print the variable on the screen. Once done, execute the code cell to see if it has worked.</p>
+<p>Add your own variable in the code cell below for a new variable called <code class="docutils literal notranslate"><span class="pre">myVar</span></code> that sums up 5 and 4 and print the variable on the screen. Once done, execute the code cell to see if it has worked.</p>
 </section>
 <section id="importing-additional-packages">
 <h2>Importing additional packages<a class="headerlink" href="#importing-additional-packages" title="Link to this heading">#</a></h2>
-<p>Python is a versatile, high-level programming language. It is used in a wide range of applications, including web development, data science, machine learning, and automation.</p>
-<p>Depending on your Task you only import the necessary packages. For example, for mathematical calculations, matrix operations (linear algebra) or fitting data the <a href="https://numpy.org/" target="_blank"><em>NumPy</em></a> packages if often used. To import a packages use the following line:</p>
+<p>Python is a versatile, high-level programming language. It provides many packages and libraries and is used in a wide range of applications, including web development, data science, machine learning, and automation. Depending on your Task you only import the necessary packages.</p>
+<p>For example, for mathematical calculations, simulations, matrix operations (linear algebra) or fitting data the <a href="https://numpy.org/" target="_blank"><em>NumPy</em></a> packages if often used. To import a packages use the following line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -524,24 +532,15 @@ np.log<span class="o">?</span>
 </div>
 </div>
 </div>
+<p>As you can see the <code class="docutils literal notranslate"><span class="pre">np.log()</span></code> function is used to calculate the natural logarithm <span class="math notranslate nohighlight">\(\ln\)</span> (). To calculate the logarithm in base of 10 the <code class="docutils literal notranslate"><span class="pre">np.log10()</span></code> function is used.</p>
 </section>
 </section>
 <section id="task-2">
 <h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
-<p>Write the line of code that accesses the help guide to find more about how to generate a random number, <em>np.random.rand</em>. Use this to now generate a single random value.</p>
+<p>Write the line of code that accesses the help guide to find more about how to generate a random number, <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code>. Use this to now generate a single random value.</p>
 <section id="operations-on-variables">
 <h3>Operations on variables<a class="headerlink" href="#operations-on-variables" title="Link to this heading">#</a></h3>
-<p>You can then use this variable to perform different operations on</p>
-<p>First set your variable</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myVar</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myVar</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we can use it</p>
+<p>In <a class="reference internal" href="#task-1"><span class="xref myst">Task 1</span></a> you defined a variable <code class="docutils literal notranslate"><span class="pre">myVar</span></code>. You can then use this variable to perform different operations on</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myVar</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>               <span class="c1"># adding</span>
@@ -550,7 +549,7 @@ np.log<span class="o">?</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myVar</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>              <span class="c1"># squaring (order of 2)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">myVar</span><span class="p">))</span>        <span class="c1"># square rooting         </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">myVar</span><span class="p">))</span>         <span class="c1"># ln of a value</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">myVar</span><span class="p">))</span>       <span class="c1"># log to base 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">myVar</span><span class="p">))</span>       <span class="c1"># log in base 10</span>
 </pre></div>
 </div>
 </div>
@@ -588,12 +587,12 @@ np.log<span class="o">?</span>
 <p>The value of pi is built into <em>numpy</em>. Trigonometric functions use radians. Degrees need to be converted to radians either <code class="docutils literal notranslate"><span class="pre">90/360*2*np.pi</span></code> or using the <em>numpy</em> function <code class="docutils literal notranslate"><span class="pre">np.deg2rad()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>                <span class="c1"># assigns pi to x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>                    <span class="c1"># assigns pi to x</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>              <span class="c1"># note uses radians</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>             <span class="c1"># note uses radians</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>              
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>           <span class="c1"># inverse tan</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>          <span class="c1"># inverse tan</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">90</span>   
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># cos assuming x is in degrees</span>
 </pre></div>
@@ -612,9 +611,9 @@ np.log<span class="o">?</span>
 <p>Python and most other programming languages have limitations regarding the largest/smallest number and precision.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mf">1e307</span>                     <span class="c1"># a large number</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mf">1e307</span>                   <span class="c1"># a large number</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>             <span class="c1"># too large for Python (inf is infinity)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mf">1e-322</span>                    <span class="c1"># a small number </span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1e-322</span>                  <span class="c1"># a small number </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>             <span class="c1"># too small for Python to read (so reads 0)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>  <span class="c1"># the smallest number Python can &#39;see&#39; between two values</span>
 </pre></div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Executing Jupyter Notebooks on Colab &#8212; Digital Skills for Materials</title>
+    <title>Uploading files hosted on Websites &#8212; Digital Skills for Materials</title>
   
   
   
@@ -57,11 +57,9 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session1_colab';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/uploading_files_to_colab';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tutorial: Calculations, variables and help" href="session1_notebooks.html" />
-    <link rel="prev" title="Performing Calculations with Computers" href="session1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +122,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -180,9 +180,9 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Executing Jupyter Notebooks on Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Calculations, variables and help</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
@@ -273,7 +273,7 @@
       
       
       
-      <li><a href="../_sources/docs/session1_colab.md" target="_blank"
+      <li><a href="../_sources/docs/uploading_files_to_colab.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -355,7 +355,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Executing Jupyter Notebooks on Colab</h1>
+    <h1>Uploading files hosted on Websites</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -369,21 +369,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="executing-jupyter-notebooks-on-colab">
-<h1>Executing Jupyter Notebooks on Colab<a class="headerlink" href="#executing-jupyter-notebooks-on-colab" title="Link to this heading">#</a></h1>
-<p>Jupyter Notebooks are a community standard for communicating and performing interactive computing. It combines computational Tasks with explanatory text. Colab is a free cloud service by Google to create and share interactive notebooks with code, text, and visualizations.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a href="https://jupyter.org/" target="_blank">Jupyter Project</a> and <a href="https://colab.google/" target="_blank">Colab</a>  for more details.</p>
+  <section id="uploading-files-hosted-on-websites">
+<h1>Uploading files hosted on Websites<a class="headerlink" href="#uploading-files-hosted-on-websites" title="Link to this heading">#</a></h1>
+<p>The Colab cloud-service uses Linux. So Linux commands can be used to handle data. To upload data from Blackboard or website in general you can use the command <code class="docutils literal notranslate"><span class="pre">wget</span></code>. Linux commands within your code cell are executed with a “!” in front of the command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!wget<span class="w"> </span>&lt;link&gt;
+</pre></div>
 </div>
-<p>A few examples to help you getting started with Colab and Jupyter Notebooks are given <a href="https://colab.research.google.com/#scrollTo=GJBs_flRovLc" target="_blank">here</a>.</p>
-<p>To execute log into your &lt;<em>your_username</em>&gt;&#64;sheffield.ac.uk google-account</p>
-<p><img alt="" src="../_images/execute_colab.apng" /></p>
-<p>and click on the little rocket to open this notebook on Colab.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>To save changes to and execute the notebook you need to make your own copy by selecting <em>File-&gt;Save a copy in Drive</em> from the menu bar in Colab.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> is the place holder for a web link, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!wget<span class="w"> </span>https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/data/somefile.txt<span class="w"> </span><span class="c1">#uploads the file to your Colab session</span>
+!ls<span class="w">               </span><span class="c1"># lists files in your Colab session</span>
+!cat<span class="w"> </span>somefile.txt<span class="w"> </span><span class="c1"># shows the content of your file</span>
+</pre></div>
 </div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code> or any other Linux command can be also used in the Terminal, when you open on the Terminal.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -416,24 +414,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="session1.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Performing Calculations with Computers</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="session1_notebooks.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial: Calculations, variables and help</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

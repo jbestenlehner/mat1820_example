@@ -466,7 +466,7 @@ document.write(`
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">a_list</span></code> is a <em>iterable</em> object while <code class="docutils literal notranslate"><span class="pre">element</span></code> is the variable where the elements of <code class="docutils literal notranslate"><span class="pre">a_list</span></code> are assigned to.</p>
-<p>Note: The end of the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is indicated by a <code class="docutils literal notranslate"><span class="pre">:</span></code>. In the next line follow instruction/statements, which are indented like bullet points. Python relies on indentation (whitespace at the beginning of a line) to define blocks of code.</p>
+<p>Note: The end of the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is indicated by a <code class="docutils literal notranslate"><span class="pre">:</span></code>. In the line below follow instructions/statements, which are indented like bullet points. Python relies on indentation (whitespace at the beginning of a line) to define blocks of code.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop without indentation will raise an error:</p>
@@ -490,13 +490,13 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>From previous session you might remember the numpy function <code class="docutils literal notranslate"><span class="pre">np.arange</span></code>. At a first glance <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> seemed to be doing the same thing.</p>
+<p>From previous session you might remember the numpy function <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>. At a first glance <code class="docutils literal notranslate"><span class="pre">range()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> seemed to be doing the same thing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>However, <code class="docutils literal notranslate"><span class="pre">np.arrays</span></code> should be avoided when used only for indexing or counting. Because Python creates a physical copy in memory of the numpy array (<code class="docutils literal notranslate"><span class="pre">np.arange(3)</span></code>) and then iterates over it. In the case of <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> the integers are 1 by 1 temporally produced.</p>
+<p>However, <code class="docutils literal notranslate"><span class="pre">np.arrays()</span></code> should be avoided when used only for indexing or counting. Because Python creates a physical copy in memory of the numpy array (<code class="docutils literal notranslate"><span class="pre">np.arange(3)</span></code>) and then iterates over it. In the case of <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> the integers are 1 by 1 temporally generated.</p>
 <p>An indexer <code class="docutils literal notranslate"><span class="pre">i</span></code> over a range is usually used, if you want to update values in a list or array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      <span class="c1"># Creates a list</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>

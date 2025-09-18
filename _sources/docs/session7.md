@@ -140,7 +140,7 @@ The polynomial is of the form:
 $$
 \begin{matrix}
 s(x) & = & m \cdot x & + & b \\
-     & = & \frac{y_2 - y_1}{x_2 - x_1} \cdot x & + & y_1 - \frac{y_2 - y_1}{x_2 - x_1} \cdot x_1
+     & = & \frac{y_2 - y_1}{x_2 - x_1} \cdot x & + & y_1 - \frac{y_2 - y_1}{x_2 - x_1} \cdot x_1\\
 \end{matrix}
 $$
 
