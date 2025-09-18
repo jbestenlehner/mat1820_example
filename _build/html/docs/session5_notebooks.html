@@ -613,9 +613,12 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 <h2>Task 5<a class="headerlink" href="#task-5" title="Permalink to this heading">#</a></h2>
 <p>Write a function the calculates the geometric factor for a finite plate using the equations below for either a through thickness centre crack (<span class="math notranslate nohighlight">\(Y_C\)</span>) or a through thickness edge crack (<span class="math notranslate nohighlight">\(Y_E\)</span>) depending on user preference.</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-Y_C = 1 + 0.256 \left( \frac{a}{w}\right) - 1.152 \left( \frac{a}{w}\right)^2 + 12.2 \left( \frac{a}{w}\right)^3\\Y_E = 1.122 - 0.231 \left( \frac{a}{w}\right) + 10.55 \left( \frac{a}{w}\right)^2 - 21.71 \left( \frac{a}{w}\right)^3 + 30.38 \left( \frac{a}{w}\right)^4
-\end{aligned}\end{align} \]</div>
+\[\begin{split}
+\begin{matrix}
+Y_C &amp; = &amp; 1 &amp;+&amp; 0.256 \left( \frac{a}{w}\right) &amp;-&amp; 1.152 \left( \frac{a}{w}\right)^2 &amp;+&amp; 12.2 \left( \frac{a}{w}\right)^3 &amp;&amp;\\
+Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 10.55 \left( \frac{a}{w}\right)^2 &amp;-&amp; 21.71 \left( \frac{a}{w}\right)^3 &amp;+&amp; 30.38 \left( \frac{a}{w}\right)^4\\
+\end{matrix}
+\end{split}\]</div>
 <p>The algorithm should</p>
 <ul class="simple">
 <li><p>Ask the use for the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(w\)</span>.</p></li>
