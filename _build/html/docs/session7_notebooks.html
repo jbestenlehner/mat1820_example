@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Tutorial: Data fitting &#8212; Digital Skills for Materials</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session7_notebooks';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -225,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -234,14 +245,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -266,14 +277,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session7_notebooks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -350,10 +361,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -361,14 +372,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -394,17 +405,17 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolation-using-spline-fitting">Extrapolation using spline fitting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting-of-data">Least squares fitting of data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-least-squares-fit">A simple least squares fit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-least-squares-fitting">Higher order least squares fitting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-squared-or-r-2">Coefficient of determination (R-squared or <span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lof-of-previous-knowledge">TASK 6 (uses a lof of previous knowledge)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lot-of-previous-knowledge">Task 6 (uses a lot of previous knowledge)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tougher-challenge">TOUGHER CHALLENGE:</a></li>
 </ul>
 </li>
@@ -417,10 +428,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-data-fitting">
-<h1>Tutorial: Data fitting<a class="headerlink" href="#tutorial-data-fitting" title="Permalink to this heading">#</a></h1>
+<h1>Tutorial: Data fitting<a class="headerlink" href="#tutorial-data-fitting" title="Link to this heading">#</a></h1>
 <p>Once a data set has been read in, one common thing is to fit it for analysis. This could be to remove noise or calculate key parameters such as gradients and intercepts. Here we shall look at the spline fitting and least squares fitting.</p>
 <p><img alt="fitting data" src="../_images/session7_spline_fitting.png" /></p>
 <p><strong>Spine fitting:</strong></p>
@@ -438,16 +449,16 @@ document.write(`
 <li><p>More suitable for most experiments.</p></li>
 </ul>
 <section id="spline-fitting">
-<h2>Spline fitting<a class="headerlink" href="#spline-fitting" title="Permalink to this heading">#</a></h2>
+<h2>Spline fitting<a class="headerlink" href="#spline-fitting" title="Link to this heading">#</a></h2>
 <p>Spline fitting can be used to either interpolate or extrapolate data. The latter however is needs careful consideration.</p>
 <section id="interpolation-using-spline-fitting">
-<h3>Interpolation using spline fitting<a class="headerlink" href="#interpolation-using-spline-fitting" title="Permalink to this heading">#</a></h3>
+<h3>Interpolation using spline fitting<a class="headerlink" href="#interpolation-using-spline-fitting" title="Link to this heading">#</a></h3>
 <p>Spline fitting requires the data to be entered into the <code class="docutils literal notranslate"><span class="pre">CubicSpline</span></code>, which returns a function, where a number or array of numbers can be evaluated. If the function is required for future evaluations, it is stored in a variable <code class="docutils literal notranslate"><span class="pre">cs</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)</span></code>. Otherwise you can directly evaluate the function <code class="docutils literal notranslate"><span class="pre">y1</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)(x1)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">CubicSpline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CubicSpline</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>           <span class="c1"># generate x data</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">4.15</span><span class="p">,</span><span class="mf">4.07</span><span class="p">,</span><span class="mf">4.1</span><span class="p">])</span>   <span class="c1"># generate y data</span>
@@ -468,7 +479,7 @@ document.write(`
 </section>
 </section>
 <section id="extrapolation-using-spline-fitting">
-<h2>Extrapolation using spline fitting<a class="headerlink" href="#extrapolation-using-spline-fitting" title="Permalink to this heading">#</a></h2>
+<h2>Extrapolation using spline fitting<a class="headerlink" href="#extrapolation-using-spline-fitting" title="Link to this heading">#</a></h2>
 <p>The example above shows interpolation (between measured data points) but we can also use it to extrapolate (outside the data range). The accuracy should be very carefully considered.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -487,7 +498,7 @@ document.write(`
 <p>Note: here that the data looks like its stabilising at the value of 4 but the extrapolation only takes the last two points and predicts what happens next. A limitation of extrapolation and spline fitting.</p>
 </section>
 <section id="task-1">
-<h2>TASK 1<a class="headerlink" href="#task-1" title="Permalink to this heading">#</a></h2>
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Perform a spline fit on the following (A,B) data.</p></li>
 <li><p>Evaluate your spline fit in the range 0-30 with 150 data points.</p></li>
@@ -506,10 +517,10 @@ document.write(`
 </div>
 </section>
 <section id="least-squares-fitting-of-data">
-<h2>Least squares fitting of data<a class="headerlink" href="#least-squares-fitting-of-data" title="Permalink to this heading">#</a></h2>
+<h2>Least squares fitting of data<a class="headerlink" href="#least-squares-fitting-of-data" title="Link to this heading">#</a></h2>
 <p>Fitting using the least squares method is fairly straightforward in Python. To calculate the <span class="math notranslate nohighlight">\(R^2\)</span> value, coefficient of determination, is bit more involved, For simplicity we calculate it manually.</p>
 <section id="a-simple-least-squares-fit">
-<h3>A simple least squares fit<a class="headerlink" href="#a-simple-least-squares-fit" title="Permalink to this heading">#</a></h3>
+<h3>A simple least squares fit<a class="headerlink" href="#a-simple-least-squares-fit" title="Link to this heading">#</a></h3>
 <p>You can use the function polyfit to extract the prefactors of the order (degree) of fit you are using. For example</p>
 <ul class="simple">
 <li><p>Order 1: Equation is <span class="math notranslate nohighlight">\(y=Ax+b\)</span></p></li>
@@ -518,8 +529,8 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Run x from 0 to 1 in steps of 0.1</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">6.9</span><span class="p">,</span><span class="mf">31.6</span><span class="p">,</span><span class="mf">21.5</span><span class="p">,</span><span class="mf">34.4</span><span class="p">,</span><span class="mf">68.2</span><span class="p">,</span><span class="mf">66.4</span><span class="p">,</span><span class="mf">114.9</span><span class="p">,</span><span class="mf">155.9</span><span class="p">,</span><span class="mf">199.3</span><span class="p">,</span><span class="mf">209.6</span><span class="p">])</span>
@@ -551,7 +562,7 @@ document.write(`
 </section>
 </section>
 <section id="task-2">
-<h2>TASK 2<a class="headerlink" href="#task-2" title="Permalink to this heading">#</a></h2>
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
 <p>Perform a polyfit with a order 1 polynomial to the data below. Extract the values for the fit. Plot the original data and the straight line fitted in a graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -563,7 +574,7 @@ document.write(`
 </div>
 </section>
 <section id="higher-order-least-squares-fitting">
-<h2>Higher order least squares fitting<a class="headerlink" href="#higher-order-least-squares-fitting" title="Permalink to this heading">#</a></h2>
+<h2>Higher order least squares fitting<a class="headerlink" href="#higher-order-least-squares-fitting" title="Link to this heading">#</a></h2>
 <p>Least squares fits do not have to be linear. Higher order fits are created by changing the order (degree) in the <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> function. Note: the order of the coefficients is descending (highest order first, zeros order (constant) last).</p>
 <p>Note: The order (degree) has to be an integer, so if you want to fit a square root (order 0.5) you will have to think about rearrange the equation you are fitting.</p>
 <div class="cell docutils container">
@@ -595,11 +606,11 @@ document.write(`
 </div>
 </section>
 <section id="coefficient-of-determination-r-squared-or-r-2">
-<h2>Coefficient of determination (R-squared or <span class="math notranslate nohighlight">\(R^2\)</span>)<a class="headerlink" href="#coefficient-of-determination-r-squared-or-r-2" title="Permalink to this heading">#</a></h2>
+<h2>Coefficient of determination (R-squared or <span class="math notranslate nohighlight">\(R^2\)</span>)<a class="headerlink" href="#coefficient-of-determination-r-squared-or-r-2" title="Link to this heading">#</a></h2>
 <p>The coefficient of determination <span class="math notranslate nohighlight">\((R^2)\)</span> is <strong>a number between 0 and 1 that measures how well a statistical model predicts an outcome</strong> (goodness of fit). You can interpret the <span class="math notranslate nohighlight">\(R^2\)</span> as the proportion of variation in the dependent variable that is predicted by the statistical model.</p>
 </section>
 <section id="task-3">
-<h2>TASK 3<a class="headerlink" href="#task-3" title="Permalink to this heading">#</a></h2>
+<h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
 <p>Repeat the example from the lecture (<span class="math notranslate nohighlight">\(F=kx\)</span>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -632,7 +643,7 @@ document.write(`
 </div>
 </section>
 <section id="task-5">
-<h2>TASK 5<a class="headerlink" href="#task-5" title="Permalink to this heading">#</a></h2>
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
 <p>Power is related to current and resistance through</p>
 <p><span class="math notranslate nohighlight">\(P=R I^2\)</span></p>
 <ul class="simple">
@@ -666,8 +677,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="task-6-uses-a-lof-of-previous-knowledge">
-<h2>TASK 6 (uses a lof of previous knowledge)<a class="headerlink" href="#task-6-uses-a-lof-of-previous-knowledge" title="Permalink to this heading">#</a></h2>
+<section id="task-6-uses-a-lot-of-previous-knowledge">
+<h2>Task 6 (uses a lot of previous knowledge)<a class="headerlink" href="#task-6-uses-a-lot-of-previous-knowledge" title="Link to this heading">#</a></h2>
 <p>Write an algorithm that reads ‘IV_data.csv’. Develop the algorithm so that:</p>
 <ul class="simple">
 <li><p>it fits both samples with a 1st order (linear) fit.</p></li>
@@ -677,8 +688,8 @@ document.write(`
 <li><p>Calculate the coefficient of determination for each of your fits. Consider this this fits the data correctly or not.</p></li>
 </ul>
 <section id="tougher-challenge">
-<h3>TOUGHER CHALLENGE:<a class="headerlink" href="#tougher-challenge" title="Permalink to this heading">#</a></h3>
-<p>As you can see in your data, there is an issue above 6V where the IV measurement is actually current limited and does not obey Ohms Law. We know that the equation behind the data is <span class="math notranslate nohighlight">\(V=IR\)</span> (Ohm’s law) so we should not change the order, but there is an issue with the fit.</p>
+<h3>TOUGHER CHALLENGE:<a class="headerlink" href="#tougher-challenge" title="Link to this heading">#</a></h3>
+<p>As you can see in your data, there is an issue above 6V where the I-V measurement is actually current limited and does not obey Ohms Law. We know that the equation behind the data is <span class="math notranslate nohighlight">\(V=IR\)</span> (Ohm’s law) so we should not change the order, but there is an issue with the fit.</p>
 <p>Modified this by only using the data below 6V. Apply the fit to that section of the data, printing the correct resistance of the samples to the screen</p>
 </section>
 </section>
@@ -711,7 +722,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -741,6 +752,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -752,17 +764,17 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolation-using-spline-fitting">Extrapolation using spline fitting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">TASK 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting-of-data">Least squares fitting of data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-least-squares-fit">A simple least squares fit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">TASK 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-least-squares-fitting">Higher order least squares fitting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-squared-or-r-2">Coefficient of determination (R-squared or <span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">TASK 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">TASK 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lof-of-previous-knowledge">TASK 6 (uses a lof of previous knowledge)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lot-of-previous-knowledge">Task 6 (uses a lot of previous knowledge)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tougher-challenge">TOUGHER CHALLENGE:</a></li>
 </ul>
 </li>
@@ -814,8 +826,8 @@ By Joachim M. Bestenlehner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -88,7 +88,7 @@ for element in a_list:  # for loop syntax
 ```
 `a_list` is a _iterable_ object while `element` is the variable where the elements of `a_list` are assigned to.
 
-Note: The end of the `for` statement is indicated by a `:`. In the next line follow instruction/statements, which are indented like bullet points. Python relies on indentation (whitespace at the beginning of a line) to define blocks of code.
+Note: The end of the `for` statement is indicated by a `:`. In the line below follow instructions/statements, which are indented like bullet points. Python relies on indentation (whitespace at the beginning of a line) to define blocks of code.
 
 :::{warning}
 
@@ -120,7 +120,7 @@ for i in range(3):
     print(i)
 ```
 
-From previous session you might remember the numpy function `np.arange`. At a first glance `range` and `np.arange` seemed to be doing the same thing. 
+From previous session you might remember the numpy function `np.arange()`. At a first glance `range()` and `np.arange()` seemed to be doing the same thing. 
 
 ```python
 import numpy as np
@@ -128,7 +128,7 @@ for i in np.arange(3):
     print(i)
 ```
 
-However, `np.arrays` should be avoided when used only for indexing or counting. Because Python creates a physical copy in memory of the numpy array (`np.arange(3)`) and then iterates over it. In the case of `range(3)` the integers are 1 by 1 temporally produced.
+However, `np.arrays()` should be avoided when used only for indexing or counting. Because Python creates a physical copy in memory of the numpy array (`np.arange(3)`) and then iterates over it. In the case of `range(3)` the integers are 1 by 1 temporally generated.
 
 An indexer `i` over a range is usually used, if you want to update values in a list or array:
 

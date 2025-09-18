@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Tutorial: Conditions and Loops &#8212; Digital Skills for Materials</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session5_notebooks';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -225,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -234,14 +245,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -266,14 +277,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session5_notebooks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -350,10 +361,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -361,14 +372,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -400,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
@@ -421,12 +433,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-conditions-and-loops">
-<h1>Tutorial: Conditions and Loops<a class="headerlink" href="#tutorial-conditions-and-loops" title="Permalink to this heading">#</a></h1>
+<h1>Tutorial: Conditions and Loops<a class="headerlink" href="#tutorial-conditions-and-loops" title="Link to this heading">#</a></h1>
 <section id="logic-and-flow">
-<h2>Logic and flow<a class="headerlink" href="#logic-and-flow" title="Permalink to this heading">#</a></h2>
+<h2>Logic and flow<a class="headerlink" href="#logic-and-flow" title="Link to this heading">#</a></h2>
 <p>This live script will teach you how to test variables if they meet certain criteria. It will also show how you can loop through your data calculations really fast.
 Scripts and programs can have three main types of flow.</p>
 <p><img alt="logic_loop" src="../_images/logic_loop.png" /></p>
@@ -438,10 +450,10 @@ Scripts and programs can have three main types of flow.</p>
 <p>The last key point to note is that when we deal with loops, it can end up looping indefinitely, and surprisingly easy to do. In principle you should be able to stop it, but in most cases you need to <strong>close</strong> your <strong>Colab-tab</strong>.</p>
 </section>
 <section id="logical-statements">
-<h2>Logical statements<a class="headerlink" href="#logical-statements" title="Permalink to this heading">#</a></h2>
+<h2>Logical statements<a class="headerlink" href="#logical-statements" title="Link to this heading">#</a></h2>
 <p>There are a few conditional logic statements that you can use to test values and variables. Many you have met it maths already.</p>
 <section id="relational-operators">
-<h3>Relational Operators<a class="headerlink" href="#relational-operators" title="Permalink to this heading">#</a></h3>
+<h3>Relational Operators<a class="headerlink" href="#relational-operators" title="Link to this heading">#</a></h3>
 <p>These work on boolean answers, that of <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul class="simple">
 <li><p>Note that Using an <code class="docutils literal notranslate"><span class="pre">=</span></code> with two variables means you assign one of them as the value of the other. Using <code class="docutils literal notranslate"><span class="pre">==</span></code> tests if the two variables are equivalent.</p></li>
@@ -449,7 +461,7 @@ Scripts and programs can have three main types of flow.</p>
 <li><p>You can invert your logic using a <code class="docutils literal notranslate"><span class="pre">not</span></code> or symbol <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p></li>
 <li><p>You can test two things using <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (logical <code class="docutils literal notranslate"><span class="pre">and</span></code>, both tests need to be true), or <code class="docutils literal notranslate"><span class="pre">or</span></code> or <code class="docutils literal notranslate"><span class="pre">|</span></code> (logical <code class="docutils literal notranslate"><span class="pre">or</span></code>, one of two tests needs to be true).</p></li>
 </ul>
-<p>A more details are given on the overview page of this <span class="xref myst">session</span>.</p>
+<p>A more details are given on the overview page of this <a class="reference internal" href="session5.html"><span class="doc std std-doc">session</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>  <span class="c1"># assign values to variables x, y and z</span>
@@ -475,11 +487,11 @@ Scripts and programs can have three main types of flow.</p>
 </div>
 </section>
 <section id="relational-operators-with-arrays">
-<h3>Relational Operators with arrays<a class="headerlink" href="#relational-operators-with-arrays" title="Permalink to this heading">#</a></h3>
+<h3>Relational Operators with arrays<a class="headerlink" href="#relational-operators-with-arrays" title="Link to this heading">#</a></h3>
 <p>Only ‘true’ values will be selected when used with a vector (1D array) or matrix (multi-dimensional array):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># creates array</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">2</span>        <span class="c1"># creates array of True and False</span>
@@ -492,7 +504,7 @@ Scripts and programs can have three main types of flow.</p>
 </section>
 </section>
 <section id="task-1">
-<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading">#</a></h2>
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
 <p>Create a vector B that goes from 0 to 10 in steps of 1. Using a relational operator, find the values of the vector that are above 5 and print them to the screen.</p>
 <ul class="simple">
 <li><p>Set up the vector B</p></li>
@@ -501,7 +513,7 @@ Scripts and programs can have three main types of flow.</p>
 </ul>
 </section>
 <section id="conditional-logic">
-<h2>Conditional logic<a class="headerlink" href="#conditional-logic" title="Permalink to this heading">#</a></h2>
+<h2>Conditional logic<a class="headerlink" href="#conditional-logic" title="Link to this heading">#</a></h2>
 <p>Conditional logic also works with boolean answers and can be used to control the decision making using the relational operators. We can do this through conditional expressions such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements.</p>
 <ul class="simple">
 <li><p>Note: In python any value entered is a string and needs to be converted to a numerical value with <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
@@ -532,7 +544,7 @@ Scripts and programs can have three main types of flow.</p>
 You can have as many <code class="docutils literal notranslate"><span class="pre">elif</span></code> as you want, but it needs to start with an <code class="docutils literal notranslate"><span class="pre">if</span></code>. The <code class="docutils literal notranslate"><span class="pre">else</span></code> statement is also optional.</p>
 </section>
 <section id="protection-in-algorithms-using-conditional-logic">
-<h2>Protection in algorithms using conditional logic<a class="headerlink" href="#protection-in-algorithms-using-conditional-logic" title="Permalink to this heading">#</a></h2>
+<h2>Protection in algorithms using conditional logic<a class="headerlink" href="#protection-in-algorithms-using-conditional-logic" title="Link to this heading">#</a></h2>
 <p>You can use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to end a program early if the user inputs something incorrectly, for example a negative number when your operation is calculating a square root. To do the code test in one line that both variables are correct using the <code class="docutils literal notranslate"><span class="pre">or</span></code> (<code class="docutils literal notranslate"><span class="pre">|</span></code>) logic operator. If either is wrong the code will return and exit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -551,11 +563,11 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="using-if-blocks-as-option-flow">
-<h2>Using If blocks as option flow<a class="headerlink" href="#using-if-blocks-as-option-flow" title="Permalink to this heading">#</a></h2>
+<h2>Using If blocks as option flow<a class="headerlink" href="#using-if-blocks-as-option-flow" title="Link to this heading">#</a></h2>
 <p>You can use inputs to direct the flow of your algorithm. Here we ask the user to enter a value which specifies what the program does next.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a value:</span><span class="se">\n</span><span class="s1">1 finds the maximum </span><span class="se">\n</span><span class="s1">2 finds the minimum</span><span class="se">\n</span><span class="s1">3 finds the average</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.85</span><span class="p">,</span><span class="mf">1.34</span><span class="p">,</span><span class="mf">9.55</span><span class="p">,</span><span class="mf">3.53</span><span class="p">,</span><span class="mf">6.53</span><span class="p">,</span><span class="mf">7.54</span><span class="p">])</span>
@@ -573,7 +585,7 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="task-2">
-<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this heading">#</a></h2>
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
 <p>Write an algorithm that:</p>
 <ul class="simple">
 <li><p>Asks the user to enter a value and assign this to a variable called POS.</p></li>
@@ -582,8 +594,18 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 <li><p>If true, calculate the value <span class="math notranslate nohighlight">\(\ln \sqrt{\mathrm{POS}}\)</span> and print to the screen.</p></li>
 </ul>
 </section>
+<section id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Write a guessing game algorithm. it should include:</p>
+<ul class="simple">
+<li><p>The computer picking a random integer number in a pre-defined range.</p></li>
+<li><p>Asking you to guess it.</p></li>
+<li><p>If you guess correctly it displays to the screen “well done”</p></li>
+<li><p>Guess it wrong and it says “better luck next time”.</p></li>
+</ul>
+</section>
 <section id="conditional-logic-and-strings">
-<h2>Conditional logic and strings<a class="headerlink" href="#conditional-logic-and-strings" title="Permalink to this heading">#</a></h2>
+<h2>Conditional logic and strings<a class="headerlink" href="#conditional-logic-and-strings" title="Link to this heading">#</a></h2>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">if</span></code> statements with strings to direct a program to run certain options. To do this, you need to compare the input to a string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -598,7 +620,7 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="task-4">
-<h2>Task 4<a class="headerlink" href="#task-4" title="Permalink to this heading">#</a></h2>
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
 <p>Write an algorithm that:</p>
 <ul class="simple">
 <li><p>Asks the user to enter a value.</p></li>
@@ -610,7 +632,7 @@ You can have as many <code class="docutils literal notranslate"><span class="pre
 </ul>
 </section>
 <section id="task-5">
-<h2>Task 5<a class="headerlink" href="#task-5" title="Permalink to this heading">#</a></h2>
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
 <p>Write a function the calculates the geometric factor for a finite plate using the equations below for either a through thickness centre crack (<span class="math notranslate nohighlight">\(Y_C\)</span>) or a through thickness edge crack (<span class="math notranslate nohighlight">\(Y_E\)</span>) depending on user preference.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -627,7 +649,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </ul>
 </section>
 <section id="loops">
-<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h2>
+<h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
 <p>As already discussed there are two types of loops that are used in Python:</p>
 <ul class="simple">
 <li><p>The first is where you have an iterable object or know how many iterations you want, called a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
@@ -635,7 +657,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </ul>
 <p>Note: for a `while loop, if it does not meet the exit condition, the loop will continue indefinitely. This can result that your Colab session does not response. Try the ‘stop’ button to break out of this or close the tab and start again. Changes are usually automatically saved.</p>
 <section id="for-loops">
-<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h3>
 <p>The FOR loop is based on vector notation. You provide a starting point, and end point and the increment, and the code will loop through until it ends.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -682,7 +704,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </div>
 </section>
 <section id="task-6">
-<h3>Task 6<a class="headerlink" href="#task-6" title="Permalink to this heading">#</a></h3>
+<h3>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h3>
 <p>Write an algorithm that:</p>
 <ul class="simple">
 <li><p>Asks the user to enter two even values</p></li>
@@ -702,7 +724,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </div>
 </section>
 <section id="while-loops">
-<h3>While loops<a class="headerlink" href="#while-loops" title="Permalink to this heading">#</a></h3>
+<h3>While loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop asks Python to keep running until a condition is not <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -721,7 +743,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </ul>
 </section>
 <section id="loops-and-breaks">
-<h3>Loops and breaks<a class="headerlink" href="#loops-and-breaks" title="Permalink to this heading">#</a></h3>
+<h3>Loops and breaks<a class="headerlink" href="#loops-and-breaks" title="Link to this heading">#</a></h3>
 <p>You can use break commands to exit out of loops. Here we use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with a very large condition. If the value you enter is met using an <code class="docutils literal notranslate"><span class="pre">if</span></code> condition, the loop will <code class="docutils literal notranslate"><span class="pre">break</span></code> and jump out of the loop to the end of the code block, printing then the final line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,7 +761,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </div>
 </section>
 <section id="task-7">
-<h3>Task 7<a class="headerlink" href="#task-7" title="Permalink to this heading">#</a></h3>
+<h3>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h3>
 <p>Write an algorithm that:</p>
 <ul class="simple">
 <li><p>Asks the user to enter the value 4.</p></li>
@@ -754,7 +776,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </section>
 </section>
 <section id="task-8-tough-challenge">
-<h2>Task 8  (TOUGH CHALLENGE)<a class="headerlink" href="#task-8-tough-challenge" title="Permalink to this heading">#</a></h2>
+<h2>Task 8  (TOUGH CHALLENGE)<a class="headerlink" href="#task-8-tough-challenge" title="Link to this heading">#</a></h2>
 <p>Use the algorithm you wrote in Task 3 (guess game) and modify so</p>
 <ul class="simple">
 <li><p>You start with 10 points</p></li>
@@ -792,7 +814,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -822,6 +844,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -839,6 +862,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-in-algorithms-using-conditional-logic">Protection in algorithms using conditional logic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-if-blocks-as-option-flow">Using If blocks as option flow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-logic-and-strings">Conditional logic and strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
@@ -899,8 +923,8 @@ By Joachim M. Bestenlehner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
