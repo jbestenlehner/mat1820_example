@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Solving Systems of Linear Equations &#8212; Digital Skills for Materials</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/linear_equations';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-light" alt="Digital Skills for Materials - Home"/>
+    <script>document.write(`<img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-dark" alt="Digital Skills for Materials - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Digital Skills for Materials
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Calculations, variables and help</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session2.html">Vectors and Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session2_notebooks.html">Tutorial: Vectors and matrices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session3_notebooks.html">Tutorial: Plotting and visualising data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output plus data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session4_notebooks.html">Tutorial: Input and output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session5.html">Conditional Logic and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial: Conditions and Loops</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session6.html">Reading and writing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session6_notebooks.html">Tutorial: Reading in and writing out data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/linear_equations.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/linear_equations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solving Systems of Linear Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solving Systems of Linear Equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix">In this example
+$<span class="math notranslate nohighlight">\(
+A=
+\begin{bmatrix}
+4&amp; 3&amp; -5\\
+-2&amp; -4 &amp; 5\\
+8 &amp; 8&amp; 0\\
+\end{bmatrix}~\mathrm{and}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+b=
+\begin{bmatrix}
+2\\
+5\\
+-3\\
+\end{bmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+The matrix equation is
+\)</span>$
+\begin{bmatrix}
+4&amp; 3&amp; -5\
+-2&amp; -4 &amp; 5\
+8 &amp; 8&amp; 0\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\
+x_2\
+x_3\
+\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="solving-systems-of-linear-equations">
+<h1>Solving Systems of Linear Equations<a class="headerlink" href="#solving-systems-of-linear-equations" title="Link to this heading">#</a></h1>
+<p>A system of linear equations is a set of two or more linear equations with the same set of variables. The general form of a linear equation with n variables is: <span class="math notranslate nohighlight">\(a_{1}x_{1}+a_{2}x_{2}+\dots +a_{n}x_{n}=b\)</span>. A linear system of equations combines several such equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+a_{11}x_{1}&amp;+&amp;a_{12}x_{2}&amp;+&amp;\dots &amp;+&amp;a_{1n}x_{n}&amp;=&amp;b_1\\
+a_{21}x_{1}&amp;+&amp;a_{22}x_{2}&amp;+&amp;\dots &amp;+&amp;a_{2n}x_{n}&amp;=&amp;b_2\\
+\vdots &amp;&amp;\vdots &amp;&amp; \ddots&amp;&amp;\ldots&amp;=&amp;\vdots\\
+a_{m1}x_{1}&amp;+&amp;a_{m2}x_{2}&amp;+&amp;\dots &amp;+&amp;a_{mn}x_{n}&amp;=&amp;b_m\\
+\end{matrix}
+\end{split}\]</div>
+<p>To solve the system of linear equations they are written in the form of a matrix equation:</p>
+<div class="math notranslate nohighlight">
+\[
+A\vec{x} = \vec{b}
+\]</div>
+<p>with
+$<span class="math notranslate nohighlight">\(A = 
+\begin{bmatrix}
+a_{{1}{1}} &amp; a_{{1}{2}} &amp; \ldots &amp; a_{{1}{n}} \\
+a_{{2}{1}} &amp; a_{{2}{2}} &amp; \ldots &amp; a_{{2}{n}} \\
+a_{{3}{1}} &amp; a_{{3}{2}} &amp; \ldots &amp; a_{{3}{n}} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{{m}{1}} &amp; a_{{m}{2}} &amp; \ldots &amp; a_{{m}{n}} \\
+\end{bmatrix}~,
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\vec{x} = 
+\begin{bmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_n\\
+\end{bmatrix}~\mathrm{and}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\vec{b} = 
+\begin{bmatrix}
+b_1\\
+b_2\\
+\vdots\\
+b_m\\
+\end{bmatrix}.
+\)</span>$</p>
+<p>To solve the matrix equation for <span class="math notranslate nohighlight">\(\vec{x}\)</span>, you might have learned in the math lecture, that you multiply both sides of the matrix equation with the inverse matrix of <span class="math notranslate nohighlight">\(A\)</span> (<span class="math notranslate nohighlight">\(A^{-1}\)</span>). This gives you</p>
+<div class="math notranslate nohighlight">
+\[
+A^{-1}A\vec{x} = A^{-1}\vec{b} \Rightarrow \vec{x} = A^{-1} \vec{b}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(A^{-1}A\)</span> results in an identity matrix, where the elements on the diagonal are ones and all others are zeros.</p>
+<p>To see how this approach practically work, let us consider the following system of equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+~~~4x_1 &amp; + 3x_2 &amp;- 5x_3 &amp;=&amp; ~~~2 \\
+-2x_1&amp; - 4x_2 &amp;+ 5x_3 &amp;=&amp; ~~~5 \\
+~~~8x_1 &amp;+ 8x_2 &amp; &amp;=&amp; -3 \\
+\end{matrix}
+\end{split}\]</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix">
+<h1>In this example
+$<span class="math notranslate nohighlight">\(
+A=
+\begin{bmatrix}
+4&amp; 3&amp; -5\\
+-2&amp; -4 &amp; 5\\
+8 &amp; 8&amp; 0\\
+\end{bmatrix}~\mathrm{and}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+b=
+\begin{bmatrix}
+2\\
+5\\
+-3\\
+\end{bmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+The matrix equation is
+\)</span>$
+\begin{bmatrix}
+4&amp; 3&amp; -5\
+-2&amp; -4 &amp; 5\
+8 &amp; 8&amp; 0\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\
+x_2\
+x_3\
+\end{bmatrix}<a class="headerlink" href="#in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+2\
+5\
+-3\
+\end{bmatrix}
+$$</p>
+<p>To solve the linear equations system, you calculate <span class="math notranslate nohighlight">\(\vec{x} = A^{-1}\vec{b}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># define A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span> 
+              <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+              <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="c1">#define b</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">A_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># calculates the inverse of matrix A.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">A_inv</span><span class="nd">@b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Solving systems of linear equations is a very common problem in engineering and science. For large-scale systems of equations matrix inversion can be slow and inefficient. Therefore, <em>NumPy</em> provides a <em>solve</em> function called <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code>, that uses the <a href="https://en.wikipedia.org/wiki/LU_decomposition" target="_blank">LU decomposition</a> obtained with <a href="https://en.wikipedia.org/wiki/Gaussian_elimination" target="_blank">Gaussian elimination</a> algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To find out more about the available linear algebra functions use <code class="docutils literal notranslate"><span class="pre">np.linalg?</span></code> or have a look <a href="https://numpy.org/doc/stable/reference/routines.linalg.html" target="_blank">here</a>.</p>
+<section id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>Consider the following linear system of equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+~~~8x_1 &amp; + 3x_2 &amp;- 2x_3 &amp;=&amp; 9 \\
+-4x_1&amp; + 7x_2 &amp;+ 5x_3 &amp;=&amp; 15 \\
+~~~3x_1 &amp;+ 4x_2 &amp; -12x_3 &amp;=&amp; 35 \\
+\end{matrix}
+\end{split}\]</div>
+<p>Find the solution for <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
+</section>
+<section id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>You are in the lab and have one solution containing 60% acid and a second one containing 20%. How much of  each should be used  to make 20 litres of a 30% acid solution?</p>
+</section>
+<section id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>You would like to know the conversion from  Celsius to Fahrenheit. Early in the morning you measure 5°C and 41°F. The day turns out to be nice and sunny and you measure 25°C and 77°F in the afternoon. Can you derive the conversion formula from Celsius to Fahrenheit? (<em>Hint: <span class="math notranslate nohighlight">\(x_1 \mathrm{Y}\)</span>°C + <span class="math notranslate nohighlight">\(x_2 = \mathrm{Z}\)</span>°F</em> and you want to find the coefficients <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.)</p>
+<p>Compare your formula with the results from the internet (e.g. wikipedia, google, …).</p>
+</section>
+<section id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>We can mix, under controlled conditions, toluene <span class="math notranslate nohighlight">\(C_7H_8\)</span> and nitric acid <span class="math notranslate nohighlight">\(HNO_3\)</span> to produce trinitrotoluene <span class="math notranslate nohighlight">\(C_7H_5O_6N_3\)</span> along with the byproduct water (conditions have to be very well controlled — trinitrotoluene is better known as TNT). In what proportion should we mix them?</p>
+<p><span class="math notranslate nohighlight">\(x_1 C_7H_8 + x_2 HNO_3 \rightarrow x_3 C_7H_5O_6N_3 + x_4 H_2O\)</span></p>
+<p>The number of atoms of each element present before the reaction must be equal to the number of atoms present after the reaction. <em>(Hint: write down the equation for each element <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(N\)</span>, and <span class="math notranslate nohighlight">\(O\)</span>)</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solving Systems of Linear Equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix">In this example
+$<span class="math notranslate nohighlight">\(
+A=
+\begin{bmatrix}
+4&amp; 3&amp; -5\\
+-2&amp; -4 &amp; 5\\
+8 &amp; 8&amp; 0\\
+\end{bmatrix}~\mathrm{and}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+b=
+\begin{bmatrix}
+2\\
+5\\
+-3\\
+\end{bmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+The matrix equation is
+\)</span>$
+\begin{bmatrix}
+4&amp; 3&amp; -5\
+-2&amp; -4 &amp; 5\
+8 &amp; 8&amp; 0\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\
+x_2\
+x_3\
+\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joachim M. Bestenlehner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright University of Sheffield 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
