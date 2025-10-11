@@ -576,14 +576,15 @@ document.write(`
 </div>
 </div>
 <p>See the second part of the overview page on <em>matplotlib</em> or use the help function to see and learn all the basics terms.</p>
-<p>We can add labels and limits to our graphs for the axis.</p>
+<p>We can add <code class="docutils literal notranslate"><span class="pre">labels</span></code>, <code class="docutils literal notranslate"><span class="pre">limits</span></code> and <code class="docutils literal notranslate"><span class="pre">legend</span></code> to our graphs for the axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data AB&#39;</span><span class="p">)</span> <span class="c1"># adds label to the plot, which is shown in the legend</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>      <span class="c1"># Labels x axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>      <span class="c1"># Labels y axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">150</span><span class="p">))</span>  <span class="c1"># Sets the plotting range for the y axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>      <span class="c1"># Inverts the x axis and sets the plotting range for the x axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>         <span class="c1"># adds legend</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
