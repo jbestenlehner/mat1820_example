@@ -532,7 +532,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">75</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mf">123.5</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">226</span><span class="p">,</span> <span class="mi">249</span><span class="p">,</span> <span class="mf">281.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1">#np.arange(y.size) + 1 gives the position of the bars. Change it to see the effect.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span> <span class="c1">#creates an array from 1 to the size of y.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1">#x gives the position of the bars while y defines the height of the bars. Change it to see the effect.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -555,7 +556,7 @@ document.write(`
 </section>
 <section id="task-5">
 <h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
-<p>Use the help, either <code class="docutils literal notranslate"><span class="pre">help</span></code> function or <code class="docutils literal notranslate"><span class="pre">?</span></code> to change the width and alignment of the bars.</p>
+<p>Use the help, either <code class="docutils literal notranslate"><span class="pre">plt.bar?</span></code> or <code class="docutils literal notranslate"><span class="pre">help(plt.bar)</span></code> to change the width and alignment of the bars.</p>
 </section>
 <section id="formatting-of-plots">
 <h2>Formatting of plots<a class="headerlink" href="#formatting-of-plots" title="Link to this heading">#</a></h2>
@@ -609,7 +610,7 @@ document.write(`
 <p>You can share axis for particular plots with <em>plot.twinx()</em> (shared x-axis) or <em>plot.twiny()</em> (shared y-axis).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>                       <span class="c1"># plots data with a red plusses</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>                       <span class="c1"># plots data with red plusses</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>                <span class="c1"># Labels left y-axis with red</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># Change colour of y-axis tick labels</span>
