@@ -108,7 +108,7 @@ I do (`not`) like pizza.
 | False   | True     |
 | True    | False    |
 
-This can be combined with `and`, .`or` and `^` (xor):
+This can be combined with `and`, `or` and `^` (xor):
 - `not`(A `and` B)
 - `not`(A `or` B)
 - `not`(A `^` B)
@@ -213,7 +213,7 @@ while i < 5:
 ```
 :::{warning}
 
-Always check your condition, if it becomes `False` and does not run forever. 
+Always check your condition, if it will become `False` at some point and does not run forever. 
 
 :::
 
