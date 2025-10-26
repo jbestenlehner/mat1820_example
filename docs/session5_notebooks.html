@@ -424,6 +424,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-tough-challenge">Task 8  (TOUGH CHALLENGE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9-using-multiple-for-loops">Task 9: using multiple for loops</a></li>
 </ul>
             </nav>
         </div>
@@ -439,25 +440,24 @@ document.write(`
 <h1>Tutorial: Conditions and Loops<a class="headerlink" href="#tutorial-conditions-and-loops" title="Link to this heading">#</a></h1>
 <section id="logic-and-flow">
 <h2>Logic and flow<a class="headerlink" href="#logic-and-flow" title="Link to this heading">#</a></h2>
-<p>This live script will teach you how to test variables if they meet certain criteria. It will also show how you can loop through your data calculations really fast.
-Scripts and programs can have three main types of flow.</p>
+<p>This live script will teach you how to test variables if they meet certain criteria. It will also show how you can loop through and repeat tasks.</p>
+<p>Scripts and programs can have three main types of flow.</p>
 <p><img alt="logic_loop" src="https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/pictures/logic_loop.png" /></p>
 <ul class="simple">
 <li><p>The first is a sequence, a set of commands that are followed one after another. This is what we have been doing so far.</p></li>
-<li><p>The second is a choice, where you the code asks “IF a variable is equal to this, do A, else do B “</p></li>
+<li><p>The second is a choice, where you ask the code “IF a variable is equal to this, do A, else do B “</p></li>
 <li><p>The third is repetition, where we ask the code to loop over things for a set number or until a choice is met.</p></li>
 </ul>
-<p>The last key point to note is that when we deal with loops, it can end up looping indefinitely, and surprisingly easy to do. In principle you should be able to stop it, but in most cases you need to <strong>close</strong> your <strong>Colab-tab</strong>.</p>
 </section>
 <section id="logical-statements">
 <h2>Logical statements<a class="headerlink" href="#logical-statements" title="Link to this heading">#</a></h2>
-<p>There are a few conditional logic statements that you can use to test values and variables. Many you have met it maths already.</p>
+<p>There are a few conditional logic statements that you can use to test values and variables. Many you have seen in maths.</p>
 <section id="relational-operators">
 <h3>Relational Operators<a class="headerlink" href="#relational-operators" title="Link to this heading">#</a></h3>
 <p>These work on boolean answers, that of <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul class="simple">
 <li><p>Note that Using an <code class="docutils literal notranslate"><span class="pre">=</span></code> with two variables means you assign one of them as the value of the other. Using <code class="docutils literal notranslate"><span class="pre">==</span></code> tests if the two variables are equivalent.</p></li>
-<li><p>I’ve assigned each to a variable to show this and used the <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display the value to the screen for each answer.</p></li>
+<li><p>Below values are assigned to a variable, compared to each other and the answers are displayed with <code class="docutils literal notranslate"><span class="pre">print()</span></code> to the screen.</p></li>
 <li><p>You can invert your logic using a <code class="docutils literal notranslate"><span class="pre">not</span></code> or symbol <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p></li>
 <li><p>You can test two things using <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (logical <code class="docutils literal notranslate"><span class="pre">and</span></code>, both tests need to be true), or <code class="docutils literal notranslate"><span class="pre">or</span></code> or <code class="docutils literal notranslate"><span class="pre">|</span></code> (logical <code class="docutils literal notranslate"><span class="pre">or</span></code>, one of two tests needs to be true).</p></li>
 </ul>
@@ -488,7 +488,7 @@ Scripts and programs can have three main types of flow.</p>
 </section>
 <section id="relational-operators-with-arrays">
 <h3>Relational Operators with arrays<a class="headerlink" href="#relational-operators-with-arrays" title="Link to this heading">#</a></h3>
-<p>Only ‘true’ values will be selected when used with a vector (1D array) or matrix (multi-dimensional array):</p>
+<p>Only <code class="docutils literal notranslate"><span class="pre">True</span></code> values will be selected when used with a vector (1D array) or matrix (multi-dimensional array):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -514,9 +514,9 @@ Scripts and programs can have three main types of flow.</p>
 </section>
 <section id="conditional-logic">
 <h2>Conditional logic<a class="headerlink" href="#conditional-logic" title="Link to this heading">#</a></h2>
-<p>Conditional logic also works with boolean answers and can be used to control the decision making using the relational operators. We can do this through conditional expressions such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements.</p>
+<p>Conditional logic also works with boolean answers and can be used to control the decision making using the relational operators. We can do this through conditional expressions such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> (else if) and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements.</p>
 <ul class="simple">
-<li><p>Note: In python any value entered is a string and needs to be converted to a numerical value with <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p>Note: In python any value entered is a string and needs to be converted to a numerical value with <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">float()</span></code></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,13 +652,13 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 <h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
 <p>As already discussed there are two types of loops that are used in Python:</p>
 <ul class="simple">
-<li><p>The first is where you have an iterable object or know how many iterations you want, called a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
+<li><p>The first is where you have an iterable object or know how many iterations you want, called a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop (previous session).</p></li>
 <li><p>The second is a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop where the loop will stop when the pre-set condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 </ul>
-<p>Note: for a `while loop, if it does not meet the exit condition, the loop will continue indefinitely. This can result that your Colab session does not response. Try the ‘stop’ button to break out of this or close the tab and start again. Changes are usually automatically saved.</p>
+<p>Note: for a `while loop, if it does not meet the exit condition, the loop will continue indefinitely. This can result that your Colab session does not response. Try the ‘stop’ button to break out of this, reload the page or close the tab and start again. Changes are usually automatically saved.</p>
 <section id="for-loops">
 <h3><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h3>
-<p>The FOR loop is based on vector notation. You provide a starting point, and end point and the increment, and the code will loop through until it ends.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is based on vector notation. You provide a starting point, and end point and the increment, and the code will loop through until it ends.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this for loop goes between 0 and 100 in steps of 10, excluding 100.</span>
@@ -683,8 +683,8 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 <p>You can use it to step <em>through</em> arrays. Here we use the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to go through each element in the data array, and square it. Printing the result to the screen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>      <span class="c1"># Set up vector of data </span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>   <span class="c1"># Go from 0 to the length of the vector excluding 6. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>      <span class="c1"># Set up list of data </span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>   <span class="c1"># Go from 0 to the length of the list excluding 6. </span>
     <span class="n">output</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>        <span class="c1"># Use i as a index, square the value stored in data</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No. </span><span class="si">{:.0f}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1"> squared is </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output</span><span class="p">))</span>
 </pre></div>
@@ -696,8 +696,8 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>              <span class="c1"># Set up vector of data </span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>    <span class="c1"># Iterate through elements of data</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="n">element</span><span class="o">**</span><span class="mi">2</span>              <span class="c1"># Square the element</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No. </span><span class="si">{:.0f}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1"> squared is </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">output</span><span class="p">))</span>
+    <span class="n">square</span> <span class="o">=</span> <span class="n">element</span><span class="o">**</span><span class="mi">2</span>              <span class="c1"># Square the element</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Element </span><span class="si">{:.0f}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1"> squared is </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">square</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -707,10 +707,10 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 <h3>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h3>
 <p>Write an algorithm that:</p>
 <ul class="simple">
-<li><p>Asks the user to enter two even values</p></li>
+<li><p>Asks the user to enter two even values.</p></li>
 <li><p>The algorithm then prints to the screen all the even values between those two values.</p></li>
 <li><p>Keeps a running sum of the values, and prints this at the end.</p></li>
-<li><p><strong>Hint 1</strong>: Think about the increment needed in the FOR loop.</p></li>
+<li><p><strong>Hint 1</strong>: Think about the increment needed in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
 <li><p><strong>Hint 2</strong>: You will need to define a variable sum. You can increment sum by adding it to itself e.g. <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">=</span> <span class="pre">sum</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
 </ul>
 <p>Verification: Entering values of 2 and 10 would display the following.</p>
@@ -748,7 +748,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter value when to stop: &#39;</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter integer value when to stop: &#39;</span><span class="p">))</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mf">1e100</span><span class="p">):</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">break</span>
@@ -781,9 +781,29 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 <ul class="simple">
 <li><p>You start with 10 points</p></li>
 <li><p>If you guess correctly, add 5 to your points.</p></li>
-<li><p>If you guess incorrectly, minus 1 off your points total</p></li>
+<li><p>If you guess incorrectly, minus 1 off your points total.</p></li>
 <li><p>Once you have 0 points, the algorithm will end.</p></li>
 </ul>
+</section>
+<section id="task-9-using-multiple-for-loops">
+<h2>Task 9: using multiple for loops<a class="headerlink" href="#task-9-using-multiple-for-loops" title="Link to this heading">#</a></h2>
+<p>Sometimes it is beneficial to use nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. This means there are 2 or more <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, one inside the other.</p>
+<p>Create a <span class="math notranslate nohighlight">\(5 \times 5\)</span> array consisting of zeros and call it A. Use 2 <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and conditional statements to change A so that:</p>
+<ul class="simple">
+<li><p>the entries below the diagonal become 1.</p></li>
+<li><p>the entries above the diagonal become 2.</p></li>
+<li><p>the entries on the diagonal become 3.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+A=
+\begin{bmatrix}
+3&amp;2&amp;2&amp;2&amp;2\\
+1&amp;3&amp;2&amp;2&amp;2\\
+1&amp;1&amp;3&amp;2&amp;2\\
+1&amp;1&amp;1&amp;3&amp;2\\
+1&amp;1&amp;1&amp;1&amp;3\\
+\end{bmatrix}
+\)</span></p>
 </section>
 </section>
 
@@ -875,6 +895,7 @@ Y_E &amp; = &amp; 1.122 &amp;-&amp; 0.231 \left( \frac{a}{w}\right) &amp;+&amp; 
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-tough-challenge">Task 8  (TOUGH CHALLENGE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9-using-multiple-for-loops">Task 9: using multiple for loops</a></li>
 </ul>
   </nav></div>
 
