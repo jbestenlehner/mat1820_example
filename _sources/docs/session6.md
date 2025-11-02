@@ -59,7 +59,7 @@ The following example shows how to read file, creates list of its content and co
 import numpy as np
 
 file = open('somefile.txt', 'r') # opens file in read-only.
-data = []                        # creates and empty list
+data = []                        # creates an empty list
 for line in file:                # reads the file line by line
     line = line.strip()          # strips leading and trailing whitespace
     line = line.split()          # splits the string into substrings at each white space
@@ -119,7 +119,7 @@ d = np.loadtxt('some_data.txt', usecols=(0,3)) # reads in 1st and 4th column
 column_2, column_3 = np.loadtxt('some_data.txt', usecols=(1,2), unpack=True) # reads in 2nd and 3rd column into 1D arrays
 ```
 
-The `unpack=True` parameters unpacks the array into individual columns. Therefore, you need to know, how many columns do you unpack.
+The `unpack=True` parameter unpacks the array into individual columns. Therefore, you need to know, how many columns do you unpack.
 
 Some files have comments at the start of the file. The usual convention is that file comments or headers start with `'#'` (default). Input to the `comments` parameter are `str` or sequence of `str`. Alternatively you can use the parameter `skiprows` with an integer input.
 
