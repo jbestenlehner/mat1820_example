@@ -468,7 +468,7 @@ document.write(`
 <p>Download the file ‘task1.csv’ from blackboard and place it into your current workspace on Colab. The file contains the voltage-current measurements of two samples. Column one is the voltage. Columns 2 and 3 are the current generated in sample 1 and 2 respectively.</p>
 <ul class="simple">
 <li><p>Look at the file and identify</p></li>
-<li><p>how many text headings it has, and the deliminator that separates the values.</p></li>
+<li><p>how many text headings it has, and the deliminiter that separates the values.</p></li>
 <li><p>Use these to read in the file with <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code></p></li>
 <li><p>Separate the columns into separated arrays.</p></li>
 <li><p>Plot sample 1 and sample 2 on the same graph.</p></li>
@@ -506,7 +506,7 @@ document.write(`
 <li><p>The contents of the file should looks like this.</p></li>
 </ul>
 <p><img alt="xy table" src="https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/pictures/notebook_session6_task2.png" /></p>
-<p>Note the columns are labelled as x and y.</p>
+<p>Note: the columns are labelled as x and y.</p>
 </section>
 <section id="task-3">
 <h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
@@ -523,6 +523,7 @@ document.write(`
 \]</div>
 <ul class="simple">
 <li><p>Prints all the correct vectors to a file called task3_correct.dat using <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code> (i.e. omitting the incorrect ones).</p></li>
+<li><p>If you write out the file, you might need to transpose the array <code class="docutils literal notranslate"><span class="pre">.T</span></code>.</p></li>
 </ul>
 </section>
 <section id="task-4">
@@ -546,7 +547,7 @@ document.write(`
 <p>Write a script that calculates the x, y coordinates for a single plane of atoms. The code requires the number of atoms you would like in the x and y direction (for example in the figure below there are 4 atoms in the x direction and 4 in the y) and then distributes these evenly along the axis assuming they are separated by the atomic radius. So in the example below with a radius of 0.1 the coordinates of the first atom would be (0,0), the second atom would be (0.1,0), the third atom would be (0.2,0) etc.</p>
 <p><img alt="material" src="https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/pictures/session6_task5_atoms.png" /></p>
 <p>It will also require an atomic radius r to be plotted.</p>
-<p>Your function will use this information to calculate the positions (x, y coordinates) of the atoms and print these coordinates to a file called ‘positions_xy.dat’.</p>
+<p>Your function will use this information to calculate the positions (x, y coordinates) of the atoms and print these coordinates to a file called ‘positions_xy.dat’. If you write out the file, you might need to transpose the array <code class="docutils literal notranslate"><span class="pre">.T</span></code> or use <code class="docutils literal notranslate"><span class="pre">np.column_stack()</span></code>.</p>
 <p>An example of your output should look similar to the following using an atomic radius of 0.125 nm:</p>
 <p>Atom_1, x=0.000e+00, y=0.000e+00</p>
 <p>Atom_2, x=1.250e-10, y=0.000e+00</p>
