@@ -293,13 +293,13 @@ A good fit should account for approximately 95% or more of the data $(R^2>0.95)$
 
 $R^2$ is calculated as:
 
-$R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (SST)}} = 1 - \frac{J}{S}$
+$R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (TSS)}} = 1 - \frac{J}{S}$
 
 where:
 * **Sum of Squared Residuals (SSR)** (also defined as $J$): This measures the variability of the data points around the regression line (fit). It's the sum of the squared differences between the actual observed values ($y_i$) and the values predicted by the model ($\hat{y_i}$, best fit function $f(x)$ evaluated at your independent variable x).
 
     $SSR = J = \sum_{i=1}^{n} (y_i - \hat{y_i})^2$
 
-* **Total Sum of Squares (SST)** (also defined as $S$): This measures the total variability in the dependent variable around its mean. It's the sum of the squared differences between the actual observed values ($y_i$) and the mean of the dependent variable ($\bar{y}$).
+* **Total Sum of Squares (TSS)** (also defined as $S$): This measures the total variability in the dependent variable around its mean. It's the sum of the squared differences between the actual observed values ($y_i$) and the mean of the dependent variable ($\bar{y}$).
 
-    $SST = S = \sum_{i=1}^{n} (y_i - \bar{y})^2$
+    $TSS = S = \sum_{i=1}^{n} (y_i - \bar{y})^2$
