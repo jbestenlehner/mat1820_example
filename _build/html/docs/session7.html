@@ -565,11 +565,11 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{matrix}
-s(x) &amp; = &amp; m \cdot x &amp; + &amp; b \\
-     &amp; = &amp; \frac{y_2 - y_1}{x_2 - x_1} \cdot x &amp; + &amp; y_1 - \frac{y_2 - y_1}{x_2 - x_1} \cdot x_1\\
+s(x) &amp; = &amp; m \cdot x &amp; + &amp; c \\
+s_1(x)     &amp; = &amp; \frac{y_2 - y_1}{x_2 - x_1} \cdot (x - x_1) &amp; + &amp; y_1 + \frac{y_2 - y_1}{x_2 - x_1} \cdot (x- x_1)\\
 \end{matrix}
 \end{split}\]</div>
-<p>Note: <span class="math notranslate nohighlight">\(b=y_1-m\cdot x_1\)</span>.</p>
+<p>Note: <span class="math notranslate nohighlight">\(c=y_1+m\cdot (x- x_1)\)</span>.</p>
 <p>The linear spline interpolation function of numpy is called <code class="docutils literal notranslate"><span class="pre">np.interp()</span></code>. It requires three input parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinates at which to evaluate the interpolated values.</p></li>
@@ -707,14 +707,14 @@ s''_{i}(x_{i}):=s''_{i-1}(x_{i})
 <section id="calculation-of-r-2">
 <h3>Calculation of <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#calculation-of-r-2" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(R^2\)</span> is calculated as:</p>
-<p><span class="math notranslate nohighlight">\(R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (TSS)}} = 1 - \frac{J}{S}\)</span></p>
+<p><span class="math notranslate nohighlight">\(R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (TSS)}}\)</span></p>
 <p>where:</p>
 <ul>
-<li><p><strong>Sum of Squared Residuals (SSR)</strong> (also defined as <span class="math notranslate nohighlight">\(J\)</span>): This measures the variability of the data points around the regression line (fit). It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the values predicted by the model (<span class="math notranslate nohighlight">\(\hat{y_i}\)</span>, best fit function <span class="math notranslate nohighlight">\(f(x)\)</span> evaluated at your independent variable x).</p>
-<p><span class="math notranslate nohighlight">\(SSR = J = \sum_{i=1}^{n} (y_i - \hat{y_i})^2\)</span></p>
+<li><p><strong>Sum of Squared Residuals (SSR)</strong>: This measures the variability of the data points around the regression line (fit). It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the values predicted by the model (<span class="math notranslate nohighlight">\(\hat{y_i}\)</span>, best fit function <span class="math notranslate nohighlight">\(f(x)\)</span> evaluated at your independent variable x).</p>
+<p><span class="math notranslate nohighlight">\(SSR = \sum_{i=1}^{n} (y_i - \hat{y_i})^2\)</span></p>
 </li>
-<li><p><strong>Total Sum of Squares (TSS)</strong> (also defined as <span class="math notranslate nohighlight">\(S\)</span>): This measures the total variability in the dependent variable around its mean. It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the mean of the dependent variable (<span class="math notranslate nohighlight">\(\bar{y}\)</span>).</p>
-<p><span class="math notranslate nohighlight">\(TSS = S = \sum_{i=1}^{n} (y_i - \bar{y})^2\)</span></p>
+<li><p><strong>Total Sum of Squares (TSS)</strong>: This measures the total variability in the dependent variable around its mean. It’s the sum of the squared differences between the actual observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the mean of the dependent variable (<span class="math notranslate nohighlight">\(\bar{y}\)</span>).</p>
+<p><span class="math notranslate nohighlight">\(TSS = \sum_{i=1}^{n} (y_i - \bar{y})^2\)</span></p>
 </li>
 </ul>
 </section>

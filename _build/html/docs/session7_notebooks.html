@@ -414,6 +414,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-least-squares-fitting">Higher order least squares fitting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-squared-or-r-2">Coefficient of determination (R-squared or <span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lot-of-previous-knowledge">Task 6 (uses a lot of previous knowledge)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tougher-challenge">TOUGHER CHALLENGE:</a></li>
@@ -438,7 +439,7 @@ document.write(`
 <ul class="simple">
 <li><p>Also known as spline interpolation. It is a way of interpolating between data points but does not provide any numerical understanding – just joins the dots with lines.</p></li>
 <li><p>To make it smooth, not only are the points joined (i.e. the equation meets at the points) but also the gradients.</p></li>
-<li><p>Equations (typically cubic: $Ax^3+Bx^2+C^x+D) describe curve between adjacent points, in this case the first and second differentials are equal at that point.</p></li>
+<li><p>Equations (typically cubic: <span class="math notranslate nohighlight">\(ax^3+bx^2+cx+d\)</span>) describe curve between adjacent points, in this case the first and second differentials are equal at that point.</p></li>
 <li><p>Data values are assumed to be exact so requires accurate input data.</p></li>
 </ul>
 <p><strong>Least squares fitting (curve fitting):</strong></p>
@@ -453,7 +454,7 @@ document.write(`
 <p>Spline fitting can be used to either interpolate or extrapolate data. The latter however is needs careful consideration.</p>
 <section id="interpolation-using-spline-fitting">
 <h3>Interpolation using spline fitting<a class="headerlink" href="#interpolation-using-spline-fitting" title="Link to this heading">#</a></h3>
-<p>Spline fitting requires the data to be entered into the <code class="docutils literal notranslate"><span class="pre">CubicSpline</span></code>, which returns a function, where a number or array of numbers can be evaluated. If the function is required for future evaluations, it is stored in a variable <code class="docutils literal notranslate"><span class="pre">cs</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)</span></code>. Otherwise you can directly evaluate the function <code class="docutils literal notranslate"><span class="pre">y1</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)(x1)</span></code>.</p>
+<p>Spline fitting requires the data to be entered into the <code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code> function, which returns a function, where a number or array of numbers can be evaluated. If the function is required for future evaluations, it can be assigned to a variable <code class="docutils literal notranslate"><span class="pre">cs</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)</span></code>. Otherwise you can directly evaluate the function <code class="docutils literal notranslate"><span class="pre">y1</span> <span class="pre">=</span> <span class="pre">CubicSpline(x,</span> <span class="pre">y)(x1)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -500,12 +501,12 @@ document.write(`
 <section id="task-1">
 <h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Perform a spline fit on the following (A,B) data.</p></li>
+<li><p>Perform a spline fit on the following A and B data.</p></li>
 <li><p>Evaluate your spline fit in the range 0-30 with 150 data points.</p></li>
 <li><p>Calculate the value of the spline fit at ~20 (point 100), 25 (point 125) and 30 (point 130)</p></li>
 <li><p>Now remove the first data point from A and B and perform the same fit and extract the same values from the spline.</p></li>
 <li><p>Finally remove the first two data points from A and B and perform the same fit and extract the same values from the spline.</p></li>
-<li><p>How similar are you values depending on the data supplied?</p></li>
+<li><p>How similar are your values depending on the data supplied?</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -518,7 +519,7 @@ document.write(`
 </section>
 <section id="least-squares-fitting-of-data">
 <h2>Least squares fitting of data<a class="headerlink" href="#least-squares-fitting-of-data" title="Link to this heading">#</a></h2>
-<p>Fitting using the least squares method is fairly straightforward in Python. To calculate the <span class="math notranslate nohighlight">\(R^2\)</span> value, coefficient of determination, is bit more involved, For simplicity we calculate it manually.</p>
+<p>Fitting using the least squares method is fairly straightforward in Python. To calculate the <span class="math notranslate nohighlight">\(R^2\)</span> value, coefficient of determination, is a bit more involved, For simplicity we calculate it manually.</p>
 <section id="a-simple-least-squares-fit">
 <h3>A simple least squares fit<a class="headerlink" href="#a-simple-least-squares-fit" title="Link to this heading">#</a></h3>
 <p>You can use the function polyfit to extract the prefactors of the order (degree) of fit you are using. For example</p>
@@ -620,10 +621,10 @@ document.write(`
 <span class="c1"># find the average of the data set (the y-values)</span>
 
 
-<span class="c1"># fit the x and y data (np.polyfit) with a first order polynomial</span>
+<span class="c1"># fit the x and y data (np.polyfit()) with a first order polynomial</span>
 
 
-<span class="c1"># Using np.polyval and your fit to generate the y values of the line of best fit. </span>
+<span class="c1"># Using np.polyval() and your fit to generate the y values of the line of best fit. </span>
 
 
 <span class="c1"># Calculate the square of the difference between the</span>
@@ -637,6 +638,38 @@ document.write(`
 
 
 <span class="c1"># R2 is equal to 1 - J/S. Now find R2. </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the documentation for <a href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code></a> there is an option so that <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> returns the residuals. Using <code class="docutils literal notranslate"><span class="pre">full=True</span></code> what does <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> as <em>residuals</em> returns?</p>
+</section>
+<section id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>Calculate the <span class="math notranslate nohighlight">\(R^2\)</span> value of the following data set and print this to the screen. Plot your data and fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mf">31.5</span><span class="p">,</span> <span class="mf">40.5</span><span class="p">,</span> <span class="mf">48.2</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mf">69.1</span><span class="p">])</span>
+<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.1</span><span class="p">,</span> <span class="mf">10.7</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">22.5</span><span class="p">,</span> <span class="mf">25.8</span><span class="p">,</span> <span class="mf">30.6</span><span class="p">,</span> <span class="mf">36.6</span><span class="p">])</span>
+
+
+<span class="c1"># fit the a and b data (np.polyfit()) with a first order polynomial</span>
+
+
+
+<span class="c1"># Using np.polyval() and your fit to generate the yvalues of the line of best fit. </span>
+
+
+
+
+
+<span class="c1"># find R2 and print to the screen</span>
+
+
+
+
+
+<span class="c1"># plot your data and fit</span>
 </pre></div>
 </div>
 </div>
@@ -773,6 +806,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-least-squares-fitting">Higher order least squares fitting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-squared-or-r-2">Coefficient of determination (R-squared or <span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-uses-a-lot-of-previous-knowledge">Task 6 (uses a lot of previous knowledge)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tougher-challenge">TOUGHER CHALLENGE:</a></li>
