@@ -496,17 +496,18 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Note: here that the data looks like its stabilising at the value of 4 but the extrapolation only takes the last two points and predicts what happens next. A limitation of extrapolation and spline fitting.</p>
+<p>Note: It looks like that the data stabilise at the value of 4 but the extrapolation only takes the last two points and predicts what happens next. A limitation of extrapolation and spline fitting.</p>
 </section>
 <section id="task-1">
 <h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Perform a spline fit on the following A and B data.</p></li>
-<li><p>Evaluate your spline fit in the range 0-30 with 150 data points.</p></li>
-<li><p>Calculate the value of the spline fit at ~20 (point 100), 25 (point 125) and 30 (point 130)</p></li>
-<li><p>Now remove the first data point from A and B and perform the same fit and extract the same values from the spline.</p></li>
-<li><p>Finally remove the first two data points from A and B and perform the same fit and extract the same values from the spline.</p></li>
-<li><p>How similar are your values depending on the data supplied?</p></li>
+<li><p>Evaluate your spline fit (B_new) in the range 0-30 with 151 data points (A_new).</p></li>
+<li><p>Plot A and B as points and overplot B_new and A_new as a line.</p></li>
+<li><p>Evaluate your spline fit at 5, 20, and 30 and print to the screen.</p></li>
+<li><p>Now remove the first data point from A and B and perform the same fit, plot and extract the same values from the spline.</p></li>
+<li><p>Finally remove the first two data points from A and B and perform the same fit, plot and extract the same values from the spline.</p></li>
+<li><p>How similar are your values depending on the data supplied? How do your plots change?</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -533,12 +534,12 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Run x from 0 to 1 in steps of 0.1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Creates x from 0 to 1 in steps of 0.1</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">6.9</span><span class="p">,</span><span class="mf">31.6</span><span class="p">,</span><span class="mf">21.5</span><span class="p">,</span><span class="mf">34.4</span><span class="p">,</span><span class="mf">68.2</span><span class="p">,</span><span class="mf">66.4</span><span class="p">,</span><span class="mf">114.9</span><span class="p">,</span><span class="mf">155.9</span><span class="p">,</span><span class="mf">199.3</span><span class="p">,</span><span class="mf">209.6</span><span class="p">])</span>
 
 <span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   
-<span class="c1"># Order 1 fit of y= Ax + B </span>
-<span class="c1"># p1 stores all the prefactors as a vector</span>
+<span class="c1"># Order 1 fit of y = Ax + B </span>
+<span class="c1"># p1 stores all the prefactors as an array</span>
 <span class="c1"># the first element of p1 is A</span>
 <span class="c1"># the second element of p1 is B</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fit: y=</span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">+.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -564,7 +565,7 @@ document.write(`
 </section>
 <section id="task-2">
 <h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
-<p>Perform a polyfit with a order 1 polynomial to the data below. Extract the values for the fit. Plot the original data and the straight line fitted in a graph.</p>
+<p>Perform a polyfit with a polynomial of order 1 (degree 1) to the data below. Extract the values for the fit. Plot the original data and the straight line fitted in a graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -608,15 +609,20 @@ document.write(`
 </section>
 <section id="coefficient-of-determination-r-squared-or-r-2">
 <h2>Coefficient of determination (R-squared or <span class="math notranslate nohighlight">\(R^2\)</span>)<a class="headerlink" href="#coefficient-of-determination-r-squared-or-r-2" title="Link to this heading">#</a></h2>
-<p>The coefficient of determination <span class="math notranslate nohighlight">\((R^2)\)</span> is <strong>a number between 0 and 1 that measures how well a statistical model predicts an outcome</strong> (goodness of fit). You can interpret the <span class="math notranslate nohighlight">\(R^2\)</span> as the proportion of variation in the dependent variable that is predicted by the statistical model.</p>
+<p>The coefficient of determination <span class="math notranslate nohighlight">\((R^2)\)</span> is <strong>a number between 0 and 1 that measures how well a statistical model predicts an outcome</strong> (goodness of fit):</p>
+<div class="math notranslate nohighlight">
+\[
+R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (TSS)}} = \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}.
+\]</div>
+<p>You can interpret the <span class="math notranslate nohighlight">\(R^2\)</span> as the proportion of variation in the dependent variable that is predicted by the statistical model. See overview page for more details.</p>
 </section>
 <section id="task-3">
 <h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
 <p>Repeat the example from the lecture on Hooke’s law (<span class="math notranslate nohighlight">\(F=-kx\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95</span> <span class="mf">1.95</span> <span class="mf">3.20</span> <span class="mf">4.10</span> <span class="mf">5.30</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.95</span><span class="p">,</span> <span class="mf">3.20</span><span class="p">,</span> <span class="mf">4.10</span><span class="p">,</span> <span class="mf">5.30</span><span class="p">])</span>
 
 <span class="c1"># find the average of the data set (the y-values)</span>
 
