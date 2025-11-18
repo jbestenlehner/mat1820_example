@@ -439,14 +439,14 @@ document.write(`
 <ul class="simple">
 <li><p>Also known as spline interpolation. It is a way of interpolating between data points but does not provide any numerical understanding – just joins the dots with lines.</p></li>
 <li><p>To make it smooth, not only are the points joined (i.e. the equation meets at the points) but also the gradients.</p></li>
-<li><p>Equations (typically cubic: <span class="math notranslate nohighlight">\(ax^3+bx^2+cx+d\)</span>) describe curve between adjacent points, in this case the first and second differentials are equal at that point.</p></li>
+<li><p>Equations (typically cubic: <span class="math notranslate nohighlight">\(ax^3+bx^2+cx+d\)</span>) describe curve between adjacent points, in this case the first and second differentials are equal at that point (gradients).</p></li>
 <li><p>Data values are assumed to be exact so requires accurate input data.</p></li>
 </ul>
 <p><strong>Least squares fitting (curve fitting):</strong></p>
 <ul class="simple">
 <li><p>A fit is a way of using a function to represent all the data. It tells you something about your complete data set.</p></li>
 <li><p>One type of equation fitting is the least squares method.</p></li>
-<li><p>The differences between the data and the fit are <em>error</em>. This can be used to calculate the coefficient of determination <span class="math notranslate nohighlight">\((R^2)\)</span> which indicates the goodness of the fit.</p></li>
+<li><p>The differences between the data and the fit are called <em>error</em>. The method minimises the <em>squared error</em>. This can be used to calculate the coefficient of determination <span class="math notranslate nohighlight">\((R^2)\)</span> which indicates the goodness of the fit.</p></li>
 <li><p>More suitable for most experiments.</p></li>
 </ul>
 <section id="spline-fitting">
@@ -522,10 +522,10 @@ document.write(`
 <p>Fitting using the least squares method is fairly straightforward in Python. To calculate the <span class="math notranslate nohighlight">\(R^2\)</span> value, coefficient of determination, is a bit more involved, For simplicity we calculate it manually.</p>
 <section id="a-simple-least-squares-fit">
 <h3>A simple least squares fit<a class="headerlink" href="#a-simple-least-squares-fit" title="Link to this heading">#</a></h3>
-<p>You can use the function polyfit to extract the prefactors of the order (degree) of fit you are using. For example</p>
+<p>You can use the function <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> to extract the prefactors of the order (degree) of the fit you are using. For example</p>
 <ul class="simple">
-<li><p>Order 1: Equation is <span class="math notranslate nohighlight">\(y=Ax+b\)</span></p></li>
-<li><p>Order 2: Equation is <span class="math notranslate nohighlight">\(y=Bx^2+Ax+C\)</span></p></li>
+<li><p>Order 1: Equation is <span class="math notranslate nohighlight">\(y=ax+b\)</span></p></li>
+<li><p>Order 2: Equation is <span class="math notranslate nohighlight">\(y=ax^2+bx+c\)</span></p></li>
 <li><p>Order 3. etc</p></li>
 </ul>
 <div class="cell docutils container">
@@ -612,7 +612,7 @@ document.write(`
 </section>
 <section id="task-3">
 <h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
-<p>Repeat the example from the lecture (<span class="math notranslate nohighlight">\(F=kx\)</span>)</p>
+<p>Repeat the example from the lecture on Hooke’s law (<span class="math notranslate nohighlight">\(F=-kx\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">])</span>
@@ -627,22 +627,23 @@ document.write(`
 <span class="c1"># Using np.polyval() and your fit to generate the y values of the line of best fit. </span>
 
 
-<span class="c1"># Calculate the square of the difference between the</span>
+<span class="c1"># Calculate and print to the screen the square of the difference between the</span>
 <span class="c1"># original y values and the new ones. </span>
-<span class="c1"># This is known as J</span>
+<span class="c1"># This is known as Sum of Squared Residuals (SSR)</span>
 
 
-<span class="c1"># Calculate the square of the difference between the</span>
+<span class="c1"># Calculate and print to the screen the square of the difference between the</span>
 <span class="c1"># original y values and the mean.</span>
-<span class="c1"># This is known as S</span>
+<span class="c1"># This is known as Total Sum of Squares (TSS)</span>
 
 
-<span class="c1"># R2 is equal to 1 - J/S. Now find R2. </span>
+<span class="c1"># R-square is equal to 1 - SSR/TSS. Now find R-square. </span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Looking at the documentation for <a href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code></a> there is an option so that <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> returns the residuals. Using <code class="docutils literal notranslate"><span class="pre">full=True</span></code> what does <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> as <em>residuals</em> returns?</p>
+<p>Looking at the documentation for <a href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code></a> there is an option so that <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> returns the <em>residuals</em>. <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> finds the best fit to the data by minimising the <em>residuals</em>. Using <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">np.polyfit(x,</span> <span class="pre">y,</span> <span class="pre">1,</span> <span class="pre">full=True)</span></code> a tuple is returned, which contains all the additional outputs. For example, to access the polynomial coefficient you need to type <code class="docutils literal notranslate"><span class="pre">p[0]</span></code> now. What is returned for the <em>residuals</em>?</p>
+<p>Note: Next semester we will have a closer look at the covariance matrix (<code class="docutils literal notranslate"><span class="pre">cov</span></code> option) which is used to obtain the uncertainties and correlation between our polynomial coefficients.</p>
 </section>
 <section id="task-4">
 <h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
@@ -657,13 +658,13 @@ document.write(`
 
 
 
-<span class="c1"># Using np.polyval() and your fit to generate the yvalues of the line of best fit. </span>
+<span class="c1"># Using np.polyval() and your fit to generate the y-values of the line of best fit. </span>
 
 
 
 
 
-<span class="c1"># find R2 and print to the screen</span>
+<span class="c1"># find R-square and print to the screen</span>
 
 
 
@@ -714,16 +715,16 @@ document.write(`
 <h2>Task 6 (uses a lot of previous knowledge)<a class="headerlink" href="#task-6-uses-a-lot-of-previous-knowledge" title="Link to this heading">#</a></h2>
 <p>Write an algorithm that reads ‘IV_data.csv’. Develop the algorithm so that:</p>
 <ul class="simple">
-<li><p>it fits both samples with a 1st order (linear) fit.</p></li>
+<li><p>It fits both samples with a 1st order (linear) fit.</p></li>
 <li><p>Graphs them as two subplots in one figure</p></li>
 <li><p>Overlay the fit on the top of the measured data.</p></li>
 <li><p>Using the gradient of the graph, calculate the resistance of the samples and print them to the screen.</p></li>
-<li><p>Calculate the coefficient of determination for each of your fits. Consider this this fits the data correctly or not.</p></li>
+<li><p>Calculate the coefficient of determination for each of your fits. Does it fit the data correctly or not?</p></li>
 </ul>
 <section id="tougher-challenge">
 <h3>TOUGHER CHALLENGE:<a class="headerlink" href="#tougher-challenge" title="Link to this heading">#</a></h3>
-<p>As you can see in your data, there is an issue above 6V where the I-V measurement is actually current limited and does not obey Ohms Law. We know that the equation behind the data is <span class="math notranslate nohighlight">\(V=IR\)</span> (Ohm’s law) so we should not change the order, but there is an issue with the fit.</p>
-<p>Modified this by only using the data below 6V. Apply the fit to that section of the data, printing the correct resistance of the samples to the screen</p>
+<p>As you can see in your data, there is an issue above 6V where the I-V measurement is actually current limited and does not obey Ohm’s Law. We know that the equation behind the data is <span class="math notranslate nohighlight">\(V=IR\)</span> (Ohm’s law) so we should not change the order, but there is an issue with the fit.</p>
+<p>Modified this by only using the data below 6V. Apply the fit to that section of the data, printing the correct resistance of the samples to the screen.</p>
 </section>
 </section>
 </section>
