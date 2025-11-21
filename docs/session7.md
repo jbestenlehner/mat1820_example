@@ -140,11 +140,11 @@ The polynomial is of the form:
 $$
 \begin{matrix}
 s(x) & = & m \cdot x & + & c \\
-s_1(x)     & = & \frac{y_2 - y_1}{x_2 - x_1} \cdot (x - x_1) & + & y_1 + \frac{y_2 - y_1}{x_2 - x_1} \cdot (x- x_1)\\
+s_1(x)     & = & \frac{y_2 - y_1}{x_2 - x_1} \cdot (x - x_1) & + & y_1\\
 \end{matrix}
 $$
 
-Note: $c=y_1+m\cdot (x- x_1)$. 
+Note: $c=y_1+m\cdot (-x_1)$. 
 
 The linear spline interpolation function of numpy is called `np.interp()`. It requires three input parameters:
 - `x`: the x-coordinates at which to evaluate the interpolated values.
