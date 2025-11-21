@@ -566,10 +566,10 @@ document.write(`
 \[\begin{split}
 \begin{matrix}
 s(x) &amp; = &amp; m \cdot x &amp; + &amp; c \\
-s_1(x)     &amp; = &amp; \frac{y_2 - y_1}{x_2 - x_1} \cdot (x - x_1) &amp; + &amp; y_1 + \frac{y_2 - y_1}{x_2 - x_1} \cdot (x- x_1)\\
+s_1(x)     &amp; = &amp; \frac{y_2 - y_1}{x_2 - x_1} \cdot (x - x_1) &amp; + &amp; y_1\\
 \end{matrix}
 \end{split}\]</div>
-<p>Note: <span class="math notranslate nohighlight">\(c=y_1+m\cdot (x- x_1)\)</span>.</p>
+<p>Note: <span class="math notranslate nohighlight">\(c=y_1+m\cdot (-x_1)\)</span>.</p>
 <p>The linear spline interpolation function of numpy is called <code class="docutils literal notranslate"><span class="pre">np.interp()</span></code>. It requires three input parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinates at which to evaluate the interpolated values.</p></li>
