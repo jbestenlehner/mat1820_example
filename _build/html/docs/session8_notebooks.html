@@ -628,12 +628,12 @@ many engineering problems you will encounter. If you read/search through the Sym
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>   <span class="c1"># factorise the equation.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span>   <span class="c1"># expand the equation.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span> <span class="c1"># does do anything in this example, but can be very useful for complex equations.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">eqn</span><span class="p">))</span> <span class="c1"># does not do anything in this example, but can be very useful for complex equations.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>You can rearrange complex functions in exactly the same way.</p>
+<p>You can rearrange more complex functions in exactly the same way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P, V, n, R, T&#39;</span><span class="p">)</span>
@@ -708,8 +708,7 @@ many engineering problems you will encounter. If you read/search through the Sym
 </section>
 <section id="plotting-symbolic-functions">
 <h2>Plotting symbolic functions<a class="headerlink" href="#plotting-symbolic-functions" title="Link to this heading">#</a></h2>
-<p>You can plot symbolic functions using the function <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. It requires the function (equation in symbolic form). You can
-also define limits (here between -6 and 4), points, line colours etc. much like <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, but called within <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is not able to plot symbolic functions. However, you can plot symbolic functions using the function <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. It requires the function (equation in symbolic form). You can also define limits (here between -6 and 4), points, line colours etc. much like <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, but called within <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
@@ -722,7 +721,7 @@ also define limits (here between -6 and 4), points, line colours etc. much like 
 </div>
 </div>
 </div>
-<p>Note: <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code> can be used to do some basic graphs. However, for complex plots the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library should be used. As seen in the example above for the <code class="docutils literal notranslate"><span class="pre">markers</span></code> parameter (complicated looking parameter call), SymPy uses the external <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.plt()</span></code> function accessed via <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code> can be used to do some basic graphs. However, for complex plots the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library should be used. However, you need to evaluate your symbolic functions/equations to create arrays so that <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is able to plot it. As seen in the example above for the <code class="docutils literal notranslate"><span class="pre">markers</span></code> parameter (complicated looking parameter call), SymPy uses the external <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.plt()</span></code> function accessed via <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
 <p>You can look up using the help function (<code class="docutils literal notranslate"><span class="pre">sm.plot?</span></code> or <code class="docutils literal notranslate"><span class="pre">help(sm.plot</span></code>). More details with examples can be found <a href="https://www.cfm.brown.edu/people/dobrush/am33/SymPy/part1.html" target="_blank">here</a>.</p>
 </section>
 <section id="task-4">
