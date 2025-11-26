@@ -726,8 +726,8 @@ many engineering problems you will encounter. If you read/search through the Sym
 </section>
 <section id="task-4">
 <h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
-<p>Plot <code class="docutils literal notranslate"><span class="pre">sm.tan(x)</span></code> between -10 and 5 using <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. Note: SymPy contains symbolic implementation for commonly used functions like <code class="docutils literal notranslate"><span class="pre">log()</span></code> and trigonometric functions.</p>
-<p>Modify your code to show a red cross at the point of <span class="math notranslate nohighlight">\(x=-5\)</span>.</p>
+<p>Plot <code class="docutils literal notranslate"><span class="pre">sm.tan(x)</span></code> between -10 and 5 using <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>. Note: SymPy contains symbolic implementation for commonly used functions like <code class="docutils literal notranslate"><span class="pre">log()</span></code> and trigonometric functions. Set y limits with <code class="docutils literal notranslate"><span class="pre">ylim=(-10,10)</span></code>.</p>
+<p>Modify your code to show a red cross at the point of <span class="math notranslate nohighlight">\(x=-5\)</span> and <span class="math notranslate nohighlight">\(y=\tan(-5)\)</span>.</p>
 </section>
 <section id="task-5">
 <h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
@@ -806,7 +806,7 @@ many engineering problems you will encounter. If you read/search through the Sym
 <span class="n">b</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># integrating sin(x) </span>
 
 <span class="n">c</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>      <span class="c1"># differentiating ln(x)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>       <span class="c1"># integrating 1/x remember log is ln in matlab</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>       <span class="c1"># integrating 1/x remember log is ln in python</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 </pre></div>
@@ -892,10 +892,10 @@ many engineering problems you will encounter. If you read/search through the Sym
 <p>In mathematics, a parametric equation defines a group of quantities as functions of one or more independent variables called parameters.</p>
 <p>A circle of radius 1 can be expressed as</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x=\cos(t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y=\sin(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x=sm.\cos(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y=sm.\sin(t)\)</span></p></li>
 </ul>
-<p>First use this to plot a circle using the SymPy library and <code class="docutils literal notranslate"><span class="pre">sm.plot()</span></code>.</p>
+<p>First use this to plot a circle using the SymPy library and <code class="docutils literal notranslate"> <span class="pre">sm.plot_parametric()</span></code> (use the help (<code class="docutils literal notranslate"><span class="pre">sm.plot_paramtric?</span></code>) and look at the example).</p>
 <p>Modify your code to generate a circle with radius of 2 with a centre located at <span class="math notranslate nohighlight">\(x=1\)</span> and <span class="math notranslate nohighlight">\(y=0\)</span>.</p>
 </section>
 <section id="task-9">
