@@ -224,7 +224,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 9</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Functions in Python</a></li>
-
 </ul>
 
     </div>
@@ -404,32 +403,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial: Functions in Python</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-functions">Introduction to Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax">The Syntax</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help">Help</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-adding-numbers"><strong>Task 1:</strong> Adding numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-adding-numbers">Task 1: Adding numbers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values">Default values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-multiply-numbers"><strong>Task 2:</strong> Multiply numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-diffusion-coefficient-arrhenius-equation"><strong>Task 3:</strong> Diffusion Coefficient (Arrhenius Equation)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-material-classification-with-boolean-logic"><strong>Task 4:</strong> Material Classification with Boolean Logic</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-some-examples"><strong>Task 5:</strong> Some examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-multiply-numbers">Task 2: Multiply numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-diffusion-coefficient-arrhenius-equation">Task 3: Diffusion Coefficient (Arrhenius Equation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-material-classification-with-boolean-logic">Task 4: Material Classification with Boolean Logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-some-examples">Task 5: Some examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">1. Random numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">2. Unit conversion</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-crystal-structure">Task 6: Crystal structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-summation">Task 7: Summation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-toughness">Task 8: Toughness</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-crystal-structure"><strong>Task 6:</strong> Crystal structure</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-toughness"><strong>Task 7:</strong> Toughness</a></li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -465,11 +459,6 @@ print(a)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-</pre></div>
-</div>
-</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">return</span></code> is optional and is used, if you want the function to give a value back to the main program so you can use it.</p>
 <ul class="simple">
@@ -491,11 +480,6 @@ greet_user(name)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Joachim!
-</pre></div>
-</div>
-</div>
 </div>
 <p>In the example above, no value is return to the main program. Any variables defined inside the function are not available to the main program, e.g. there is no variable called <code class="docutils literal notranslate"><span class="pre">username</span></code> accessible in the main program.</p>
 <p>Function parameter is <code class="docutils literal notranslate"><span class="pre">username</span></code>. Argument to the function is the variable <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
@@ -514,7 +498,7 @@ greet_user?
 </section>
 </section>
 <section id="task-1-adding-numbers">
-<h2><strong>Task 1:</strong> Adding numbers<a class="headerlink" href="#task-1-adding-numbers" title="Link to this heading">#</a></h2>
+<h2>Task 1: Adding numbers<a class="headerlink" href="#task-1-adding-numbers" title="Link to this heading">#</a></h2>
 <p>Write function including description that adds 3 to a number.</p>
 <p>Display the function description and test your function.</p>
 <section id="default-values">
@@ -537,11 +521,11 @@ greet_user?
 </section>
 </section>
 <section id="task-2-multiply-numbers">
-<h2><strong>Task 2:</strong> Multiply numbers<a class="headerlink" href="#task-2-multiply-numbers" title="Link to this heading">#</a></h2>
+<h2>Task 2: Multiply numbers<a class="headerlink" href="#task-2-multiply-numbers" title="Link to this heading">#</a></h2>
 <p>Write a function that multiplies two arguments together. Define a default value for the second parameter.</p>
 </section>
 <section id="task-3-diffusion-coefficient-arrhenius-equation">
-<h2><strong>Task 3:</strong> Diffusion Coefficient (Arrhenius Equation)<a class="headerlink" href="#task-3-diffusion-coefficient-arrhenius-equation" title="Link to this heading">#</a></h2>
+<h2>Task 3: Diffusion Coefficient (Arrhenius Equation)<a class="headerlink" href="#task-3-diffusion-coefficient-arrhenius-equation" title="Link to this heading">#</a></h2>
 <p>The movement of atoms in a solid depends on temperature according to the Arrhenius equation:</p>
 <div class="math notranslate nohighlight">
 \[ D = D_0 \exp\left(-\frac{Q_d}{RT}\right)\]</div>
@@ -551,7 +535,7 @@ greet_user?
 <span class="math notranslate nohighlight">\(D_0 = 2.3\times 10^{-5}\, \mathrm{m^2/s}\)</span>, <span class="math notranslate nohighlight">\(Q_d = 148000\, \mathrm{J/mol}\)</span>, <span class="math notranslate nohighlight">\(T = 1273\, \mathrm{K}\)</span></p>
 </section>
 <section id="task-4-material-classification-with-boolean-logic">
-<h2><strong>Task 4:</strong> Material Classification with Boolean Logic<a class="headerlink" href="#task-4-material-classification-with-boolean-logic" title="Link to this heading">#</a></h2>
+<h2>Task 4: Material Classification with Boolean Logic<a class="headerlink" href="#task-4-material-classification-with-boolean-logic" title="Link to this heading">#</a></h2>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">classify_material</span></code> that classifies a material based on its <strong>Electrical Conductivity</strong> (<span class="math notranslate nohighlight">\(\sigma\)</span>).</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -575,7 +559,7 @@ greet_user?
 <p>Test your function with Silicon (<span class="math notranslate nohighlight">\(1.0\times 10^{-3}~ \mathrm{S/m}\)</span>) and Copper (<span class="math notranslate nohighlight">\(5.9\times10^{7}~ \mathrm{S/m}\)</span>).</p>
 </section>
 <section id="task-5-some-examples">
-<h2><strong>Task 5:</strong> Some examples<a class="headerlink" href="#task-5-some-examples" title="Link to this heading">#</a></h2>
+<h2>Task 5: Some examples<a class="headerlink" href="#task-5-some-examples" title="Link to this heading">#</a></h2>
 <section id="random-numbers">
 <h3>1. Random numbers<a class="headerlink" href="#random-numbers" title="Link to this heading">#</a></h3>
 <p>Write a function that creates a 3x3 matrix filled with random numbers. Use the function <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display only the corner values.</p>
@@ -585,22 +569,24 @@ greet_user?
 <p>Write a function that inputs the value of magnetic field in <span class="math notranslate nohighlight">\(\mathrm{Am^{-1}}\)</span>, converts them to Oersteds and prints them to the screen (1 <span class="math notranslate nohighlight">\(\mathrm{Oe}\)</span> is 79.6 <span class="math notranslate nohighlight">\(\mathrm{Am^{-1}}\)</span>).</p>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="task-6-crystal-structure">
-<h1><strong>Task 6:</strong> Crystal structure<a class="headerlink" href="#task-6-crystal-structure" title="Link to this heading">#</a></h1>
+<section id="task-6-crystal-structure">
+<h2>Task 6: Crystal structure<a class="headerlink" href="#task-6-crystal-structure" title="Link to this heading">#</a></h2>
 <p>Sodium (Na) metal is a body centred cubic (bcc) unit cell with <span class="math notranslate nohighlight">\(a =
 0.42906\,\mathrm{nm}\)</span>. The electronic configuration of Na is [Ne]3s<span class="math notranslate nohighlight">\(^1\)</span>. Write a function that calculates the free electron concentration (i.e. how many valence electrons there are in a given volume) of Na metal in units of
 <span class="math notranslate nohighlight">\(\mathrm{e/m^3}\)</span>.</p>
 <p>Adjust the code so that the user can supply the lattice parameter and change this for different materials.</p>
-<p><strong>Task 7:</strong> Summation</p>
+</section>
+<section id="task-7-summation">
+<h2>Task 7: Summation<a class="headerlink" href="#task-7-summation" title="Link to this heading">#</a></h2>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">summing</span></code> that asks you to type a number. The function will sum up each of the values that you have typed and end when the sum goes beyond a specified value with default value of 100. It will print to the screen the total and the number of values that you have typed.</p>
 <p>For example, if you entered the values 35, 55, 8, 6, the function will
 stop and print:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">=</span> <span class="pre">104</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">Number</span> <span class="pre">of</span> <span class="pre">values</span> <span class="pre">=</span> <span class="pre">4</span></code></p>
 <p><strong>Note:</strong> This requires the use of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
-<section id="task-7-toughness">
-<h2><strong>Task 7:</strong> Toughness<a class="headerlink" href="#task-7-toughness" title="Link to this heading">#</a></h2>
+</section>
+<section id="task-8-toughness">
+<h2>Task 8: Toughness<a class="headerlink" href="#task-8-toughness" title="Link to this heading">#</a></h2>
 <p>Write a function to calculate the toughness of the material using the <code class="docutils literal notranslate"><span class="pre">stressstrain.csv</span></code> data from Blackboard. The toughness is the area under the stress-strain curve. So you could use the trapezium rule (<code class="docutils literal notranslate"><span class="pre">np.trapezoid()</span></code>) on the data to evaluate the toughness.</p>
 </section>
 </section>
@@ -660,32 +646,27 @@ stop and print:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial: Functions in Python</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-functions">Introduction to Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax">The Syntax</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help">Help</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-adding-numbers"><strong>Task 1:</strong> Adding numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-adding-numbers">Task 1: Adding numbers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values">Default values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-multiply-numbers"><strong>Task 2:</strong> Multiply numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-diffusion-coefficient-arrhenius-equation"><strong>Task 3:</strong> Diffusion Coefficient (Arrhenius Equation)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-material-classification-with-boolean-logic"><strong>Task 4:</strong> Material Classification with Boolean Logic</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-some-examples"><strong>Task 5:</strong> Some examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-multiply-numbers">Task 2: Multiply numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-diffusion-coefficient-arrhenius-equation">Task 3: Diffusion Coefficient (Arrhenius Equation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-material-classification-with-boolean-logic">Task 4: Material Classification with Boolean Logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-some-examples">Task 5: Some examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">1. Random numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">2. Unit conversion</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-crystal-structure">Task 6: Crystal structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-summation">Task 7: Summation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-toughness">Task 8: Toughness</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-crystal-structure"><strong>Task 6:</strong> Crystal structure</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-toughness"><strong>Task 7:</strong> Toughness</a></li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
