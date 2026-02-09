@@ -37,3 +37,6 @@ parts:
     chapters:
     - file: docs/session8
     - file: docs/session8_notebooks
+  - caption: Session 9
+    chapters:
+    - file: docs/session9_notebooks
