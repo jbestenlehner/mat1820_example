@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutorial: Functions in Python &#8212; Digital Skills for Materials</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session9_notebooks';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Tutorial: Numerical Methods" href="session8_notebooks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-light" alt="Digital Skills for Materials - Home"/>
+    <script>document.write(`<img src="../_static/UOSLogo_Primary_Violet_RGB.png" class="logo__image only-dark" alt="Digital Skills for Materials - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Digital Skills for Materials
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Calculations, variables and help</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session2.html">Vectors and Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session2_notebooks.html">Tutorial: Vectors and matrices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session3.html">Plotting graphs and visualising data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session3_notebooks.html">Tutorial: Plotting and visualising data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output plus data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session4_notebooks.html">Tutorial: Input and output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session5.html">Conditional Logic and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session5_notebooks.html">Tutorial: Conditions and Loops</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session6.html">Reading and writing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session6_notebooks.html">Tutorial: Reading in and writing out data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session7.html">Fitting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session7_notebooks.html">Tutorial: Data fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session8.html">Symbolic mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session8_notebooks.html">Tutorial: Numerical Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 9</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Functions in Python</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session9_notebooks.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/session9_notebooks.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial: Functions in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial: Functions in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-functions">Introduction to Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax">The Syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help">Help</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-adding-numbers"><strong>Task 1:</strong> Adding numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values">Default values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-multiply-numbers"><strong>Task 2:</strong> Multiply numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-diffusion-coefficient-arrhenius-equation"><strong>Task 3:</strong> Diffusion Coefficient (Arrhenius Equation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-material-classification-with-boolean-logic"><strong>Task 4:</strong> Material Classification with Boolean Logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-some-examples"><strong>Task 5:</strong> Some examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">1. Random numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">2. Unit conversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-crystal-structure"><strong>Task 6:</strong> Crystal structure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-toughness"><strong>Task 7:</strong> Toughness</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-functions-in-python">
+<h1>Tutorial: Functions in Python<a class="headerlink" href="#tutorial-functions-in-python" title="Link to this heading">#</a></h1>
+<section id="introduction-to-functions">
+<h2>Introduction to Functions<a class="headerlink" href="#introduction-to-functions" title="Link to this heading">#</a></h2>
+<p>In Python, a function is a reusable block of code that performs a specific task. In research, we use functions to automate repetitive calculations, like converting units or calculating material properties.</p>
+<section id="the-syntax">
+<h3>The Syntax<a class="headerlink" href="#the-syntax" title="Link to this heading">#</a></h3>
+<p>A functions is defined with the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def function_name(parameter):
+    &quot;&quot;&quot;
+    Comment to describe the function and their input and outputs.
+    More complex functions also include examples and how to use it.
+    &quot;&quot;&quot;
+    result = parameter * 2 # some statements, operations, calculations, ...
+    return result          # returns result to main program.
+
+# Calling the function
+a = function_name(5)
+# Prints results
+print(a)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">return</span></code> is optional and is used, if you want the function to give a value back to the main program so you can use it.</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong>: The variables listed in the function definition (<code class="docutils literal notranslate"><span class="pre">parameter</span></code>).</p></li>
+<li><p><strong>Arguments</strong>: The actual values passed into the function when you call it (<code class="docutils literal notranslate"><span class="pre">5</span></code>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def greet_user(username):
+    &quot;&quot;&quot;
+    Display a simple greeting.
+    username: string value
+    &quot;&quot;&quot;
+    print(f&#39;Hello, {username}!&#39;)
+
+# Calling the function
+name = &#39;Joachim&#39;  # string
+greet_user(name)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Joachim!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above, no value is return to the main program. Any variables defined inside the function are not available to the main program, e.g. there is no variable called <code class="docutils literal notranslate"><span class="pre">username</span></code> accessible in the main program.</p>
+<p>Function parameter is <code class="docutils literal notranslate"><span class="pre">username</span></code>. Argument to the function is the variable <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+</section>
+<section id="help">
+<h3>Help<a class="headerlink" href="#help" title="Link to this heading">#</a></h3>
+<p>As you might have noticed the comment to describe the function is in <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code> quotation marks. If you use the help function, comments in  <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code> but not after <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>function_name?
+greet_user?
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-1-adding-numbers">
+<h2><strong>Task 1:</strong> Adding numbers<a class="headerlink" href="#task-1-adding-numbers" title="Link to this heading">#</a></h2>
+<p>Write function including description that adds 3 to a number.</p>
+<p>Display the function description and test your function.</p>
+<section id="default-values">
+<h3>Default values<a class="headerlink" href="#default-values" title="Link to this heading">#</a></h3>
+<p>If you provide too many or too few arguments to your function, you will receive an error message. However, a function parameter can have a default value, which is used if no argument is provided for that parameter when the function is called. This allows the function to be called with fewer arguments than it is defined to accept, making those parameters optional.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def add_numbers(number, addend = 3):
+  &quot;&quot;&quot;
+  Adds 2 numbers
+  number: float or int
+  addend: float or int, optional input: default is 3
+  &quot;&quot;&quot;
+  result = number + addend
+  return result
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="task-2-multiply-numbers">
+<h2><strong>Task 2:</strong> Multiply numbers<a class="headerlink" href="#task-2-multiply-numbers" title="Link to this heading">#</a></h2>
+<p>Write a function that multiplies two arguments together. Define a default value for the second parameter.</p>
+</section>
+<section id="task-3-diffusion-coefficient-arrhenius-equation">
+<h2><strong>Task 3:</strong> Diffusion Coefficient (Arrhenius Equation)<a class="headerlink" href="#task-3-diffusion-coefficient-arrhenius-equation" title="Link to this heading">#</a></h2>
+<p>The movement of atoms in a solid depends on temperature according to the Arrhenius equation:</p>
+<div class="math notranslate nohighlight">
+\[ D = D_0 \exp\left(-\frac{Q_d}{RT}\right)\]</div>
+<p>Create a function called <code class="docutils literal notranslate"><span class="pre">calc_diffusion</span></code> that takes <span class="math notranslate nohighlight">\(D_0\)</span> (pre-exponential), <span class="math notranslate nohighlight">\(Q_d\)</span> (activation energy), and <span class="math notranslate nohighlight">\(T\)</span> (temperature in Kelvin) and returns the diffusion coefficient <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p><strong>Note:</strong> Use the Gas Constant <span class="math notranslate nohighlight">\(R=8.314~\mathrm{J/mol\,K}\)</span>.</p>
+<p>Test your function with values for Carbon in FCC Iron:
+<span class="math notranslate nohighlight">\(D_0 = 2.3\times 10^{-5}\, \mathrm{m^2/s}\)</span>, <span class="math notranslate nohighlight">\(Q_d = 148000\, \mathrm{J/mol}\)</span>, <span class="math notranslate nohighlight">\(T = 1273\, \mathrm{K}\)</span></p>
+</section>
+<section id="task-4-material-classification-with-boolean-logic">
+<h2><strong>Task 4:</strong> Material Classification with Boolean Logic<a class="headerlink" href="#task-4-material-classification-with-boolean-logic" title="Link to this heading">#</a></h2>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">classify_material</span></code> that classifies a material based on its <strong>Electrical Conductivity</strong> (<span class="math notranslate nohighlight">\(\sigma\)</span>).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Material Type</p></th>
+<th class="head"><p>Conductivity (<span class="math notranslate nohighlight">\(\sigma\)</span>) in S/m</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Conductors</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(&gt;10^6\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Semiconductors</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(10^{-6}\)</span> to <span class="math notranslate nohighlight">\(10^4\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Insulators</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(&lt;10^{-10}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Test your function with Silicon (<span class="math notranslate nohighlight">\(1.0\times 10^{-3}~ \mathrm{S/m}\)</span>) and Copper (<span class="math notranslate nohighlight">\(5.9\times10^{7}~ \mathrm{S/m}\)</span>).</p>
+</section>
+<section id="task-5-some-examples">
+<h2><strong>Task 5:</strong> Some examples<a class="headerlink" href="#task-5-some-examples" title="Link to this heading">#</a></h2>
+<section id="random-numbers">
+<h3>1. Random numbers<a class="headerlink" href="#random-numbers" title="Link to this heading">#</a></h3>
+<p>Write a function that creates a 3x3 matrix filled with random numbers. Use the function <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display only the corner values.</p>
+</section>
+<section id="unit-conversion">
+<h3>2. Unit conversion<a class="headerlink" href="#unit-conversion" title="Link to this heading">#</a></h3>
+<p>Write a function that inputs the value of magnetic field in <span class="math notranslate nohighlight">\(\mathrm{Am^{-1}}\)</span>, converts them to Oersteds and prints them to the screen (1 <span class="math notranslate nohighlight">\(\mathrm{Oe}\)</span> is 79.6 <span class="math notranslate nohighlight">\(\mathrm{Am^{-1}}\)</span>).</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="task-6-crystal-structure">
+<h1><strong>Task 6:</strong> Crystal structure<a class="headerlink" href="#task-6-crystal-structure" title="Link to this heading">#</a></h1>
+<p>Sodium (Na) metal is a body centred cubic (bcc) unit cell with <span class="math notranslate nohighlight">\(a =
+0.42906\,\mathrm{nm}\)</span>. The electronic configuration of Na is [Ne]3s<span class="math notranslate nohighlight">\(^1\)</span>. Write a function that calculates the free electron concentration (i.e. how many valence electrons there are in a given volume) of Na metal in units of
+<span class="math notranslate nohighlight">\(\mathrm{e/m^3}\)</span>.</p>
+<p>Adjust the code so that the user can supply the lattice parameter and change this for different materials.</p>
+<p><strong>Task 7:</strong> Summation</p>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">summing</span></code> that asks you to type a number. The function will sum up each of the values that you have typed and end when the sum goes beyond a specified value with default value of 100. It will print to the screen the total and the number of values that you have typed.</p>
+<p>For example, if you entered the values 35, 55, 8, 6, the function will
+stop and print:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">=</span> <span class="pre">104</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span> <span class="pre">of</span> <span class="pre">values</span> <span class="pre">=</span> <span class="pre">4</span></code></p>
+<p><strong>Note:</strong> This requires the use of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<section id="task-7-toughness">
+<h2><strong>Task 7:</strong> Toughness<a class="headerlink" href="#task-7-toughness" title="Link to this heading">#</a></h2>
+<p>Write a function to calculate the toughness of the material using the <code class="docutils literal notranslate"><span class="pre">stressstrain.csv</span></code> data from Blackboard. The toughness is the area under the stress-strain curve. So you could use the trapezium rule (<code class="docutils literal notranslate"><span class="pre">np.trapezoid()</span></code>) on the data to evaluate the toughness.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="session8_notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial: Numerical Methods</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial: Functions in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-functions">Introduction to Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax">The Syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help">Help</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-adding-numbers"><strong>Task 1:</strong> Adding numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values">Default values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-multiply-numbers"><strong>Task 2:</strong> Multiply numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-diffusion-coefficient-arrhenius-equation"><strong>Task 3:</strong> Diffusion Coefficient (Arrhenius Equation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-material-classification-with-boolean-logic"><strong>Task 4:</strong> Material Classification with Boolean Logic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-some-examples"><strong>Task 5:</strong> Some examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">1. Random numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">2. Unit conversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-crystal-structure"><strong>Task 6:</strong> Crystal structure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-toughness"><strong>Task 7:</strong> Toughness</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joachim M. Bestenlehner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright University of Sheffield 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
