@@ -40,3 +40,7 @@ parts:
   - caption: Session 9
     chapters:
     - file: docs/session9_notebooks
+  - caption: Session 10
+    chapters:
+    - file: docs/session10
+    - file: docs/session10_notebooks
