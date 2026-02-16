@@ -44,7 +44,7 @@ $$
 
 ### Why "in Quadrature"?
 
-You might wonder why we use the square root of the sum of squares $(\sqrt{\sigma_x^2 + \sigma_y^2})$​ instead of just adding them $(\sigma_x + \sigma_y)$.
+You might wonder why we use the square root of the sum of squares $\left(\sqrt{\sigma_x^2 + \sigma_y^2}\right)$​ instead of just adding them $(\sigma_x + \sigma_y)$.
 
 Adding them directly assumes the "worst-case scenario" where both errors are at their maximum in the same direction. Using quadrature assumes the errors are **independent** and **random**, meaning it is statistically unlikely that both measurements are off by their maximum amount at the same time.
 

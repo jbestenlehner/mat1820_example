@@ -408,6 +408,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-standard-deviation-and-standard-error">Mean, standard deviation and standard error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">Mean:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-error">Standard Error:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8</a></li>
 </ul>
             </nav>
         </div>
@@ -551,6 +560,49 @@ their errors into Celsius.</p>
 <h2>Task 5<a class="headerlink" href="#task-5" title="Permalink to this heading">#</a></h2>
 <p>Find the value and error for the reciprocal of temperatures in K from the file <code class="docutils literal notranslate"><span class="pre">temperatures.csv</span></code> (Task 3). Can you use a function from Task 2 to propagate the error?</p>
 </section>
+<section id="mean-standard-deviation-and-standard-error">
+<h2>Mean, standard deviation and standard error<a class="headerlink" href="#mean-standard-deviation-and-standard-error" title="Permalink to this heading">#</a></h2>
+<section id="mean">
+<h3>Mean:<a class="headerlink" href="#mean" title="Permalink to this heading">#</a></h3>
+<p>The mean, often referred to as the average, is calculated by adding all values <span class="math notranslate nohighlight">\(x_i\)</span> in a dataset and dividing by the number of values (sample size <span class="math notranslate nohighlight">\(n\)</span>). It represents the central point of the data:</p>
+<p><span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\)</span>.</p>
+</section>
+<section id="standard-deviation">
+<h3>Standard Deviation:<a class="headerlink" href="#standard-deviation" title="Permalink to this heading">#</a></h3>
+<p>Standard deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>) measures the amount of variation or dispersion in a set of values. A low <span class="math notranslate nohighlight">\(\sigma\)</span> indicates that values are close to the mean, while a high <span class="math notranslate nohighlight">\(\sigma\)</span> indicates that values are spread out over a wider range:</p>
+<p><span class="math notranslate nohighlight">\(\sigma_x = \sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n}}\)</span>.</p>
+<p>Note: <span class="math notranslate nohighlight">\(\sigma^2\)</span> is called variance.</p>
+</section>
+<section id="standard-error">
+<h3>Standard Error:<a class="headerlink" href="#standard-error" title="Permalink to this heading">#</a></h3>
+<p>The standard error (SE) is the standard deviation of the sampling distribution. It estimates how far the sample mean is likely to be from the population mean. The formula for SE is:</p>
+<p><span class="math notranslate nohighlight">\(SE = \frac{\sigma_x}{\sqrt{n}}\)</span>.</p>
+</section>
+</section>
+<section id="task-6">
+<h2>Task 6<a class="headerlink" href="#task-6" title="Permalink to this heading">#</a></h2>
+<p>File <code class="docutils literal notranslate"><span class="pre">activation_energy.csv</span></code> contains a list of activation energies for O vacancy diffusion. Calculate the mean, standard
+deviation and standard error of this data set.</p>
+</section>
+<section id="task-7">
+<h2>Task 7<a class="headerlink" href="#task-7" title="Permalink to this heading">#</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code> function to generate an array of 10 random numbers. This should be a uniform distribution
+from [0-1). Calculate the mean, standard deviation and standard error.</p>
+<p>Increase the array to 50, calculate the mean, standard deviation and standard error.</p>
+<p>How are the numbers changing? Is the standard deviation increasing or reducing? Why? Write you answer into the text field.</p>
+<p>Increase the array further to 250, calculate the mean standard deviation and standard error.</p>
+<p>How are they changing now?</p>
+<p>Finally, try 1000 in the array and calculate the mean, standard deviation and standard error.</p>
+</section>
+<section id="task-8">
+<h2>Task 8<a class="headerlink" href="#task-8" title="Permalink to this heading">#</a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">uts.csv</span></code> contains a range of ultimate tensile strength (UTS) values for a sample of steel.</p>
+<p>Plot a graph of mean vs number of data points (i.e. the mean on the y-axis and the number of data points used to get the mean on the x axis).</p>
+<p>For example, in this graph point 1 would be the the mean of the 1st data point, i.e. 484 then point. Point 2 would be the mean of 484 and 492, etc..</p>
+<p>Perform the same operation for the standard deviation and standard error.</p>
+<p>When do you see a convergence of the mean to 3 significant figures?</p>
+<p>When, or if, do you see a convergence of the standard deviation to 2 significant figures?</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -618,6 +670,15 @@ their errors into Celsius.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-standard-deviation-and-standard-error">Mean, standard deviation and standard error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">Mean:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-error">Standard Error:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8</a></li>
 </ul>
   </nav></div>
 
