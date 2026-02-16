@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Solving Systems of Linear Equations &#8212; Digital Skills for Materials</title>
+    <title>Tutorial: Errors &#8212; Digital Skills for Materials</title>
   
   
   
@@ -59,9 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/linear_equations';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session10_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Error propagation" href="session10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,8 +124,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -227,9 +226,9 @@
 <li class="toctree-l1"><a class="reference internal" href="session9_notebooks.html">Tutorial: Functions in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session10.html">Error propagation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session10_notebooks.html">Tutorial: Errors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Errors</a></li>
 </ul>
 
     </div>
@@ -284,7 +283,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/linear_equations.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session10_notebooks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +314,7 @@
       
       
       
-      <li><a href="../_sources/docs/linear_equations.ipynb" target="_blank"
+      <li><a href="../_sources/docs/session10_notebooks.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Solving Systems of Linear Equations</h1>
+    <h1>Tutorial: Errors</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,44 +408,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solving Systems of Linear Equations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix">In this example
-$<span class="math notranslate nohighlight">\(
-A=
-\begin{bmatrix}
-4&amp; 3&amp; -5\\
--2&amp; -4 &amp; 5\\
-8 &amp; 8&amp; 0\\
-\end{bmatrix}~\mathrm{and}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-b=
-\begin{bmatrix}
-2\\
-5\\
--3\\
-\end{bmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
-The matrix equation is
-\)</span>$
-\begin{bmatrix}
-4&amp; 3&amp; -5\
--2&amp; -4 &amp; 5\
-8 &amp; 8&amp; 0\
-\end{bmatrix}
-\begin{bmatrix}
-x_1\
-x_2\
-x_3\
-\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">Types of Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-comparison">Summary Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-vs-accuracy">Precision vs. Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-temperature-measurements-with-a-thermometer">Example: Temperature measurements with a Thermometer</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-standard-deviation-and-standard-error">Mean, standard deviation and standard error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">Mean:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-error">Standard Error:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -457,159 +439,181 @@ x_3\
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="solving-systems-of-linear-equations">
-<h1>Solving Systems of Linear Equations<a class="headerlink" href="#solving-systems-of-linear-equations" title="Link to this heading">#</a></h1>
-<p>A system of linear equations is a set of two or more linear equations with the same set of variables. The general form of a linear equation with n variables is: <span class="math notranslate nohighlight">\(a_{1}x_{1}+a_{2}x_{2}+\dots +a_{n}x_{n}=b\)</span>. A linear system of equations combines several such equations:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{matrix}
-a_{11}x_{1}&amp;+&amp;a_{12}x_{2}&amp;+&amp;\dots &amp;+&amp;a_{1n}x_{n}&amp;=&amp;b_1\\
-a_{21}x_{1}&amp;+&amp;a_{22}x_{2}&amp;+&amp;\dots &amp;+&amp;a_{2n}x_{n}&amp;=&amp;b_2\\
-\vdots &amp;&amp;\vdots &amp;&amp; \ddots&amp;&amp;\ldots&amp;=&amp;\vdots\\
-a_{m1}x_{1}&amp;+&amp;a_{m2}x_{2}&amp;+&amp;\dots &amp;+&amp;a_{mn}x_{n}&amp;=&amp;b_m\\
-\end{matrix}
-\end{split}\]</div>
-<p>To solve the system of linear equations they are written in the form of a matrix equation:</p>
-<div class="math notranslate nohighlight">
-\[
-A\vec{x} = \vec{b}
-\]</div>
-<p>with
-$<span class="math notranslate nohighlight">\(A = 
-\begin{bmatrix}
-a_{{1}{1}} &amp; a_{{1}{2}} &amp; \ldots &amp; a_{{1}{n}} \\
-a_{{2}{1}} &amp; a_{{2}{2}} &amp; \ldots &amp; a_{{2}{n}} \\
-a_{{3}{1}} &amp; a_{{3}{2}} &amp; \ldots &amp; a_{{3}{n}} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-a_{{m}{1}} &amp; a_{{m}{2}} &amp; \ldots &amp; a_{{m}{n}} \\
-\end{bmatrix}~,
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-\vec{x} = 
-\begin{bmatrix}
-x_1\\
-x_2\\
-\vdots\\
-x_n\\
-\end{bmatrix}~\mathrm{and}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-\vec{b} = 
-\begin{bmatrix}
-b_1\\
-b_2\\
-\vdots\\
-b_m\\
-\end{bmatrix}.
-\)</span>$</p>
-<p>To solve the matrix equation for <span class="math notranslate nohighlight">\(\vec{x}\)</span>, you might have learned in the math lecture, that you multiply both sides of the matrix equation with the inverse matrix of <span class="math notranslate nohighlight">\(A\)</span> (<span class="math notranslate nohighlight">\(A^{-1}\)</span>). This gives you</p>
-<div class="math notranslate nohighlight">
-\[
-A^{-1}A\vec{x} = A^{-1}\vec{b} \Rightarrow \vec{x} = A^{-1} \vec{b}.
-\]</div>
-<p><span class="math notranslate nohighlight">\(A^{-1}A\)</span> results in an identity matrix, where the elements on the diagonal are ones and all others are zeros.</p>
-<p>To see how this approach practically work, let us consider the following system of equations:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{matrix}
-~~~4x_1 &amp; + 3x_2 &amp;- 5x_3 &amp;=&amp; ~~~2 \\
--2x_1&amp; - 4x_2 &amp;+ 5x_3 &amp;=&amp; ~~~5 \\
-~~~8x_1 &amp;+ 8x_2 &amp; &amp;=&amp; -3 \\
-\end{matrix}
-\end{split}\]</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-errors">
+<h1>Tutorial: Errors<a class="headerlink" href="#tutorial-errors" title="Link to this heading">#</a></h1>
+<section id="types-of-errors">
+<h2>Types of Errors<a class="headerlink" href="#types-of-errors" title="Link to this heading">#</a></h2>
+<p>There are two main types of errors – <strong>systematic</strong> and <strong>random</strong>:</p>
+<p><strong>1. Systematic Errors or “Biased” Errors</strong></p>
+<p>Systematic errors are consistent and predictable. If you repeat the measurement, the error stays the same or follows a specific pattern. These errors affect the accuracy of your results—how close you are to the “true” value.</p>
+<ul class="simple">
+<li><p>Cause: Usually a feature of the experimental setup, e.g. experimental design, accuracy of our measuring equipment or inherent offsets in values recorded, etc..</p></li>
+<li><p>Fix: These can’t be removed by averaging. You have to calibrate your tools or change your method.</p></li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Zero Error: A digital scale that reads 0.5g even when nothing is on it. Every single measurement will be exactly 0.5g too high.</p></li>
+<li><p>Calibration Issues: Using a cloth measuring tape that has stretched out over time. Every meter you measure will actually be shorter than a real meter.</p></li>
+<li><p>Environmental Interference: Measuring the length of a metal rod in a very hot room where the metal has expanded.</p></li>
+</ul>
+<p><strong>2.  Random Errors or “Noisy” Errors</strong></p>
+<p>Random errors are unpredictable fluctuations that happen in every experiment. They don’t have a specific direction, i.e. sometimes the reading is too high, sometimes it’s too low. These affect the precision of your results.</p>
+<ul class="simple">
+<li><p>Cause: Uncontrollable variables like vibrations, small temperature changes, the limit of human reaction time, natural variation in a sample, etc..</p></li>
+<li><p>Fix: You can minimize the impact of random errors by taking multiple measurements and calculating an average.</p></li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Human Reaction Time: Using a manual stopwatch to time a 100m sprint. You might click a millisecond too early one time and a millisecond too late the next.</p></li>
+<li><p>Parallax Error: Looking at a liquid level in a graduated cylinder from slightly different angles each time.</p></li>
+<li><p>Electronic Noise: Small, “jumpy” fluctuations in the last digit of a digital voltmeter caused by nearby electromagnetic interference.</p></li>
+</ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix">
-<h1>In this example
-$<span class="math notranslate nohighlight">\(
-A=
-\begin{bmatrix}
-4&amp; 3&amp; -5\\
--2&amp; -4 &amp; 5\\
-8 &amp; 8&amp; 0\\
-\end{bmatrix}~\mathrm{and}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-b=
-\begin{bmatrix}
-2\\
-5\\
--3\\
-\end{bmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
-The matrix equation is
-\)</span>$
-\begin{bmatrix}
-4&amp; 3&amp; -5\
--2&amp; -4 &amp; 5\
-8 &amp; 8&amp; 0\
-\end{bmatrix}
-\begin{bmatrix}
-x_1\
-x_2\
-x_3\
-\end{bmatrix}<a class="headerlink" href="#in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix" title="Link to this heading">#</a></h1>
-<p>\begin{bmatrix}
-2\
-5\
--3\
-\end{bmatrix}
-$$</p>
-<p>To solve the linear equations system, you calculate <span class="math notranslate nohighlight">\(\vec{x} = A^{-1}\vec{b}\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># define A</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span> 
-              <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
-              <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<span class="c1">#define b</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="n">A_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># calculates the inverse of matrix A.</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">A_inv</span><span class="nd">@b</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
+<section id="summary-comparison">
+<h2>Summary Comparison<a class="headerlink" href="#summary-comparison" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Systematic Error</p></th>
+<th class="head"><p>Random Error</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Consistency</p></td>
+<td><p>Constant/Predictable</p></td>
+<td><p>Unpredictable/Varies</p></td>
+</tr>
+<tr class="row-odd"><td><p>Direction</p></td>
+<td><p>Always in one direction (too high or too low)</p></td>
+<td><p>In both directions (+ or -)</p></td>
+</tr>
+<tr class="row-even"><td><p>Effect</p></td>
+<td><p>Affects <strong>Accuracy</strong></p></td>
+<td><p>Affects <strong>Precision</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Solution</p></td>
+<td><p>Calibrate equipment or improve method</p></td>
+<td><p>Take multiple measurements and average them</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-</div>
-<p>Solving systems of linear equations is a very common problem in engineering and science. For large-scale systems of equations matrix inversion can be slow and inefficient. Therefore, <em>NumPy</em> provides a <em>solve</em> function called <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code>, that uses the <a href="https://en.wikipedia.org/wiki/LU_decomposition" target="_blank">LU decomposition</a> obtained with <a href="https://en.wikipedia.org/wiki/Gaussian_elimination" target="_blank">Gaussian elimination</a> algorithm.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>To find out more about the available linear algebra functions use <code class="docutils literal notranslate"><span class="pre">np.linalg?</span></code> or have a look <a href="https://numpy.org/doc/stable/reference/routines.linalg.html" target="_blank">here</a>.</p>
+</section>
+<section id="precision-vs-accuracy">
+<h2>Precision vs. Accuracy<a class="headerlink" href="#precision-vs-accuracy" title="Link to this heading">#</a></h2>
+<p>While people often use these words interchangeably in casual conversation, in science and engineering, they mean two very different things.</p>
+<section id="example-temperature-measurements-with-a-thermometer">
+<h3>Example: Temperature measurements with a Thermometer<a class="headerlink" href="#example-temperature-measurements-with-a-thermometer" title="Link to this heading">#</a></h3>
+<p>Imagine a room that is exactly 25°C:</p>
+<ul class="simple">
+<li><p>Case A: You measure the temperature three times and get 24.9°C, 25.1°C, and 25.0°C. You are both <strong>accurate</strong> and <strong>precise</strong>.</p></li>
+<li><p>Case B: You get 30.1°C, 30.2°C, and 30.1°C. You are <strong>precise</strong> (the numbers are close together) but <strong>inaccurate</strong> (the thermometer is calibrated incorrectly).</p></li>
+<li><p>Case C: You get 20°C, 30°C, and 25°C. The average is 25°C, so it is <strong>accurate</strong> on average, but the individual measurements have low <strong>precision</strong>.</p></li>
+</ul>
+</section>
+</section>
 <section id="task-1">
 <h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
-<p>Consider the following linear system of equations:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{matrix}
-~~~8x_1 &amp; + 3x_2 &amp;- 2x_3 &amp;=&amp; 9 \\
--4x_1&amp; + 7x_2 &amp;+ 5x_3 &amp;=&amp; 15 \\
-~~~3x_1 &amp;+ 4x_2 &amp; -12x_3 &amp;=&amp; 35 \\
-\end{matrix}
-\end{split}\]</div>
-<p>Find the solution for <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
+<p>Calculate the value of <span class="math notranslate nohighlight">\(z\)</span> and error <span class="math notranslate nohighlight">\(\Delta z\)</span> for the following problems.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(z = x + y\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x = 15\)</span> and <span class="math notranslate nohighlight">\(\Delta x = 0.6\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y = 12\)</span> and <span class="math notranslate nohighlight">\(\Delta y = 0.4\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(z = x^3\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x = 6\)</span> and <span class="math notranslate nohighlight">\(\Delta x = 0.3\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(z = \exp(4x)\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x = 2.1\)</span> and <span class="math notranslate nohighlight">\(\Delta x = 0.1\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p>Note: see overview page of this session for propagation rules.</p>
 </section>
 <section id="task-2">
 <h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
-<p>You are in the lab and have one solution containing 60% acid and a second one containing 20%. How much of  each should be used  to make 20 litres of a 30% acid solution?</p>
+<p>Write functions that can perform your error propagation rules for you. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addition</span><span class="p">(</span><span class="n">deltax</span><span class="p">,</span> <span class="n">deltay</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    performs error propagation on addition problem.</span>
+<span class="sd">    deltax, deltay: array_like</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">deltax</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span> <span class="n">deltay</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write functions for the following error rules:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(z = xy\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(z = x^n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(z = Cx\)</span></p></li>
+</ol>
 </section>
 <section id="task-3">
 <h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
-<p>You would like to know the conversion from  Celsius to Fahrenheit. Early in the morning you measure 5°C and 41°F. The day turns out to be nice and sunny and you measure 25°C and 77°F in the afternoon. Can you derive the conversion formula from Celsius to Fahrenheit? (<em>Hint: <span class="math notranslate nohighlight">\(x_1 \mathrm{Y}\)</span>°C + <span class="math notranslate nohighlight">\(x_2 = \mathrm{Z}\)</span>°F</em> and you want to find the coefficients <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.)</p>
-<p>Compare your formula with the results from the internet (e.g. wikipedia, google, …).</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">temperature.csv</span></code> contains a range of temperatures and errors in K. Convert the values along with
+their errors into Celsius.</p>
+<p>Now convert your Celsius values and their errors into Fahrenheit:</p>
+<p><span class="math notranslate nohighlight">\(\mathrm{F} =1.8\cdot\mathrm{C} + 32\)</span>.</p>
 </section>
 <section id="task-4">
 <h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
-<p>We can mix, under controlled conditions, toluene <span class="math notranslate nohighlight">\(C_7H_8\)</span> and nitric acid <span class="math notranslate nohighlight">\(HNO_3\)</span> to produce trinitrotoluene <span class="math notranslate nohighlight">\(C_7H_5O_6N_3\)</span> along with the byproduct water (conditions have to be very well controlled — trinitrotoluene is better known as TNT). In what proportion should we mix them?</p>
-<p><span class="math notranslate nohighlight">\(x_1 C_7H_8 + x_2 HNO_3 \rightarrow x_3 C_7H_5O_6N_3 + x_4 H_2O\)</span></p>
-<p>The number of atoms of each element present before the reaction must be equal to the number of atoms present after the reaction. <em>(Hint: write down the equation for each element <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(N\)</span>, and <span class="math notranslate nohighlight">\(O\)</span>)</em></p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">masses.csv</span></code> lists the mass of some objects and error in lbs (2.2 lbs = 1 kg). Convert the values and their errors to kg by using function from Task 2.</p>
+</section>
+<section id="task-5">
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Find the value and error for the reciprocal of temperatures in K from the file <code class="docutils literal notranslate"><span class="pre">temperatures.csv</span></code> (Task 3). Can you use a function from Task 2 to propagate the error?</p>
+</section>
+<section id="mean-standard-deviation-and-standard-error">
+<h2>Mean, standard deviation and standard error<a class="headerlink" href="#mean-standard-deviation-and-standard-error" title="Link to this heading">#</a></h2>
+<section id="mean">
+<h3>Mean:<a class="headerlink" href="#mean" title="Link to this heading">#</a></h3>
+<p>The mean, often referred to as the average, is calculated by adding all values <span class="math notranslate nohighlight">\(x_i\)</span> in a dataset and dividing by the number of values (sample size <span class="math notranslate nohighlight">\(n\)</span>). It represents the central point of the data:</p>
+<p><span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\)</span>.</p>
+</section>
+<section id="standard-deviation">
+<h3>Standard Deviation:<a class="headerlink" href="#standard-deviation" title="Link to this heading">#</a></h3>
+<p>Standard deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>) measures the amount of variation or dispersion in a set of values. A low <span class="math notranslate nohighlight">\(\sigma\)</span> indicates that values are close to the mean, while a high <span class="math notranslate nohighlight">\(\sigma\)</span> indicates that values are spread out over a wider range:</p>
+<p><span class="math notranslate nohighlight">\(\sigma_x = \sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n}}\)</span>.</p>
+<p>Note: <span class="math notranslate nohighlight">\(\sigma^2\)</span> is called variance.</p>
+</section>
+<section id="standard-error">
+<h3>Standard Error:<a class="headerlink" href="#standard-error" title="Link to this heading">#</a></h3>
+<p>The standard error (SE) is the standard deviation of the sampling distribution. It estimates how far the sample mean is likely to be from the population mean. The formula for SE is:</p>
+<p><span class="math notranslate nohighlight">\(SE = \frac{\sigma_x}{\sqrt{n}}\)</span>.</p>
+</section>
+</section>
+<section id="task-6">
+<h2>Task 6<a class="headerlink" href="#task-6" title="Link to this heading">#</a></h2>
+<p>File <code class="docutils literal notranslate"><span class="pre">activation_energy.csv</span></code> contains a list of activation energies for O vacancy diffusion. Calculate the mean, standard
+deviation and standard error of this data set.</p>
+</section>
+<section id="task-7">
+<h2>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code> function to generate an array of 10 random numbers. This should be a uniform distribution
+from [0-1). Calculate the mean, standard deviation and standard error.</p>
+<p>Increase the array to 50, calculate the mean, standard deviation and standard error.</p>
+<p>How are the numbers changing? Is the standard deviation increasing or reducing? Why? Write you answer into the text field.</p>
+<p>Increase the array further to 250, calculate the mean standard deviation and standard error.</p>
+<p>How are they changing now?</p>
+<p>Finally, try 1000 in the array and calculate the mean, standard deviation and standard error.</p>
+</section>
+<section id="task-8">
+<h2>Task 8<a class="headerlink" href="#task-8" title="Link to this heading">#</a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">uts.csv</span></code> contains a range of ultimate tensile strength (UTS) values for a sample of steel.</p>
+<p>Plot a graph of mean vs number of data points (i.e. the mean on the y-axis and the number of data points used to get the mean on the x axis).</p>
+<p>For example, in this graph point 1 would be the the mean of the 1st data point, i.e. 484 then point. Point 2 would be the mean of 484 and 492, etc..</p>
+<p>Perform the same operation for the standard deviation and standard error.</p>
+<p>When do you see a convergence of the mean to 3 significant figures?</p>
+<p>When, or if, do you see a convergence of the standard deviation to 2 significant figures?</p>
 </section>
 </section>
 
@@ -643,6 +647,15 @@ $$</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="session10.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Error propagation</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -659,44 +672,27 @@ $$</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solving Systems of Linear Equations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-example-a-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-mathrm-and-b-begin-bmatrix-2-5-3-end-bmatrix-the-matrix-equation-is-begin-bmatrix-4-3-5-2-4-5-8-8-0-end-bmatrix-begin-bmatrix-x-1-x-2-x-3-end-bmatrix">In this example
-$<span class="math notranslate nohighlight">\(
-A=
-\begin{bmatrix}
-4&amp; 3&amp; -5\\
--2&amp; -4 &amp; 5\\
-8 &amp; 8&amp; 0\\
-\end{bmatrix}~\mathrm{and}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-b=
-\begin{bmatrix}
-2\\
-5\\
--3\\
-\end{bmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
-The matrix equation is
-\)</span>$
-\begin{bmatrix}
-4&amp; 3&amp; -5\
--2&amp; -4 &amp; 5\
-8 &amp; 8&amp; 0\
-\end{bmatrix}
-\begin{bmatrix}
-x_1\
-x_2\
-x_3\
-\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">Types of Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-comparison">Summary Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-vs-accuracy">Precision vs. Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-temperature-measurements-with-a-thermometer">Example: Temperature measurements with a Thermometer</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-standard-deviation-and-standard-error">Mean, standard deviation and standard error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">Mean:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-error">Standard Error:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

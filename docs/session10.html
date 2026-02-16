@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tutorial: Reading in and writing out data with Pandas &#8212; Digital Skills for Materials</title>
+    <title>Error propagation &#8212; Digital Skills for Materials</title>
   
   
   
@@ -57,9 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session_pandas';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session10';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial: Errors" href="session10_notebooks.html" />
+    <link rel="prev" title="Tutorial: Functions in Python" href="session9_notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +125,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -225,8 +227,8 @@
 <li class="toctree-l1"><a class="reference internal" href="session9_notebooks.html">Tutorial: Functions in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session10.html">Error propagation</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Error propagation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session10_notebooks.html">Tutorial: Errors</a></li>
 </ul>
 
@@ -274,37 +276,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session_pandas.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -313,7 +284,7 @@
       
       
       
-      <li><a href="../_sources/docs/session_pandas.ipynb" target="_blank"
+      <li><a href="../_sources/docs/session10.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +294,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -397,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutorial: Reading in and writing out data with Pandas</h1>
+    <h1>Error propagation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,8 +378,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-structure-from-file">Read in structure from file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-propagation-rules">Error propagation Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-and-subtraction">1. Addition and Subtraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-and-division">2. Multiplication and Division</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-by-a-constant">3. Multiplication by a Constant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents-and-powers">4. Exponents and Powers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-in-quadrature">Why “in Quadrature”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithms">5. Logarithms</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -420,44 +398,78 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-reading-in-and-writing-out-data-with-pandas">
-<h1>Tutorial: Reading in and writing out data with Pandas<a class="headerlink" href="#tutorial-reading-in-and-writing-out-data-with-pandas" title="Link to this heading">#</a></h1>
-<section id="read-in-structure-from-file">
-<h2>Read in structure from file<a class="headerlink" href="#read-in-structure-from-file" title="Link to this heading">#</a></h2>
-<p>To read in the file structure in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> you can use the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function from Pandas.</p>
-<p>Note: as it is a text file separated by whitespaces we need to set the parameter <code class="docutils literal notranslate"><span class="pre">delim_whitespace</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
-<p>The first line of the header/comment describes the data file (‘test file’) and we can ignore it. The second row provides us information about the columns, which would be sensible labels for the pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. So we only skip the first row.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">df_xy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="n">delim_whitespace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># reads data into Pandas dataframe.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="p">)</span>          <span class="c1"># prints content of dataframe</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># shows column labels</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>   <span class="c1"># prints data type for each column</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1"># plot data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df_xy</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">)</span>      <span class="c1"># if labels do not contain spaces or special signs like &#39;\&#39;, &#39;|&#39;, &#39;/&#39;, &#39;#&#39;, ..., you can access columns with &#39;.&lt;column label&gt;.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="error-propagation">
+<h1>Error propagation<a class="headerlink" href="#error-propagation" title="Link to this heading">#</a></h1>
+<p>When you are conducting experiments, no measurement is perfectly precise. Error propagation is the set of mathematical rules used to determine how the uncertainties in those initial measurements “flow through” to your final calculated result.</p>
+<p>In Engineering, we usually represent a value as <span class="math notranslate nohighlight">\(x\pm \Delta x​\)</span> or <span class="math notranslate nohighlight">\(x\pm \sigma_x​\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is the measured value and <span class="math notranslate nohighlight">\(​\Delta x​\)</span> or <span class="math notranslate nohighlight">\(\sigma_x​\)</span> is the uncertainty (standard deviation).</p>
+<section id="error-propagation-rules">
+<h2>Error propagation Rules<a class="headerlink" href="#error-propagation-rules" title="Link to this heading">#</a></h2>
+<p>These commons rules are first-order approximation assuming that uncertainties are <strong>independent</strong> and <strong>random</strong> and are small enough so that only the first derivative in a Taylor expansion is significant.</p>
+<section id="addition-and-subtraction">
+<h3>1. Addition and Subtraction<a class="headerlink" href="#addition-and-subtraction" title="Link to this heading">#</a></h3>
+<p>If your calculation involves adding or subtracting values (<span class="math notranslate nohighlight">\(z=x+y\)</span> or <span class="math notranslate nohighlight">\(z=x−y\)</span>), you add the absolute uncertainties in quadrature:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_z = \sqrt{\sigma_x^2 + \sigma_y^2}.
+\]</div>
+<p>Note: Even if you are subtracting the values, the uncertainties always increase. You never subtract errors!</p>
 </section>
-<section id="task-1">
-<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
-<p>Download the file ‘task1.csv’ from blackboard and place it into your current workspace on Colab. The file contains the voltage-current measurements of two samples. Column one is the voltage. Columns 2 and 3 are the current generated in sample 1 and 2 respectively.</p>
-<ul class="simple">
-<li><p>Look at the file and identify</p></li>
-<li><p>how many text headings it has, and the deliminator that separates the values.</p></li>
-<li><p>Use these to read in the file with <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code></p></li>
-<li><p>Separate the columns into separated arrays.</p></li>
-<li><p>Plot sample 1 and sample 2 on the same graph.</p></li>
-<li><p>Label the axis including units.</p></li>
+<section id="multiplication-and-division">
+<h3>2. Multiplication and Division<a class="headerlink" href="#multiplication-and-division" title="Link to this heading">#</a></h3>
+<p>If your calculation involves multiplication or division (<span class="math notranslate nohighlight">\(z=x\cdot y\)</span> or <span class="math notranslate nohighlight">\(z=x/y\)</span>), you add the relative (fractional) uncertainties in quadrature:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sigma_z}{z} = \sqrt{\left(\frac{\sigma_x}{x}\right)^2 + \left(\frac{\sigma_y}{y}\right)^2}.
+\]</div>
+</section>
+<section id="multiplication-by-a-constant">
+<h3>3. Multiplication by a Constant<a class="headerlink" href="#multiplication-by-a-constant" title="Link to this heading">#</a></h3>
+<p>If you multiply a measurement by a constant that has no uncertainty (<span class="math notranslate nohighlight">\(z=C\cdot x\)</span>), the uncertainty is simply scaled by that constant <span class="math notranslate nohighlight">\(C\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_z ​= \sqrt{C^2\,\sigma_x^2} = \lvert C\lvert~\sigma_x​.
+\]</div>
+</section>
+<section id="exponents-and-powers">
+<h3>4. Exponents and Powers<a class="headerlink" href="#exponents-and-powers" title="Link to this heading">#</a></h3>
+<p>If a variable is raised to a power (<span class="math notranslate nohighlight">\(z = x^n\)</span>), the relative uncertainty is multiplied by the absolute value of that power:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sigma_z}{z} = \sqrt{n^2\left(\frac{\sigma_x}{x}\right)^2} = \lvert n\lvert \frac{\sigma_x}{x}
+\]</div>
+</section>
+<section id="why-in-quadrature">
+<h3>Why “in Quadrature”?<a class="headerlink" href="#why-in-quadrature" title="Link to this heading">#</a></h3>
+<p>You might wonder why we use the square root of the sum of squares <span class="math notranslate nohighlight">\(\left(\sqrt{\sigma_x^2 + \sigma_y^2}\right)\)</span>​ instead of just adding them <span class="math notranslate nohighlight">\((\sigma_x + \sigma_y)\)</span>.</p>
+<p>Adding them directly assumes the “worst-case scenario” where both errors are at their maximum in the same direction. Using quadrature assumes the errors are <strong>independent</strong> and <strong>random</strong>, meaning it is statistically unlikely that both measurements are off by their maximum amount at the same time.</p>
+</section>
+<section id="logarithms">
+<h3>5. Logarithms<a class="headerlink" href="#logarithms" title="Link to this heading">#</a></h3>
+<p>When you take the logarithm of a measurement, the rule for error propagation changes quite a bit. Instead of looking at relative uncertainty, the uncertainty of a log function depends on the relative error of the original value.</p>
+<ul>
+<li><p>Natural Logarithms (<span class="math notranslate nohighlight">\(\ln\)</span>):</p>
+<p>If your calculation is <span class="math notranslate nohighlight">\(z=\ln(x)\)</span>, the absolute uncertainty in <span class="math notranslate nohighlight">\(z\)</span> is the relative uncertainty of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+  \sigma_z = \sqrt{\left(\frac{\sigma_x}{x}\right)^2} = \frac{\sigma_x}{x}.
+  \]</div>
+<p>This is a unique case where the absolute error of the result is equal to the relative error of the input.</p>
+<p>Assuming independent variables a common formula for error propagation for a function <span class="math notranslate nohighlight">\(f(x)\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+  \sigma_f = \sqrt{\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2}.
+  \]</div>
+<p>The derivative for <span class="math notranslate nohighlight">\(\ln(x)\)</span> is <span class="math notranslate nohighlight">\(\partial \ln(x)/\partial x = 1/x\)</span>​ and confirms the rule above.</p>
+</li>
+<li><p>Logarithms with base not equal to <span class="math notranslate nohighlight">\(e\)</span>:</p>
+<p>For example, if your calculation is <span class="math notranslate nohighlight">\(z=\log_{10}​(x)\)</span>, we have to account for the conversion factor between natural logs and base 10 logs:</p>
+<div class="math notranslate nohighlight">
+\[
+  \sigma_z = \sqrt{\left(\frac{1}{\ln(10)}\frac{\sigma_x}{x}\right)^2} = \frac{1}{\ln(10)}\frac{\sigma_x}{x}.
+  \]</div>
+</li>
 </ul>
-<p>Now use <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to read the file into a Pandas data file and plot the data as above.</p>
-<p>Hint: The second row contains the Units of each column. To use the first row as column labels and skip the second row set parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span> <span class="pre">=</span> <span class="pre">[1]</span></code>. Note: Python starts counting from 0.</p>
+</section>
 </section>
 </section>
 
@@ -491,6 +503,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="session9_notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial: Functions in Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="session10_notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial: Errors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -507,8 +537,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-structure-from-file">Read in structure from file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-propagation-rules">Error propagation Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-and-subtraction">1. Addition and Subtraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-and-division">2. Multiplication and Division</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-by-a-constant">3. Multiplication by a Constant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents-and-powers">4. Exponents and Powers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-in-quadrature">Why “in Quadrature”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithms">5. Logarithms</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
