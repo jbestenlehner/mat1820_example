@@ -2,11 +2,13 @@
 
 When you are conducting experiments, no measurement is perfectly precise. Error propagation is the set of mathematical rules used to determine how the uncertainties in those initial measurements "flow through" to your final calculated result.
 
-In Engineering, we usually represent a value as $x\pm \Delta x​$ or $x\pm \sigma_x​$, where $x$ is the measured value and $​\Delta x​$ or $\sigma_x​$ is the uncertainty (standard deviation).
+In Engineering, we usually represent a value as $x\pm \Delta x​$ or $x\pm \sigma_x​$, where $x$ is the measured value and $​\Delta x​$ is absolute/approximate error or $\sigma_x​$ is standard deviation (positive square root of the variance).
 
 ## Error propagation Rules
 
 These commons rules are first-order approximation assuming that uncertainties are **independent** and **random** and are small enough so that only the first derivative in a Taylor expansion is significant.
+
+Note: the same rules apply for $\Delta x$ and $\sigma_x$.
 
 ### 1. Addition and Subtraction
 
