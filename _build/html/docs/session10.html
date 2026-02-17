@@ -401,14 +401,14 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="error-propagation">
 <h1>Error propagation<a class="headerlink" href="#error-propagation" title="Link to this heading">#</a></h1>
 <p>When you are conducting experiments, no measurement is perfectly precise. Error propagation is the set of mathematical rules used to determine how the uncertainties in those initial measurements “flow through” to your final calculated result.</p>
-<p>In Engineering, we usually represent a value as <span class="math notranslate nohighlight">\(x\pm \Delta x​\)</span> or <span class="math notranslate nohighlight">\(x\pm \sigma_x​\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is the measured value and <span class="math notranslate nohighlight">\(​\Delta x​\)</span> is absolute/approximate error or <span class="math notranslate nohighlight">\(\sigma_x​\)</span> is standard deviation (positive square root of the variance).</p>
+<p>In Engineering, we usually represent a value as <span class="math notranslate nohighlight">\(x\pm \Delta x​\)</span> or <span class="math notranslate nohighlight">\(x\pm \sigma_x​\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is the measured value and <span class="math notranslate nohighlight">\(​\Delta x​\)</span> is the absolute/approximate error or <span class="math notranslate nohighlight">\(\sigma_x​\)</span> is the standard deviation (positive square root of the variance).</p>
 <section id="error-propagation-rules">
 <h2>Error propagation Rules<a class="headerlink" href="#error-propagation-rules" title="Link to this heading">#</a></h2>
 <p>These commons rules are first-order approximation assuming that uncertainties are <strong>independent</strong> and <strong>random</strong> and are small enough so that only the first derivative in a Taylor expansion is significant.</p>
 <p>Note: the same rules apply for <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\sigma_x\)</span>.</p>
 <section id="addition-and-subtraction">
 <h3>1. Addition and Subtraction<a class="headerlink" href="#addition-and-subtraction" title="Link to this heading">#</a></h3>
-<p>If your calculation involves adding or subtracting values (<span class="math notranslate nohighlight">\(z=x+y\)</span> or <span class="math notranslate nohighlight">\(z=x−y\)</span>), you add the absolute uncertainties in quadrature:</p>
+<p>If your calculation involves adding or subtracting values (<span class="math notranslate nohighlight">\(z=x+y\)</span> or <span class="math notranslate nohighlight">\(z=x−y\)</span>), you add the uncertainties in quadrature:</p>
 <div class="math notranslate nohighlight">
 \[
 \sigma_z = \sqrt{\sigma_x^2 + \sigma_y^2}.
@@ -436,7 +436,12 @@ document.write(`
 <p>If a variable is raised to a power (<span class="math notranslate nohighlight">\(z = x^n\)</span>), the relative uncertainty is multiplied by the absolute value of that power:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\sigma_z}{z} = \sqrt{n^2\left(\frac{\sigma_x}{x}\right)^2} = \lvert n\lvert \frac{\sigma_x}{x}
+\frac{\sigma_z}{z} = \sqrt{n^2\left(\frac{\sigma_x}{x}\right)^2} = \lvert n\lvert \frac{\sigma_x}{x}.
+\]</div>
+<p>If your calculation involves the exponent function (<span class="math notranslate nohighlight">\(z=exp(Cx)\)</span>), then the estimated error is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sigma_z}{z} = \sqrt{C^2\sigma_x^2} = \lvert C\lvert \sigma_x. 
 \]</div>
 </section>
 <section id="why-in-quadrature">

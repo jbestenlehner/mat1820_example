@@ -2,7 +2,7 @@
 
 When you are conducting experiments, no measurement is perfectly precise. Error propagation is the set of mathematical rules used to determine how the uncertainties in those initial measurements "flow through" to your final calculated result.
 
-In Engineering, we usually represent a value as $x\pm \Delta x​$ or $x\pm \sigma_x​$, where $x$ is the measured value and $​\Delta x​$ is absolute/approximate error or $\sigma_x​$ is standard deviation (positive square root of the variance).
+In Engineering, we usually represent a value as $x\pm \Delta x​$ or $x\pm \sigma_x​$, where $x$ is the measured value and $​\Delta x​$ is the absolute/approximate error or $\sigma_x​$ is the standard deviation (positive square root of the variance).
 
 ## Error propagation Rules
 
@@ -12,7 +12,7 @@ Note: the same rules apply for $\Delta x$ and $\sigma_x$.
 
 ### 1. Addition and Subtraction
 
-If your calculation involves adding or subtracting values ($z=x+y$ or $z=x−y$), you add the absolute uncertainties in quadrature:
+If your calculation involves adding or subtracting values ($z=x+y$ or $z=x−y$), you add the uncertainties in quadrature:
 
 $$
 \sigma_z = \sqrt{\sigma_x^2 + \sigma_y^2}.
@@ -41,7 +41,13 @@ $$
 If a variable is raised to a power ($z = x^n$), the relative uncertainty is multiplied by the absolute value of that power:
 
 $$
-\frac{\sigma_z}{z} = \sqrt{n^2\left(\frac{\sigma_x}{x}\right)^2} = \lvert n\lvert \frac{\sigma_x}{x}
+\frac{\sigma_z}{z} = \sqrt{n^2\left(\frac{\sigma_x}{x}\right)^2} = \lvert n\lvert \frac{\sigma_x}{x}.
+$$
+
+If your calculation involves the exponent function ($z=exp(Cx)$), then the estimated error is given by:
+
+$$
+\frac{\sigma_z}{z} = \sqrt{C^2\sigma_x^2} = \lvert C\lvert \sigma_x. 
 $$
 
 ### Why "in Quadrature"?
