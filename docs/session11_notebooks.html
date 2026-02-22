@@ -485,10 +485,10 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
 <p>Now we have look at the uncertainties on our fitting parameters. To do so we need to access the covariance matrix:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cov=True</span></code>: the covariance is scaled. The weights are presumed to be unreliable except in a relative sense and everything is scaled such that the reduced <span class="math notranslate nohighlight">\(\chi^2\)</span> is unity.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cov='unscaled'</span></code>: if <span class="math notranslate nohighlight">\(\sigma\)</span> is a reliable estimate of the uncertainty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cov='unscaled'</span></code>: if <span class="math notranslate nohighlight">\(\sigma\)</span> is a representative estimate of the uncertainty.</p></li>
 </ol>
-<p>If you trust that your errors (<span class="math notranslate nohighlight">\(\sigma\)</span>) are a true representation of the uncertainties, you set <code class="docutils literal notranslate"><span class="pre">p,</span> <span class="pre">pcov</span> <span class="pre">=</span> <span class="pre">np.polyfit(x_Data,</span> <span class="pre">y_data,</span> <span class="pre">w=1/sigma_y,</span> <span class="pre">cov='unscaled')</span></code>.</p>
-<p>Above, we stored the covariance matrix in the variable <code class="docutils literal notranslate"><span class="pre">pcov</span></code>. The variance of the parameters lie on the diagonal of the covariance matrix =&gt; <code class="docutils literal notranslate"><span class="pre">perr</span> <span class="pre">=</span> <span class="pre">np.sqrt(np.diag(pcov))</span></code>. The covariance matrix is a symmetric matrix (<span class="math notranslate nohighlight">\(M=M^{\mathrm{T}}\)</span>). Non zero values which are not located on the diagonal mean that parameters are not independent and correlate.</p>
+<p>If you trust that your errors (<span class="math notranslate nohighlight">\(\sigma\)</span>) are a true representation of the uncertainties, you set <code class="docutils literal notranslate"><span class="pre">p,</span> <span class="pre">pcov</span> <span class="pre">=</span> <span class="pre">np.polyfit(x_data,</span> <span class="pre">y_data,</span> <span class="pre">w=1/sigma_y,</span> <span class="pre">cov='unscaled')</span></code>.</p>
+<p>Above, we stored the covariance matrix in the variable <code class="docutils literal notranslate"><span class="pre">pcov</span></code>. The variance of the parameters are on the diagonal of the covariance matrix =&gt; <code class="docutils literal notranslate"><span class="pre">perr</span> <span class="pre">=</span> <span class="pre">np.sqrt(np.diag(pcov))</span></code>. The covariance matrix is a symmetric matrix (<span class="math notranslate nohighlight">\(M=M^{\mathrm{T}}\)</span>). Non zero values which are not located on the diagonal mean that parameters are not independent and correlate.</p>
 <p>Extract the uncertainty for <span class="math notranslate nohighlight">\(E_A\)</span> and <span class="math notranslate nohighlight">\(\ln D_0\)</span>.</p>
 </section>
 <section id="least-square-and-weighted-least-square-with-user-defined-functions">
@@ -538,7 +538,7 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
 <li><p>Unlike for <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> the standard deviation is given (<code class="docutils literal notranslate"><span class="pre">sigma=y_err</span></code>) instead of the weight.</p></li>
 <li><p>To obtain the <code class="docutils literal notranslate"><span class="pre">unscaled</span></code> covariance matrix you need to set <code class="docutils literal notranslate"><span class="pre">absolute_sigma=True</span></code>.</p></li>
 </ol>
-<p>Always look at the function documentation before using a function.</p>
+<p>Always look up the function documentation before using a function.</p>
 </section>
 <section id="task-4">
 <h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
