@@ -44,3 +44,6 @@ parts:
     chapters:
     - file: docs/session10
     - file: docs/session10_notebooks
+  - caption: Session 11
+    chapters:
+    - file: docs/session11_notebooks
