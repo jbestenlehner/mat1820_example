@@ -44,7 +44,7 @@ $$
 \frac{\sigma_z}{z} = \sqrt{n^2\left(\frac{\sigma_x}{x}\right)^2} = \lvert n\lvert \frac{\sigma_x}{x}.
 $$
 
-If your calculation involves the exponent function ($z=exp(Cx)$), then the estimated error is given by:
+If your calculation involves the exponential function ($z=exp(Cx)$), then the estimated error is given by:
 
 $$
 \frac{\sigma_z}{z} = \sqrt{C^2\sigma_x^2} = \lvert C\lvert \sigma_x. 
