@@ -451,7 +451,7 @@ document.write(`
 \[
 V = R*I,
 \]</div>
-<p><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code></a> and only uncertainties on the dependent variable (voltage) to obtain the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
+<p><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code></a> and uncertainties on the dependent variable (voltage) to obtain the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
 <p>Plot your best fit function and data points with error bars including legend plus axes labels.</p>
 </section>
 <section id="task-2">
@@ -469,14 +469,14 @@ I = \frac{V}{R}.
 <p>Using <code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code> determine the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
 <p>The syntax is</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">odr_fit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">beta0</span><span class="p">,</span>
-              <span class="n">weight_x</span><span class="o">=</span><span class="n">weight_x</span><span class="p">,</span> <span class="n">weight_y</span><span class="o">=</span><span class="n">weight_y</span><span class="p">)</span>
+              <span class="n">weight_x</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">variance_x</span><span class="p">,</span> <span class="n">weight_y</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">variance_y</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> is your model function (e.g. Ohm’s law).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">beta0</span></code> is the initial guess of your parameter to fit. For example, you can use the result for Task 1 or Task 2. For simple and linear models like Ohm’s law, the initial guess does not need to be precise but is crucial in complex non-linear models.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">xdata</span></code> and <code class="docutils literal notranslate"><span class="pre">ydata</span></code> are your measurements or data set.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">weight_x</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span></code> are your weights for your data set and are the inverse of the squared standard deviations (variance), <strong>e.g. <code class="docutils literal notranslate"><span class="pre">weight_x</span> <span class="pre">=</span> <span class="pre">1/sigma_x^2</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span> <span class="pre">=</span> <span class="pre">1/sigma_y^2</span></code>.</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weight_x</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span></code> are your weights for your data set and are the inverse of the squared standard deviations (variance), e.g. <strong><code class="docutils literal notranslate"><span class="pre">weight_x</span> <span class="pre">=</span> <span class="pre">1/sigma_x^2</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span> <span class="pre">=</span> <span class="pre">1/sigma_y^2</span></code>.</strong></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -529,7 +529,7 @@ I = \frac{V}{R}.
 y = ax^3 + bx.
 \]</div>
 <p>Perform the fit and determine the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> including uncertainties.</p>
-<p>Plot the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data with <span class="math notranslate nohighlight">\(y\)</span> error bars including legend and axes labels.</p>
+<p>Plot the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data with <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> error bars including legend and axes labels.</p>
 </section>
 </section>
 
