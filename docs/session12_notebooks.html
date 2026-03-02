@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Error propagation &#8212; Digital Skills for Materials</title>
+    <title>Tutorial: Fitting data with uncertainties on both axes &#8212; Digital Skills for Materials</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -59,11 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session10';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session12_notebooks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tutorial: Errors" href="session10_notebooks.html" />
-    <link rel="prev" title="Tutorial: Functions in Python" href="session9_notebooks.html" />
+    <link rel="prev" title="Tutorial: Fitting data with uncertainties" href="session11_notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -227,8 +226,8 @@
 <li class="toctree-l1"><a class="reference internal" href="session9_notebooks.html">Tutorial: Functions in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Error propagation</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Error propagation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session10_notebooks.html">Tutorial: Errors</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
@@ -236,8 +235,8 @@
 <li class="toctree-l1"><a class="reference internal" href="session11_notebooks.html">Tutorial: Fitting data with uncertainties</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 12</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session12_notebooks.html">Tutorial: Fitting data with uncertainties on both axes</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Fitting data with uncertainties on both axes</a></li>
 </ul>
 
     </div>
@@ -284,6 +283,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jbestenlehner/mat1820_example/blob/master/docs/session12_notebooks.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -292,7 +322,7 @@
       
       
       
-      <li><a href="../_sources/docs/session10.md" target="_blank"
+      <li><a href="../_sources/docs/session12_notebooks.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +332,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -376,7 +406,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Error propagation</h1>
+    <h1>Tutorial: Fitting data with uncertainties on both axes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -386,15 +416,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-propagation-rules">Error propagation Rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-and-subtraction">1. Addition and Subtraction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-and-division">2. Multiplication and Division</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-by-a-constant">3. Multiplication by a Constant</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents-and-powers">4. Exponents and Powers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-in-quadrature">Why “in Quadrature”?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithms">5. Logarithms</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
 </ul>
             </nav>
         </div>
@@ -406,84 +432,104 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="error-propagation">
-<h1>Error propagation<a class="headerlink" href="#error-propagation" title="Link to this heading">#</a></h1>
-<p>When you are conducting experiments, no measurement is perfectly precise. Error propagation is the set of mathematical rules used to determine how the uncertainties in those initial measurements “flow through” to your final calculated result.</p>
-<p>In Engineering, we usually represent a value as <span class="math notranslate nohighlight">\(x\pm \Delta x​\)</span> or <span class="math notranslate nohighlight">\(x\pm \sigma_x​\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is the measured value and <span class="math notranslate nohighlight">\(​\Delta x​\)</span> is the absolute/approximate error or <span class="math notranslate nohighlight">\(\sigma_x​\)</span> is the standard deviation (positive square root of the variance).</p>
-<section id="error-propagation-rules">
-<h2>Error propagation Rules<a class="headerlink" href="#error-propagation-rules" title="Link to this heading">#</a></h2>
-<p>These commons rules are first-order approximation assuming that uncertainties are <strong>independent</strong> and <strong>random</strong> and are small enough so that only the first derivative in a Taylor expansion is significant.</p>
-<p>Note: the same rules apply for <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\sigma_x\)</span>.</p>
-<section id="addition-and-subtraction">
-<h3>1. Addition and Subtraction<a class="headerlink" href="#addition-and-subtraction" title="Link to this heading">#</a></h3>
-<p>If your calculation involves adding or subtracting values (<span class="math notranslate nohighlight">\(z=x+y\)</span> or <span class="math notranslate nohighlight">\(z=x−y\)</span>), you add the uncertainties in quadrature:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-fitting-data-with-uncertainties-on-both-axes">
+<h1>Tutorial: Fitting data with uncertainties on both axes<a class="headerlink" href="#tutorial-fitting-data-with-uncertainties-on-both-axes" title="Link to this heading">#</a></h1>
+<p>So far we have only considered errors in the dependent variable (y-axis). We used a standard linear regression also called <strong>Ordinary Least Squares</strong>. If we have uncertainties (errors) in both independent (x-axis) and dependent (y-axis) variable, we will need to use a method called <strong>Orthogonal Distance Regression (ODR)</strong> or <strong>Total Least Squares</strong>. ODR minimises the perpendicular (orthogonal) distance from the data points to the fitted curve.</p>
+<p>To use ODR you need to install the following package by executing the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">odrpack</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: Currently, ODR is still part of Scipy, but it will be removed in a future release. Therefore, we use the new package <a href="https://hugomvale.github.io/odrpack-python/" target="_blank"><code class="docutils literal notranslate"><span class="pre">odrpack</span></code></a> in this course.</p>
+<section id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">current_voltage.csv</span></code> you have measurements of current and voltage with uncertainties. Using Ohm’s law</p>
 <div class="math notranslate nohighlight">
 \[
-\sigma_z = \sqrt{\sigma_x^2 + \sigma_y^2}.
+V = R*I,
 \]</div>
-<p>Note: Even if you are subtracting the values, the uncertainties always increase. You never subtract errors!</p>
+<p><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code></a> and only uncertainties on the dependent variable (voltage) to obtain the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
+<p>Plot your best fit function and data points with error bars including legend plus axes labels.</p>
 </section>
-<section id="multiplication-and-division">
-<h3>2. Multiplication and Division<a class="headerlink" href="#multiplication-and-division" title="Link to this heading">#</a></h3>
-<p>If your calculation involves multiplication or division (<span class="math notranslate nohighlight">\(z=x\cdot y\)</span> or <span class="math notranslate nohighlight">\(z=x/y\)</span>), you add the relative (fractional) uncertainties in quadrature:</p>
+<section id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>Now rearrange the equation for Ohm’s law, so that current is the dependent variable:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\sigma_z}{z} = \sqrt{\left(\frac{\sigma_x}{x}\right)^2 + \left(\frac{\sigma_y}{y}\right)^2}.
+I = \frac{V}{R}.
 \]</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code> and uncertainties only on the new dependent variable (current) to obtain the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
+<p>Plot your best fit function and data points with error bars including legend plus axes labels and compare the result with Task 1.</p>
 </section>
-<section id="multiplication-by-a-constant">
-<h3>3. Multiplication by a Constant<a class="headerlink" href="#multiplication-by-a-constant" title="Link to this heading">#</a></h3>
-<p>If you multiply a measurement by a constant that has no uncertainty (<span class="math notranslate nohighlight">\(z=C\cdot x\)</span>), the uncertainty is simply scaled by that constant <span class="math notranslate nohighlight">\(C\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-\sigma_z ​= \sqrt{C^2\,\sigma_x^2} = \lvert C\lvert~\sigma_x​.
-\]</div>
-</section>
-<section id="exponents-and-powers">
-<h3>4. Exponents and Powers<a class="headerlink" href="#exponents-and-powers" title="Link to this heading">#</a></h3>
-<p>If a variable is raised to a power (<span class="math notranslate nohighlight">\(z = x^n\)</span>), the relative uncertainty is multiplied by the absolute value of that power:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{\sigma_z}{z} = \sqrt{n^2\left(\frac{\sigma_x}{x}\right)^2} = \lvert n\lvert \frac{\sigma_x}{x}.
-\]</div>
-<p>If your calculation involves the exponential function (<span class="math notranslate nohighlight">\(z=exp(Cx)\)</span>), then the estimated error is given by:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{\sigma_z}{z} = \sqrt{C^2\sigma_x^2} = \lvert C\lvert \sigma_x. 
-\]</div>
-</section>
-<section id="why-in-quadrature">
-<h3>Why “in Quadrature”?<a class="headerlink" href="#why-in-quadrature" title="Link to this heading">#</a></h3>
-<p>You might wonder why we use the square root of the sum of squares <span class="math notranslate nohighlight">\(\left(\sqrt{\sigma_x^2 + \sigma_y^2}\right)\)</span>​ instead of just adding them <span class="math notranslate nohighlight">\((\sigma_x + \sigma_y)\)</span>.</p>
-<p>Adding them directly assumes the “worst-case scenario” where both errors are at their maximum in the same direction. Using quadrature assumes the errors are <strong>independent</strong> and <strong>random</strong>, meaning it is statistically unlikely that both measurements are off by their maximum amount at the same time.</p>
-</section>
-<section id="logarithms">
-<h3>5. Logarithms<a class="headerlink" href="#logarithms" title="Link to this heading">#</a></h3>
-<p>When you take the logarithm of a measurement, the rule for error propagation changes quite a bit. Instead of looking at relative uncertainty, the uncertainty of a log function depends on the relative error of the original value.</p>
-<ul>
-<li><p>Natural Logarithms (<span class="math notranslate nohighlight">\(\ln\)</span>):</p>
-<p>If your calculation is <span class="math notranslate nohighlight">\(z=\ln(x)\)</span>, the absolute uncertainty in <span class="math notranslate nohighlight">\(z\)</span> is the relative uncertainty of <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[
-  \sigma_z = \sqrt{\left(\frac{\sigma_x}{x}\right)^2} = \frac{\sigma_x}{x}.
-  \]</div>
-<p>This is a unique case where the absolute error of the result is equal to the relative error of the input.</p>
-<p>Assuming independent variables a common formula for error propagation for a function <span class="math notranslate nohighlight">\(f(x)\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-  \sigma_f = \sqrt{\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2}.
-  \]</div>
-<p>The derivative for <span class="math notranslate nohighlight">\(\ln(x)\)</span> is <span class="math notranslate nohighlight">\(\partial \ln(x)/\partial x = 1/x\)</span>​ and confirms the rule above.</p>
-</li>
-<li><p>Logarithms with base not equal to <span class="math notranslate nohighlight">\(e\)</span>:</p>
-<p>For example, if your calculation is <span class="math notranslate nohighlight">\(z=\log_{10}​(x)\)</span>, we have to account for the conversion factor between natural logs and base 10 logs:</p>
-<div class="math notranslate nohighlight">
-\[
-  \sigma_z = \sqrt{\left(\frac{1}{\ln(10)}\frac{\sigma_x}{x}\right)^2} = \frac{1}{\ln(10)}\frac{\sigma_x}{x}.
-  \]</div>
-</li>
+<section id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Using <code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code> determine the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
+<p>The syntax is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">odr_fit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">beta0</span><span class="p">,</span>
+              <span class="n">weight_x</span><span class="o">=</span><span class="n">weight_x</span><span class="p">,</span> <span class="n">weight_y</span><span class="o">=</span><span class="n">weight_y</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> is your model function (e.g. Ohm’s law).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beta0</span></code> is the initial guess of your parameter to fit. For example, you can use the result for Task 1 or Task 2. For simple and linear models like Ohm’s law, the initial guess does not need to be precise but is crucial in complex non-linear models.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xdata</span></code> and <code class="docutils literal notranslate"><span class="pre">ydata</span></code> are your measurements or data set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weight_x</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span></code> are your weights for your data set and are the inverse of the squared standard deviations (variance), <strong>e.g. <code class="docutils literal notranslate"><span class="pre">weight_x</span> <span class="pre">=</span> <span class="pre">1/sigma_x^2</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span> <span class="pre">=</span> <span class="pre">1/sigma_y^2</span></code>.</strong></p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">odrpack</span><span class="w"> </span><span class="kn">import</span> <span class="n">odr_fit</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>To extract the parameter with uncertainties you use <code class="docutils literal notranslate"><span class="pre">sol.beta</span></code> and <code class="docutils literal notranslate"><span class="pre">sol.sd_beta</span></code>. If you want to inspect the co-variance matrix use <code class="docutils literal notranslate"><span class="pre">sol.cov_beta</span></code>.</p>
+<p>Note: There is no scaling of your co-variance matrix. Your errors must represent the true uncertainties.</p>
+<p>Follow the link for more details on the input and outputs of <a href="https://hugomvale.github.io/odrpack-python/reference/" target="_blank"><code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot your best fit function and data points with error bars on both axes including legend plus axes labels and compare the result with Task 1 and 2.</p>
 </section>
+<section id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>As you might have noticed the data set from <code class="docutils literal notranslate"><span class="pre">diffusion.csv</span></code> contains uncertainties for diffusion <span class="math notranslate nohighlight">\(D\)</span> and temperature <span class="math notranslate nohighlight">\(T\)</span>. The parameters we would like to fit are the material dependent constant <span class="math notranslate nohighlight">\(D_0\)</span> and activation energy <span class="math notranslate nohighlight">\(E_A\)</span>.</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code> it is advantageous that multiple parameters are provided as an array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">arrhenius_equation</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the diffusion using the Arrhenius equation.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        T : temperature in Kelvin</span>
+<span class="sd">        beta : parameters, beta[0] = D_0 and beta[1] = E_A</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k_B</span> <span class="o">=</span> <span class="mf">1.38e-23</span> <span class="c1"># Boltzmann constant in J/K</span>
+    <span class="n">D_0</span><span class="p">,</span> <span class="n">E_A</span> <span class="o">=</span> <span class="n">beta</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D_0</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">E_A</span><span class="o">/</span><span class="n">k_B</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Determine <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span> using <code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code>. Plot the best fit and data points with error bars including legend and axes labels.</p>
+</section>
+<section id="task-5">
+<h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
+<p>Similar to session 11<code class="docutils literal notranslate"><span class="pre">task5.csv</span></code> contains a data set with uncertainties and <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data, that can be fitted with the following relationship:</p>
+<div class="math notranslate nohighlight">
+\[
+y = ax^3 + bx.
+\]</div>
+<p>Perform the fit and determine the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> including uncertainties.</p>
+<p>Plot the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data with <span class="math notranslate nohighlight">\(y\)</span> error bars including legend and axes labels.</p>
 </section>
 </section>
 
@@ -518,22 +564,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="session9_notebooks.html"
+       href="session11_notebooks.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tutorial: Functions in Python</p>
+        <p class="prev-next-title">Tutorial: Fitting data with uncertainties</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="session10_notebooks.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial: Errors</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -551,15 +588,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-propagation-rules">Error propagation Rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-and-subtraction">1. Addition and Subtraction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-and-division">2. Multiplication and Division</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-by-a-constant">3. Multiplication by a Constant</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents-and-powers">4. Exponents and Powers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-in-quadrature">Why “in Quadrature”?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithms">5. Logarithms</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
 </ul>
   </nav></div>
 
