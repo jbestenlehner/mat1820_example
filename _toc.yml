@@ -47,3 +47,6 @@ parts:
   - caption: Session 11
     chapters:
     - file: docs/session11_notebooks
+  - caption: Session 12
+    chapters:
+    - file: docs/session12_notebooks
