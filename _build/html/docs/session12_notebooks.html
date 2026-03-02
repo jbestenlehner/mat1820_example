@@ -434,7 +434,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-fitting-data-with-uncertainties-on-both-axes">
 <h1>Tutorial: Fitting data with uncertainties on both axes<a class="headerlink" href="#tutorial-fitting-data-with-uncertainties-on-both-axes" title="Link to this heading">#</a></h1>
-<p>So far we have only considered errors in the dependent variable (y-axis). We used a standard linear regression also called <strong>Ordinary Least Squares</strong>. If we have uncertainties (errors) in both independent (x-axis) and dependent (y-axis) variable, we will need to use a method called <strong>Orthogonal Distance Regression (ODR)</strong> or <strong>Total Least Squares</strong>. ODR minimises the perpendicular (orthogonal) distance from the data points to the fitted curve.</p>
+<p>So far we have only considered errors in the dependent variable (y-axis). We used a standard linear regression also called <strong>Ordinary Least Squares</strong>. If we have uncertainties (errors) in both independent (x-axis) and dependent (y-axis) variable, we will need to use a method called weighted <strong>Orthogonal Distance Regression (ODR)</strong> or <strong>Total Least Squares</strong>. ODR minimises the perpendicular (orthogonal) distance from the data points to the fitted curve.</p>
 <p>To use ODR you need to install the following package by executing the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
