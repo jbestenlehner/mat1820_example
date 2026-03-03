@@ -1,4 +1,4 @@
-# current, current_err, voltage, voltage_err
+current, current_err, voltage, voltage_err
 4.53,0.73,249.90,0.53
 5.31,0.61,263.25,0.90
 5.90,0.67,274.52,0.82
