@@ -243,5 +243,8 @@ perr = np.sqrt(np.diag(pcov))
 # Extract parameters with uncertainties and compare.
 print('E_A = {:.3e} +/- {:.1e}'.format(popt[1], perr[1]))
 print('D_0 = {:.3e} +/- {:.1e}'.format(popt[0], perr[0]))
+print('Task 3 results:')
+print('E_A = {:.3e} +/- {:.1e}'.format(E_A, E_A_err))
+print('D_0 = {:.3e} +/- {:.1e}'.format(np.exp(p1[1]), p1err[1]*np.exp(p1[1])))
 ```
-Note: Using the exponential form of the Arrhenius equation we do not need to perform an error propagation when calculating $D_0$. However, we need to provide initial guesses of the parameters, as it is numerically less robust to fit than the logarithmic version of the Arrhenius equation.
+Note: Using the exponential form of the Arrhenius equation we do not need to perform error propagations when calculating $D_0$ and $E_A$. However, we need to provide initial guesses of the parameters, as it is numerically less robust to fit than the logarithmic version of the Arrhenius equation.
