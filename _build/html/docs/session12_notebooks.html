@@ -496,7 +496,7 @@ I = \frac{V}{R}.
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> is your model function (e.g. Ohm’s law).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">beta0</span></code> is the initial guess of your parameter to fit. For example, you can use the result for Task 1 or Task 2. For simple and linear models like Ohm’s law, the initial guess does not need to be precise but is crucial in complex non-linear models.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beta0</span></code> is the initial guess of your parameter to fit. For example, you can use the result for Task 1 or Task 2. For simple and linear models like Ohm’s law, the initial guess does not need to be precise but is crucial in more complex non-linear models (Task 4).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">xdata</span></code> and <code class="docutils literal notranslate"><span class="pre">ydata</span></code> are your measurements or data set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">weight_x</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span></code> are your weights for your data set and are the inverse of the squared standard deviations (variance), e.g. <strong><code class="docutils literal notranslate"><span class="pre">weight_x</span> <span class="pre">=</span> <span class="pre">1/sigma_x^2</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_y</span> <span class="pre">=</span> <span class="pre">1/sigma_y^2</span></code>.</strong></p></li>
 </ul>
@@ -536,7 +536,7 @@ I = \frac{V}{R}.
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">k_B</span> <span class="o">=</span> <span class="mf">1.38e-23</span> <span class="c1"># Boltzmann constant in J/K</span>
     <span class="n">D_0</span><span class="p">,</span> <span class="n">E_A</span> <span class="o">=</span> <span class="n">beta</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">D_0</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">E_A</span><span class="o">/</span><span class="n">k_B</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D_0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">E_A</span><span class="o">/</span><span class="n">k_B</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">D</span>
 </pre></div>
 </div>
