@@ -453,6 +453,19 @@ V = R*I,
 \]</div>
 <p><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code></a> and uncertainties on the dependent variable (voltage) to obtain the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
 <p>Plot your best fit function and data points with error bars including legend plus axes labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import curve_fit from scipy (see Task 4 session 11)</span>
+
+<span class="c1"># define Ohm&#39;s law</span>
+
+<span class="c1"># perform curve_fit including errors on voltage and extract parameters with uncertainties.</span>
+
+<span class="c1"># plot data points and result</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="task-2">
 <h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
@@ -463,6 +476,15 @@ I = \frac{V}{R}.
 \]</div>
 <p>Using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code> and uncertainties only on the new dependent variable (current) to obtain the resistance <span class="math notranslate nohighlight">\(R\)</span> with uncertainties.</p>
 <p>Plot your best fit function and data points with error bars including legend plus axes labels and compare the result with Task 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define Ohm&#39;s law with V as independent and I as dependent variable</span>
+
+<span class="c1"># Same steps as in Task 1, but with errors on current.</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="task-3">
 <h2>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
@@ -482,11 +504,12 @@ I = \frac{V}{R}.
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">odrpack</span><span class="w"> </span><span class="kn">import</span> <span class="n">odr_fit</span>
 
+<span class="c1"># use odr_fit with ohm&#39;s law function from Task 1 or 2, weights on voltage and current and initial guesses from Task 1 or 2.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>To extract the parameter with uncertainties you use <code class="docutils literal notranslate"><span class="pre">sol.beta</span></code> and <code class="docutils literal notranslate"><span class="pre">sol.sd_beta</span></code>. If you want to inspect the co-variance matrix use <code class="docutils literal notranslate"><span class="pre">sol.cov_beta</span></code>.</p>
+<p>To extract the parameter with uncertainties you use <code class="docutils literal notranslate"><span class="pre">sol.beta</span></code> and <code class="docutils literal notranslate"><span class="pre">sol.sd_beta</span></code>. If you want to inspect the <em>unscaled</em> co-variance matrix use <code class="docutils literal notranslate"><span class="pre">sol.cov_beta</span></code>.</p>
 <p>Note: There is no scaling of your co-variance matrix. Your errors must represent the true uncertainties.</p>
 <p>Follow the link for more details on the input and outputs of <a href="https://hugomvale.github.io/odrpack-python/reference/" target="_blank"><code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code></a>.</p>
 <div class="cell docutils container">
@@ -519,7 +542,7 @@ I = \frac{V}{R}.
 </div>
 </div>
 </div>
-<p>Determine <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span> using <code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code>. Plot the best fit and data points with error bars including legend and axes labels.</p>
+<p>Determine <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span> using <code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code> with initial guesses using the results from Session 11, Task 3 or 4. Plot the best fit and data points with error bars including legend and axes labels.</p>
 </section>
 <section id="task-5">
 <h2>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h2>
