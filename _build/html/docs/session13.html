@@ -439,7 +439,7 @@ document.write(`
 </li>
 </ol>
 <p>Note: see overview page of this session for propagation rules.</p>
-<p>Solution:</p>
+<p>Potential Solution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># 1.</span>
@@ -447,7 +447,7 @@ document.write(`
 <span class="n">delta_x</span> <span class="o">=</span> <span class="mf">0.6</span>
 <span class="n">y</span><span class="p">,</span> <span class="n">delta_y</span>  <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">0.4</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="n">delta_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">delta_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">delta_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">delta_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">delta_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">delta_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span> <span class="c1">#if you prefer, you can also use np.sqrt(), np.sqrt(delta_x**2 + delta_y**2)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;z = </span><span class="si">{:.0f}</span><span class="s1"> +/- </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">delta_z</span><span class="p">))</span>
 
 <span class="c1"># 2.</span>
@@ -468,7 +468,7 @@ document.write(`
 <section id="task-3">
 <h3>Task 3<a class="headerlink" href="#task-3" title="Link to this heading">#</a></h3>
 <p>The file <code class="docutils literal notranslate"><span class="pre">temperature.csv</span></code> contains a range of temperatures and errors in K. Convert the values along with their errors into Celsius.</p>
-<p>Solution:</p>
+<p>Potential Solution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">temp_K</span><span class="p">,</span> <span class="n">temp_K_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;temperature.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -480,6 +480,7 @@ document.write(`
 </div>
 <p>Now convert your Celsius values and their errors into Fahrenheit:</p>
 <p><span class="math notranslate nohighlight">\(\mathrm{F} =1.8\cdot\mathrm{C} + 32\)</span>.</p>
+<p>Potential Solution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temp_F</span> <span class="o">=</span> <span class="mf">1.8</span><span class="o">*</span><span class="n">temp_C</span> <span class="o">+</span> <span class="mi">32</span>
 <span class="n">temp_F_err</span> <span class="o">=</span> <span class="mf">1.8</span><span class="o">*</span><span class="n">temp_C_err</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">temp_F</span><span class="p">,</span> <span class="n">temp_F_err</span><span class="p">)))</span> <span class="c1"># prints the arrays, but not asked</span>
@@ -489,6 +490,7 @@ document.write(`
 <section id="task-5">
 <h3>Task 5<a class="headerlink" href="#task-5" title="Link to this heading">#</a></h3>
 <p>Find the value and error for the reciprocal of temperatures in K from the file <code class="docutils literal notranslate"><span class="pre">temperatures.csv</span></code> (Task 3). Can you use a function from Task 2 to propagate the error?</p>
+<p>Potential Solution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">power_err</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">delta_x</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  propagates error for z = x^n.</span>
@@ -498,6 +500,7 @@ document.write(`
 
 <span class="n">temp_rec_K</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">temp_K</span>
 <span class="n">temp_rec_K_err</span> <span class="o">=</span> <span class="n">power_err</span><span class="p">(</span><span class="n">temp_K</span><span class="p">,</span><span class="n">temp_K_err</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">temp_rec_K</span>
+<span class="c1">#optional print statement to check the result</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">temp_rec_K_err</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -509,14 +512,16 @@ document.write(`
 <h3>Task 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>In <code class="docutils literal notranslate"><span class="pre">diffusion.csv</span></code> you have a set of data from a diffusion study.</p>
 <p>If you look at this data you will see the diffusion values are recorded in <span class="math notranslate nohighlight">\(\mathrm{cm^2s^{−1}}\)</span> and the temperature is in Fahrenheit. We are going to need to convert these into SI units i.e. <span class="math notranslate nohighlight">\(\mathrm{m^2s^{−1}}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{K}\)</span>. Hopefully you have ready made examples that you adapt for this from last week.</p>
+<p>Potential Solution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">temp_F</span><span class="p">,</span> <span class="n">temp_F_err</span><span class="p">,</span> <span class="n">D_cgs</span><span class="p">,</span> <span class="n">D_cgs_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;diffusion.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># convert Fahrenheit to Kelvin</span>
-<span class="n">temp_K</span> <span class="o">=</span> <span class="n">temp_F</span><span class="o">/</span><span class="mf">1.8</span> <span class="o">-</span><span class="mi">32</span> <span class="o">+</span> <span class="mf">273.15</span>
+<span class="n">temp_K</span> <span class="o">=</span> <span class="p">(</span><span class="n">temp_F</span> <span class="o">-</span><span class="mi">32</span><span class="p">)</span><span class="o">/</span><span class="mf">1.8</span> <span class="o">+</span> <span class="mf">273.15</span>
 <span class="n">temp_K_err</span> <span class="o">=</span> <span class="n">temp_F_err</span><span class="o">/</span><span class="mf">1.8</span>
 
+<span class="c1">#convert from cgs to SI units</span>
 <span class="n">D_SI</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="o">*</span><span class="n">D_cgs</span>
 <span class="n">D_SI_err</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="o">*</span><span class="n">D_cgs_err</span>
 </pre></div>
@@ -538,8 +543,10 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
 <li><p>Perform a linear fit (this is a 1st order polynomial, session 7) and extract a value for <span class="math notranslate nohighlight">\(E_A\)</span> (the gradient) and <span class="math notranslate nohighlight">\(\ln D_0\)</span> (the constant).</p></li>
 <li><p>Calculate the errors on the <span class="math notranslate nohighlight">\(\ln D\)</span> and <span class="math notranslate nohighlight">\(1/T\)</span> values following your propagation of error rules. You can use your functions from session 10.</p></li>
 </ol>
+<p>Potential Solution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
+<span class="c1"># Function for error propagation</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">power_err</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">delta_x</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  propagates error for z = x^n.</span>
@@ -553,7 +560,10 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
 <span class="n">lnD_SI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">D_SI</span><span class="p">)</span>
 <span class="n">temp_rec_K</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">temp_K</span>
 <span class="c1">#2.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data Points&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/T [K]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;lnD [m^2/s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1">#3.</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -573,13 +583,18 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> with weights on <span class="math notranslate nohighlight">\(\ln D\)</span>.</p></li>
 <li><p>Compare the value you have extracted for <span class="math notranslate nohighlight">\(E_A\)</span> and <span class="math notranslate nohighlight">\(\ln D_0\)</span> to the values you found in Task 1.</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">lnD_SI_err</span><span class="p">)</span>
+<p>Potential Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#1.</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">lnD_SI_err</span><span class="p">)</span>
 <span class="n">E_A</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">k_B</span> <span class="c1"># gradient p[0] = - E_A/k_B</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;E_A = </span><span class="si">{}</span><span class="s1">, lnD_0 = </span><span class="si">{}</span><span class="s1"> or D_0 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">E_A</span><span class="p">,</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
-<span class="c1"># Plot for comparison</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">temp_rec_K</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">temp_rec_K</span><span class="p">),</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span>
+<span class="c1"># 2. Plot for comparison</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data Points&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">temp_rec_K</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Best fit without errors&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">temp_rec_K</span><span class="p">),</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Best fit with errors&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/T [K]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;lnD [m^2/s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -593,17 +608,19 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
 <li><p><code class="docutils literal notranslate"><span class="pre">cov='unscaled'</span></code>: if <span class="math notranslate nohighlight">\(\sigma\)</span> is a representative estimate of the uncertainty.</p></li>
 </ol>
 <p>If you trust that your errors (<span class="math notranslate nohighlight">\(\sigma\)</span>) are a true representation of the uncertainties, you set <code class="docutils literal notranslate"><span class="pre">p,</span> <span class="pre">pcov</span> <span class="pre">=</span> <span class="pre">np.polyfit(x_data,</span> <span class="pre">y_data,</span> <span class="pre">w=1/sigma_y,</span> <span class="pre">cov='unscaled')</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span><span class="p">,</span> <span class="n">p1cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">lnD_SI_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="s1">&#39;unscaled&#39;</span><span class="p">)</span>
+<p>Potential Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_3</span><span class="p">,</span> <span class="n">pcov_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">temp_rec_K</span><span class="p">,</span> <span class="n">lnD_SI</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">lnD_SI_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="s1">&#39;unscaled&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Above, we stored the covariance matrix in the variable <code class="docutils literal notranslate"><span class="pre">pcov</span></code>. The variance of the parameters are on the diagonal of the covariance matrix =&gt; <code class="docutils literal notranslate"><span class="pre">perr</span> <span class="pre">=</span> <span class="pre">np.sqrt(np.diag(pcov))</span></code>. The covariance matrix is a symmetric matrix (<span class="math notranslate nohighlight">\(M=M^{\mathrm{T}}\)</span>). Non zero values which are not located on the diagonal mean that parameters are not independent and correlate.</p>
 <p>Extract the uncertainty for <span class="math notranslate nohighlight">\(E_A\)</span> and <span class="math notranslate nohighlight">\(\ln D_0\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">p1cov</span><span class="p">))</span>
-<span class="n">E_A</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">k_B</span> <span class="c1"># gradient p[0] = - E_A/k_B</span>
-<span class="n">E_A_err</span> <span class="o">=</span> <span class="n">p1err</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">k_B</span>
+<p>Potential Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perr_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov_3</span><span class="p">))</span>
+<span class="n">E_A</span> <span class="o">=</span> <span class="o">-</span><span class="n">p_3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">k_B</span> <span class="c1"># gradient p[0] = - E_A/k_B</span>
+<span class="n">E_A_err</span> <span class="o">=</span> <span class="n">perr_3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">k_B</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;E_A = </span><span class="si">{:.3e}</span><span class="s1"> +/- </span><span class="si">{:.1e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">E_A</span><span class="p">,</span> <span class="n">E_A_err</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lnD_0 = </span><span class="si">{:.3f}</span><span class="s1"> +/- </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p1err</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D_0 = </span><span class="si">{:.3e}</span><span class="s1"> +/- </span><span class="si">{:.1e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">p1err</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lnD_0 = </span><span class="si">{:.3f}</span><span class="s1"> +/- </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_3</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">perr_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D_0 = </span><span class="si">{:.3e}</span><span class="s1"> +/- </span><span class="si">{:.1e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">perr_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_3</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
 </pre></div>
 </div>
 </section>
@@ -614,12 +631,13 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
 \[ 
 D = D_0 \exp\left(-\frac{E_A}{k_bT}\right).
 \]</div>
-<p>Values for <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span> are small (Task 2 and 3). To help <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> finding a solution, we can provide <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank">initial guesses</a> for <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span>, e.g. <code class="docutils literal notranslate"><span class="pre">p0=[1.e-8,</span> <span class="pre">1.e-19]</span></code>.</p>
+<p>Values for <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span> are small (Task 2 and 3). To help <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> finding a solution, we can provide <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank">initial guesses</a> for <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span>, e.g. <code class="docutils literal notranslate"><span class="pre">p0=[1.e-8,</span> <span class="pre">1.e-19]</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">arrhenius_equation</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">D_err</span><span class="p">,</span> 
         <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mf">1.e-8</span><span class="p">,</span> <span class="mf">1.e-19</span><span class="p">],</span> <span class="n">absolute_sigma</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Compare the values you have extracted for <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span> including uncertainties to the values you found in Task 3.</p>
+<p>Potential Solution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
 
 <span class="c1"># define arrhenius equation</span>
@@ -643,7 +661,7 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right).
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D_0 = </span><span class="si">{:.3e}</span><span class="s1"> +/- </span><span class="si">{:.1e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">perr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Task 3 results:&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;E_A = </span><span class="si">{:.3e}</span><span class="s1"> +/- </span><span class="si">{:.1e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">E_A</span><span class="p">,</span> <span class="n">E_A_err</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D_0 = </span><span class="si">{:.3e}</span><span class="s1"> +/- </span><span class="si">{:.1e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">p1err</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D_0 = </span><span class="si">{:.3e}</span><span class="s1"> +/- </span><span class="si">{:.1e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">perr_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_3</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
 </pre></div>
 </div>
 <p>Note: Using the exponential form of the Arrhenius equation we do not need to perform error propagations when calculating <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span>. However, we need to provide initial guesses of the parameters, as it is numerically less robust to fit than the logarithmic version of the Arrhenius equation.</p>
