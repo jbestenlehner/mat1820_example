@@ -402,6 +402,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-12">Session 12</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Task 5</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -667,6 +671,50 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right).
 <p>Note: Using the exponential form of the Arrhenius equation we do not need to perform error propagations when calculating <span class="math notranslate nohighlight">\(D_0\)</span> and <span class="math notranslate nohighlight">\(E_A\)</span>. However, we need to provide initial guesses of the parameters, as it is numerically less robust to fit than the logarithmic version of the Arrhenius equation.</p>
 </section>
 </section>
+<section id="session-12">
+<h2>Session 12<a class="headerlink" href="#session-12" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Task 5<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Similar to session 11<code class="docutils literal notranslate"><span class="pre">task5.csv</span></code> contains a data set with uncertainties and <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data, that can be fitted with the following relationship:</p>
+<div class="math notranslate nohighlight">
+\[
+y = ax^3 + bx.
+\]</div>
+<p>Perform the fit and determine the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> including uncertainties.</p>
+<p>Plot the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data with <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> error plus best fit including legend and axes labels.</p>
+<p>Potential Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">odrpack</span><span class="w"> </span><span class="kn">import</span> <span class="n">odr_fit</span>
+
+<span class="c1">#read in data</span>
+<span class="n">x</span><span class="p">,</span><span class="n">x_err</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">y_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;task5.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    returns: y = a^3 + bx</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">beta</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span>
+
+<span class="c1">#fit data with odr_fit including uncertainties</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odr_fit</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">beta0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">weight_x</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">x_err</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">weight_y</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># create array of x data plot a smooth best fit function</span>
+<span class="c1"># from x.min() to x.max()</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="n">x_err</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y_err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> 
+    <span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data points&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">fun</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">beta</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;fit: a=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">+/-</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, b=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">+/-</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -735,6 +783,10 @@ D = D_0 \exp\left(-\frac{E_A}{k_bT}\right).
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Task 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-12">Session 12</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Task 5</a></li>
 </ul>
 </li>
 </ul>

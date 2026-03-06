@@ -274,3 +274,50 @@ print('E_A = {:.3e} +/- {:.1e}'.format(E_A, E_A_err))
 print('D_0 = {:.3e} +/- {:.1e}'.format(np.exp(p_3[1]), perr_3[1]*np.exp(p_3[1])))
 ```
 Note: Using the exponential form of the Arrhenius equation we do not need to perform error propagations when calculating $D_0$ and $E_A$. However, we need to provide initial guesses of the parameters, as it is numerically less robust to fit than the logarithmic version of the Arrhenius equation.
+
+## Session 12
+
+### Task 5
+
+Similar to session 11`task5.csv` contains a data set with uncertainties and $x$ and $y$ data, that can be fitted with the following relationship:
+
+$$
+y = ax^3 + bx.
+$$
+
+Perform the fit and determine the values of $a$ and $b$ including uncertainties. 
+
+Plot the $x$ and $y$ data with $x$ and $y$ error plus best fit including legend and axes labels.
+
+Potential Solution:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from odrpack import odr_fit
+
+#read in data
+x,x_err,y,y_err = np.loadtxt('task5.csv', delimiter=',', skiprows=1, unpack=True)
+
+def fun(x, beta):
+    """
+    returns: y = a^3 + bx
+    """
+    a,b = beta
+    return a*x**3 + b*x
+
+#fit data with odr_fit including uncertainties
+result = odr_fit(fun, x, y, beta0=[1,5], weight_x=1/x_err**2, weight_y=1/y_err**2)
+
+# create array of x data plot a smooth best fit function
+# from x.min() to x.max()
+x_data = np.linspace(x.min(), x.max(), 1000)
+plt.errorbar(x,y, xerr=x_err, yerr=y_err, fmt='o', color='r', 
+    ecolor='lightgray', elinewidth=1.5, capsize=5, label='data points')
+plt.plot(x_data, fun(x_data,result.beta),label=f'fit: a={result.beta[0]:.2f}+/-{result.sd_beta[0]:.2f}, b={result.beta[1]:.2f}+/-{result.sd_beta[1]:.2f}')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+plt.close()
+```
