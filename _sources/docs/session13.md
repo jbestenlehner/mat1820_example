@@ -307,13 +307,13 @@ def fun(x, beta):
     return a*x**3 + b*x
 
 #fit data with odr_fit including uncertainties
-result = odr_fit(fun, x, y, beta0=[1,5], weight_x=1/x_err**2, weight_y=1/y_err**2)
+result = odr_fit(fun, x, y, beta0=[1,1], weight_x=1/x_err**2, weight_y=1/y_err**2)
 
 # create array of x data plot a smooth best fit function
 # from x.min() to x.max()
 x_data = np.linspace(x.min(), x.max(), 1000)
 plt.errorbar(x,y, xerr=x_err, yerr=y_err, fmt='o', color='r', 
-    ecolor='lightgray', elinewidth=1.5, capsize=5, label='data points')
+    ecolor='lightgray', elinewidth=1.5, capsize=3, label='data points')
 plt.plot(x_data, fun(x_data,result.beta),label=f'fit: a={result.beta[0]:.2f}+/-{result.sd_beta[0]:.2f}, b={result.beta[1]:.2f}+/-{result.sd_beta[1]:.2f}')
 plt.xlabel('x')
 plt.ylabel('y')
