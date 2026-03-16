@@ -53,7 +53,7 @@ parts:
   - caption: Example Solutions
     chapters:
     - file: docs/session_example_solution
-  - caption: Session 12
+  - caption: Session 13
     chapters:
     - file: docs/session13
     - file: docs/session13_notebooks

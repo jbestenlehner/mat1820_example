@@ -1,4 +1,4 @@
-# $R^2$ and goodness of fit
+# Exercise: $R^2$ and goodness of fit
 
 In session 7 we used $R^2$ (coefficient of determination) to assess the goodness of fit of our model. 
 
