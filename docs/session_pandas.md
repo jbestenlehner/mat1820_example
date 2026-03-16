@@ -1,6 +1,6 @@
 ## Pandas: reading and writing data files
 
-Structured data files like `.CSV`, `.JSON`, `.XML`, etc. can contain numerical as well as text data including data labels. For example, a data file might contain names of people (`str`), their ages (`int`) and height (`float`). 'Name', 'Age' and 'Height' are data labels. Of course this can be down with the methods above by using `.split()` or `unpack` and then individually assign the data types to the lists/arrays and define variable according the data contents (name, age, height).
+Structured data files like `.CSV`, `.JSON`, `.XML`, etc. can contain numerical as well as text data including data labels. For example, a data file might contain names of people (`str`), their ages (`int`) and height (`float`). 'Name', 'Age' and 'Height' are data labels. Of course this can be down with the methods taught in Session 6 by using `.split()` or `unpack` and then individually assign the data types to the lists/arrays and define variable according the data contents (name, age, height).
 
 However, there is package called <a href="https://pandas.pydata.org/" target="_blank">pandas</a>, which is a python package develop for real-world Data Analysis. It is able to handle the vast majority of typical use cases in finance, statistics, social science and many areas of engineering providing fast, flexible and expressive data structures designed to make working with relational or labeled data both easy and intuitive. Pandas is able to read many different data files including CSV, JSON, XML, SQL, Excel, HTML, clipboard, etc.
 
@@ -9,8 +9,6 @@ Pandas is imported with
 ```python
 import pandas as pd
 ```
-
-In this session we mainly use Pandas to read in and out data files. The next semester will focus more on Data Analysis, where we will explore more the capabilities of Pandas.
 
 While Numpy is used for numerical computations Pandas strength lies in data handling and analysis, which makes it the goto package in Data Science.  
 

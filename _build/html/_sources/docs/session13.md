@@ -1,323 +1,64 @@
-# Example solutions
-## Session 10
+# $R^2$ and goodness of fit
 
-### Task 1
+In session 7 we used $R^2$ (coefficient of determination) to assess the goodness of fit of our model. 
 
-Calculate the value of $z$ and error $\Delta z$ for the following problems.
+## Task 1 (recap from session 7)
 
-1. $z = x + y$:
-    - $x = 15$ and $\Delta x = 0.6$
-    - $y = 12$ and $\Delta y = 0.4$
-
-2. $z = x^3$:
-    - $x = 6$ and $\Delta x = 0.3$
-3. $z = \exp(4x)$:
-    - $x = 2.1$ and $\Delta x = 0.1$
-
-Note: see overview page of this session for propagation rules.
-
-Potential Solution:
-
-```python
-import numpy as np
-
-# 1.
-x = 15
-delta_x = 0.6
-y, delta_y  = 12, 0.4
-z = x + y
-delta_z = (delta_x**2 + delta_y**2)**0.5 #if you prefer, you can also use np.sqrt(), np.sqrt(delta_x**2 + delta_y**2)
-print('z = {:.0f} +/- {:.1f}'.format(z, delta_z))
-
-# 2.
-x, delta_x = 6, 0.3
-z = x**3
-delta_z = 3*delta_x/x*z
-print('z = {:.0f} +/- {:.1f}'.format(z, delta_z))
-
-
-# 3.
-x, delta_x = 2.1, 0.1
-z = np.exp(4*x)
-delta_z = 4*delta_x*z
-print('z = {:.0f} +/- {:.0f}'.format(round(z, -2), round(delta_z, -2)))
-```
-
-### Task 3
-
-The file `temperature.csv` contains a range of temperatures and errors in K. Convert the values along with their errors into Celsius.
-
-Potential Solution:
-
-```python
-import numpy as np
-
-temp_K, temp_K_err = np.loadtxt('temperature.csv', delimiter=',', skiprows=1, unpack=True)
-
-#Conversion from Kelvin to Celcius
-temp_C = temp_K - 273.15
-temp_C_err = temp_K_err # constant value is added.
-```
-
-Now convert your Celsius values and their errors into Fahrenheit:
-
-$\mathrm{F} =1.8\cdot\mathrm{C} + 32$.
-
-Potential Solution:
-
-```python
-temp_F = 1.8*temp_C + 32
-temp_F_err = 1.8*temp_C_err
-print(np.column_stack((temp_F, temp_F_err))) # prints the arrays, but not asked
-```
-
-### Task 5
-
-Find the value and error for the reciprocal of temperatures in K from the file `temperatures.csv` (Task 3). Can you use a function from Task 2 to propagate the error?
-
-Potential Solution:
-
-```python
-def power_err(x,delta_x,n):
-  """
-  propagates error for z = x^n.
-  returns delta_z/z
-  """
-  return np.abs(n)*delta_x/x
-
-temp_rec_K = 1/temp_K
-temp_rec_K_err = power_err(temp_K,temp_K_err,-1)*temp_rec_K
-#optional print statement to check the result
-print(np.column_stack((temp_rec_K, temp_rec_K_err)))
-```
-
-## Session 11
-
-### Task 1
-
-In `diffusion.csv` you have a set of data from a diffusion study.
-
-If you look at this data you will see the diffusion values are recorded in $\mathrm{cm^2s^{−1}}$ and the temperature is in Fahrenheit. We are going to need to convert these into SI units i.e. $\mathrm{m^2s^{−1}}$ and $\mathrm{K}$. Hopefully you have ready made examples that you adapt for this from last week.
-
-Potential Solution:
-
-```python
-import numpy as np
-
-temp_F, temp_F_err, D_cgs, D_cgs_err = np.loadtxt('diffusion.csv', delimiter=',', skiprows=1, unpack=True)
-
-# convert Fahrenheit to Kelvin
-temp_K = (temp_F -32)/1.8 + 273.15
-temp_K_err = temp_F_err/1.8
-
-#convert from cgs to SI units
-D_SI = 1e-4*D_cgs
-D_SI_err = 1e-4*D_cgs_err
-```
-
-The movement of atoms in a solid is given by the Arrhenius equation:
-
-$$ 
-D = D_0 \exp\left(-\frac{E_A}{k_bT}\right),
-$$
-
-where $D_0$ is material dependent constant, $E_A$ is activation energy, $k_B$ is the Boltzmann constant, and $T$ is the temperature in Kelvin and returns the diffusion coefficient $D$.
-
-By taking the natural log of this equation we obtain:
+- Load the data from `task1.csv` into Colab. 
+- Perform a linear regression by fitting a first order polynomial to this data. 
+- Calculate the $R^2$ value. Remember the formula is:
 
 $$
-\ln D = \ln D_0 -  \left(\frac{E_A}{k_B T}\right).
+R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Squares (TSS)}} = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}.
 $$
 
-1. Take the natural log of the $D$ values and find $1/T$ values.
+- Present your data and fit (e.g. plot) and discuss in a text using the $R^2$-value the goodness of the fit.
 
-2. Plot a graph of $\ln D$ (y-axis) and $1/T$ (x-axis). Remember to label your axis. 
+## Task 2
 
-3. Perform a linear fit (this is a 1st order polynomial, session 7) and extract a value for $E_A$ (the gradient) and $\ln D_0$ (the constant).
+There is a data set in `task2.csv` containing the magnetic field ($H$) at set distances ($r$) from a bar magnet. The pole separation ($l$) is 0.1 m. When we calculate the magnetic field strength around a magnet there
+are two potential formulas that can be used:
 
-4. Calculate the errors on the $\ln D$ and $1/T$ values following your propagation of error rules. You can use your functions from session 10.
-
-Potential Solution:
-
-```python
-import matplotlib.pyplot as plt
-
-# Function for error propagation
-def power_err(x,delta_x,n):
-  """
-  propagates error for z = x^n.
-  returns delta_z/z
-  """
-  return np.abs(n)*delta_x/x
-
-k_B = 1.38e-23 # Boltzmann constant in J/K
-
-#1.
-lnD_SI = np.log(D_SI)
-temp_rec_K = 1/temp_K
-#2.
-plt.plot(temp_rec_K, lnD_SI, 'ro', label='Data Points')
-plt.xlabel('1/T [K]')
-plt.ylabel('lnD [m^2/s]')
-plt.legend()
-plt.show()
-#3.
-p = np.polyfit(temp_rec_K, lnD_SI, 1)
-E_A = -p[0]*k_B # gradient p[0] = - E_A/k_B
-print('E_A = {}, lnD_0 = {} or D_0 = {}'.format(E_A, p[1], np.exp(p[1])))
-#4.
-lnD_SI_err = D_SI_err/D_SI
-temp_rec_K_err = power_err(temp_K, temp_K_err, -1)*temp_rec_K
+```{math}
+:label: monopol
+H = \frac{p}{4\pir^2},
 ```
 
-### Task 2
-
-In Task 1 you have hopefully used  <a href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html" target="_blank">`np.polyfit()`</a>. If you follow the link or use the help, we will see there is an option to provide Weights as an argument to the polyfit function (`w_i = 1/sigma_i`, see also $\chi^2$ equation). 
-
-**Note:** you can only provide weights for your $y$-data (dependent variable). Next week we will also consider uncertainties on the $x$-data (independent variable).
-
-1. Use `np.polyfit()` with weights on $\ln D$.
-
-2. Compare the value you have extracted for $E_A$ and $\ln D_0$ to the values you found in Task 1.
-
-Potential Solution:
-
-```python
-#1.
-p1 = np.polyfit(temp_rec_K, lnD_SI, 1, w = 1/lnD_SI_err)
-E_A = -p[0]*k_B # gradient p[0] = - E_A/k_B
-print('E_A = {}, lnD_0 = {} or D_0 = {}'.format(E_A, p1[1], np.exp(p1[1])))
-# 2. Plot for comparison
-plt.plot(temp_rec_K, lnD_SI, 'ro', label='Data Points')
-plt.plot(temp_rec_K, np.polyval(p,temp_rec_K), 'k-', label='Best fit without errors')
-plt.plot(temp_rec_K, np.polyval(p1,temp_rec_K), 'b--', label='Best fit with errors')
-plt.xlabel('1/T [K]')
-plt.ylabel('lnD [m^2/s]')
-plt.legend()
-plt.show()
-plt.close()
+```{math}
+:label: dipol
+H = \frac{pl}{4\pir^3}.
 ```
 
-### Task 3
+The first case is for a monopole and the second for a dipole. Depending on the proximity to the magnet and the separation between the poles then either formula can work best for calculating the field strength.
 
-Now we have look at the uncertainties on our fitting parameters. To do so we need to access the covariance matrix:
+- Fit the data with both equations using a fitting function, that you think is appropriate. When you do this process you should fit a value for the pole strength ($p$) with uncertainties.
 
-1. `cov=True`: the covariance is scaled. The weights are presumed to be unreliable except in a relative sense and everything is scaled such that the reduced $\chi^2$ is unity.
+- Calculate $\hat{y}$ values (predicted $H$ values from the model) by using the pole strength value you determined and the known pole separation ($l$) at the given $r$ values for your two different fits.
 
-2. `cov='unscaled'`: if $\sigma$ is a representative estimate of the uncertainty.
+- Using these values calculate a $R^2$ value for each case. 
 
-If you trust that your errors ($\sigma$) are a true representation of the uncertainties, you set `p, pcov = np.polyfit(x_data, y_data, w=1/sigma_y, cov='unscaled')`.
+- Visualise your results and discuss which model can better explain the data?
 
-Potential Solution:
+## Task 3
 
-```python
-p_3, pcov_3 = np.polyfit(temp_rec_K, lnD_SI, 1, w = 1/lnD_SI_err, cov='unscaled')
-```
+As you have noticed the file `task2.csv` contains columns with errors for the $H$ and $r$ values:
 
-Above, we stored the covariance matrix in the variable `pcov`. The variance of the parameters are on the diagonal of the covariance matrix => `perr = np.sqrt(np.diag(pcov))`. The covariance matrix is a symmetric matrix ($M=M^{\mathrm{T}}$). Non zero values which are not located on the diagonal mean that parameters are not independent and correlate.
+- Use these values to calculate the pole strength $p$ and propagated error for each data point. Compare the calculated $p$ and error values with your best fit value for $p$ (i.e. either Equation {eq}`monopol` or {eq}`dipol`). If Equation {eq}`dipol` fits your data best, you can assume that the error on $l$ is 0.
 
-Extract the uncertainty for $E_A$ and $\ln D_0$.
+- Discuss if the $p$ values agree within the uncertainty range? 
 
-Potential Solution:
+- From above you should have an array with $p$ values. Calculate _mean_, _standard deviation_ and _standard error_ (see Session 10). 
 
-```python
-perr_3 = np.sqrt(np.diag(pcov_3))
-E_A = -p_3[0]*k_B # gradient p[0] = - E_A/k_B
-E_A_err = perr_3[0]*k_B
-print('E_A = {:.3e} +/- {:.1e}'.format(E_A, E_A_err))
-print('lnD_0 = {:.3f} +/- {:.3f}'.format(p_3[1], perr_3[1]))
-print('D_0 = {:.3e} +/- {:.1e}'.format(np.exp(p_3[1]), perr_3[1]*np.exp(p_3[1])))
-```
+- Discuss if the averaged $p$ value agree within the uncertainties with your best fit value for $p$.
 
-### Task 4
+## Task 4
 
-Using `curve_fit()` and the exponential form of the Arrhenius equation find $D_0$ and $E_A$ with uncertainties,
+As a general rule when the distance from the magnet is less than the separation of the poles the magnet will normally operate as a monopole (Equation {eq}`monopol`) but when it is greater than or equal to the pole separation it will operate as a dipole.
 
-$$ 
-D = D_0 \exp\left(-\frac{E_A}{k_bT}\right).
-$$
+- Write a code that calculates the magnetic field strength at a set distance (r) from the magnet. The user should supply $p$, $l$ and $r$.
 
-Values for $D_0$ and $E_A$ are small (Task 2 and 3). To help `curve_fit()` finding a solution, we can provide <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank">initial guesses</a> for $D_0$ and $E_A$, e.g. `p0=[1.e-8, 1.e-19]`:
+- The code should decide which formula to use to calculate $H$ telling the user if _monopol_ or _dipol_.
 
-```python
-popt, pcov = curve_fit(arrhenius_equation, T, D, sigma=D_err, 
-        p0=[1.e-8, 1.e-19], absolute_sigma=True)
-```
-Compare the values you have extracted for $D_0$ and $E_A$ including uncertainties to the values you found in Task 3.
+- If an invalid number for $p$, $l$ or $r$ is supplied (e.g. a negative number) the code should tell the user the value cannot be calculated by printing an error message to the screen.
 
-Potential Solution:
-
-```python
-from scipy.optimize import curve_fit
-
-# define arrhenius equation
-def arrhenius_equation(T, D_0, E_A):
-    """
-    Calculates the diffusion using the Arrhenius equation.
-    Args:
-        T : temperature in Kelvin
-        parameters: D_0 and E_A
-    """
-    k_B = 1.38e-23 # Boltzmann constant in J/K
-    D = D_0*np.exp(-E_A/k_B/T)
-    return D
-
-# least square fit with curve_fit() with  initial guesses
-popt, pcov = curve_fit(arrhenius_equation, temp_K, D_SI, sigma=D_SI_err, 
-        p0=[1.e-10, 1.e-20], absolute_sigma=True)
-perr = np.sqrt(np.diag(pcov))
-# Extract parameters with uncertainties and compare.
-print('E_A = {:.3e} +/- {:.1e}'.format(popt[1], perr[1]))
-print('D_0 = {:.3e} +/- {:.1e}'.format(popt[0], perr[0]))
-print('Task 3 results:')
-print('E_A = {:.3e} +/- {:.1e}'.format(E_A, E_A_err))
-print('D_0 = {:.3e} +/- {:.1e}'.format(np.exp(p_3[1]), perr_3[1]*np.exp(p_3[1])))
-```
-Note: Using the exponential form of the Arrhenius equation we do not need to perform error propagations when calculating $D_0$ and $E_A$. However, we need to provide initial guesses of the parameters, as it is numerically less robust to fit than the logarithmic version of the Arrhenius equation.
-
-## Session 12
-
-### Task 5
-
-Similar to session 11`task5.csv` contains a data set with uncertainties and $x$ and $y$ data, that can be fitted with the following relationship:
-
-$$
-y = ax^3 + bx.
-$$
-
-Perform the fit and determine the values of $a$ and $b$ including uncertainties. 
-
-Plot the $x$ and $y$ data with $x$ and $y$ error plus best fit including legend and axes labels.
-
-Potential Solution:
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-from odrpack import odr_fit
-
-#read in data
-x,x_err,y,y_err = np.loadtxt('task5.csv', delimiter=',', skiprows=1, unpack=True)
-
-def fun(x, beta):
-    """
-    returns: y = a^3 + bx
-    """
-    a,b = beta
-    return a*x**3 + b*x
-
-#fit data with odr_fit including uncertainties
-result = odr_fit(fun, x, y, beta0=[1,1], weight_x=1/x_err**2, weight_y=1/y_err**2)
-
-# create array of x data plot a smooth best fit function
-# from x.min() to x.max()
-x_data = np.linspace(x.min(), x.max(), 1000)
-plt.errorbar(x,y, xerr=x_err, yerr=y_err, fmt='o', color='r', 
-    ecolor='lightgray', elinewidth=1.5, capsize=3, label='data points')
-plt.plot(x_data, fun(x_data,result.beta),label=f'fit: a={result.beta[0]:.2f}+/-{result.sd_beta[0]:.2f}, b={result.beta[1]:.2f}+/-{result.sd_beta[1]:.2f}')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend()
-plt.show()
-plt.close()
-```
+- Finally try to modify the code so it can take values for r in a range of units e.g. m, cm, mm, inches, ft and give the correct value.
