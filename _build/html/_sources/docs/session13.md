@@ -21,12 +21,12 @@ are two potential formulas that can be used:
 
 ```{math}
 :label: monopol
-H = \frac{p}{4\pir^2},
+H = \frac{p}{4\pi r^2},
 ```
 
 ```{math}
 :label: dipol
-H = \frac{pl}{4\pir^3}.
+H = \frac{p\,l}{4\pi r^3}.
 ```
 
 The first case is for a monopole and the second for a dipole. Depending on the proximity to the magnet and the separation between the poles then either formula can work best for calculating the field strength.

@@ -1,4 +1,4 @@
-# Input and output plus data types
+# Input and output, data types and `for` loop
 ## Learning Objectives:
 
 * Understand different data types.

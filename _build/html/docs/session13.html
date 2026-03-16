@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -199,7 +199,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output plus data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session4.html">Input and output, data types and <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session4_notebooks.html">Tutorial: Input and output</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
@@ -433,9 +433,9 @@ R^2 = 1 - \frac{\text{Sum of Squared Residuals (SSR)}}{\text{Total Sum of Square
 <p>There is a data set in <code class="docutils literal notranslate"><span class="pre">task2.csv</span></code> containing the magnetic field (<span class="math notranslate nohighlight">\(H\)</span>) at set distances (<span class="math notranslate nohighlight">\(r\)</span>) from a bar magnet. The pole separation (<span class="math notranslate nohighlight">\(l\)</span>) is 0.1 m. When we calculate the magnetic field strength around a magnet there
 are two potential formulas that can be used:</p>
 <div class="math notranslate nohighlight" id="equation-monopol">
-<span class="eqno">(1)<a class="headerlink" href="#equation-monopol" title="Link to this equation">#</a></span>\[H = \frac{p}{4\pir^2},\]</div>
+<span class="eqno">(1)<a class="headerlink" href="#equation-monopol" title="Link to this equation">#</a></span>\[H = \frac{p}{4\pi r^2},\]</div>
 <div class="math notranslate nohighlight" id="equation-dipol">
-<span class="eqno">(2)<a class="headerlink" href="#equation-dipol" title="Link to this equation">#</a></span>\[H = \frac{pl}{4\pir^3}.\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-dipol" title="Link to this equation">#</a></span>\[H = \frac{p\,l}{4\pi r^3}.\]</div>
 <p>The first case is for a monopole and the second for a dipole. Depending on the proximity to the magnet and the separation between the poles then either formula can work best for calculating the field strength.</p>
 <ul class="simple">
 <li><p>Fit the data with both equations using a fitting function, that you think is appropriate. When you do this process you should fit a value for the pole strength (<span class="math notranslate nohighlight">\(p\)</span>) with uncertainties.</p></li>
