@@ -1,4 +1,4 @@
-# Conditional Logic and Loops
+# Conditional logic and `while` loop
 ## Learning Objectives:
 
 * Boolean logic (`True` and `False`).
