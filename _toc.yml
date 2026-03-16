@@ -52,4 +52,8 @@ parts:
     - file: docs/session12_notebooks
   - caption: Example Solutions
     chapters:
+    - file: docs/session_example_solution
+  - caption: Session 12
+    chapters:
     - file: docs/session13
+    - file: docs/session13_notebooks
