@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Executing Jupyter Notebooks on Colab &#8212; Digital Skills for Materials</title>
+    <title>Exercise: More data fitting &#8212; Digital Skills for Materials</title>
   
   
   
@@ -57,11 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session1_colab';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/session14';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tutorial: Calculations, variables and help" href="session1_notebooks.html" />
-    <link rel="prev" title="Performing Calculations with Computers" href="session1.html" />
+    <link rel="next" title="Notebook to solve exercise" href="session14_notebooks.html" />
+    <link rel="prev" title="Notebook to solve exercise" href="session13_notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,9 +182,9 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session1.html">Performing Calculations with Computers</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Executing Jupyter Notebooks on Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session1_colab.html">Executing Jupyter Notebooks on Colab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session1_notebooks.html">Tutorial: Calculations, variables and help</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
@@ -247,8 +249,8 @@
 <li class="toctree-l1"><a class="reference internal" href="session13_notebooks.html">Notebook to solve exercise</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 14</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session14.html">Exercise: More data fitting</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercise: More data fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session14_notebooks.html">Notebook to solve exercise</a></li>
 </ul>
 
@@ -304,7 +306,7 @@
       
       
       
-      <li><a href="../_sources/docs/session1_colab.md" target="_blank"
+      <li><a href="../_sources/docs/session14.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +377,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -386,11 +390,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Executing Jupyter Notebooks on Colab</h1>
+    <h1>Exercise: More data fitting</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -400,21 +413,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="executing-jupyter-notebooks-on-colab">
-<h1>Executing Jupyter Notebooks on Colab<a class="headerlink" href="#executing-jupyter-notebooks-on-colab" title="Link to this heading">#</a></h1>
-<p>Jupyter Notebooks are a community standard for communicating and performing interactive computing. It combines computational Tasks with explanatory text. Colab is a free cloud service by Google to create and share interactive notebooks with code, text, and visualizations.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a href="https://jupyter.org/" target="_blank">Jupyter Project</a> and <a href="https://colab.google/" target="_blank">Colab</a>  for more details.</p>
-</div>
-<p>A few examples to help you getting started with Colab and Jupyter Notebooks are given <a href="https://colab.research.google.com/#scrollTo=GJBs_flRovLc" target="_blank">here</a>.</p>
-<p>To execute log into your &lt;<em>your_username</em>&gt;&#64;sheffield.ac.uk google-account</p>
-<p><img alt="" src="../_images/execute_colab.apng" /></p>
-<p>and click on the little rocket to open this notebook on Colab.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>To save changes to and execute the notebook you need to make your own copy by selecting <em>File-&gt;Save a copy in Drive</em> from the menu bar in Colab.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-more-data-fitting">
+<h1>Exercise: More data fitting<a class="headerlink" href="#exercise-more-data-fitting" title="Link to this heading">#</a></h1>
+<p>Analysing and discussing results is an important of your degree. This session will give you another example on fitting data with uncertainties and how to identify and remove outliers in your data set.</p>
+<section id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Read in the data from <code class="docutils literal notranslate"><span class="pre">session14_task1.csv</span></code> into Colab. The data set contains youngs modulus and the mass of a defect added to a sample. Errors are given in the 3rd and 4th column for the data sets. Note that errors are not exactly the same for all data points. These errors should be treated as <span class="math notranslate nohighlight">\(\pm\)</span> for each data point, e.g. the 1st point is <span class="math notranslate nohighlight">\(4.76 \pm 0.6\)</span> g and <span class="math notranslate nohighlight">\(16.20 \pm 0.57\)</span> GPa.</p></li>
+<li><p>Plot a graph of the mass of the defect (independent) against youngs modulus (dependent). Add axes labels with units, a legend and error bars for the defect mass and youngs modulus to the graph.</p></li>
+<li><p>Use a 1st order polynomial and <code class="docutils literal notranslate"><span class="pre">odr_fit()</span></code> to fit the data with and without errors. Extract out values for m and c with uncertainties for both cases.</p></li>
+<li><p>Add the fits to your graph, compare and discuss the results.</p></li>
+</ul>
+</section>
+<section id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">session14_task2.csv</span></code> has a set of data that should make a good linear fit. There is a suspicion that some of the data may be unreliable and should not be used for fitting purposes.</p>
+<ul class="simple">
+<li><p>Try plotting the data and seeing if you suspect any of the data points look anomalous.</p></li>
+<li><p>Perform a simple 1st order polynomial fit to the data using <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code>, extract the parameters with uncertainties and calculate the <span class="math notranslate nohighlight">\(R^2\)</span> value of your fit.</p></li>
+<li><p>To prove data point is anomalous you need to see if its removal significantly affects the fit and the quality of the fit. To do this you could systemically create new data sets with a data point removed using <code class="docutils literal notranslate"><span class="pre">np.delete()</span></code> and perform a fitting plus <span class="math notranslate nohighlight">\(R^2\)</span> calculation. Present and discuss your findings.</p></li>
+<li><p>You should be able to automate this process to identify the problematic data point. For example, remove data points, which are 3 to 5 sigma away from the predicted value. Hint: you need to propagate the uncertainties from your best-fit parameters.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -448,20 +468,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="session1.html"
+       href="session13_notebooks.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Performing Calculations with Computers</p>
+        <p class="prev-next-title">Notebook to solve exercise</p>
       </div>
     </a>
     <a class="right-next"
-       href="session1_notebooks.html"
+       href="session14_notebooks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial: Calculations, variables and help</p>
+        <p class="prev-next-title">Notebook to solve exercise</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -471,6 +491,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
