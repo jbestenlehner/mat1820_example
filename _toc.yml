@@ -57,3 +57,7 @@ parts:
     chapters:
     - file: docs/session13
     - file: docs/session13_notebooks
+  - caption: Session 14
+    chapters:
+    - file: docs/session14
+    - file: docs/session14_notebooks
