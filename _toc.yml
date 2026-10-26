@@ -50,9 +50,9 @@ parts:
   - caption: Session 12
     chapters:
     - file: docs/session12_notebooks
-  - caption: Example Solutions
-    chapters:
-    - file: docs/session_example_solution
+      #  - caption: Example Solutions
+      #    chapters:
+      #    - file: docs/session_example_solution
   - caption: Session 13
     chapters:
     - file: docs/session13
