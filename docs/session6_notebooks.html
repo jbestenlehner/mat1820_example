@@ -695,18 +695,19 @@ document.write(`
 <section id="read-in-textfile-with-whitespaces">
 <h2>Read in textfile with whitespaces<a class="headerlink" href="#read-in-textfile-with-whitespaces" title="Link to this heading">#</a></h2>
 <p>To read in the file structure in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> you can use the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function from Pandas.</p>
-<p>Note: as it is a text file separated by whitespaces we need to set the parameter <code class="docutils literal notranslate"><span class="pre">delim_whitespace</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
+<p>Note: as it is a text file separated by whitespaces we need to set the parameter <code class="docutils literal notranslate"><span class="pre">sep</span> <span class="pre">=</span> <span class="pre">'\\s+'</span></code>.</p>
 <p>The first line of the header/comment describes the data file (‘test file’) and we can ignore it. The second row provides us information about the columns, which would be sensible labels for the pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. So we only skip the first row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="n">df_xy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="n">delim_whitespace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># reads data into Pandas dataframe.</span>
+<span class="n">df_xy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">s+&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># reads data into Pandas dataframe.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="p">)</span>          <span class="c1"># prints content of dataframe</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># shows column labels</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>   <span class="c1"># prints data type for each column</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1"># plot data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span> <span class="c1"># plot data</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df_xy</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">)</span>      <span class="c1"># if labels do not contain spaces or special signs like &#39;\&#39;, &#39;|&#39;, &#39;/&#39;, &#39;#&#39;, ..., you can access columns with &#39;.&lt;column label&gt;.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -722,12 +723,10 @@ document.write(`
 <ul class="simple">
 <li><p>Look at the file and identify</p></li>
 <li><p>how many text headings it has, and the deliminator that separates the values.</p></li>
-<li><p>Use these to read in the file with <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code></p></li>
-<li><p>Separate the columns into separated arrays.</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to read the file into a Pandas data file.</p></li>
 <li><p>Plot sample 1 and sample 2 on the same graph.</p></li>
 <li><p>Label the axis including units.</p></li>
 </ul>
-<p>Now use <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to read the file into a Pandas data file and plot the data as above.</p>
 <p>Hint: The second row contains the Units of each column. To use the first row as column labels and skip the second row set parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span> <span class="pre">=</span> <span class="pre">[1]</span></code>. Note: Python starts counting from 0.</p>
 </section>
 </section>
