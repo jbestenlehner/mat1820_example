@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -211,6 +211,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session6.html">Reading and writing files</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial: Reading in and writing out data</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
@@ -238,10 +239,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 12</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="session12_notebooks.html">Tutorial: Fitting data with uncertainties on both axes</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example Solutions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="session_example_solution.html">Example solutions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 13</span></p>
 <ul class="nav bd-sidenav">
@@ -431,6 +428,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial: Reading in and writing out data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-from-a-file">Reading in from a file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
@@ -440,6 +438,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-hard">Task 6 (Hard)</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-reading-and-writing-data-files">Pandas: reading and writing data files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing-files-with-pandas">Reading writing files with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-examples">Pandas examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-textfile-with-whitespaces">Read in textfile with whitespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -595,6 +603,134 @@ document.write(`
 </ul>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="pandas-reading-and-writing-data-files">
+<h1>Pandas: reading and writing data files<a class="headerlink" href="#pandas-reading-and-writing-data-files" title="Link to this heading">#</a></h1>
+<p>Structured data files like <code class="docutils literal notranslate"><span class="pre">.CSV</span></code>, <code class="docutils literal notranslate"><span class="pre">.JSON</span></code>, <code class="docutils literal notranslate"><span class="pre">.XML</span></code>, etc. can contain numerical as well as text data including data labels. For example, a data file might contain names of people (<code class="docutils literal notranslate"><span class="pre">str</span></code>), their ages (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and height (<code class="docutils literal notranslate"><span class="pre">float</span></code>). ‘Name’, ‘Age’ and ‘Height’ are data labels. Of course this can be down with the methods taught in Session 6 by using <code class="docutils literal notranslate"><span class="pre">.split()</span></code> or <code class="docutils literal notranslate"><span class="pre">unpack</span></code> and then individually assign the data types to the lists/arrays and define variable according the data contents (name, age, height).</p>
+<p>However, there is package called <a href="https://pandas.pydata.org/" target="_blank">pandas</a>, which is a python package develop for real-world Data Analysis. It is able to handle the vast majority of typical use cases in finance, statistics, social science and many areas of engineering providing fast, flexible and expressive data structures designed to make working with relational or labeled data both easy and intuitive. Pandas is able to read many different data files including CSV, JSON, XML, SQL, Excel, HTML, clipboard, etc.</p>
+<p>Pandas is imported with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+<p>While Numpy is used for numerical computations Pandas strength lies in data handling and analysis, which makes it the goto package in Data Science.</p>
+<section id="reading-writing-files-with-pandas">
+<h2>Reading writing files with Pandas<a class="headerlink" href="#reading-writing-files-with-pandas" title="Link to this heading">#</a></h2>
+<p>Pandas reads tables of data into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code>.</p>
+<p>To read in the file structure in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> you can use the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function from Pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="o">!</span>wget<span class="w"> </span>https://raw.githubusercontent.com/jbestenlehner/mat1820_example/refs/heads/main/data/bio_stats.csv
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;bio_stats.csv&#39;</span><span class="p">)</span> <span class="c1"># reads in a CSV file</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>                         <span class="c1"># displays the content of DataFrame. </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For large datasets only the first 5 and last 5 rows are shown while first and last few columns are displayed depending on screen width.</p>
+<p>Note: there is an additional ‘index’ column counting from 0.</p>
+<p>If you want to read in only specific columns, there can be indicated with <code class="docutils literal notranslate"><span class="pre">usecols</span></code> similar to <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code>. You can also read in text files separated with whitespaces with <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>, but this needs to be declared with the parameter <code class="docutils literal notranslate"><span class="pre">delim_whitespace</span> <span class="pre">=</span> <span class="pre">True</span></code>. For a complete list of optional parameters either use <code class="docutils literal notranslate"><span class="pre">pd.read_csv?</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>   <span class="c1"># displays columns name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>    <span class="c1"># displays columns data types</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>     <span class="c1"># displays number of rows and columns</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;bio_stats_out.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># writes data into CSV excluding the index column</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default <code class="docutils literal notranslate"><span class="pre">index=True</span></code> and the index column will be written out as well. An overview of available file formats can be found <a href="https://pandas.pydata.org/docs/user_guide/io.html" target="_blank">here</a>.</p>
+</section>
+<section id="pandas-examples">
+<h2>Pandas examples<a class="headerlink" href="#pandas-examples" title="Link to this heading">#</a></h2>
+<p>Below we show a few examples to briefly look at the data with some basics statistics. As you might have noticed the ‘bio_stats.csv’ file contains height and weight data in SI units (m and kg).</p>
+<p>Accessing, selecting subsets and sorting columns of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;bio_stats.csv&#39;</span><span class="p">)</span> <span class="c1"># reads in a CSV file</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span>                  <span class="c1"># accesses and displays the Age column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]])</span>        <span class="c1"># accesses and displays Name and Sex (list of column labels)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">))</span>   <span class="c1"># sorts the df according there Age</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> <span class="c1"># sorts Names in descending index order.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similar to numpy <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code> and <code class="docutils literal notranslate"><span class="pre">std()</span></code> are available in Pandas, too.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>              <span class="c1"># median value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>  <span class="c1"># standard deviation for Height and Weight</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>                   <span class="c1"># Calculates, mean(), std(), min(), max() and percentiles boundaries of columns with numerical values.</span>
+<span class="c1"># You can also group your data and calculate some statistic</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># Mean for female and male</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>    <span class="c1"># Calculates statistics for all numerical columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># results displayed vertically instead of horizontally</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can extract columns from your Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and convert them to numpy arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1D</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="c1"># extracts Age and converts it to a numpy array.</span>
+<span class="n">array_2D</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Filtering data can be done with boolean operators.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">)</span>        <span class="c1"># prints a boolean array.</span>
+<span class="n">above35</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span> <span class="c1"># selects rows with Age &gt; 35.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-in-textfile-with-whitespaces">
+<h2>Read in textfile with whitespaces<a class="headerlink" href="#read-in-textfile-with-whitespaces" title="Link to this heading">#</a></h2>
+<p>To read in the file structure in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> you can use the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function from Pandas.</p>
+<p>Note: as it is a text file separated by whitespaces we need to set the parameter <code class="docutils literal notranslate"><span class="pre">delim_whitespace</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
+<p>The first line of the header/comment describes the data file (‘test file’) and we can ignore it. The second row provides us information about the columns, which would be sensible labels for the pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. So we only skip the first row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df_xy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="n">delim_whitespace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># reads data into Pandas dataframe.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="p">)</span>          <span class="c1"># prints content of dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># shows column labels</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>   <span class="c1"># prints data type for each column</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">df_xy</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1"># plot data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_xy</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df_xy</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">)</span>      <span class="c1"># if labels do not contain spaces or special signs like &#39;\&#39;, &#39;|&#39;, &#39;/&#39;, &#39;#&#39;, ..., you can access columns with &#39;.&lt;column label&gt;.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If not already done you will need to first download the ‘test.txt’ file from BlackBoard.</p>
+</section>
+<section id="task-7">
+<h2>Task 7<a class="headerlink" href="#task-7" title="Link to this heading">#</a></h2>
+<p>If not already done for Task 1 download the file ‘task1.csv’ from blackboard and place it into your current workspace on Colab. The file contains the voltage-current measurements of two samples. Column one is the voltage. Columns 2 and 3 are the current generated in sample 1 and 2 respectively.</p>
+<ul class="simple">
+<li><p>Look at the file and identify</p></li>
+<li><p>how many text headings it has, and the deliminator that separates the values.</p></li>
+<li><p>Use these to read in the file with <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code></p></li>
+<li><p>Separate the columns into separated arrays.</p></li>
+<li><p>Plot sample 1 and sample 2 on the same graph.</p></li>
+<li><p>Label the axis including units.</p></li>
+</ul>
+<p>Now use <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to read the file into a Pandas data file and plot the data as above.</p>
+<p>Hint: The second row contains the Units of each column. To use the first row as column labels and skip the second row set parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span> <span class="pre">=</span> <span class="pre">[1]</span></code>. Note: Python starts counting from 0.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -660,6 +796,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial: Reading in and writing out data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-from-a-file">Reading in from a file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-a-file">Writing to a file</a></li>
@@ -669,6 +806,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-hard">Task 6 (Hard)</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-reading-and-writing-data-files">Pandas: reading and writing data files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing-files-with-pandas">Reading writing files with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-examples">Pandas examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-textfile-with-whitespaces">Read in textfile with whitespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
